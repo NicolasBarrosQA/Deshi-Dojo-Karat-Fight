@@ -5,18 +5,15 @@
     "soto",
     "uchi",
     "gyaku",
-    "oi",
     "jodan",
     "mae",
     "mae_low",
     "mawashi",
     "kizami",
-    "yoko",
-    "mawashi_high",
-    "ushiro",
     "tobi_mae",
     "air_tsuki",
-    "air_mawashi"
+    "gyaku_step",
+    "gyaku_low"
   ],
   "techniques": {
     "kamae": {
@@ -29,7 +26,7 @@
         2
       ],
       "durations": [
-        2,
+        1,
         1
       ],
       "windup": 2,
@@ -45,7 +42,11 @@
         "Guarda média não cobre automaticamente cabeça e linha baixa."
       ],
       "button": "defense",
-      "direction": "neutral"
+      "direction": "neutral",
+      "playable": true,
+      "plain": "Kamae — guarda",
+      "damage": 0,
+      "link_at": 2
     },
     "age": {
       "label": "AGE-UKE",
@@ -58,12 +59,12 @@
         15
       ],
       "durations": [
-        5,
-        3,
-        7
+        2,
+        1,
+        5
       ],
-      "windup": 8,
-      "active": 7,
+      "windup": 3,
+      "active": 5,
       "command": "Cima + defesa",
       "foundation": "O antebraço sobe em diagonal e recebe/desvia a linha alta. Termina acima da testa, com espaço entre braço e cabeça.",
       "phases": [
@@ -77,7 +78,11 @@
         "Não é um soco lançado para cima."
       ],
       "button": "defense",
-      "direction": "up"
+      "direction": "up",
+      "playable": true,
+      "plain": "Age-uke",
+      "damage": 0,
+      "link_at": 8
     },
     "gedan": {
       "label": "GEDAN-BARAI",
@@ -90,12 +95,12 @@
         18
       ],
       "durations": [
-        5,
-        3,
-        7
+        2,
+        1,
+        5
       ],
-      "windup": 8,
-      "active": 7,
+      "windup": 3,
+      "active": 5,
       "command": "Baixo + defesa",
       "foundation": "A mão prepara perto do ombro/orelha opostos; o antebraço varre para baixo e cruza o corpo até a linha baixa.",
       "phases": [
@@ -109,7 +114,11 @@
         "Quadril e antebraço trabalham juntos; não é só baixar a mão."
       ],
       "button": "defense",
-      "direction": "down"
+      "direction": "down",
+      "playable": true,
+      "plain": "Gedan-barai",
+      "damage": 0,
+      "link_at": 8
     },
     "soto": {
       "label": "SOTO-UKE",
@@ -122,12 +131,12 @@
         21
       ],
       "durations": [
-        5,
-        3,
-        7
+        2,
+        1,
+        5
       ],
-      "windup": 8,
-      "active": 7,
+      "windup": 3,
+      "active": 5,
       "command": "Frente + defesa",
       "foundation": "Na convenção Shotokan usada aqui, o braço prepara por fora, perto da orelha do mesmo lado, e descreve um arco de fora para dentro.",
       "phases": [
@@ -141,7 +150,11 @@
         "A trajetória distingue soto de uchi, mesmo com finais semelhantes."
       ],
       "button": "defense",
-      "direction": "forward"
+      "direction": "forward",
+      "playable": true,
+      "plain": "Soto-uke",
+      "damage": 0,
+      "link_at": 8
     },
     "uchi": {
       "label": "UCHI-UKE",
@@ -154,12 +167,12 @@
         24
       ],
       "durations": [
-        5,
-        3,
-        7
+        2,
+        1,
+        5
       ],
-      "windup": 8,
-      "active": 7,
+      "windup": 3,
+      "active": 5,
       "command": "Trás + defesa",
       "foundation": "Na convenção Shotokan usada aqui, a mão prepara por dentro, sob o braço oposto, e o antebraço abre de dentro para fora.",
       "phases": [
@@ -173,7 +186,11 @@
         "Frente/trás são comandos do jogo; não definem por si a aplicação real."
       ],
       "button": "defense",
-      "direction": "back"
+      "direction": "back",
+      "playable": true,
+      "plain": "Uchi-uke",
+      "damage": 0,
+      "link_at": 8
     },
     "gyaku": {
       "label": "GYAKU-ZUKI",
@@ -190,16 +207,16 @@
         12
       ],
       "durations": [
-        5,
-        4,
-        3,
-        4,
+        1,
         2,
-        5,
-        4
+        1,
+        2,
+        1,
+        2,
+        2
       ],
-      "windup": 12,
-      "active": 4,
+      "windup": 4,
+      "active": 2,
       "hit": {
         "near": 55,
         "far": 66,
@@ -207,7 +224,7 @@
         "h": 10
       },
       "step": 0,
-      "command": "Soco",
+      "command": "Trás + soco; segundo soco da sequência",
       "foundation": "Soco com o braço oposto à perna dianteira. A rotação do quadril conduz o punho ao tronco, enquanto a outra mão recolhe.",
       "phases": [
         "câmara",
@@ -224,7 +241,12 @@
         "Hikite e retorno à guarda fazem parte da técnica."
       ],
       "button": "punch",
-      "direction": "neutral"
+      "direction": "back",
+      "playable": true,
+      "link_at": 10,
+      "damage": 10,
+      "link_step": 3,
+      "plain": "Soco reverso"
     },
     "oi": {
       "label": "OI-ZUKI",
@@ -269,7 +291,12 @@
         "No jogo o deslocamento e a troca de base são projeções em 2D."
       ],
       "button": "punch",
-      "direction": "forward"
+      "direction": "forward",
+      "playable": false,
+      "review": "Pose/trajectória ainda não permite ilustrar o fundamento com clareza; preservado fora do repertório ativo.",
+      "plain": "Oi-zuki chudan",
+      "damage": 0,
+      "link_at": 33
     },
     "jodan": {
       "label": "GYAKU JODAN",
@@ -284,14 +311,14 @@
         12
       ],
       "durations": [
-        6,
-        5,
-        5,
-        8,
-        4
+        2,
+        2,
+        3,
+        3,
+        2
       ],
-      "windup": 11,
-      "active": 5,
+      "windup": 4,
+      "active": 3,
       "hit": {
         "near": 56,
         "far": 67,
@@ -313,7 +340,12 @@
         "A direção alta muda o alvo, não a importância do equilíbrio."
       ],
       "button": "punch",
-      "direction": "up"
+      "direction": "up",
+      "playable": true,
+      "link_at": 11,
+      "damage": 10,
+      "link_step": 0,
+      "plain": "Soco alto"
     },
     "mae": {
       "label": "MAE-GERI",
@@ -325,17 +357,19 @@
         26,
         27,
         28,
-        12
+        26,
+        25
       ],
       "durations": [
-        6,
-        7,
-        6,
-        10,
-        5
+        2,
+        3,
+        4,
+        3,
+        2,
+        2
       ],
-      "windup": 13,
-      "active": 6,
+      "windup": 5,
+      "active": 4,
       "hit": {
         "near": 53,
         "far": 64,
@@ -358,7 +392,12 @@
         "Recolher o joelho faz parte do golpe."
       ],
       "button": "kick",
-      "direction": "neutral"
+      "direction": "neutral",
+      "playable": true,
+      "link_at": 14,
+      "damage": 14,
+      "link_step": 3,
+      "plain": "Chute frontal"
     },
     "mae_low": {
       "label": "MAE GEDAN",
@@ -370,17 +409,19 @@
         30,
         31,
         32,
-        12
+        30,
+        29
       ],
       "durations": [
-        6,
-        7,
-        6,
-        10,
-        5
+        2,
+        3,
+        4,
+        3,
+        2,
+        2
       ],
-      "windup": 13,
-      "active": 6,
+      "windup": 5,
+      "active": 4,
       "hit": {
         "near": 76,
         "far": 87,
@@ -402,7 +443,12 @@
         "Não confundir os acertos do protótipo com pontuação oficial de kumite."
       ],
       "button": "kick",
-      "direction": "down"
+      "direction": "down",
+      "playable": true,
+      "link_at": 14,
+      "damage": 12,
+      "link_step": 0,
+      "plain": "Chute frontal baixo"
     },
     "mawashi": {
       "label": "MAWASHI-GERI",
@@ -414,17 +460,19 @@
         34,
         35,
         36,
-        12
+        34,
+        33
       ],
       "durations": [
-        8,
-        8,
-        7,
-        11,
-        5
+        3,
+        4,
+        4,
+        4,
+        2,
+        2
       ],
-      "windup": 16,
-      "active": 7,
+      "windup": 7,
+      "active": 4,
       "hit": {
         "near": 79,
         "far": 90,
@@ -447,7 +495,12 @@
         "O arco tridimensional é aproximado no plano do jogo."
       ],
       "button": "kick",
-      "direction": "forward"
+      "direction": "forward",
+      "playable": true,
+      "link_at": 17,
+      "damage": 18,
+      "link_step": 0,
+      "plain": "Chute circular"
     },
     "kizami": {
       "label": "KIZAMI-ZUKI",
@@ -458,18 +511,18 @@
         45,
         46,
         47,
-        48,
-        12
+        46,
+        48
       ],
       "durations": [
-        4,
+        1,
+        2,
         3,
-        4,
-        6,
-        3
+        2,
+        2
       ],
-      "windup": 7,
-      "active": 4,
+      "windup": 3,
+      "active": 3,
       "hit": {
         "near": 64,
         "far": 76,
@@ -478,9 +531,9 @@
       },
       "step": 0,
       "button": "punch",
-      "direction": "back",
+      "direction": "neutral",
       "air": false,
-      "command": "Trás + soco",
+      "command": "Soco; primeiro soco da sequência",
       "foundation": "Soco curto com o braço da perna dianteira. A mão da frente projeta em linha reta, com ação do quadril e retorno à guarda.",
       "phases": [
         "preparação",
@@ -491,7 +544,12 @@
       "tips": [
         "Não confundir com o soco reverso: braço e perna da frente são do mesmo lado.",
         "O comando para trás seleciona a técnica; a mão continua atacando o adversário."
-      ]
+      ],
+      "playable": true,
+      "link_at": 9,
+      "damage": 6,
+      "link_step": 0,
+      "plain": "Soco da frente"
     },
     "yoko": {
       "label": "YOKO KEKOMI",
@@ -535,7 +593,12 @@
       "tips": [
         "Pivotar o pé de apoio, alinhar quadril e calcanhar, recolher à câmara.",
         "A ilustração deve ser revisada pelo instrutor, sobretudo orientação do pé e quadril."
-      ]
+      ],
+      "playable": false,
+      "review": "Pose/trajectória ainda não permite ilustrar o fundamento com clareza; preservado fora do repertório ativo.",
+      "plain": "Yoko-geri kekomi",
+      "damage": 0,
+      "link_at": 34
     },
     "mawashi_high": {
       "label": "MAWASHI JODAN",
@@ -579,7 +642,12 @@
       "tips": [
         "Não usar uma trajetória de chute frontal.",
         "Recolher a perna antes de recuperar a base."
-      ]
+      ],
+      "playable": false,
+      "review": "Pose/trajectória ainda não permite ilustrar o fundamento com clareza; preservado fora do repertório ativo.",
+      "plain": "Mawashi-geri jodan",
+      "damage": 0,
+      "link_at": 39
     },
     "ushiro": {
       "label": "USHIRO-GERI",
@@ -623,7 +691,12 @@
       "tips": [
         "A extensão é para trás em relação ao quadril, não um giro circular da perna.",
         "No jogo, o alvo permanece à frente da câmera; a virada aparece nas poses."
-      ]
+      ],
+      "playable": false,
+      "review": "Pose/trajectória ainda não permite ilustrar o fundamento com clareza; preservado fora do repertório ativo.",
+      "plain": "Ushiro-geri",
+      "damage": 0,
+      "link_at": 41
     },
     "tobi_mae": {
       "label": "TOBI MAE-GERI",
@@ -637,13 +710,13 @@
         68
       ],
       "durations": [
-        3,
+        2,
+        2,
         4,
-        5,
-        8
+        5
       ],
-      "windup": 7,
-      "active": 5,
+      "windup": 4,
+      "active": 4,
       "hit": {
         "near": 84,
         "far": 99,
@@ -665,7 +738,12 @@
       "tips": [
         "Ambas as pernas ficam sem apoio durante o salto.",
         "É aplicação avançada; física, alturas e comando são adaptações para o jogo."
-      ]
+      ],
+      "playable": true,
+      "link_at": 13,
+      "damage": 12,
+      "link_step": 0,
+      "plain": "Chute frontal no salto"
     },
     "air_tsuki": {
       "label": "TSUKI NO AR",
@@ -679,13 +757,13 @@
         72
       ],
       "durations": [
+        1,
+        2,
         3,
-        4,
-        4,
-        7
+        4
       ],
-      "windup": 7,
-      "active": 4,
+      "windup": 3,
+      "active": 3,
       "hit": {
         "near": 74,
         "far": 87,
@@ -707,7 +785,12 @@
       "tips": [
         "A mecânica da mão vem do tsuki; a aplicação no ar é uma escolha do jogo.",
         "Não há impulso mágico, projétil ou lançamento do adversário."
-      ]
+      ],
+      "playable": true,
+      "link_at": 10,
+      "damage": 8,
+      "link_step": 0,
+      "plain": "Soco reto no salto"
     },
     "air_mawashi": {
       "label": "MAWASHI NO AR",
@@ -749,55 +832,213 @@
       "tips": [
         "Ambas as pernas estão no ar: não existe pé de apoio durante o contato.",
         "Tempos e alcance são adaptações de jogo e precisam de avaliação do instrutor."
-      ]
+      ],
+      "playable": false,
+      "review": "Pose/trajectória ainda não permite ilustrar o fundamento com clareza; preservado fora do repertório ativo.",
+      "plain": "Mawashi-geri durante o salto",
+      "damage": 0,
+      "link_at": 21
+    },
+    "gyaku_step": {
+      "label": "GYAKU AVANCO",
+      "name": "Gyaku-zuki com yori-ashi",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "durations": [
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2
+      ],
+      "windup": 4,
+      "active": 2,
+      "hit": {
+        "near": 55,
+        "far": 66,
+        "y": 99,
+        "h": 10
+      },
+      "step": 10,
+      "command": "Frente + soco",
+      "foundation": "Soco reverso coordenado com um deslocamento curto da base (yori-ashi). Não é apresentado como oi-zuki.",
+      "phases": [
+        "câmara",
+        "rotação",
+        "projeção",
+        "extensão",
+        "contato",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Manter a base e coordenar quadril, soco e deslocamento.",
+        "O avanço fecha distância; não atravessa o adversário."
+      ],
+      "button": "punch",
+      "direction": "forward",
+      "playable": true,
+      "link_at": 10,
+      "damage": 10,
+      "link_step": 3,
+      "plain": "Soco reverso com avanço"
+    },
+    "gyaku_low": {
+      "label": "GYAKU BAIXO",
+      "name": "Gyaku-zuki em base baixa",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        89,
+        90,
+        91,
+        92
+      ],
+      "durations": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "windup": 3,
+      "active": 3,
+      "hit": {
+        "near": 65,
+        "far": 80,
+        "y": 110,
+        "h": 11
+      },
+      "step": 0,
+      "command": "Baixo + soco",
+      "foundation": "Soco reverso em base mais baixa: joelhos flexionam, punho segue reto e a outra mão recolhe. A postura baixa muda a linha do corpo.",
+      "phases": [
+        "câmara",
+        "rotação",
+        "projeção",
+        "extensão",
+        "contato",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Os pés permanecem no chão e o tronco permanece sustentado.",
+        "A altura é uma adaptação de base, não um novo nome de técnica."
+      ],
+      "button": "punch",
+      "direction": "down",
+      "playable": true,
+      "link_at": 9,
+      "damage": 10,
+      "link_step": 3,
+      "plain": "Soco em base baixa",
+      "low": true
     }
   },
   "links": {
-    "kizami": [
-      "gyaku",
-      "jodan",
-      "mae"
-    ],
     "gyaku": [
+      "jodan",
       "mae",
+      "mae_low",
       "mawashi",
-      "mawashi_high",
-      "yoko"
-    ],
-    "oi": [
-      "gyaku",
-      "mae"
+      "kizami",
+      "gyaku_step",
+      "gyaku_low"
     ],
     "jodan": [
+      "gyaku",
       "mae",
-      "mawashi"
+      "mae_low",
+      "mawashi",
+      "kizami",
+      "gyaku_step",
+      "gyaku_low"
     ],
     "mae": [
       "gyaku",
+      "jodan",
+      "mae_low",
       "mawashi",
-      "ushiro"
+      "kizami",
+      "gyaku_step",
+      "gyaku_low"
     ],
     "mae_low": [
-      "gyaku"
+      "gyaku",
+      "jodan",
+      "mae",
+      "mawashi",
+      "kizami",
+      "gyaku_step",
+      "gyaku_low"
     ],
     "mawashi": [
       "gyaku",
-      "jodan"
+      "jodan",
+      "mae",
+      "mae_low",
+      "kizami",
+      "gyaku_step",
+      "gyaku_low"
     ],
-    "mawashi_high": [
-      "gyaku"
+    "kizami": [
+      "gyaku",
+      "jodan",
+      "mae",
+      "mae_low",
+      "mawashi",
+      "gyaku_step",
+      "gyaku_low"
     ],
-    "yoko": [
-      "gyaku"
+    "gyaku_step": [
+      "gyaku",
+      "jodan",
+      "mae",
+      "mae_low",
+      "mawashi",
+      "kizami",
+      "gyaku_low"
     ],
-    "ushiro": [
-      "gyaku"
+    "gyaku_low": [
+      "gyaku",
+      "jodan",
+      "mae",
+      "mae_low",
+      "mawashi",
+      "kizami",
+      "gyaku_step"
     ]
   },
   "combo": {
     "max_links": 3,
-    "buffer_ticks": 10,
-    "idle_ticks": 16,
-    "note": "Renzoku-waza: o próximo golpe começa após o recolhimento completo. Conta técnicas executadas; não é pontuação oficial nem multiplicador de dano."
+    "buffer_ticks": 24,
+    "idle_ticks": 12,
+    "note": "Buffer geral de comandos; ligação após rechamber/retração. SOCO -> SOCO -> CHUTE usa kizami, gyaku e mae. Contador COMBO exige contatos consecutivos antes de recuperação do defensor."
+  },
+  "arcade": {
+    "energy": 100,
+    "round_ticks": 3600,
+    "rounds_to_win": 2,
+    "push_distance": 88,
+    "stage_min": 64,
+    "stage_max": 320,
+    "walk_speed": 1.9,
+    "back_speed": 1.6,
+    "hitstop": 3,
+    "blockstop": 2,
+    "hitstun": 14,
+    "blockstun": 5,
+    "practice": false,
+    "note": "Energia/tempo/rounds são regras arcade, independentes dos eventos técnicos e da futura arbitragem Shotokan."
   }
 }

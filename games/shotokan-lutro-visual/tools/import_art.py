@@ -13,7 +13,7 @@ ROOT=HERE.parents[1]
 out=HERE/'src/assets';out.mkdir(parents=True,exist_ok=True)
 sources=[('karateca-sheet.png',4,3),('defenses.png',3,4),('kicks.png',4,3),('punches.png',4,2)]
 # Added sheets keep the existing pose numbers stable.
-sources += [('advanced-ground.png',4,4),('airborne.png',4,4)]
+sources += [('advanced-ground.png',4,4),('airborne.png',4,4),('arcade-refinement.png',4,4)]
 def owned_sheet(sheet,rows,cols):
  """Extract each complete connected figure, including cross-cell limbs.
 
@@ -54,7 +54,7 @@ cells=[];source_reports=[]
 for filename,cols,rows in sources:
  source=HERE/'assets/source'/filename
  sheet=Image.open(source).convert('RGBA');group=[]
- owned=owned_sheet(sheet,rows,cols) if filename in ('kicks.png','advanced-ground.png','airborne.png') else None
+ owned=owned_sheet(sheet,rows,cols)
  for row in range(rows):
   for col in range(cols):
    cell=owned[row*cols+col] if owned else sheet.crop((round(col*sheet.width/cols),round(row*sheet.height/rows),round((col+1)*sheet.width/cols),round((row+1)*sheet.height/rows)))
@@ -76,6 +76,9 @@ for i,(cell,b,scale) in enumerate(cells):
   if dark:candidates.append((len(dark),statistics.mean(dark),y))
  best=sorted(candidates,reverse=True)[:5]
  pivot=statistics.mean(t[1] for t in best) if best else (b[0]+b[2])/2
+ # Authored alignment correction: the bent airborne pose's dark hand was
+ # mistaken for its belt by the automatic anchor detector.
+ if i+1==75:pivot-=24/scale
  resized=cell.resize((round(cell.width*scale),round(cell.height*scale)),Image.Resampling.NEAREST)
  left=round(112-pivot*scale);top=round(142-b[3]*scale)
  # Never silently crop a foot, fist or head while packing the final atlas.
@@ -112,5 +115,5 @@ report={'resolution':[384,224],'frame':[224,144],'frames':len(cells),'character_
  'atlas_decoded_bytes':atlas.width*atlas.height*4*2,'poses':poses,
  'notes':'Original art retained; binary alpha, per-sheet uniform scale, belt anchors; original kicks extracted by connected-figure ownership to recover the cross-cell mawashi foot. Poses require dojo review.'}
 (HERE/'assets/import.json').write_text(json.dumps(report,indent=2)+'\n')
-(HERE/'src/art.lua').write_text('return {frames=%d,width=%d,height=%d}\n'%(len(cells),*atlas.size))
+(HERE/'src/art.lua').write_text('return {frames=%d,width=%d,height=%d,bounds={%s}}\n'%(len(cells),*atlas.size,','.join('{'+','.join(map(str,p['game_bounds']))+'}' for p in poses)))
 print('Imported',len(cells),'poses; decoded mirrored atlases:',report['atlas_decoded_bytes'],'bytes')

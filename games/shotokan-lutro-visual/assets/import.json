@@ -7,7 +7,7 @@
     224,
     144
   ],
-  "frames": 76,
+  "frames": 92,
   "character_height": 128,
   "sources": [
     {
@@ -45,13 +45,19 @@
       "sha256": "76377a6fb7b37354b4299d9ac56672dae44b59f8a8d2f4d2e22a7b08d8526d63",
       "uniform_scale": 0.4391080617495712,
       "poses": 16
+    },
+    {
+      "file": "arcade-refinement.png",
+      "sha256": "bfc286ae6f6dff8c3cf621e26155af11332f3f570422c3de4728b64d28691800",
+      "uniform_scale": 0.4169381107491857,
+      "poses": 16
     }
   ],
   "atlas_size": [
     896,
-    2736
+    3312
   ],
-  "atlas_decoded_bytes": 19611648,
+  "atlas_decoded_bytes": 23740416,
   "poses": [
     {
       "pose": 1,
@@ -382,12 +388,12 @@
         14,
         3,
         330,
-        384
+        371
       ],
       "belt_pivot": 169.7,
       "game_bounds": [
         58,
-        9,
+        14,
         168,
         142
       ],
@@ -433,12 +439,12 @@
         11,
         0,
         330,
-        371
+        374
       ],
       "belt_pivot": 172.6,
       "game_bounds": [
         56,
-        13,
+        12,
         167,
         142
       ],
@@ -703,7 +709,7 @@
       "pose": 39,
       "source_bounds": [
         8,
-        76,
+        77,
         369,
         440
       ],
@@ -738,14 +744,14 @@
       "source_bounds": [
         27,
         39,
-        384,
+        394,
         415
       ],
       "belt_pivot": 194.71,
       "game_bounds": [
         55,
         14,
-        177,
+        180,
         142
       ],
       "feet_y": 142
@@ -753,14 +759,14 @@
     {
       "pose": 42,
       "source_bounds": [
-        0,
-        36,
+        17,
+        37,
         355,
         416
       ],
       "belt_pivot": 178.94,
       "game_bounds": [
-        51,
+        57,
         13,
         172,
         141
@@ -788,7 +794,7 @@
       "pose": 44,
       "source_bounds": [
         13,
-        37,
+        38,
         353,
         416
       ],
@@ -1319,11 +1325,11 @@
         372,
         253
       ],
-      "belt_pivot": 189.17,
+      "belt_pivot": 134.52,
       "game_bounds": [
-        35,
+        59,
         32,
-        192,
+        216,
         142
       ],
       "feet_y": 142
@@ -1341,6 +1347,278 @@
         87,
         26,
         156,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 77,
+      "source_bounds": [
+        34,
+        5,
+        293,
+        323
+      ],
+      "belt_pivot": 171.04,
+      "game_bounds": [
+        55,
+        9,
+        163,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 78,
+      "source_bounds": [
+        78,
+        5,
+        249,
+        321
+      ],
+      "belt_pivot": 163.8,
+      "game_bounds": [
+        77,
+        10,
+        148,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 79,
+      "source_bounds": [
+        0,
+        30,
+        364,
+        323
+      ],
+      "belt_pivot": 155.56,
+      "game_bounds": [
+        47,
+        20,
+        199,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 80,
+      "source_bounds": [
+        116,
+        5,
+        279,
+        320
+      ],
+      "belt_pivot": 187.1,
+      "game_bounds": [
+        82,
+        11,
+        150,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 81,
+      "source_bounds": [
+        25,
+        12,
+        298,
+        319
+      ],
+      "belt_pivot": 154.68,
+      "game_bounds": [
+        58,
+        14,
+        172,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 82,
+      "source_bounds": [
+        74,
+        12,
+        276,
+        318
+      ],
+      "belt_pivot": 170.53,
+      "game_bounds": [
+        72,
+        14,
+        157,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 83,
+      "source_bounds": [
+        38,
+        18,
+        360,
+        319
+      ],
+      "belt_pivot": 128.14,
+      "game_bounds": [
+        75,
+        17,
+        209,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 84,
+      "source_bounds": [
+        77,
+        12,
+        266,
+        319
+      ],
+      "belt_pivot": 163.07,
+      "game_bounds": [
+        76,
+        14,
+        155,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 85,
+      "source_bounds": [
+        34,
+        10,
+        321,
+        319
+      ],
+      "belt_pivot": 164.24,
+      "game_bounds": [
+        58,
+        13,
+        178,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 86,
+      "source_bounds": [
+        38,
+        12,
+        297,
+        319
+      ],
+      "belt_pivot": 171.29,
+      "game_bounds": [
+        57,
+        14,
+        165,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 87,
+      "source_bounds": [
+        24,
+        12,
+        285,
+        319
+      ],
+      "belt_pivot": 143.42,
+      "game_bounds": [
+        62,
+        14,
+        171,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 88,
+      "source_bounds": [
+        16,
+        9,
+        290,
+        319
+      ],
+      "belt_pivot": 140.93,
+      "game_bounds": [
+        60,
+        13,
+        174,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 89,
+      "source_bounds": [
+        12,
+        13,
+        300,
+        298
+      ],
+      "belt_pivot": 141.58,
+      "game_bounds": [
+        58,
+        23,
+        178,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 90,
+      "source_bounds": [
+        17,
+        33,
+        300,
+        298
+      ],
+      "belt_pivot": 152.58,
+      "game_bounds": [
+        55,
+        32,
+        174,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 91,
+      "source_bounds": [
+        0,
+        35,
+        332,
+        298
+      ],
+      "belt_pivot": 144.13,
+      "game_bounds": [
+        52,
+        33,
+        190,
+        142
+      ],
+      "feet_y": 142
+    },
+    {
+      "pose": 92,
+      "source_bounds": [
+        14,
+        31,
+        305,
+        298
+      ],
+      "belt_pivot": 156.62,
+      "game_bounds": [
+        53,
+        31,
+        174,
         142
       ],
       "feet_y": 142

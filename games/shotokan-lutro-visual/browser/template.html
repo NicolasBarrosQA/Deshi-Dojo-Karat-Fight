@@ -1,35 +1,43 @@
 <!doctype html>
 <html lang="pt-BR"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Deshi Dojo — Shotokan</title>
+<title>Deshi Dojo — Karate Fight</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#111b20;color:#ece3cf;font:15px system-ui,sans-serif}main{max-width:1120px;margin:auto;padding:28px 24px}header{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:20px}.eyebrow{color:#c5a167;letter-spacing:3px;font-size:11px}h1{font-size:30px;font-weight:650;margin:5px 0}p{color:#a6b1b1;line-height:1.6;margin:8px 0}.tag{border:1px solid #43514b;padding:8px 12px;border-radius:20px;color:#c8d2bc;font-size:12px}.stage{padding:9px;background:#080e11;border:1px solid #3c4a45;box-shadow:0 18px 80px #0007;border-radius:8px}canvas{display:block;width:100%;aspect-ratio:12/7;image-rendering:pixelated;outline:none}canvas:focus{box-shadow:0 0 0 1px #c4a572}.bar{display:flex;gap:8px;flex-wrap:wrap;margin:17px 0}select{background:#21322f;color:#ece3cf;padding:9px;border:1px solid #465650;font:inherit}button{border:1px solid #465650;border-radius:4px;padding:10px 15px;font:inherit;background:#21322f;color:#ece3cf;cursor:pointer}button.primary{background:#c4a572;color:#142021}button:hover{filter:brightness(1.12)}.controls{display:grid;grid-template-columns:1fr 1fr;gap:20px}.control{border-top:2px solid #b78361;padding:13px 0}.control.two{border-color:#73b3ad}kbd{font:12px monospace;padding:4px 6px;background:#2a3b3b;border:1px solid #41524d;border-radius:3px;color:#faf3e3}.label{font-size:11px;letter-spacing:2px;color:#c8d2bc}.control p{font-size:14px;margin:10px 0}.note{font-size:12px;border-top:1px solid #33443e;margin-top:20px;padding-top:14px}#status{font-size:12px;color:#c5c3a5}@media(max-width:650px){main{padding:18px 10px}h1{font-size:23px}.tag{display:none}.controls{grid-template-columns:1fr;gap:2px}}
+*{box-sizing:border-box}body{margin:0;background:#0d151b;color:#eee7d8;font:15px system-ui,sans-serif}main{max-width:1180px;margin:auto;padding:18px 20px}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;gap:12px}.eyebrow{color:#c5a167;letter-spacing:3px;font-size:10px}h1{font-size:27px;margin:3px 0}p{color:#acb7bc;line-height:1.5;margin:7px 0}.tag{font-size:12px;color:#a8b8bd}.stage{padding:7px;background:#080d11;border:1px solid #3a484b;border-radius:6px}canvas{display:block;width:100%;aspect-ratio:12/7;image-rendering:pixelated;outline:none}canvas:focus{box-shadow:0 0 0 1px #c4a572}.bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}button,select{border:1px solid #44555b;border-radius:4px;padding:9px 13px;font:inherit;background:#1d2b33;color:#eee7d8;cursor:pointer}button.primary{background:#d1b27a;color:#17232a;border-color:#d1b27a}button:hover{filter:brightness(1.12)}button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #d1b27a}.controls{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px}.control{border-top:2px solid #65b6d8;padding:10px 0}.control.two{border-color:#dfab63}.label{font-size:11px;letter-spacing:2px;color:#65b6d8}.two .label{color:#dfab63}.pad{display:flex;align-items:center;gap:12px;margin:8px 0;flex-wrap:wrap}.pad span{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#aebfc7;padding:5px;border-radius:3px}.pad span.pressed{background:#254654;color:#fff;box-shadow:inset 0 0 0 1px #65b6d8}.two .pad span.pressed{background:#58452c;box-shadow:inset 0 0 0 1px #dfab63}kbd{font:12px monospace;background:#25343d;border:1px solid #475b65;border-radius:3px;padding:3px 6px;color:#fff}.stick{display:flex;gap:3px}.stick span{padding:3px 4px}.feedback{font-size:13px;min-height:20px}.feedback strong{color:#eee7d8}.feedback em{font-style:normal;color:#b8a779;margin-left:6px}.quick{padding:10px 13px;border:1px solid #35464d;background:#17242c;border-radius:4px;font-size:13px;line-height:1.6}.quick b{color:#eee7d8}.quick p{margin:2px 0}#status{font-size:12px;margin-left:auto;color:#b8bfab}.study{border-top:1px solid #35464d;padding-top:12px;margin-top:16px}.study summary{cursor:pointer;color:#c8ae7c;font-size:14px}.study .bar{font-size:14px}.study p{font-size:14px}.guide{display:grid;grid-template-columns:1fr 1fr;gap:16px}table{border-collapse:collapse;width:100%;font-size:13px}td,th{padding:7px 5px;border-bottom:1px solid #2e414b;text-align:left}th{color:#c8ae7c;font-weight:500}.note{font-size:11px;margin-top:14px;color:#82979f}@media(max-width:650px){main{padding:12px 8px}h1{font-size:23px}.tag{display:none}.controls,.guide{grid-template-columns:1fr;gap:4px}#status{margin:0;width:100%}.pad{gap:5px}.pad span{font-size:11px}}
 </style>
-<main><header><div><div class="eyebrow">DESHI DOJO KARATE FIGHT</div><h1>Distância. Tempo. Controle.</h1><p>Kihon em movimento: preparar, executar e recolher.</p></div><span class="tag">Personagem fictício · dois jogadores</span></header>
-<div class="stage"><canvas id="game" width="384" height="224" tabindex="0" aria-label="Dois karatecas num dojo, controláveis pelo teclado"></canvas></div>
-<div class="bar"><button class="primary" id="play">Jogar</button><button id="demo">Ver demonstração</button><button id="reset">Recomeçar</button><button id="boxes">Ver colisões</button><button id="fullscreen">Tela cheia</button></div>
-<div class="bar"><label for="technique">Fundamento:</label><select id="technique"></select><button id="lesson">Estudar técnica</button><button id="slow">Câmera lenta</button><button id="pause">Pausar</button><button id="step">Um quadro</button></div>
-<div id="foundation" class="control"><strong id="tech-name"></strong><p id="tech-foundation"></p><p id="tech-phases"></p><p id="tech-tips"></p></div>
-<div class="controls"><div class="control"><div class="label">JOGADOR 1</div><p>Setas: direção · <kbd>Z</kbd> soco · <kbd>X</kbd> defesa · <kbd>A</kbd> chute</p></div><div class="control two"><div class="label">JOGADOR 2</div><p><kbd>I</kbd> cima <kbd>K</kbd> baixo <kbd>J</kbd> esquerda <kbd>L</kbd> direita · <kbd>F</kbd> soco · <kbd>G</kbd> defesa · <kbd>H</kbd> chute</p></div></div>
-<p id="status" role="status">Preparando o dojo…</p>
-<div class="controls"><div class="control"><div class="label">SALTO E TÉCNICAS</div><p>Cima sozinho: salto; diagonal para cima: salto com deslocamento. Baixo sozinho: base baixa. Soco: gyaku-zuki; frente + soco: oi-zuki; trás + soco: kizami-zuki; cima + soco: gyaku jodan.</p><p>Chute: mae-geri; frente + chute: mawashi; trás + chute: yoko kekomi; cima + chute: mawashi jodan; baixo + chute: mae gedan; baixo e trás + chute: ushiro. No ar: soco reto, chute frontal ou frente + chute circular.</p></div><div class="control two"><div class="label">RENZOKU — SEQUÊNCIAS</div><p>Kizami → gyaku → mae · gyaku → mawashi → gyaku · mae → ushiro → gyaku. Solte e pressione cada botão: durante os últimos quadros do recolhimento, o jogo guarda o próximo comando. Até três técnicas, cada uma com seu próprio preparo e retorno.</p><p>Segure defesa antes de cima para age-uke; defesa + baixo: gedan-barai; frente: soto-uke; trás: uchi-uke. Receber no tempo permite contra-atacar. Frente/trás acompanham o adversário.</p></div></div>
-<p class="note">Três botões por jogador também no fliperama: soco, defesa e chute. Cada contato registra técnica, altura, distância, tempo e sequência; a arbitragem de kumite virá depois. O chute baixo serve ao estudo do kihon. Aplicações no salto e tempos de ligação são adaptações de jogo; poses e fundamentos precisam da revisão do instrutor do dojo.</p></main>
+<main>
+<header><div><div class="eyebrow">DESHI DOJO</div><h1>Karate Fight</h1></div><span class="tag">2 jogadores · soco, defesa e chute</span></header>
+<div class="stage"><canvas id="game" width="384" height="224" tabindex="0" aria-label="Luta de karatê para dois jogadores"></canvas></div>
+<div class="bar"><button class="primary" id="play">Lutar</button><button id="practice">Treino livre</button><button id="reset">Recomeçar</button><button id="fullscreen">Tela cheia</button><span id="status" role="status">Preparando o dojo…</span></div>
+<div class="controls">
+ <div class="control"><div class="label">JOGADOR 1</div><div class="pad" data-port="1"><div class="stick"><span data-key="5">↑</span><span data-key="6">↓</span><span data-key="7">←</span><span data-key="8">→</span></div><span data-key="1"><kbd>Z</kbd> Soco</span><span data-key="2"><kbd>X</kbd> Defesa</span><span data-key="9"><kbd>A</kbd> Chute</span></div><div class="feedback"><strong id="p1-tech">Guarda</strong><em id="p1-phase">pronto</em></div></div>
+ <div class="control two"><div class="label">JOGADOR 2</div><div class="pad" data-port="2"><div class="stick"><span data-key="5"><kbd>I</kbd> ↑</span><span data-key="6"><kbd>K</kbd> ↓</span><span data-key="7"><kbd>J</kbd> ←</span><span data-key="8"><kbd>L</kbd> →</span></div><span data-key="1"><kbd>F</kbd> Soco</span><span data-key="2"><kbd>G</kbd> Defesa</span><span data-key="9"><kbd>H</kbd> Chute</span></div><div class="feedback"><strong id="p2-tech">Guarda</strong><em id="p2-phase">pronto</em></div></div>
+</div>
+<div class="quick"><p><b>Comece assim:</b> aproxime-se e aperte <b>soco → soco → chute</b>, soltando entre cada pressão. A mão da frente abre, o soco reverso segue e o chute frontal fecha.</p><p><b>Frente + chute:</b> mawashi-geri circular. <b>Cima:</b> salto. <b>Baixo:</b> base baixa. Segure <b>defesa + cima</b> para age-uke, ou <b>defesa + baixo</b> para gedan-barai. Frente e trás acompanham o adversário.</p></div>
+<details class="study" id="study"><summary>Aprender os golpes e ver todos os comandos</summary>
+ <div class="bar"><label for="technique">Técnica:</label><select id="technique"></select><button id="lesson">Ver movimento</button><button id="demo">Repetir demonstração</button><button id="slow">Câmera lenta</button><button id="pause">Pausar</button><button id="step">Um quadro</button><button id="boxes">Ver colisões</button></div>
+ <div id="foundation"><strong id="tech-name"></strong><p id="tech-foundation"></p><p id="tech-phases"></p><p id="tech-tips"></p></div>
+ <div class="guide"><table><thead><tr><th>Comando</th><th>Técnica</th></tr></thead><tbody>
+ <tr><td>Soco</td><td>Kizami-zuki · mão da frente</td></tr><tr><td>Segundo soco</td><td>Gyaku-zuki · mão reversa</td></tr><tr><td>Trás + soco</td><td>Gyaku-zuki</td></tr><tr><td>Frente + soco</td><td>Gyaku-zuki com avanço curto</td></tr><tr><td>Cima + soco, juntos</td><td>Gyaku-zuki jodan · alto</td></tr><tr><td>Baixo + soco</td><td>Gyaku-zuki em base baixa</td></tr><tr><td>Chute</td><td>Mae-geri · frontal</td></tr><tr><td>Frente + chute</td><td>Mawashi-geri · circular</td></tr><tr><td>Baixo + chute</td><td>Mae-geri gedan · estudo da linha baixa</td></tr><tr><td>No salto: soco ou chute</td><td>Tsuki ou mae-geri no ar</td></tr>
+ </tbody></table><div><p><b>Defesa:</b> sem direção mantém guarda média; cima dá age-uke; baixo dá gedan-barai; frente dá soto-uke; trás dá uchi-uke. Cada defesa cobre sua altura. A defesa no tempo abre o contra-ataque.</p><p><b>Lutar:</b> energia, 60 segundos e melhor de três rounds. <b>Treino livre:</b> sem limite de energia ou tempo. Enter reinicia; Escape pausa.</p><p>Os indicadores acima acendem quando você aperta. O nome mostra a técnica executada; preparação, contato e recolhimento aparecem durante o movimento. Gamepads padrão podem usar A: soco, X: defesa, B: chute.</p></div></div>
+ <p class="note">Nomes e princípios vêm do karatê Shotokan; tempos, aplicações aéreas e energia são regras do jogo. Pontuação técnica oficial e revisão das poses pelo instrutor continuam pendentes. Giros ainda sem representação clara ficam preservados fora da luta.</p>
+</details></main>
 <script>__VM__</script><script>
 'use strict';
 const assets=__ASSETS__,source=__LUA__,techniques=__TECHNIQUES__,canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
-const images={},held=new Set(),maps=[{ArrowUp:5,ArrowDown:6,ArrowLeft:7,ArrowRight:8,KeyZ:1,KeyX:2,KeyA:9},{KeyI:5,KeyK:6,KeyJ:7,KeyL:8,KeyF:1,KeyG:2,KeyH:9}],errors=[];
+const images={},held=new Set(),padHeld=new Set(),maps=[{ArrowUp:5,ArrowDown:6,ArrowLeft:7,ArrowRight:8,KeyZ:1,KeyX:2,KeyA:9,Enter:4},{KeyI:5,KeyK:6,KeyJ:7,KeyL:8,KeyF:1,KeyG:2,KeyH:9}],errors=[];
 ctx.imageSmoothingEnabled=false;
 let speed=1,paused=false;
 const host=window.dojoHost={color:[255,255,255,255],update:null,snapshot:null,
- button(port,index){return held.has(port+':'+index)},
+ button(port,index){return held.has(port+':'+index)||padHeld.has(port+':'+index)},
  setColor(r,g,b,a){this.color=[r,g,b,a]},
  rectangle(mode,x,y,w,h){ctx.fillStyle=`rgb(${this.color.slice(0,3).join(',')})`;ctx.strokeStyle=ctx.fillStyle;if(mode==='fill')ctx.fillRect(Math.floor(x),Math.floor(y),w,h);else{ctx.lineWidth=1;ctx.strokeRect(Math.floor(x)+.5,Math.floor(y)+.5,w-1,h-1)}},
  draw(name,sx,sy,sw,sh,x,y){
   // Historical software blitter has binary transparency, no image tint/scaling.
   const im=images[name];ctx.drawImage(im,sx,sy,sw,sh,Math.floor(x),Math.floor(y),sw,sh);
  },
- render(){ctx.clearRect(0,0,384,224);this.drawFrame()},
+ render(){ctx.clearRect(0,0,384,224);this.drawFrame();updateFeedback()},
  press(port,key,on){const id=port+':'+key;if(on)held.add(id);else held.delete(id)},
- clear(){held.clear();if(this.update)run('refreshInputs()')}
+ clear(){held.clear();padHeld.clear();if(this.update)run('refreshInputs()')}
 };
 function run(s){return fengari.load(s)()}
 const bridge=`local js=require 'js'
@@ -67,23 +75,51 @@ async function init(){
 local h=require('js').global.dojoHost
 h.update=function() lutro.update(1/60);refreshInputs() end
 h.drawFrame=lutro.draw
+h.view=function()
+ local a,b=Scene.players[1],Scene.players[2]
+ return table.concat({a.action and a.action.id or a.lastTechnique or 'kamae',a.phase,b.action and b.action.id or b.lastTechnique or 'kamae',b.phase},'|')
+end
 h.snapshot=function()
  local a,b=Scene.players[1],Scene.players[2]
- return table.concat({Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,Scene.demo and 1 or 0,a.blocks,b.blocks,a.parries,b.parries,a.height,b.height,a.air and 1 or 0,b.air and 1 or 0,a.chain,b.chain,a.executed,b.executed,a.jumps,b.jumps},'|')
+ return table.concat({Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,Scene.demo and 1 or 0,a.blocks,b.blocks,a.parries,b.parries,a.height,b.height,a.air and 1 or 0,b.air and 1 or 0,a.chain,b.chain,a.executed,b.executed,a.jumps,b.jumps,a.energy,b.energy,Scene.timer,Scene.wins[1],Scene.wins[2],Scene.result or -1,Scene.matchWinner or 0,a.comboHits,b.comboHits},'|')
 end`);
- host.render();status.textContent='Pronto. Clique em Jogar ou use os controles.';
+ host.render();status.textContent='Pronto. Aproximem-se e lutem!';
  document.body.dataset.ready='true';
  let previous=performance.now(),accumulator=0;
  function loop(now){accumulator=Math.min(accumulator+Math.max(0,now-previous),100);previous=now;
-  if(!paused&&!new URLSearchParams(location.search).has('capture'))while(accumulator>=1000/(60*speed)){host.update();accumulator-=1000/(60*speed)}
+  if(!paused&&!new URLSearchParams(location.search).has('capture'))while(accumulator>=1000/(60*speed)){pollGamepads();host.update();accumulator-=1000/(60*speed)}
   if(paused)accumulator=0
   host.render();requestAnimationFrame(loop)
  }requestAnimationFrame(loop);
 }
-document.addEventListener('keydown',e=>{let used=false;maps.forEach((map,p)=>{if(map[e.code]){host.press(p+1,map[e.code],true);used=true}});if(used)e.preventDefault()});
+const indicators=[...document.querySelectorAll('.pad [data-key]')];
+const phaseNames={PREPARA:'preparando',GOLPE:'contato',RECOLHE:'recolhendo',KAMAE:'pronto',DEFENDE:'defendendo',RECEBE:'recebendo',IMPACTO:'recebeu o golpe',DESLOCAR:'movendo',SALTO:'no ar',IMPULSAO:'saltando',POUSAR:'pousando','BASE BAIXA':'base baixa'};
+function updateFeedback(){
+ if(!host.view)return;
+ const parts=host.view().split('|');
+ for(let i=0;i<2;i++){
+  const t=techniques.techniques[parts[i*2]];
+  const name=t?.plain||'Guarda',phase=phaseNames[parts[i*2+1]]||parts[i*2+1];
+  const n=document.getElementById('p'+(i+1)+'-tech'),p=document.getElementById('p'+(i+1)+'-phase');
+  if(n.textContent!==name)n.textContent=name;if(p.textContent!==phase)p.textContent=phase;
+ }
+ for(const element of indicators)element.classList.toggle('pressed',host.button(Number(element.closest('.pad').dataset.port),Number(element.dataset.key)));
+}
+function pollGamepads(){
+ padHeld.clear();const pads=Array.from(navigator.getGamepads?.()||[]).filter(Boolean).slice(0,2);
+ pads.forEach((pad,i)=>{
+  const down=(n)=>pad.buttons[n]?.pressed;
+  const bind=(key,on)=>{if(on)padHeld.add((i+1)+':'+key)};
+  bind(1,down(0));bind(2,down(2));bind(9,down(1));bind(4,down(9));bind(3,down(8));
+  bind(7,down(14)||pad.axes[0]<-.5);bind(8,down(15)||pad.axes[0]>.5);
+  bind(5,down(12)||pad.axes[1]<-.5);bind(6,down(13)||pad.axes[1]>.5);
+ });
+}
+document.addEventListener('keydown',e=>{if(e.code==='Escape'){paused=!paused;host.clear();e.preventDefault();return}let used=false;maps.forEach((map,p)=>{if(map[e.code]){host.press(p+1,map[e.code],true);used=true}});if(used)e.preventDefault()});
 document.addEventListener('keyup',e=>maps.forEach((map,p)=>{if(map[e.code])host.press(p+1,map[e.code],false)}));
 window.addEventListener('blur',()=>host.clear());document.addEventListener('visibilitychange',()=>{if(document.hidden)host.clear()});
-document.getElementById('play').onclick=()=>{run('Scene.demo=false');paused=false;speed=1;canvas.focus();status.textContent='Cima: salto · Z/F: soco · X/G: defesa · A/H: chute. Direção + botão seleciona a técnica.'};
+document.getElementById('play').onclick=()=>{host.clear();run('if Scene.demo or Scene.practice or Scene.matchWinner then Scene.reset() end;Scene.demo=false;Scene.practice=false');paused=false;speed=1;canvas.focus();status.textContent='Luta: 60 segundos, melhor de três rounds.'};
+document.getElementById('practice').onclick=()=>{host.clear();run('Scene.demo=false;Scene.practice=true;Scene.reset()');paused=false;speed=1;canvas.focus();status.textContent='Treino livre: soco → soco → chute. Energia e tempo sem limite.'};
 document.getElementById('demo').onclick=()=>{host.clear();startLesson();status.textContent='Demonstração do fundamento selecionado.'};
 document.getElementById('reset').onclick=()=>{host.clear();run('Scene.reset();Scene.demo=false');canvas.focus()};
 document.getElementById('boxes').onclick=()=>run('Scene.debug=not Scene.debug');
@@ -91,7 +127,7 @@ document.getElementById('fullscreen').onclick=()=>canvas.requestFullscreen?.();
 const select=document.getElementById('technique');
 for(const id of techniques.order){const option=document.createElement('option');option.value=id;option.textContent=techniques.techniques[id].name;select.appendChild(option)}
 function explain(){const t=techniques.techniques[select.value];document.getElementById('tech-name').textContent=t.name+' — '+t.command;document.getElementById('tech-foundation').textContent=t.foundation;document.getElementById('tech-phases').textContent=t.phases.map((p,i)=>(i+1)+'. '+p).join(' → ');document.getElementById('tech-tips').textContent=t.tips.join(' ')}
-function startLesson(){host.clear();run('Scene.reset();Scene.demo=true;Scene.lesson='+JSON.stringify(select.value));paused=false;explain()}
+function startLesson(){host.clear();run('Scene.reset();Scene.demo=true;Scene.practice=true;Scene.lesson='+JSON.stringify(select.value));paused=false;document.getElementById('study').open=true;explain()}
 select.onchange=explain;document.getElementById('lesson').onclick=startLesson;
 document.getElementById('slow').onclick=()=>{speed=speed===1?.25:1;status.textContent=speed===1?'Velocidade normal.':'Câmera lenta: ¼ da velocidade.'};
 document.getElementById('pause').onclick=()=>{paused=!paused;status.textContent=paused?'Pausado. Use Um quadro para estudar a posição.':'Movimento retomado.'};

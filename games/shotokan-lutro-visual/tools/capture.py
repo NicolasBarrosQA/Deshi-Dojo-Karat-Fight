@@ -14,8 +14,8 @@ def controls(id,side=0):
 record={};allframes=[];total_ticks=0
 for id in data['order']:
  frames=[];t=tech[id];defense=t['kind']=='defense';air=t.get('air',False)
- distance=67 if defense else int((t['hit']['near']+t['hit']['far'])/2)
- approach=max(0,int((176-distance)/2.4))
+ distance=88 if defense else max(88,int((t['hit']['near']+t['hit']['far'])/2))
+ approach=max(0,int((176-distance)/3.8))
  with Native(HERE/'dist/deshi-dojo-visual.lutro') as core:
   core.step(approach,[(0,7),(1,6)]);core.step(2);total_ticks+=approach+2
   for n in range(80):
@@ -34,22 +34,18 @@ for id in data['order']:
   enlarged=[f.resize((768,448),Image.Resampling.NEAREST) for f in frames]
   enlarged[0].save(HERE/'docs'/f'{id}.gif',save_all=True,append_images=enlarged[1:],duration=80,loop=0,optimize=True)
 allframes[0].save(HERE/'docs/fundamentos.gif',save_all=True,append_images=allframes[1:],duration=70,loop=0,optimize=True)
-# A real three-technique sequence at contact distance, queued in recovery.
+# The same beginner combo as the real input tests, including early buffered presses.
 frames=[]
 with Native(HERE/'dist/deshi-dojo-visual.lutro') as core:
- core.step(44,[(0,7),(1,6)]);core.step(2);total_ticks+=46
- for id in ('kizami','gyaku','mae'):
-  duration=sum(tech[id]['durations'])+4 # one contact freeze at this distance
-  for n in range(duration):
-   # Physical presses preserve full recovery; tests also exercise buffered links.
-   keys=controls(id) if n<2 else []
-   core.step(1,keys);total_ticks+=1
-   if n%2==0:frames.append(core.frame.copy())
- # Keep a separate GIF of actual sequential inputs; native tests prove buffer links.
-frames[0].save(HERE/'docs/renzoku.gif',save_all=True,append_images=frames[1:],duration=65,loop=0,optimize=True)
+ core.step(30,[(0,7),(1,6)]);core.step(2);total_ticks+=32
+ for n in range(66):
+  keys=[(0,0)] if n in (0,1,3,4) else [(0,8)] if n in (12,13) else []
+  core.step(1,keys);total_ticks+=1
+  if n%2==0:frames.append(core.frame.copy())
+frames[0].save(HERE/'docs/renzoku.gif',save_all=True,append_images=frames[1:],duration=55,loop=0,optimize=True)
 report={'cart_sha256':hashlib.sha256((HERE/'dist/deshi-dojo-visual.lutro').read_bytes()).hexdigest(),
  'techniques':record,'technique_ticks':80*len(data['order']),'total_ticks':total_ticks,'sample_every_ticks':2,
  'gif_presentation':'native resolution, slowed 70/80ms per sampled frame; simulation remains 60Hz','instrumentation':False,
- 'renzoku_capture':'Sequential physical inputs; buffer linkage independently exercised by tests/native.py'}
+ 'renzoku_capture':'Soco > soco > chute, early real presses; native/browser tests independently require three actual hits'}
 (HERE/'docs/capture-results.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))

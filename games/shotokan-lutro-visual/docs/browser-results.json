@@ -1,20 +1,21 @@
 {
-  "passed": 11,
+  "passed": 12,
   "checks": [
-    "Both players move with real keyboard events",
-    "Four directional blocks on both players, forward/back relative to opponent",
-    "Punch and kick on both ports: contact and no repeat on held button",
-    "Age-uke stops high punch",
-    "High block leaves middle kick exposed",
-    "Technique selection/explanation, slow mode, pause, single frame, play/reset/debug",
-    "Both players jump, punch in air and land; holding up cannot autojump",
-    "Kizami, yoko kekomi, high mawashi and diagonal ushiro commands",
-    "Kizami -> gyaku -> mae on both keyboards, recovery buffer and no automatic repeats",
-    "Airborne technique lesson and new foundations are available offline",
-    "Live RAF keyboard control"
+    "Fight/three-action controls first; detailed lessons collapsed by default",
+    "Both keyboard ports move independently; 280 per-frame barrier/order checks from both sides",
+    "Four directional uke on both players; commands relative to opponent",
+    "Punch/kick both ports: immediate startup, button indicators, single contact when held",
+    "High coverage stops high punch; leaves middle kick vulnerable",
+    "Soco > soco > chute through real keyboard: both ports/facings, early buffer, three actual hits and no held repeat",
+    "Jump, airborne punch, one attack per jump and safe landing on both keyboards",
+    "Ground reverse/advance/low/high punches and circular/low kicks use the revised commands",
+    "Fight vs infinite practice; optional lessons/explanation, slow, pause, single-frame/debug and return to fight",
+    "Enter restarts; focus loss releases cached keyboard inputs",
+    "Standard gamepad API mapping mock: two pads, analog movement, both punch buttons (physical pads pending)",
+    "Actual RAF movement with keyboard; Escape pauses/resumes"
   ],
-  "artifact_sha256": "36cb4a81f7804bbe8680775b8ff78748ff4e6f68a714fea8d4775c5cf807fb8e",
+  "artifact_sha256": "94df242041670d56f60f674a399333bf5ebb02e38a513eee1b81e396abed971b",
   "external_requests": [],
   "errors": [],
-  "platform": "Chromium offline/Linux x86-64; not Pi/GPIO"
+  "platform": "Chromium offline/Linux x86-64; gamepad API mocked, Pi/GPIO/Windows hardware pending"
 }

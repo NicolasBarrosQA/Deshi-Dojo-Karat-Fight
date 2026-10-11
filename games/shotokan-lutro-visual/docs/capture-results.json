@@ -1,28 +1,25 @@
 {
-  "cart_sha256": "d981e478f31931606bb3a4b275fd2f2a721c2f87baf4428d3487455d7de7c018",
+  "cart_sha256": "2c8f44285e6bd5cea9f1dd90b87daae0428b1947ba53630b941dce95b929d966",
   "techniques": {
     "age": 40,
     "gedan": 40,
     "soto": 40,
     "uchi": 40,
     "gyaku": 40,
-    "oi": 40,
     "jodan": 40,
     "mae": 40,
     "mae_low": 40,
     "mawashi": 40,
     "kizami": 40,
-    "yoko": 40,
-    "mawashi_high": 40,
-    "ushiro": 40,
     "tobi_mae": 40,
     "air_tsuki": 40,
-    "air_mawashi": 40
+    "gyaku_step": 40,
+    "gyaku_low": 40
   },
-  "technique_ticks": 1360,
-  "total_ticks": 2243,
+  "technique_ticks": 1120,
+  "total_ticks": 1567,
   "sample_every_ticks": 2,
   "gif_presentation": "native resolution, slowed 70/80ms per sampled frame; simulation remains 60Hz",
   "instrumentation": false,
-  "renzoku_capture": "Sequential physical inputs; buffer linkage independently exercised by tests/native.py"
+  "renzoku_capture": "Soco > soco > chute, early real presses; native/browser tests independently require three actual hits"
 }

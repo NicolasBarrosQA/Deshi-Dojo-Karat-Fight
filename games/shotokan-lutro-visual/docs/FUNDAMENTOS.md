@@ -4,56 +4,54 @@ Esta versão aproxima o **kihon** de um combate 2D: técnicas identificáveis, p
 
 ## Três ações, direções relativas
 
-Frente aponta para o adversário; trás aponta para longe dele. Os comandos invertem quando os lados se invertem. Cima sozinho inicia salto; baixo sozinho usa base baixa. Com botões, as direções modificam a técnica. Direções verticais têm prioridade, exceto baixo+trás+chute, que seleciona ushiro-geri. Cima+baixo se anulam; esquerda+direita se anulam. Se as ações forem pressionadas juntas, defesa tem prioridade, depois soco, depois chute.
+Frente aponta para o adversário; trás se afasta dele. Cima sozinho salta e baixo muda a base, com ambos os pés apoiados. Direções com botão escolhem técnicas; segurar defesa antes de cima evita saltar. Esta seleção e os tempos são comandos de um jogo, não uma sequência de ensino físico.
 
-| Botão e direção | Técnica | Fundamento ilustrado | Linha no protótipo |
-|---|---|---|---|
-| Defesa + cima | Age-uke | Braço sobe diante do rosto, antebraço inclinado acima da testa e hikite da outra mão | Jōdan |
-| Defesa + baixo | Gedan-barai | Preparação cruzada perto do ombro/orelha opostos, varredura para baixo e hikite | Gedan |
-| Defesa + frente | Soto-uke | Preparação externa, recepção de fora para dentro, cotovelo flexionado | Chūdan |
-| Defesa + trás | Uchi-uke | Preparação interna, recepção de dentro para fora, cotovelo flexionado | Chūdan |
-| Defesa sem direção | Kamae | Guarda de cobertura; não equivale à execução de um uke | Chūdan |
-| Soco sem direção | Gyaku-zuki | Soco com braço oposto à perna da frente, giro de quadril e hikite | Chūdan |
-| Soco + frente | Oi-zuki | Avanço e soco com braço do mesmo lado da perna que termina à frente | Chūdan |
-| Soco + cima | Gyaku-zuki alto | Mesma organização do soco reverso, alvo elevado | Jōdan |
-| Chute sem direção | Mae-geri | Elevar joelho, estender com antepé, recolher antes de pousar | Chūdan |
-| Chute + baixo | Mae-geri baixo | Câmara/extensão/recolhimento numa linha baixa | Gedan, exercício de kihon |
-| Chute + frente | Mawashi-geri | Câmara lateral, giro do apoio/quadril, trajetória circular e recolhimento | Chūdan |
-| Soco + trás | Kizami-zuki | Soco curto com a mão dianteira, quadril e retorno | Chūdan |
-| Chute + trás | Yoko-geri kekomi | Câmara cruzada, extensão lateral conduzida pelo calcanhar/sokuto e pivô do apoio | Chūdan |
-| Chute + cima | Mawashi-geri jodan | Câmara lateral, giro do quadril e extensão circular alta | Jōdan |
-| Chute + baixo e trás | Ushiro-geri | Olhar por cima do ombro, virada e projeção reta do calcanhar para trás | Chūdan |
-| No salto + chute | Tobi-mae-geri | Câmara e chute frontal com ambas as pernas sem apoio | Conforme altura do contato |
-| No salto + frente + chute | Mawashi-geri no salto | Câmara lateral e extensão circular; perna oposta recolhida | Conforme altura do contato |
-| No salto + soco | Tsuki no ar | Fundamento do soco reto aplicado ao salto; adaptação de jogo, não um novo kihon | Conforme altura do contato |
+| Comando | Técnica | Fundamento ilustrado |
+|---|---|---|
+| Defesa + cima | Age-uke | Antebraço inclinado acima da testa para receber/desviar a linha alta |
+| Defesa + baixo | Gedan-barai | Câmara no ombro oposto e varredura para a linha baixa |
+| Defesa + frente | Soto-uke | Na convenção Shotokan adotada: câmara externa e trajetória de fora para dentro |
+| Defesa + trás | Uchi-uke | Câmara interna e abertura de dentro para fora |
+| Primeiro soco neutro | Kizami-zuki | Mão dianteira, projeção reta e retorno |
+| Segundo soco neutro, ou trás + soco | Gyaku-zuki | Braço oposto à perna dianteira; quadril, punho alinhado e hikite |
+| Frente + soco | Gyaku-zuki com yori-ashi | Soco reverso coordenado com deslocamento curto da base |
+| Cima + soco | Gyaku-zuki jodan | Soco reverso na linha alta |
+| Baixo + soco | Gyaku-zuki em base baixa | Flexão dos joelhos, pés apoiados e soco reto |
+| Chute | Mae-geri | Câmara do joelho, extensão frontal e recolhimento antes de apoiar |
+| Frente + chute | Mawashi-geri | Câmara lateral, pivô do apoio/quadril e trajetória circular |
+| Baixo + chute | Mae-geri gedan | Exemplo de linha baixa para estudo; não concede automaticamente ponto de kumite |
+| No ar + chute | Tobi-mae-geri | Aplicação do frontal no salto, adaptada ao combate do jogo |
+| No ar + soco | Tsuki no salto | Fundamento do soco reto no ar; não anunciado como novo kihon |
 
-Soto/uchi seguem a convenção Shotokan descrita na tabela; outras escolas podem empregar nomes de forma diferente. Os dois protegem a linha média. O jogo não atribui arbitrariamente um ao soco e outro ao chute. O mae baixo é um exemplo de linha para estudo: um acerto abaixo da faixa **não deve ser convertido automaticamente em ponto de kumite**.
+Soto/uchi seguem a convenção acima; nomes podem variar entre escolas. Os dois cobrem a linha média, sem atribuir arbitrariamente um ao soco e outro ao chute. A revisão do instrutor deve aprovar o movimento ilustrado antes de usá-lo como demonstração didática.
 
-## O que a mecânica mede
+## Representação selecionada
 
-A simulação avança em ticks de 60 Hz. Cada técnica tem poses, duração, preparação, janela ativa, linha e geometria próprias em `assets/techniques.json`; o build gera `src/techniques.lua` a partir desse único catálogo. Socos/chutes só geram contato quando o punho/pé se estende e a caixa pequena cruza a região correspondente do adversário. Os alcances foram ajustados aos membros nas imagens importadas. O oi também desloca o jogador durante a preparação. Aproximar demais pode fazer o pé passar além do alvo: distância importa.
+O repertório ativo tem oito ataques no chão, dois no salto e quatro uke, além da guarda neutra. Oi, yoko, ushiro e mawashi alto/aéreo permanecem em `assets/techniques.json`, com `playable=false`, e suas folhas/poses estão preservadas. Os giros não deixam a trajetória e o apoio claros o bastante. A antiga pose de oi usa braço reverso e avanço curto; o comando ativo foi renomeado gyaku com yori-ashi. Não se deve ensinar um fundamento apenas porque o catálogo atribui um nome à imagem.
 
-Cada uke tem oito ticks de preparação. A cobertura começa no nono tick; a linha errada ou uma preparação tardia deixam o alvo aberto. Os primeiros três ticks de cobertura identificam uma recepção no tempo. Isso abre 18 ticks para iniciar um contra-ataque marcado no evento. Mantendo defesa, a posição final continua cobrindo a mesma linha, mas perde a janela inicial. Mudar direção após a técnica formar inicia outra preparação; soltar defesa inicia cinco ticks de retorno sem cobertura. Uma recepção no tempo permite soltar defesa e iniciar um soco/chute novo diretamente.
+Foram importadas 92 poses em células 224×144: novas reações de tronco/cabeça e uma base baixa com pés apoiados são usadas no combate. As tentativas de giro novas também ficam guardadas, sem entrar na luta. O karateca fictício tem cerca de 128 pixels de altura. O importador extrai cada silhueta conectada na folha inteira; mantém o pé do mawashi em sua pose mesmo quando ele cruza a grade e impede fragmentos na seguinte. Os originais não são alterados. Os membros ainda precisam de revisão de alinhamento, continuidade entre quadros, apoio, quadril e hikite. Não há captura contínua de articulações.
 
-A guarda neutra tem dois ticks de preparação e cobertura média; não concede o bônus de recepção. Recepção/cobertura são aproximações de jogo, não defesas infalíveis no mundo real. Não há captura contínua de articulações nem física completa de membros. Corpos se separam; há recuperação, contato único por ataque, interrupção ao ser atingido e resolução simultânea quando ambos acertam. Segurar soco/chute não repete a técnica.
+## Ritmo e contato
 
-`Scene.lastContact` registra técnica, linha efetiva, distância em pixels, tick, defesa/recepção, contra-ataque, sobreposição geométrica, altura do atacante, aplicação aérea e índice da sequência. Sobreposição **não equivale a precisão técnica real**. São eventos para substituir depois a contagem de acertos por avaliação de distância, controle, tempo, zanshin e critérios do dojo. A contagem atual tem o mesmo peso para qualquer contato, sem HP/dano e sem pretensão de arbitragem oficial.
+A simulação usa ticks de 60 Hz. O catálogo define poses, tempos, preparação, janela ativa, alcance e altura. Kizami prepara por três ticks, gyaku por quatro e mae por cinco; o contato é permitido na extensão. Depois de acertar, há três ticks de pausa visual e recolhimento, em vez de manter o punho/pé dentro do oponente. A reação aparece imediatamente; o defensor recua e se recompõe. Esses tempos, energia, reação e recuo são convenções de arcade.
 
-## Salto e combinações
+A barreira de 88 pixels entre centros preserva a ordem anterior aos movimentos e resolve penetração por quem avançou, inclusive em paredes e saltos. Ela separa corpos; a extensão de um braço/perna pode sobrepor o alvo para representar o acerto. As três regiões vulneráveis seguem a altura da pose real; uma base mais baixa muda a linha efetivamente atingida. Um mawashi nominalmente chudan pode chegar à cabeça de um alvo mais baixo. A linha recebida vem da maior interseção vertical, em vez de ser imposta pelo nome.
 
-A impulsão tem três ticks, seguida de trajetória balística discreta e pouso de cinco ticks. A altura máxima é aproximadamente 40 pixels; o salto diagonal conserva o deslocamento escolhido na partida. Não há salto duplo, invulnerabilidade no ar, cancelamento de chute estendido ou lançamento do adversário. A base baixa muda a região vulnerável e permite que um soco alto passe acima do corpo.
+Os uke preparam por três ticks e cobrem a partir do quarto; os primeiros três ticks de cobertura identificam recepção no tempo. Uma recepção abre 16 ticks de contra-ataque marcado. Guarda neutra prepara por dois e cobre a linha média sem bônus de recepção. Mudar direção prepara outra defesa; soltar libera. Defesa errada/tardia não protege. Há um contato por ataque, interrupção ao receber golpe e resolução simultânea quando ambos acertam. Não há dano ao bloquear.
 
-Cada salto permite um ataque. Socos/chutes usam poses próprias com as duas pernas sem apoio. A caixa ativa acompanha a altura do atacante; a região com maior sobreposição vertical define a linha efetiva recebida, que pode diferir da variação chudan no chão. Portanto a defesa depende do contato real no jogo, não só do nome da técnica.
+Pressões novas ficam guardadas por até 24 ticks, inclusive durante pausa de impacto, stun, defesa e recolhimento. Só começam quando o estado permite; o comando não cancela a extensão. Nos encadeamentos, `link_at` exige retorno antes da técnica seguinte. Até três técnicas podem ser ligadas; depois há oito ticks de recomposição. Botão mantido não repete. A sequência inicial é **kizami → gyaku → mae**, com soco, soco, chute. O contador COMBO só aumenta se o contato seguinte ocorrer enquanto o defensor ainda se recompõe. Sequência executada e acertos consecutivos são métricas diferentes.
 
-As combinações são **renzoku-waza**, técnicas em sequência. Exemplos implementados: kizami → gyaku → mae; gyaku → mawashi → gyaku; mae → ushiro → gyaku. O catálogo define ligações permitidas. Nos últimos dez ticks do recolhimento, uma nova pressão pode guardar uma técnica, que começa depois da duração completa da anterior. Máximo de três; manter botão não repete e apertar antes da janela não cancela o ataque. Também é possível ligar manualmente logo após o retorno, por até 16 ticks. O contador inclui execuções que erram: não implica que todos os golpes acertaram.
+O salto tem dois ticks de impulsão no chão, lançamento no terceiro, altura máxima próxima de 44 pixels e dois ticks de pouso. Um ataque por salto, sem defesa aérea, salto duplo ou lançamento do oponente. Segurar cima não inicia outro salto depois do pouso. A caixa do ataque acompanha a altura real e a defesa depende da linha recebida.
 
-A escolha dos comandos, física do salto, janelas, alcances e aplicações aéreas são convenções do jogo. Tsuki no ar não é anunciado como uma técnica básica independente. Tobi-geri pertence ao vocabulário de karatê, mas isso não torna a animação gerada uma demonstração técnica certificada. Não há arbitragem oficial implementada.
+## Regras de arcade e futura pontuação
+
+**Lutar** usa energia, 60 segundos e dois rounds vencidos. O tempo da simulação para durante a pausa de impacto. **Treino livre** e demonstração mantêm energia/tempo. As regras de partida são separadas dos eventos de técnica: energia não é a única informação da arquitetura.
+
+`Scene.lastContact` e o observador opcional `Scene.onContact(event)` recebem técnica, linha efetiva, distância em pixels, tick, defesa/recepção, contra-ataque, sobreposição, coordenadas do contato, altura/aplicação aérea, índice da sequência e número de acertos consecutivos. O teste verifica esses eventos tanto no treino quanto na luta. Sobreposição geométrica **não certifica precisão técnica**. Uma camada futura pode avaliar distância, controle, tempo, zanshin e critérios do dojo sem mudar a simulação ou os comandos. Não há arbitragem oficial.
 
 ## Estudo visual
 
-No HTML, selecione **Fundamento → Estudar técnica**, leia preparação/trajetória/recolhimento e use **Câmera lenta**, **Pausar** e **Um quadro**. É o mesmo Lua de combate executando a sequência, não um vídeo separado. O `.lutro` também mostra nome e fase da técnica durante o jogo; o painel explicativo e seletor de estudo são recursos do HTML.
-
-São 76 poses em células de 224×144, com karateca de aproximadamente 128 pixels de altura. A extração por componente conectado recupera o pé do mawashi que cruzava a divisória da folha original, sem importá-lo na pose seguinte. Não altera a folha original. Células e atlas são verificados para não cortar membros. Fontes de arte grandes, folhas anteriores e metadados permanecem disponíveis. Espelhar um personagem ajuda o controle nos dois lados, mas não comprova biomecânica de ambos os lados ou todas as bases. O retorno do oi à guarda e transições intermediárias merecem revisão artística/técnica.
+Abra **Aprender os golpes e ver todos os comandos** no HTML. O nome em português e a fase aparecem durante a luta; indicadores acendem ao pressionar. No painel opcional, **Ver movimento**, câmera lenta, pausa e quadro único permitem observar a mesma técnica executada pelo Lua. Volte com **Lutar**. O cartucho mostra nome/fase; o painel textual é do browser. A arte gerada continua ilustrativa e não é instrução física certificada.
 
 ## Pesquisa consultada
 
@@ -73,5 +71,3 @@ Fontes comunitárias adicionais consultadas em 11/10/2026 UTC, com revisões e h
 - [Shotokan DB](https://github.com/muzhar01/shotokan-db/blob/a667dc928557d2d2c6732fef0ef25abbf49e6e9d/tietokanta/2_add_data_techniques_kata_kumite_syllabusinfo.sql): identifica kizami-tsuki, yoko-geri kekomi, ushiro-geri, mae/mawashi tobi-geri e combinações. O README delimita o projeto como base comunitária de conteúdo Shotokan/Seitokai.
 
 Essas fontes sustentam o vocabulário e exemplos de encadeamento; não certificam biomecânica das imagens, tempos do jogo, graduações ou pontuação. A primeira versão das poses novas deve ser revisada com o instrutor, sobretudo pé de apoio, distinção entre yoko/ushiro e aplicações saltadas.
-
-Para age-uke, segure defesa e depois incline para cima. Defesa também substitui a impulsão enquanto os pés ainda estão no chão; após sair do chão não há bloqueio aéreo.

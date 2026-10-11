@@ -1,13 +1,13 @@
 {
   "initial_scene_equal": true,
-  "frames_equal": 69,
-  "all_76_poses_mirrored": true,
+  "frames_equal": 85,
+  "all_92_poses_mirrored": true,
   "cross_cell_mawashi_foot_recovered": true,
   "orphan_foot_absent": true,
   "resolution": [
     384,
     224
   ],
-  "cart_sha256": "d981e478f31931606bb3a4b275fd2f2a721c2f87baf4428d3487455d7de7c018",
-  "scope": "Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height38. Hardware Pi pending."
+  "cart_sha256": "2c8f44285e6bd5cea9f1dd90b87daae0428b1947ba53630b941dce95b929d966",
+  "scope": "Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height44, reactions and low planted stance. Hardware Pi pending."
 }

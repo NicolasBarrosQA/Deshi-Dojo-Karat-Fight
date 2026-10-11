@@ -1,7 +1,8 @@
-# Deshi Dojo — fundamentos Shotokan, Lutro v03
+# Deshi Dojo — combate Shotokan, Lutro v04
 
-Dois jogadores, **três botões de ação**, quatro defesas direcionais, 10 ataques no chão, três aplicações no salto e sequências com preparação/contato/recolhimento. São 76 poses originais de um karateca fictício com cerca de 128 px de altura em uma cena de 384×224. Há acertos controlados, defesa por altura e janela de contra-ataque; sem HP. As regras são experimentais, não arbitragem oficial.
+Dois jogadores e três botões: **soco, defesa e chute**. A luta tem energia, 60 segundos e melhor de três rounds. **Treino livre** mantém energia e tempo para experimentar. O combate usa técnicas Shotokan e eventos de contato separados das regras de energia, permitindo futuramente pontuação por distância, linha e precisão.
 
+A versão v04 corrige o atravessamento com uma barreira entre os corpos que preserva a ordem anterior ao movimento. Acelera os golpes básicos, guarda novas pressões durante recuperação/impacto e acrescenta reação ao receber golpe, recuo, combos por acertos consecutivos e uma apresentação mais simples. As animações são ilustrações provisórias: as que ainda não representam claramente a técnica foram retiradas dos comandos ativos, com fontes e catálogo preservados.
 O IKEMEN e os dois projetos TIC-80 permanecem intactos. A amostra Lutro v01 inteira está preservada em `archives/shotokan-lutro-visual-v01.zip` na raiz do checkout, com manifesto SHA-256. Nenhum arquivo do fliperama foi acessado ou modificado.
 
 ## Jogar no notebook
@@ -38,27 +39,27 @@ O HTML em `dist/deshi-dojo-visual.html` também continua abrindo diretamente por
 
 | Comando com soco/chute | Técnica |
 |---|---|
-| Soco sem direção | Gyaku-zuki chudan |
-| Frente + soco | Oi-zuki |
-| Trás + soco | Kizami-zuki |
+| Primeiro soco sem direção | Kizami-zuki: mão dianteira |
+| Segundo soco na sequência, sem direção | Gyaku-zuki: mão reversa |
+| Trás + soco | Gyaku-zuki |
+| Frente + soco | Gyaku-zuki com avanço curto, yori-ashi |
 | Cima + soco | Gyaku-zuki jodan |
+| Baixo + soco | Gyaku-zuki em base baixa |
 | Chute sem direção | Mae-geri chudan |
 | Frente + chute | Mawashi-geri chudan |
-| Trás + chute | Yoko-geri kekomi |
-| Cima + chute | Mawashi-geri jodan |
-| Baixo + chute | Mae-geri gedan, estudo de kihon |
-| Baixo e trás + chute | Ushiro-geri |
+| Baixo + chute | Mae-geri gedan, estudo da linha baixa |
 | No ar + soco | Tsuki durante o salto, adaptação de jogo |
 | No ar + chute | Tobi-mae-geri |
-| No ar + frente + chute | Mawashi-geri durante o salto |
 
-**Renzoku:** kizami → gyaku → mae; gyaku → mawashi → gyaku; mae → ushiro → gyaku. Solte e pressione cada botão; nos últimos dez ticks do recolhimento, o comando válido fica guardado para executar após o retorno completo. Até três técnicas por sequência, sem cancelar a extensão ou repetir automaticamente. O indicador RENZOKU conta técnicas executadas, inclusive quando erram; não é um multiplicador de dano nem uma contagem de acertos consecutivos. O catálogo contém todas as ligações permitidas.
+Comece aproximando os dois jogadores e pressionando **soco → soco → chute**, soltando entre as pressões. O segundo soco seleciona automaticamente gyaku depois do kizami; o chute fecha com mae. Aperte durante o recolhimento ou um pouco antes: a nova pressão fica guardada por até 24 ticks e só executa quando o movimento anterior chega ao ponto permitido de retorno. Não é necessário acertar uma janela de apenas poucos quadros. Até três técnicas ligadas; depois há uma curta recomposição. Manter soco/chute não repete. O indicador **COMBO** conta contatos consecutivos enquanto o adversário ainda se recompõe; técnicas executadas que erram não aumentam esse contador.
 
-Um ataque por salto; não há defesa no ar, salto duplo ou empurrão aéreo do adversário. Segurar cima não salta novamente depois de pousar. Solte e pressione de novo. O pouso tem cinco ticks de recomposição.
+Cima sozinho salta; diagonal para cima desloca o salto; baixo usa uma base baixa com os pés apoiados. Um ataque por salto, sem defesa aérea, salto duplo ou lançamento do adversário. O pouso recompõe por dois ticks. Os corpos também se bloqueiam durante o salto. Trás/cima + chute usam o frontal por enquanto; yoko, ushiro e mawashi alto/aéreo estão guardados fora dos comandos ativos até revisão. O antigo oi também está preservado: a animação de soco reverso com avanço recebe o nome gyaku com yori-ashi para corresponder ao movimento representado.
 
-Aproxime-se e pressione novamente após o retorno; segurar soco/chute não repete. Defesa tem preparação e cobre somente sua linha. Segurando, mantém cobertura; trocar direção reinicia a preparação. Uma recepção no tempo abre uma janela de contra-ataque. **Ver colisões** mostra três alturas e o punho/pé ativos. **Recomeçar** reinicia posições/acertos.
+Defesa sem direção mantém cobertura média; as quatro direções selecionam os uke acima. A defesa tem preparação e cobre somente a altura efetiva do contato. Mudar direção reinicia a preparação; soltar libera o movimento. Uma recepção no tempo abre uma janela de contra-ataque. Segure defesa **antes** de inclinar para cima para executar age-uke sem saltar; a defesa também substitui a impulsão enquanto os pés ainda estão no chão.
 
-Para estudar, selecione uma técnica e clique **Estudar técnica**. O painel explica suas fases; **Câmera lenta**, **Pausar** e **Um quadro** permitem observar. Clique **Jogar** para voltar ao controle livre. Limitações de combinações simultâneas dependem do teclado. O painel de estudo é do HTML; o cartucho mostra técnica/fase durante o combate. Poses e fundamentos precisam de revisão do instrutor do dojo: veja [FUNDAMENTOS.md](docs/FUNDAMENTOS.md).
+**Lutar** usa energia e rounds; golpes bloqueados não retiram energia. **Treino livre** não limita tempo/energia. Enter reinicia, Escape pausa no browser. Os indicadores dos comandos acendem e o nome/fase da técnica aparecem abaixo da luta. Em gamepads padrão no browser: A soco, X defesa, B chute; direcional/analógico movimenta, Start reinicia. A API foi testada com entradas simuladas; controles físicos/GPIO continuam pendentes.
+
+Abra **Aprender os golpes e ver todos os comandos** quando quiser estudar. Selecione a técnica e clique **Ver movimento**; use câmera lenta, pausa, quadro único ou colisões. **Lutar** retorna ao controle livre. Combate e demonstração usam o mesmo Lua. O painel explicativo é do browser; o cartucho mostra nome/fase. Combinações simultâneas ainda dependem do teclado. Consulte [FUNDAMENTOS.md](docs/FUNDAMENTOS.md) para princípios, fontes e revisão pendente.
 
 ## Núcleo histórico no notebook
 
@@ -73,7 +74,7 @@ O viewer usa os mesmos comandos; Enter reinicia. A preparação inicial baixa/ve
 
 ## Fonte e reconstrução
 
-`dist/deshi-dojo-visual.zip` inclui código/arte/ferramentas/documentação, além do HTML e cartucho. `src/main.lua` é a mesma lógica nos dois runtimes. `assets/techniques.json` define as técnicas; `tools/build.py` gera `src/techniques.lua`. `tools/import_art.py` importa seis folhas para células de 224×144 e atlases espelhados de 896×2736; extrai cada figura completa nas folhas de chutes e novas técnicas, mesmo quando um membro atravessa a grade, gerando `src/art.lua`. PNGs têm transparência binária para o blitter antigo; não há shaders, serviços externos ou recursos modernos do LÖVE.
+`dist/deshi-dojo-visual.zip` inclui código/arte/ferramentas/documentação, além do HTML e cartucho. `src/main.lua` é a mesma lógica nos dois runtimes. `assets/techniques.json` define as técnicas; `tools/build.py` gera `src/techniques.lua`. `tools/import_art.py` importa sete folhas para células de 224×144 e atlases espelhados de 896×3312; extrai cada figura conectada na folha inteira, mesmo quando um membro atravessa a grade, gerando `src/art.lua` com limites visuais para as regiões vulneráveis. PNGs têm transparência binária para o blitter antigo; não há shaders, serviços externos ou recursos modernos do LÖVE.
 
 ```bash
 python3 games/shotokan-lutro-visual/tools/import_art.py
@@ -95,12 +96,11 @@ PATH="$PWD/.cache/cloud-tools/usr/bin:$PATH" xvfb-run -a python3 games/shotokan-
 
 ## Evidências e pendências
 
-O cartucho foi exercitado no núcleo histórico que a configuração oficial do Recalbox 6.1 fixa, compilado para Linux x86-64. Passaram 68 casos técnica/porta/orientação, 50 combinações de altura no chão, 15 no ar, 12 sequências de três técnicas, timing, contra-ataque e 11 grupos de controles offline no browser. A renderização de 69 cenas/poses/bordas foi comparada pixel a pixel entre os dois runtimes. **Isso não comprova desempenho/compatibilidade ARM ou GPIO no Raspberry Pi 3.** Leia [COMPATIBILIDADE.md](docs/COMPATIBILIDADE.md), resultados JSON e suas ressalvas.
-
+O cartucho foi exercitado no núcleo histórico que a configuração oficial do Recalbox 6.1 fixa, compilado para Linux x86-64. Passaram 19 grupos nativos, 56 casos técnica/porta/orientação, 40 pares no chão, 10 no ar, quatro combos básicos com **três contatos reais**, 680 verificações de colisão por tick e 12 grupos no browser offline. São 85 cenas/poses/bordas comparadas pixel a pixel, incluindo reações e base baixa; espelhamento de 92 poses importadas verificado. **Isso não comprova desempenho/compatibilidade ARM ou GPIO no Raspberry Pi 3, nem certifica a biomecânica das poses.** Leia [COMPATIBILIDADE.md](docs/COMPATIBILIDADE.md) e os resultados JSON.
 Para um futuro teste no gabinete: verificar alimentação/baixa tensão, obter acesso ao cartão, fazer backup verificável, identificar o núcleo/diretório realmente instalados e adicionar apenas o cartucho novo. Não atualizar Recalbox, sobrescrever jogos/configurações ou alterar GPIO. Ainda medir desempenho, memória total, temperatura, latência/monitor, duas portas físicas e saída/reabertura.
 
-[Movimento real das técnicas](docs/fundamentos.gif) · [age-uke](docs/age-3x.png) · [gedan-barai](docs/gedan-3x.png) · [soto-uke](docs/soto-3x.png) · [uchi-uke](docs/uchi-3x.png) · [mawashi](docs/mawashi-3x.png).
+[Captura das técnicas no jogo](docs/fundamentos.gif) · [age-uke](docs/age-3x.png) · [gedan-barai](docs/gedan-3x.png) · [soto-uke](docs/soto-3x.png) · [uchi-uke](docs/uchi-3x.png) · [mawashi](docs/mawashi-3x.png).
 
-A versão v03 corrige o pé do mawashi: a folha original atravessava a divisória entre os quadros 35 e 36. A extração por figura preserva o pé no quadro 35 e remove o fragmento do 36. Os testes verificam as duas orientações e recorte nas bordas, sem alterar a folha original.
+A extração usada desde v03 corrige o pé do mawashi: a folha original atravessava a divisória entre os quadros 35 e 36. A extração por figura preserva o pé no quadro 35 e remove o fragmento do 36. Os testes verificam as duas orientações e recorte nas bordas, sem alterar a folha original.
 
 Para age-uke, segure defesa e depois incline para cima. Defesa também substitui a impulsão enquanto os pés ainda estão no chão; após sair do chão não há bloqueio aéreo.
