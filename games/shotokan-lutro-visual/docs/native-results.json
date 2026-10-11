@@ -1,18 +1,27 @@
 {
-  "passed": 10,
+  "passed": 19,
   "checks": [
     "Delivered uninstrumented .lutro loads/renders historical PNGs, 384x224; 600 movement frames",
     "Two independent ports, body separation, stage limits",
-    "40 technique/port/facing cases: all authored poses reached by commands",
-    "30 attack/defense pairs: correct zone blocks; wrong zones are vulnerable",
+    "68 technique/port/facing cases: all authored poses reached by physical commands",
+    "50 ground attack/defense pairs: correct zone blocks; wrong zones are vulnerable",
     "Held attack button cannot repeat; release/fresh press works",
     "Simultaneous contacts evaluate both fighters before stun",
     "Out-of-range kick misses",
     "Early coverage receives on time and enables tagged counterattack",
     "Late defence does not protect during its preparation",
-    "Held defence direction change starts a fresh technique preparation"
+    "Held defence direction change starts a fresh technique preparation",
+    "Jump on both ports, landing, held-up no autojump; up+action retains ground technique",
+    "Guard during grounded takeoff selects age-uke rather than an accidental jump",
+    "Low stance visibly lowers the target; a high straight punch can miss",
+    "15 airborne attack/defense pairs: actual contact height, one strike, safe landing",
+    "Fresh attack during takeoff is retained until airborne; no lost quick button press",
+    "12 three-technique sequences across both ports/facings; full recovery, no fourth queued link or held-button repeats",
+    "Early mash cannot cancel the attack or queue outside the recovery window",
+    "Four wall/port/facing jump runs in the historical software renderer",
+    "Start on either port resets once per fresh press, without a held-button reset loop"
   ],
-  "technique_input_cases": 40,
+  "technique_input_cases": 68,
   "zone_matrix": [
     {
       "attack": "gyaku",
@@ -163,15 +172,208 @@
       "attack": "mawashi",
       "defense": "uchi",
       "blocked": true
+    },
+    {
+      "attack": "kizami",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "kizami",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "kizami",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "kizami",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "kizami",
+      "defense": "uchi",
+      "blocked": true
+    },
+    {
+      "attack": "yoko",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "yoko",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "yoko",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "yoko",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "yoko",
+      "defense": "uchi",
+      "blocked": true
+    },
+    {
+      "attack": "mawashi_high",
+      "defense": "kamae",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi_high",
+      "defense": "age",
+      "blocked": true
+    },
+    {
+      "attack": "mawashi_high",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi_high",
+      "defense": "soto",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi_high",
+      "defense": "uchi",
+      "blocked": false
+    },
+    {
+      "attack": "ushiro",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "ushiro",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "ushiro",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "ushiro",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "ushiro",
+      "defense": "uchi",
+      "blocked": true
     }
   ],
+  "air_zone_matrix": [
+    {
+      "attack": "tobi_mae",
+      "defense": "kamae",
+      "contact_zone": "chudan",
+      "blocked": true
+    },
+    {
+      "attack": "tobi_mae",
+      "defense": "age",
+      "contact_zone": "chudan",
+      "blocked": false
+    },
+    {
+      "attack": "tobi_mae",
+      "defense": "gedan",
+      "contact_zone": "chudan",
+      "blocked": false
+    },
+    {
+      "attack": "tobi_mae",
+      "defense": "soto",
+      "contact_zone": "chudan",
+      "blocked": true
+    },
+    {
+      "attack": "tobi_mae",
+      "defense": "uchi",
+      "contact_zone": "chudan",
+      "blocked": true
+    },
+    {
+      "attack": "air_tsuki",
+      "defense": "kamae",
+      "contact_zone": "jodan",
+      "blocked": false
+    },
+    {
+      "attack": "air_tsuki",
+      "defense": "age",
+      "contact_zone": "jodan",
+      "blocked": true
+    },
+    {
+      "attack": "air_tsuki",
+      "defense": "gedan",
+      "contact_zone": "jodan",
+      "blocked": false
+    },
+    {
+      "attack": "air_tsuki",
+      "defense": "soto",
+      "contact_zone": "jodan",
+      "blocked": false
+    },
+    {
+      "attack": "air_tsuki",
+      "defense": "uchi",
+      "contact_zone": "jodan",
+      "blocked": false
+    },
+    {
+      "attack": "air_mawashi",
+      "defense": "kamae",
+      "contact_zone": "chudan",
+      "blocked": true
+    },
+    {
+      "attack": "air_mawashi",
+      "defense": "age",
+      "contact_zone": "chudan",
+      "blocked": false
+    },
+    {
+      "attack": "air_mawashi",
+      "defense": "gedan",
+      "contact_zone": "chudan",
+      "blocked": false
+    },
+    {
+      "attack": "air_mawashi",
+      "defense": "soto",
+      "contact_zone": "chudan",
+      "blocked": true
+    },
+    {
+      "attack": "air_mawashi",
+      "defense": "uchi",
+      "contact_zone": "chudan",
+      "blocked": true
+    }
+  ],
+  "combo_cases": 12,
   "core_commit": "a031f95394440022a561ce593d578474ac119c05",
-  "artifact_sha256": "a0a47d3156ff3a632c3e5b41b0f7e54442008d29471dd220d951c05bc80e0e29",
+  "artifact_sha256": "d981e478f31931606bb3a4b275fd2f2a721c2f87baf4428d3487455d7de7c018",
   "native_frames_measured": 1800,
-  "mean_ms": 0.23839718958899742,
-  "p95_ms": 0.2832970058079809,
-  "p99_ms": 0.5157720006536692,
-  "max_ms": 10.078767998493277,
+  "mean_ms": 0.35330565055725555,
+  "p95_ms": 0.4028770053992048,
+  "p99_ms": 0.4941869992762804,
+  "max_ms": 2.2735550010111183,
   "above_16_67_ms": 0,
   "limitations": "Linux x86-64 only; Pi/ARM/GPIO/real monitor/instructor review pending"
 }

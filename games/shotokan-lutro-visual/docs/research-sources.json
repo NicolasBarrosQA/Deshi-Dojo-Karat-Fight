@@ -1,5 +1,5 @@
 {
-  "accessed": "2026-10-10 America/Sao_Paulo",
+  "accessed": "2026-10-11 UTC",
   "sources": [
     {
       "path": "content/resources/general/glossary/_index.md",
@@ -48,7 +48,42 @@
       "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit09.md",
       "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
       "sha256": "e28aa63c295a72f29a96f92bccae5a6d80fab44fe8c8b6500fafab7fe8eedf29"
+    },
+    {
+      "path": "app/src/main/assets/karate_syllabus.json",
+      "url": "https://github.com/CsabaHalmagyi/shotokan-syllabus-app/blob/d95ba1a227d17903404d9e25267cae386d78280d/app/src/main/assets/karate_syllabus.json",
+      "revision": "d95ba1a227d17903404d9e25267cae386d78280d",
+      "sha256": "9f5b7f9cd066daf01260005e4fd4bb7c0ba91dfe60c0de64aca1ec62a25af30b",
+      "scope": "Community Shotokan syllabus/database: vocabulary and combination examples, not authoritative biomechanical certification."
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/muzhar01/shotokan-db/blob/a667dc928557d2d2c6732fef0ef25abbf49e6e9d/README.md",
+      "revision": "a667dc928557d2d2c6732fef0ef25abbf49e6e9d",
+      "sha256": "f3459f4d4153c9168ee130a59099672c3c7d166afc752d044498a281768b4fa1",
+      "scope": "Community Shotokan syllabus/database: vocabulary and combination examples, not authoritative biomechanical certification."
+    },
+    {
+      "path": "tietokanta/1_add_data_technique_types_genres.sql",
+      "url": "https://github.com/muzhar01/shotokan-db/blob/a667dc928557d2d2c6732fef0ef25abbf49e6e9d/tietokanta/1_add_data_technique_types_genres.sql",
+      "revision": "a667dc928557d2d2c6732fef0ef25abbf49e6e9d",
+      "sha256": "8683f0aa30cc3af6b844f2a1203b6df413aff9f5f4c9181a58ab5621b1a7984d",
+      "scope": "Community Shotokan syllabus/database: vocabulary and combination examples, not authoritative biomechanical certification."
+    },
+    {
+      "path": "tietokanta/2_add_data_techniques_kata_kumite_syllabusinfo.sql",
+      "url": "https://github.com/muzhar01/shotokan-db/blob/a667dc928557d2d2c6732fef0ef25abbf49e6e9d/tietokanta/2_add_data_techniques_kata_kumite_syllabusinfo.sql",
+      "revision": "a667dc928557d2d2c6732fef0ef25abbf49e6e9d",
+      "sha256": "27aff8ed3d2680dc12bb57d78ed82d6c4b4b258ae0dd7748f2f14912750e9e1e",
+      "scope": "Community Shotokan syllabus/database: vocabulary and combination examples, not authoritative biomechanical certification."
+    },
+    {
+      "path": "tietokanta/3_add_data_techniques_combinations.sql",
+      "url": "https://github.com/muzhar01/shotokan-db/blob/a667dc928557d2d2c6732fef0ef25abbf49e6e9d/tietokanta/3_add_data_techniques_combinations.sql",
+      "revision": "a667dc928557d2d2c6732fef0ef25abbf49e6e9d",
+      "sha256": "4fd38c25e29cd4aaf7a932ac6a7c148605dd69dea592223253446dad0f9e265d",
+      "scope": "Community Shotokan syllabus/database: vocabulary and combination examples, not authoritative biomechanical certification."
     }
   ],
-  "scope": "units 1-4 and glossary/distance consulted substantively; units6/9 have headings only and do not substantiate detailed kick/soto/uchi biomechanics"
+  "scope": "units 1-4 and glossary/distance consulted substantively; units6/9 have headings only and do not substantiate detailed kick/soto/uchi biomechanics; additional community sources establish vocabulary of kizami/yoko/ushiro and mae/mawashi tobi geri plus technique sequences. They do not certify generated poses, gameplay timing, grading or kumite rules."
 }

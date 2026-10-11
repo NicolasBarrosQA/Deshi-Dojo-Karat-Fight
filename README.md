@@ -17,7 +17,7 @@ No Linux/macOS, use `python3`; no Windows, `py -3` também funciona. O comando a
 
 Para receber novas versões, execute `git pull` nessa mesma pasta e atualize a página com F5. O servidor reconstrói o HTML quando a fonte muda, sem empacotar ZIPs. Ctrl+C encerra. Se a porta estiver ocupada, execute `python scripts/play_web.py --port 8001`; `--no-open` evita abrir o navegador automaticamente.
 
-Controles: P1 setas, Z soco, X defesa, A chute; P2 I/K/J/L direções, F soco, G defesa, H chute. Veja [os comandos e fundamentos do protótipo](games/shotokan-lutro-visual/README.md). O Raspberry Pi/GPIO e as poses ainda precisam dos testes físicos e da revisão do instrutor.
+Controles: P1 setas, Z soco, X defesa, A chute; P2 I/K/J/L direções, F soco, G defesa, H chute. Cima sozinho salta; baixo sozinho usa base baixa. Há ataques aéreos e sequências de até três técnicas, mantendo três botões por jogador. Veja [os comandos e fundamentos do protótipo](games/shotokan-lutro-visual/README.md). O Raspberry Pi/GPIO e as poses ainda precisam dos testes físicos e da revisão do instrutor.
 
 ## Base IKEMEN preservada
 

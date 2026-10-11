@@ -50,6 +50,42 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  await page.locator('#slow').click();await page.locator('#boxes').click();await page.locator('#play').click();
  if((await state())[10]!==0)throw Error('Play did not leave lesson');await page.locator('#reset').click();
  checks.push('Technique selection/explanation, slow mode, pause, single frame, play/reset/debug');
+ // New arcade controls through real keyboard events, never direct action injection.
+ for(const [up,punch,side] of [['ArrowUp','z',0],['i','f',1]]){
+  await reset(false);await page.keyboard.down(up);await step(12);let s=await state();
+  if(!(s[15+side]>20&&s[17+side]===1&&s[23+side]===1))throw Error('Jump failed '+s);
+  await page.keyboard.down(punch);await step(2);await page.keyboard.up(punch);
+  if((await state())[3+side]!==69)throw Error('Air tsuki command failed');
+  await step(80);s=await state();if(s[15+side]!==0||s[17+side]!==0||s[23+side]!==1||s[21+side]!==1)throw Error('Landing/held jump repeat '+s);
+  await page.keyboard.up(up);
+ }
+ checks.push('Both players jump, punch in air and land; holding up cannot autojump');
+ for(const [direction,key,first] of [['ArrowLeft','z',45],['ArrowLeft','a',49],['ArrowUp','a',53]]){
+  await reset(false);await page.keyboard.down(direction);await page.keyboard.down(key);await step(2);
+  let s=await state();if(s[3]!==first||s[23]!==0)throw Error('New ground technique failed '+s);
+  await page.keyboard.up(direction);await page.keyboard.up(key);
+ }
+ await reset(false);await page.keyboard.down('ArrowDown');await page.keyboard.down('ArrowLeft');await page.keyboard.down('a');await step(2);
+ if((await state())[3]!==57)throw Error('Ushiro diagonal failed');
+ await page.keyboard.up('ArrowDown');await page.keyboard.up('ArrowLeft');await page.keyboard.up('a');
+ checks.push('Kizami, yoko kekomi, high mawashi and diagonal ushiro commands');
+ for(const [side,back,punch,kick] of [[0,'ArrowLeft','z','a'],[1,'l','f','h']]){
+  await reset(false);await page.keyboard.down(back);await page.keyboard.down(punch);await step(2);
+  await page.keyboard.up(back);await page.keyboard.up(punch);await step(1);
+  for(const [id,key] of [['kizami',punch],['gyaku',kick]]){
+   const age=async()=>page.evaluate(side=>run('return Scene.players['+(side+1)+'].action.age'),side);
+   const end=await page.evaluate(id=>techniques.techniques[id].durations.reduce((a,b)=>a+b,0),id);
+   for(let n=0;await age()<end-5;n++){if(n>100)throw Error('Recovery window missing');await step(1)}
+   await page.keyboard.down(key);await step(2);await page.keyboard.up(key);await step(6);
+  }
+  let s=await state();if(s[19+side]!==3||s[21+side]!==3)throw Error('Renzoku failed '+s);
+  await step(65);if((await state())[21+side]!==3)throw Error('Queued combo repeated');
+ }
+ checks.push('Kizami -> gyaku -> mae on both keyboards, recovery buffer and no automatic repeats');
+ await page.locator('#technique').selectOption('tobi_mae');await page.locator('#lesson').click();await step(42);
+ if((await state())[23]!==1||!(await page.locator('#tech-foundation').textContent()).includes('saltada'))throw Error('Air lesson failed');
+ await page.locator('#play').click();await page.locator('#reset').click();
+ checks.push('Airborne technique lesson and new foundations are available offline');
  // Actual RAF, not just manually stepped capture mode.
  await page.goto('about:blank');await page.setContent(html,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.body.dataset.ready==='true');
  await page.locator('#play').click();before=await state();await page.keyboard.down('ArrowRight');await page.keyboard.down('j');await page.waitForTimeout(240);
@@ -57,6 +93,6 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  if(!(after[1]>before[1]&&after[2]<before[2]))throw Error('Live RAF keyboard failed');
  checks.push('Live RAF keyboard control');await page.screenshot({path:path.join(root,'docs/notebook.png'),fullPage:true});
  if(errors.length||requests.length)throw Error(JSON.stringify({errors,requests}));
- const result={passed:checks.length,checks,external_requests:requests,errors,platform:'Chromium offline/Linux x86-64; not Pi/GPIO'};
+ const result={passed:checks.length,checks,artifact_sha256:require('crypto').createHash('sha256').update(html).digest('hex'),external_requests:requests,errors,platform:'Chromium offline/Linux x86-64; not Pi/GPIO'};
  fs.writeFileSync(path.join(root,'docs/browser-results.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
  }catch(e){console.error(e);process.exitCode=1}finally{if(browser)await browser.close()}})();

@@ -10,7 +10,9 @@
 <div class="bar"><label for="technique">Fundamento:</label><select id="technique"></select><button id="lesson">Estudar técnica</button><button id="slow">Câmera lenta</button><button id="pause">Pausar</button><button id="step">Um quadro</button></div>
 <div id="foundation" class="control"><strong id="tech-name"></strong><p id="tech-foundation"></p><p id="tech-phases"></p><p id="tech-tips"></p></div>
 <div class="controls"><div class="control"><div class="label">JOGADOR 1</div><p>Setas: direção · <kbd>Z</kbd> soco · <kbd>X</kbd> defesa · <kbd>A</kbd> chute</p></div><div class="control two"><div class="label">JOGADOR 2</div><p><kbd>I</kbd> cima <kbd>K</kbd> baixo <kbd>J</kbd> esquerda <kbd>L</kbd> direita · <kbd>F</kbd> soco · <kbd>G</kbd> defesa · <kbd>H</kbd> chute</p></div></div>
-<p id="status" role="status">Preparando o dojo…</p><p class="note">Defesa + cima: age-uke · baixo: gedan-barai · frente: soto-uke · trás: uchi-uke. Frente e trás acompanham o adversário. Soco + frente: oi-zuki; + cima: gyaku-zuki jōdan. Chute + frente: mawashi-geri; + baixo: mae-geri baixo. Sem direção: gyaku-zuki chūdan, mae-geri chūdan e kamae. Cada acerto controlado é registrado; a arbitragem de kumite virá depois. O chute baixo serve ao estudo do kihon. As poses são uma interpretação para o jogo e precisam da revisão do instrutor do dojo.</p></main>
+<p id="status" role="status">Preparando o dojo…</p>
+<div class="controls"><div class="control"><div class="label">SALTO E TÉCNICAS</div><p>Cima sozinho: salto; diagonal para cima: salto com deslocamento. Baixo sozinho: base baixa. Soco: gyaku-zuki; frente + soco: oi-zuki; trás + soco: kizami-zuki; cima + soco: gyaku jodan.</p><p>Chute: mae-geri; frente + chute: mawashi; trás + chute: yoko kekomi; cima + chute: mawashi jodan; baixo + chute: mae gedan; baixo e trás + chute: ushiro. No ar: soco reto, chute frontal ou frente + chute circular.</p></div><div class="control two"><div class="label">RENZOKU — SEQUÊNCIAS</div><p>Kizami → gyaku → mae · gyaku → mawashi → gyaku · mae → ushiro → gyaku. Solte e pressione cada botão: durante os últimos quadros do recolhimento, o jogo guarda o próximo comando. Até três técnicas, cada uma com seu próprio preparo e retorno.</p><p>Segure defesa antes de cima para age-uke; defesa + baixo: gedan-barai; frente: soto-uke; trás: uchi-uke. Receber no tempo permite contra-atacar. Frente/trás acompanham o adversário.</p></div></div>
+<p class="note">Três botões por jogador também no fliperama: soco, defesa e chute. Cada contato registra técnica, altura, distância, tempo e sequência; a arbitragem de kumite virá depois. O chute baixo serve ao estudo do kihon. Aplicações no salto e tempos de ligação são adaptações de jogo; poses e fundamentos precisam da revisão do instrutor do dojo.</p></main>
 <script>__VM__</script><script>
 'use strict';
 const assets=__ASSETS__,source=__LUA__,techniques=__TECHNIQUES__,canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
@@ -27,7 +29,7 @@ const host=window.dojoHost={color:[255,255,255,255],update:null,snapshot:null,
  },
  render(){ctx.clearRect(0,0,384,224);this.drawFrame()},
  press(port,key,on){const id=port+':'+key;if(on)held.add(id);else held.delete(id)},
- clear(){held.clear()}
+ clear(){held.clear();if(this.update)run('refreshInputs()')}
 };
 function run(s){return fengari.load(s)()}
 const bridge=`local js=require 'js'
@@ -67,7 +69,7 @@ h.update=function() lutro.update(1/60);refreshInputs() end
 h.drawFrame=lutro.draw
 h.snapshot=function()
  local a,b=Scene.players[1],Scene.players[2]
- return table.concat({Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,Scene.demo and 1 or 0,a.blocks,b.blocks,a.parries,b.parries},'|')
+ return table.concat({Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,Scene.demo and 1 or 0,a.blocks,b.blocks,a.parries,b.parries,a.height,b.height,a.air and 1 or 0,b.air and 1 or 0,a.chain,b.chain,a.executed,b.executed,a.jumps,b.jumps},'|')
 end`);
  host.render();status.textContent='Pronto. Clique em Jogar ou use os controles.';
  document.body.dataset.ready='true';
@@ -81,7 +83,7 @@ end`);
 document.addEventListener('keydown',e=>{let used=false;maps.forEach((map,p)=>{if(map[e.code]){host.press(p+1,map[e.code],true);used=true}});if(used)e.preventDefault()});
 document.addEventListener('keyup',e=>maps.forEach((map,p)=>{if(map[e.code])host.press(p+1,map[e.code],false)}));
 window.addEventListener('blur',()=>host.clear());document.addEventListener('visibilitychange',()=>{if(document.hidden)host.clear()});
-document.getElementById('play').onclick=()=>{run('Scene.demo=false');paused=false;speed=1;canvas.focus();status.textContent='Z/F: soco · X/G: defesa · A/H: chute. Use a direção junto com o botão.'};
+document.getElementById('play').onclick=()=>{run('Scene.demo=false');paused=false;speed=1;canvas.focus();status.textContent='Cima: salto · Z/F: soco · X/G: defesa · A/H: chute. Direção + botão seleciona a técnica.'};
 document.getElementById('demo').onclick=()=>{host.clear();startLesson();status.textContent='Demonstração do fundamento selecionado.'};
 document.getElementById('reset').onclick=()=>{host.clear();run('Scene.reset();Scene.demo=false');canvas.focus()};
 document.getElementById('boxes').onclick=()=>run('Scene.debug=not Scene.debug');

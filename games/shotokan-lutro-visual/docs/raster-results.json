@@ -1,9 +1,13 @@
 {
   "initial_scene_equal": true,
-  "colors": 33890,
+  "frames_equal": 69,
+  "all_76_poses_mirrored": true,
+  "cross_cell_mawashi_foot_recovered": true,
+  "orphan_foot_absent": true,
   "resolution": [
     384,
     224
   ],
-  "scope": "initial scene only, not all timings"
+  "cart_sha256": "d981e478f31931606bb3a4b275fd2f2a721c2f87baf4428d3487455d7de7c018",
+  "scope": "Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height38. Hardware Pi pending."
 }

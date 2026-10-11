@@ -1,1 +1,1 @@
-return {frames=44,width=896,height=1584}
+return {frames=76,width=896,height=2736}

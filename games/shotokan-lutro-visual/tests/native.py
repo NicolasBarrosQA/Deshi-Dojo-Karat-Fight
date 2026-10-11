@@ -12,7 +12,7 @@ function lutro.draw()
  originalDraw()
  local a,b=Scene.players[1],Scene.players[2]
  local e=Scene.lastContact or {}
- local data={Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,a.age,b.age,a.blocks,b.blocks,a.parries,b.parries,e.blocked and 1 or 0,e.parry and 1 or 0,e.counter and 1 or 0}
+ local data={Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,a.age,b.age,a.blocks,b.blocks,a.parries,b.parries,e.blocked and 1 or 0,e.parry and 1 or 0,e.counter and 1 or 0,a.height,b.height,a.air and 1 or 0,b.air and 1 or 0,a.chain,b.chain,a.executed,b.executed,a.jumps,b.jumps,a.maxChain,b.maxChain,a.action and a.action.age or 0,b.action and b.action.age or 0,({jodan=1,chudan=2,gedan=3})[e.zone] or 0,e.link or 0,e.airborne and 1 or 0,a.queued and 1 or 0,b.queued and 1 or 0}
  for i,v in ipairs(data) do
   v=math.floor(v);lutro.graphics.setColor(v%256,math.floor(v/256)%256,0)
   lutro.graphics.rectangle('fill',i,223,1,1)
@@ -28,13 +28,14 @@ function lutro.load() originalLoad() '''+initial+''' end
 ''')
  return p/'main.lua'
 def state(core):
- return [r+g*256 for r,g,b in [core.frame.getpixel((i,223)) for i in range(1,20)]]
+ return [r+g*256 for r,g,b in [core.frame.getpixel((i,223)) for i in range(1,39)]]
 def controls(id,side=0,face=1):
- action=1 if tech[id]['kind']=='defense' else 0 if id in ('gyaku','oi','jodan') else 8
+ t=tech[id]
+ action={'defense':1,'punch':0,'kick':8}[t['button']]
  keys=[(side,action)]
- modifier={'age':4,'gedan':5,'soto':7 if face==1 else 6,'uchi':6 if face==1 else 7,
- 'oi':7 if face==1 else 6,'jodan':4,'mae_low':5,'mawashi':7 if face==1 else 6}.get(id)
- if modifier is not None:keys.append((side,modifier))
+ for modifier in t['direction'].split('_'):
+  direction={'up':4,'down':5,'forward':7 if face==1 else 6,'back':6 if face==1 else 7}.get(modifier)
+  if direction is not None:keys.append((side,direction))
  return keys
 checks=[]
 with Native(HERE/'dist/deshi-dojo-visual.lutro') as core:
@@ -61,25 +62,28 @@ for side in (0,1):
    initial='Scene.players[%d].x=%d;Scene.players[%d].x=%d'%(side+1,104 if face==1 else 280,2-side,280 if face==1 else 104)
    with tempfile.TemporaryDirectory(prefix='dojo-poses-') as d:
     with Native(fixture(d,initial)) as core:
-     core.step(2);keys=controls(id,side,face);seen=set()
+     core.step(2)
+     if t.get('air'):
+      core.step(2,[(side,4)]);core.step(8)
+     keys=controls(id,side,face);seen=set()
      for n in range(48):
       core.step(1,keys if t['kind']=='defense' or n<2 else [])
       seen.add(state(core)[3+side])
      assert set(t['poses']).issubset(seen),(id,side,face,seen)
    pose_cases+=1
-checks.append('40 technique/port/facing cases: all authored poses reached by commands')
+checks.append('%d technique/port/facing cases: all authored poses reached by physical commands'%pose_cases)
 # Zone matrix: all six attacks vs four named blocks + neutral middle guard.
 matrix=[]
-for attack in ('gyaku','oi','jodan','mae','mae_low','mawashi'):
+for attack in [id for id,t in tech.items() if t['kind']=='attack' and not t.get('air')]:
  for defense in ('kamae','age','gedan','soto','uchi'):
   with tempfile.TemporaryDirectory(prefix='dojo-zones-') as d:
-   with Native(fixture(d,'Scene.players[1].x=150;Scene.players[2].x=217')) as core:
+   with Native(fixture(d,'Scene.players[1].x=140;Scene.players[2].x=%d'% (140+int((tech[attack]['hit']['near']+tech[attack]['hit']['far'])/2)))) as core:
     guard=controls(defense,1,-1);core.step(24,guard)
     core.step(2,guard+controls(attack));core.step(58,guard)
     s=state(core);blocked=tech[attack]['zone']==tech[defense]['zone']
     assert s[7]==1 and s[5]==(0 if blocked else 1) and s[13]==int(blocked),(attack,defense,s)
     matrix.append({'attack':attack,'defense':defense,'blocked':blocked})
-checks.append('30 attack/defense pairs: correct zone blocks; wrong zones are vulnerable')
+checks.append('%d ground attack/defense pairs: correct zone blocks; wrong zones are vulnerable'%len(matrix))
 with tempfile.TemporaryDirectory(prefix='dojo-edge-') as d:
  with Native(fixture(d,'Scene.players[1].x=150;Scene.players[2].x=217')) as core:
   core.step(2);core.step(90,controls('gyaku'));assert state(core)[5:9]==[1,0,1,0],state(core)
@@ -118,17 +122,117 @@ with tempfile.TemporaryDirectory(prefix='dojo-switch-') as d:
   core.step(24,controls('age'));core.step(2,controls('gedan'));assert state(core)[3]==16,state(core)
   core.step(12,controls('gedan'));assert state(core)[3]==18,state(core)
 checks.append('Held defence direction change starts a fresh technique preparation')
+# Jump/crouch/three-button modifiers: no fourth action required.
+for side in (0,1):
+ with tempfile.TemporaryDirectory(prefix='dojo-jump-') as d:
+  with Native(fixture(d)) as core:
+   core.step(2);core.step(90,[(side,4)]);s=state(core)
+   assert s[27+side]==1 and s[19+side]==0 and s[21+side]==0,s
+   core.step(2);core.step(2,[(side,4)]);core.step(12);s=state(core)
+   assert s[27+side]==2 and s[19+side]>20 and s[21+side]==1,s
+   core.step(48);assert state(core)[19+side]==0,state(core)
+ for id in ('age','jodan','mawashi_high'):
+  with tempfile.TemporaryDirectory(prefix='dojo-up-modifier-') as d:
+   with Native(fixture(d)) as core:
+    core.step(2);core.step(25,controls(id,side,1 if side==0 else -1))
+    assert state(core)[27+side]==0,(id,state(core))
+checks.append('Jump on both ports, landing, held-up no autojump; up+action retains ground technique')
+with tempfile.TemporaryDirectory(prefix='dojo-guard-chord-') as d:
+ with Native(fixture(d)) as core:
+  core.step(2);core.step(2,[(0,4)]);core.step(2,controls('age'));core.step(12,controls('age'))
+  s=state(core);assert s[27]==0 and s[21]==0 and s[3]==15,s
+checks.append('Guard during grounded takeoff selects age-uke rather than an accidental jump')
+with tempfile.TemporaryDirectory(prefix='dojo-crouch-') as d:
+ with Native(fixture(d,'Scene.players[1].x=150;Scene.players[2].x=217')) as core:
+  core.step(18,[(1,5)]);assert state(core)[4]==61,state(core)
+  core.step(2,[(1,5)]+controls('jodan'));core.step(40,[(1,5)])
+  assert state(core)[7]==0,state(core)
+checks.append('Low stance visibly lowers the target; a high straight punch can miss')
+# Full aerial techniques through buttons, actual-height coverage and no ground repeat.
+air_matrix=[]
+for attack in ('tobi_mae','air_tsuki','air_mawashi'):
+ for defense in ('kamae','age','gedan','soto','uchi'):
+  distance=int((tech[attack]['hit']['near']+tech[attack]['hit']['far'])/2)
+  with tempfile.TemporaryDirectory(prefix='dojo-air-contact-') as d:
+   with Native(fixture(d,'Scene.players[1].x=140;Scene.players[2].x=%d'%(140+distance))) as core:
+    guard=controls(defense,1,-1);core.step(24,guard)
+    core.step(2,guard+[(0,4)]);core.step(8,guard)
+    core.step(2,guard+controls(attack));core.step(55,guard)
+    s=state(core);zone={1:'jodan',2:'chudan',3:'gedan'}.get(s[33])
+    assert s[7]==1 and s[35]==1 and zone is not None,(attack,defense,s)
+    blocked=zone==tech[defense]['zone']
+    assert s[5]==int(not blocked) and s[13]==int(blocked),(attack,defense,s)
+    assert s[19]==0 and s[21]==0 and s[25]==1,s
+    air_matrix.append({'attack':attack,'defense':defense,'contact_zone':zone,'blocked':blocked})
+checks.append('15 airborne attack/defense pairs: actual contact height, one strike, safe landing')
+with tempfile.TemporaryDirectory(prefix='dojo-takeoff-input-') as d:
+ with Native(fixture(d)) as core:
+  core.step(2);core.step(2,[(0,4)]);core.step(2,controls('air_tsuki'));core.step(4)
+  assert state(core)[25]==1 and state(core)[3] in tech['air_tsuki']['poses'],state(core)
+checks.append('Fresh attack during takeoff is retained until airborne; no lost quick button press')
+# Ground renzoku through real ports: last recovery frames, never cancel an extension.
+combo_cases=0
+for side in (0,1):
+ for face in (1,-1):
+  for sequence in [('kizami','gyaku','mae'),('gyaku','mawashi','gyaku'),('mae','ushiro','gyaku')]:
+   initial='Scene.players[%d].x=%d;Scene.players[%d].x=%d'%(side+1,104 if face==1 else 280,2-side,280 if face==1 else 104)
+   with tempfile.TemporaryDirectory(prefix='dojo-renzoku-') as d:
+    with Native(fixture(d,initial)) as core:
+     core.step(2);core.step(2,controls(sequence[0],side,face));core.step(1)
+     for current,next_id in zip(sequence,sequence[1:]):
+      limit=sum(tech[current]['durations'])-5
+      for _ in range(120):
+       if state(core)[31+side]>=limit:break
+       core.step(1)
+      else:raise AssertionError(('Recovery window missed',sequence,state(core)))
+      core.step(2,controls(next_id,side,face));assert state(core)[36+side]==1,state(core)
+      before=state(core)[25+side];core.step(1)
+      for _ in range(15):
+       if state(core)[25+side]>before:break
+       core.step(1)
+      else:raise AssertionError(('Queued link did not execute',sequence,state(core)))
+     for _ in range(120):
+      if state(core)[31+side]>=sum(tech[sequence[-1]]['durations'])-5:break
+      core.step(1)
+     fourth='gyaku' if sequence[-1]=='mae' else 'mae'
+     core.step(2,controls(fourth,side,face));assert state(core)[36+side]==0,state(core)
+     core.step(70,controls(fourth,side,face));s=state(core)
+     assert s[25+side]==3 and s[29+side]==3,(side,face,sequence,s)
+     combo_cases+=1
+checks.append('12 three-technique sequences across both ports/facings; full recovery, no fourth queued link or held-button repeats')
+# A command outside the recovery buffer cannot skip preparation/contact/retraction.
+with tempfile.TemporaryDirectory(prefix='dojo-early-buffer-') as d:
+ with Native(fixture(d)) as core:
+  core.step(2);core.step(2,controls('gyaku'));core.step(2);core.step(2,controls('mae'));core.step(55)
+  assert state(core)[25]==1,state(core)
+checks.append('Early mash cannot cancel the attack or queue outside the recovery window')
+# Jumping at the wall, all frames: old software blitter must clip without wrapping.
+for side,face,x in ((0,1,72),(0,-1,312),(1,1,72),(1,-1,312)):
+ with tempfile.TemporaryDirectory(prefix='dojo-wall-') as d:
+  initial='Scene.players[%d].x=%d;Scene.players[%d].x=%d'%(side+1,x,2-side,280 if face==1 else 104)
+  with Native(fixture(d,initial)) as core:
+   core.step(2);core.step(2,[(side,4),(side,6 if x==72 else 7)]);core.step(8)
+   core.step(2,controls('air_mawashi',side,face));core.step(48)
+   s=state(core);assert 72<=s[1+side]<=312 and s[19+side]==0,s
+checks.append('Four wall/port/facing jump runs in the historical software renderer')
+with tempfile.TemporaryDirectory(prefix='dojo-start-') as d:
+ with Native(fixture(d)) as core:
+  core.step(2);core.step(14,[(0,3)])
+  assert state(core)[0]>=10,state(core)
+  core.step(2);core.step(2,[(1,3)])
+  assert state(core)[0]<=1,state(core)
+checks.append('Start on either port resets once per fresh press, without a held-button reset loop')
 times=[]
 with Native(HERE/'dist/deshi-dojo-visual.lutro',capture=False) as core:
  core.step(60)
  for n in range(1800):
-  keys=[(0,7),(1,6)] if n%240<100 else controls('mae') if n%240==130 else []
+  keys=[(0,7),(1,6)] if n%240<70 else [(0,4)] if n%240==85 else controls('air_mawashi') if n%240==98 else controls('ushiro') if n%240==150 else []
   t=time.perf_counter();core.step(1,keys);times.append((time.perf_counter()-t)*1000)
-result={'passed':len(checks),'checks':checks,'technique_input_cases':pose_cases,'zone_matrix':matrix,
+result={'passed':len(checks),'checks':checks,'technique_input_cases':pose_cases,'zone_matrix':matrix,'air_zone_matrix':air_matrix,'combo_cases':combo_cases,
  'core_commit':'a031f95394440022a561ce593d578474ac119c05',
  'artifact_sha256':hashlib.sha256((HERE/'dist/deshi-dojo-visual.lutro').read_bytes()).hexdigest(),
  'native_frames_measured':len(times),'mean_ms':statistics.mean(times),'p95_ms':sorted(times)[1709],
  'p99_ms':sorted(times)[1781],'max_ms':max(times),'above_16_67_ms':sum(t>16.67 for t in times),
  'limitations':'Linux x86-64 only; Pi/ARM/GPIO/real monitor/instructor review pending'}
 (HERE/'docs/native-results.json').write_text(json.dumps(result,indent=2)+'\n')
-print(json.dumps({k:v for k,v in result.items() if k!='zone_matrix'},indent=2))
+print(json.dumps({k:v for k,v in result.items() if k not in ('zone_matrix','air_zone_matrix')},indent=2))

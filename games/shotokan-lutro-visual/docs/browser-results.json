@@ -1,5 +1,5 @@
 {
-  "passed": 7,
+  "passed": 11,
   "checks": [
     "Both players move with real keyboard events",
     "Four directional blocks on both players, forward/back relative to opponent",
@@ -7,8 +7,13 @@
     "Age-uke stops high punch",
     "High block leaves middle kick exposed",
     "Technique selection/explanation, slow mode, pause, single frame, play/reset/debug",
+    "Both players jump, punch in air and land; holding up cannot autojump",
+    "Kizami, yoko kekomi, high mawashi and diagonal ushiro commands",
+    "Kizami -> gyaku -> mae on both keyboards, recovery buffer and no automatic repeats",
+    "Airborne technique lesson and new foundations are available offline",
     "Live RAF keyboard control"
   ],
+  "artifact_sha256": "36cb4a81f7804bbe8680775b8ff78748ff4e6f68a714fea8d4775c5cf807fb8e",
   "external_requests": [],
   "errors": [],
   "platform": "Chromium offline/Linux x86-64; not Pi/GPIO"
