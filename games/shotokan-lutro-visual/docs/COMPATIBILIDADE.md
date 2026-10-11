@@ -18,6 +18,7 @@ Limitações tratadas:
 
 - Entradas `isDown` atualizadas após update/draw, com atraso de um tick; o HTML reproduz a ordem. `input.joypad` tem problema de contagem de argumentos que impede selecionar a segunda porta e não foi usada.
 - Blitter com transparência binária, sem tint/escala de PNG. Imagens finais opacas/transparentes, orientação espelhada já preparada e fonte em PNG. Sem shaders/APIs recentes.
+- Checkout Windows: a conversão automática LF→CRLF do Git alterava o hash do Fengari e impedia iniciar o servidor. `.gitattributes` preserva seus bytes; o build repara clones antigos somente se os bytes restaurados corresponderem ao SHA-256 original. O teste `tests/windows_checkout.py` exercita LF/CRLF, repetição e rejeição de conteúdo modificado mesmo com `python -O`. A conversão foi reproduzida em Linux; isso não representa teste de um sistema Windows real.
 - Loader `.lutro` exige diretórios explícitos antes dos arquivos; o pacote contém `assets/` e foi carregado por esse extrator.
 - O core conserva canvas/framebuffer depois de `retro_deinit`; reinitializar a mesma imagem de biblioteca causou falha nativa. O host de testes usa cópia privada e byte-idêntica do `.so` por instância, carregando globals novos, sem patch. Saída/reabertura no frontend real ainda precisam de teste.
 

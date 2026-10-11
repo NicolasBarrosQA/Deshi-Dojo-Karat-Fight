@@ -1,0 +1,2 @@
+# Vendored interpreter: retain the exact bytes used by the pinned SHA-256.
+**/browser/fengari-web.js -text

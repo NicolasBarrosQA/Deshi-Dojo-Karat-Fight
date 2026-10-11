@@ -8,7 +8,15 @@ HERE=Path(__file__).resolve().parents[1];ROOT=HERE.parents[1]
 dist=HERE/'dist';dist.mkdir(exist_ok=True)
 runtime=HERE/'browser/fengari-web.js'
 lock=json.loads((HERE/'browser/runtime-provenance.json').read_text(encoding='utf-8'))
-assert hashlib.sha256(runtime.read_bytes()).hexdigest()==lock['runtime_sha256']
+runtime_original=runtime.read_bytes()
+# Older Windows clones may already contain Git's automatic LF -> CRLF conversion.
+# Only accept that conversion when the restored bytes match the original pin.
+runtime_bytes=runtime_original.replace(b'\r\n',b'\n')
+if hashlib.sha256(runtime_bytes).hexdigest()!=lock['runtime_sha256']:
+ raise SystemExit('Falha de integridade no Fengari: o conteúdo difere da versão verificada. O interpretador não será usado.')
+if runtime_bytes!=runtime_original:
+ runtime.write_bytes(runtime_bytes)
+ print('Quebras de linha do Fengari restauradas; SHA-256 original confirmado.')
 def lua(value):
  if isinstance(value,str):return json.dumps(value,ensure_ascii=False)
  if isinstance(value,bool):return 'true' if value else 'false'
@@ -23,7 +31,7 @@ for name in ('art','techniques'):
  modules+="package.preload['"+name+"']=function()\n"+(HERE/'src'/f'{name}.lua').read_text(encoding='utf-8')+'\nend\n'
 payload={p.stem:'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode() for p in sorted((HERE/'src/assets').glob('*.png')) if not p.stem.startswith('pose-')}
 page=(HERE/'browser/template.html').read_text(encoding='utf-8')
-page=page.replace('__VM__',runtime.read_text(encoding='utf-8').replace('</script','<\\/script'))
+page=page.replace('__VM__',runtime_bytes.decode('utf-8').replace('</script','<\\/script'))
 page=page.replace('__ASSETS__',json.dumps(payload)).replace('__LUA__',json.dumps(modules+(HERE/'src/main.lua').read_text(encoding='utf-8')).replace('<','\\u003c'))
 page=page.replace('__TECHNIQUES__',json.dumps(techniques,ensure_ascii=False)).replace('__ATLAS_HEIGHT__',str(json.loads((HERE/'assets/import.json').read_text(encoding='utf-8'))['atlas_size'][1]))
 (dist/'deshi-dojo-visual.html').write_text(page,encoding='utf-8')

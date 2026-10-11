@@ -16,6 +16,8 @@ No Linux/macOS, use `python3`; no Windows, `py -3` também funciona. O navegador
 
 Porta ocupada: `python scripts/play_web.py --port 8001`. Para abrir o navegador manualmente: `python scripts/play_web.py --no-open`. O endereço é do servidor na sua própria máquina.
 
+No Windows, `.gitattributes` preserva os bytes do interpretador Fengari. Clones antigos que já converteram esse arquivo para CRLF são reparados automaticamente pelo build, somente após confirmar o SHA-256 original dos bytes com LF. Alterações reais de conteúdo continuam sendo rejeitadas; não desative a checagem nem troque o hash para contornar erros.
+
 O HTML em `dist/deshi-dojo-visual.html` também continua abrindo diretamente por arquivo. ZIPs são uma opção de distribuição gerada por `tools/build.py`, não o fluxo necessário para desenvolver ou jogar pelo Git.
 
 | Controle | Jogador 1 | Jogador 2 |
@@ -57,6 +59,7 @@ O viewer usa os mesmos comandos; Enter reinicia. A preparação inicial baixa/ve
 python3 games/shotokan-lutro-visual/tools/import_art.py
 python3 games/shotokan-lutro-visual/tools/build.py
 python3 games/shotokan-lutro-visual/tests/native.py
+python3 games/shotokan-lutro-visual/tests/windows_checkout.py
 node games/shotokan-lutro-visual/tests/browser.cjs
 python3 games/shotokan-lutro-visual/tools/capture.py
 ```
