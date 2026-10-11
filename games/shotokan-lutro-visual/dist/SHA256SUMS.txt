@@ -1,2 +1,2 @@
-89c68d7b3e181e32ed4913e5c7d5a00e0ac0cd3bd57fe9df691e145d7c05abaa  deshi-dojo-visual.html
+dfc230bf21e4f869a59586f3a30f8d4ab3569ac15e653284ea0fd490fbf072e5  deshi-dojo-visual.html
 a0a47d3156ff3a632c3e5b41b0f7e54442008d29471dd220d951c05bc80e0e29  deshi-dojo-visual.lutro

@@ -21,7 +21,7 @@ techniques=json.loads((HERE/'assets/techniques.json').read_text(encoding='utf-8'
 modules=''
 for name in ('art','techniques'):
  modules+="package.preload['"+name+"']=function()\n"+(HERE/'src'/f'{name}.lua').read_text(encoding='utf-8')+'\nend\n'
-payload={p.stem:'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode() for p in (HERE/'src/assets').glob('*.png') if not p.stem.startswith('pose-')}
+payload={p.stem:'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode() for p in sorted((HERE/'src/assets').glob('*.png')) if not p.stem.startswith('pose-')}
 page=(HERE/'browser/template.html').read_text(encoding='utf-8')
 page=page.replace('__VM__',runtime.read_text(encoding='utf-8').replace('</script','<\\/script'))
 page=page.replace('__ASSETS__',json.dumps(payload)).replace('__LUA__',json.dumps(modules+(HERE/'src/main.lua').read_text(encoding='utf-8')).replace('<','\\u003c'))
