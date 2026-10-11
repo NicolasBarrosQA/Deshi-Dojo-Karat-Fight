@@ -1,11 +1,13 @@
 {
   "passed": true,
   "checks": [
-    "Server started outside repository cwd; Python standard library and automatic HTML build",
-    "HTTP GET bytes match delivered page; HEAD/no-store; only game page exposed",
-    "Real browser keyboard approaches both fighters, buffers soco > soco > chute: three hits, energy70, bodies remain ordered",
-    "No external requests or page errors"
+    "Server starts outside repo cwd using Python standard library",
+    "CPU source change rebuilds HTTP HTML automatically; original bytes restored",
+    "Delivered native cart unchanged by web-only rebuild; GET hash matches delivered HTML",
+    "HEAD/no-store and only game page exposed",
+    "Real browser: autonomous default easy CPU, P1 keyboard movement/punch, collision and hard selection",
+    "No external requests or JS errors"
   ],
-  "artifact_sha256": "94df242041670d56f60f674a399333bf5ebb02e38a513eee1b81e396abed971b",
-  "platform": "Linux Python3.12/Chromium; Windows commands documented, CRLF separately tested, physical Windows pending"
+  "artifact_sha256": "18f28801349a0502d7a00c6afd0eb5fc3f3e597a475de124ea4c9eb7f440c924",
+  "platform": "Linux Python3.12/Chromium; Windows commands documented and CRLF separately tested, physical Windows/Pi pending"
 }

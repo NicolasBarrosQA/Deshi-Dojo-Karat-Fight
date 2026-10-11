@@ -1,5 +1,5 @@
 {
-  "cart_sha256": "2c8f44285e6bd5cea9f1dd90b87daae0428b1947ba53630b941dce95b929d966",
+  "cart_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
   "techniques": {
     "age": 40,
     "gedan": 40,
@@ -17,7 +17,7 @@
     "gyaku_low": 40
   },
   "technique_ticks": 1120,
-  "total_ticks": 1567,
+  "total_ticks": 1867,
   "sample_every_ticks": 2,
   "gif_presentation": "native resolution, slowed 70/80ms per sampled frame; simulation remains 60Hz",
   "instrumentation": false,

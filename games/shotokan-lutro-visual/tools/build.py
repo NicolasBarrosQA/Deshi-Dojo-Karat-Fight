@@ -27,7 +27,7 @@ def lua(value):
 techniques=json.loads((HERE/'assets/techniques.json').read_text(encoding='utf-8'))
 (HERE/'src/techniques.lua').write_text('return '+lua(techniques)+'\n',encoding='utf-8')
 modules=''
-for name in ('art','techniques'):
+for name in ('art','techniques','cpu'):
  modules+="package.preload['"+name+"']=function()\n"+(HERE/'src'/f'{name}.lua').read_text(encoding='utf-8')+'\nend\n'
 payload={p.stem:'data:image/png;base64,'+base64.b64encode(p.read_bytes()).decode() for p in sorted((HERE/'src/assets').glob('*.png')) if not p.stem.startswith('pose-')}
 page=(HERE/'browser/template.html').read_text(encoding='utf-8')
@@ -63,7 +63,7 @@ with zipfile.ZipFile(dist/'deshi-dojo-fundamentos.zip','w',zipfile.ZIP_DEFLATED)
   z.write(dist/name,name)
  z.write(HERE/'README.md','LEIA-ME.md')
  z.write(HERE/'LICENSE','LICENSE')
- for name in ('FUNDAMENTOS.md','COMPATIBILIDADE.md','research-sources.json','native-results.json','browser-results.json','capture-results.json','raster-results.json','preservation-results.json','TIC80-LICENSE.txt'):
+ for name in ('FUNDAMENTOS.md','COMPATIBILIDADE.md','CPU.md','cpu-native-results.json','cpu-browser-results.json','research-sources.json','native-results.json','browser-results.json','capture-results.json','raster-results.json','preservation-results.json','TIC80-LICENSE.txt'):
   p=HERE/'docs'/name
   if p.exists():z.write(p,'docs/'+name)
  z.write(HERE/'browser/FENGARI-WEB-LICENSE.txt','licenses/FENGARI-WEB-LICENSE.txt')

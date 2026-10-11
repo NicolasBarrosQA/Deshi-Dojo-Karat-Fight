@@ -3,13 +3,15 @@
 local g=lutro.graphics
 local skills=require('techniques')
 local art=require('art')
+local CPU=require('cpu')
 local rules=skills.arcade
 local W,H,FLOOR=224,144,195
 local image,quad,fontQuad={},{},{}
 local previous={{},{}}
+local physicalPrevious={{},{}}
 local keys={'up','down','left','right','b','y','a','select','start'}
 local indices={up=5,down=6,left=7,right=8,b=1,y=2,a=9,select=3,start=4}
-Scene={tick=0,freeze=0,flash=0,debug=false,demo=false,practice=false,lesson='gyaku',players={},wins={0,0}}
+Scene={tick=0,freeze=0,flash=0,debug=false,demo=false,practice=false,lesson='gyaku',players={},wins={0,0},mode='cpu',difficulty='easy',menu=false}
 local function clamp(v,a,b) return math.max(a,math.min(b,v)) end
 local function color(r,b,c) g.setColor(r,b,c,255) end
 local function box(x,y,w,h,r,b,c,outline)
@@ -48,11 +50,28 @@ local function newPlayers()
  end
  Scene.left=1 Scene.freeze=0 Scene.flash=0 Scene.lastContact=nil
  Scene.timer=rules.round_ticks Scene.result=nil Scene.roundWait=0 Scene.impact=nil
+ Scene.cpu=CPU.new(Scene.difficulty,103+Scene.round*977)
 end
 function Scene.reset()
  Scene.tick=0 Scene.wins={0,0} Scene.round=1 Scene.matchWinner=nil
  Scene.message='SOCO > SOCO > CHUTE' Scene.messageTicks=100
- newPlayers() previous={{},{}}
+ newPlayers() previous={{},{}} physicalPrevious={{},{}} Scene.menu=false
+end
+local menuOptions={{mode='cpu',level='easy',label='CPU FACIL / FAIXA VERMELHA'},
+ {mode='cpu',level='medium',label='CPU MEDIO / FAIXA LARANJA'},
+ {mode='cpu',level='hard',label='CPU DIFICIL / FAIXA PRETA'},
+ {mode='versus',level='easy',label='2 JOGADORES'}}
+function Scene.configure(mode,level)
+ assert(mode=='cpu' or mode=='versus','Unknown match mode')
+ assert(CPU.profiles[level],'Unknown difficulty')
+ Scene.mode=mode Scene.difficulty=level Scene.demo=false
+ Scene.reset()
+end
+local function openMenu()
+ Scene.menu=true
+ for i,option in ipairs(menuOptions) do
+  if option.mode==Scene.mode and (option.mode=='versus' or option.level==Scene.difficulty) then Scene.menuChoice=i break end
+ end
 end
 local function horizontal(input,face)
  if input.left==input.right then return 0 end
@@ -182,7 +201,7 @@ local function finishRound()
   Scene.wins[winner]=Scene.wins[winner]+1
   if Scene.wins[winner]>=rules.rounds_to_win then Scene.matchWinner=winner end
  end
- Scene.message=winner==0 and 'EMPATE' or 'P'..winner..' VENCEU O ROUND'
+ Scene.message=winner==0 and 'EMPATE' or (winner==2 and Scene.mode=='cpu' and 'CPU' or 'P'..winner)..' VENCEU O ROUND'
  Scene.messageTicks=95
 end
 function Scene.advance()
@@ -192,12 +211,44 @@ function Scene.advance()
   input[i]={}
   for _,k in ipairs(keys) do input[i][k]=lutro.joystick.isDown(i,indices[k]) end
  end
+ local physical={input[1],input[2]}
+ local oldPhysical=physicalPrevious
+ physicalPrevious=physical
  for i=1,2 do
-  if input[i].start and not previous[i].start then Scene.reset() previous=input return end
-  if input[i].select and not previous[i].select then Scene.debug=not Scene.debug end
-  if Scene.demo then input[i]=lessonInput(i) end
-  Scene.players[i].inputs=input[i]
+  if physical[i].select and not oldPhysical[i].select then
+   if Scene.menu then Scene.menu=false previous[1]=physical[1]
+    if Scene.mode=='versus' then previous[2]=physical[2] end
+   else openMenu() end
+   return
+  end
  end
+ if Scene.menu then
+  for i=1,2 do
+   local c,old=physical[i],oldPhysical[i]
+   if (c.up and not old.up) or (c.left and not old.left) then Scene.menuChoice=(Scene.menuChoice-2)%#menuOptions+1
+   elseif (c.down and not old.down) or (c.right and not old.right) then Scene.menuChoice=Scene.menuChoice%#menuOptions+1 end
+   if (c.start and not old.start) or (c.b and not old.b) or (c.a and not old.a) then
+    local option=menuOptions[Scene.menuChoice]
+    Scene.practice=false Scene.configure(option.mode,option.level)
+    physicalPrevious=physical previous=physical return
+   elseif c.y and not old.y then
+    Scene.menu=false previous[1]=physical[1]
+    if Scene.mode=='versus' then previous[2]=physical[2] end
+    return
+   end
+  end
+  return
+ end
+ for i=1,2 do
+  if physical[i].start and not oldPhysical[i].start then
+   Scene.reset() physicalPrevious=physical previous=physical return
+  end
+  if Scene.demo then input[i]=lessonInput(i) end
+ end
+ if Scene.mode=='cpu' and not Scene.demo then
+  input[2]=Scene.result and {} or CPU.update(Scene.cpu,Scene.players[2],Scene.players[1],Scene.freeze>0)
+ end
+ for i=1,2 do Scene.players[i].inputs=input[i] end
  if Scene.flash>0 then Scene.flash=Scene.flash-1 end
  if Scene.messageTicks>0 then Scene.messageTicks=Scene.messageTicks-1 end
  if Scene.result then
@@ -360,7 +411,7 @@ function lutro.draw()
   g.draw(image[p.face==1 and 'fighter-right' or 'fighter-left'],quad[p.pose],math.floor(p.x-W/2),math.floor(FLOOR-H-p.height))
   local top=FLOOR-H+art.bounds[p.pose][2]-p.height
   box(p.x-8,math.max(43,top-11),16,8,i==1 and 37 or 111,i==1 and 94 or 67,i==1 and 124 or 44)
-  text('P'..i,p.x-6,math.max(44,top-10))
+  text(i==2 and Scene.mode=='cpu' and not Scene.demo and 'C' or 'P'..i,p.x-6,math.max(44,top-10))
   if Scene.debug then
    box(p.x-rules.push_distance/2,80-p.height,rules.push_distance,115,90,190,220,true)
    for _,zone in ipairs({'jodan','chudan','gedan'}) do
@@ -381,10 +432,14 @@ function lutro.draw()
  centered((Scene.practice or Scene.demo) and 'TREINO' or string.format('%02d',math.ceil(Scene.timer/60)),16)
  for i,p in ipairs(Scene.players) do
   local x=i==1 and 8 or 232
-  text('P'..i..'  SHOTOKAN',x,5)
+  local cpu=i==2 and Scene.mode=='cpu' and not Scene.demo
+  local profile=CPU.profiles[Scene.difficulty]
+  text(cpu and 'CPU '..profile.belt or 'P'..i..'  SHOTOKAN',x,5)
+  if cpu then box(x+130,4,13,7,profile.color[1],profile.color[2],profile.color[3]);box(x+130,4,13,7,210,210,201,true) end
   box(x,16,144,8,49,57,57)
   local width=math.floor(142*p.energy/rules.energy)
-  box(i==1 and x+1 or x+143-width,17,width,6,i==1 and 84 or 224,i==1 and 176 or 147,i==1 and 209 or 89)
+  local rgb=cpu and (Scene.difficulty=='hard' and {175,183,190} or profile.color) or i==1 and {84,176,209} or {224,147,89}
+  box(i==1 and x+1 or x+143-width,17,width,6,rgb[1],rgb[2],rgb[3])
   for n=1,2 do box(x+(n-1)*7,28,5,4,Scene.wins[i]>=n and 220 or 70,Scene.wins[i]>=n and 180 or 78,Scene.wins[i]>=n and 100 or 76) end
   local label=p.action and skills.techniques[p.action.id].label or p.phase
   text(label,x+19,28)
@@ -395,7 +450,21 @@ function lutro.draw()
  centered(Scene.messageTicks>0 and Scene.message or 'SOCO > SOCO > CHUTE / DEFESA PARA RECEBER',214)
  if Scene.result then
   box(72,94,240,34,13,23,29)
-  centered(Scene.matchWinner and 'P'..Scene.matchWinner..' VENCEU A PARTIDA' or Scene.message,103)
+  local winner=Scene.matchWinner==2 and Scene.mode=='cpu' and 'CPU' or 'P'..(Scene.matchWinner or 0)
+  centered(Scene.matchWinner and winner..' VENCEU A PARTIDA' or Scene.message,103)
   centered(Scene.matchWinner and 'START / ENTER: REVANCHE' or 'PROXIMO ROUND',116)
  end
+ if Scene.menu then
+  box(28,66,328,127,13,23,29) box(28,66,328,127,185,151,94,true)
+  centered('ESCOLHA O ADVERSARIO',76)
+  for i,option in ipairs(menuOptions) do
+   if Scene.menuChoice==i then box(40,91+(i-1)*16,304,13,60,71,71) end
+   local rgb=option.mode=='cpu' and CPU.profiles[option.level].color or {84,176,209}
+   box(46,94+(i-1)*16,8,7,rgb[1],rgb[2],rgb[3]);box(46,94+(i-1)*16,8,7,210,210,201,true)
+   text(option.label,64,95+(i-1)*16)
+  end
+  centered('DIRECOES: ESCOLHER / SOCO: LUTAR',164)
+  centered('DEFESA: VOLTAR / SELECT: MENU',178)
+ end
+
 end

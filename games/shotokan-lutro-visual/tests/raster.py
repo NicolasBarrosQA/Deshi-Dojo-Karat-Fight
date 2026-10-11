@@ -6,6 +6,10 @@ HERE=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(HERE/'tools'))
 from native_host import Native
 cases=[{'name':'initial','code':''}]
+for level in ('easy','medium','hard'):
+ cases.append({'name':'cpu-'+level,'code':f'Scene.configure("cpu","{level}");'})
+for choice in range(1,5):
+ cases.append({'name':f'arcade-menu-{choice}','code':f'Scene.menu=true;Scene.menuChoice={choice};'})
 for pose in (35,36,42,47,67,71,75,85,86,89,90,91,92):
  for face in (1,-1):
   for x in (64,320):
@@ -26,9 +30,9 @@ for pose in range(1,json.loads((HERE/'assets/import.json').read_text())['frames'
  assert mirrored.tobytes()==ImageOps.mirror(Image.open(HERE/f'src/assets/pose-{pose:02d}.png').convert('RGBA')).tobytes(),pose
 with tempfile.TemporaryDirectory(prefix='dojo-raster-') as tmp:
  folder=Path(tmp);fixture=folder/'fixture';fixture.mkdir();(fixture/'assets').symlink_to(HERE/'src/assets',target_is_directory=True)
- for name in ('conf.lua','art.lua','techniques.lua'):(fixture/name).write_bytes((HERE/'src'/name).read_bytes())
+ for name in ('conf.lua','art.lua','techniques.lua','cpu.lua'):(fixture/name).write_bytes((HERE/'src'/name).read_bytes())
  for c in cases:
-  (fixture/'main.lua').write_text((HERE/'src/main.lua').read_text()+ '\nfunction lutro.update(dt) end\nlocal originalLoad=lutro.load\nfunction lutro.load() originalLoad();'+c['code']+' end\n')
+  (fixture/'main.lua').write_text((HERE/'src/main.lua').read_text()+ '\nfunction lutro.update(dt) end\nlocal originalLoad=lutro.load\nfunction lutro.load() originalLoad();Scene.configure("versus","easy");'+c['code']+' end\n')
   with Native(fixture/'main.lua') as core:
    core.step(1);core.frame.save(folder/(c['name']+'-native.png'))
  (folder/'cases.json').write_text(json.dumps(cases))
@@ -41,6 +45,6 @@ with tempfile.TemporaryDirectory(prefix='dojo-raster-') as tmp:
 result={'initial_scene_equal':True,'frames_equal':len(cases),'all_92_poses_mirrored':True,
  'cross_cell_mawashi_foot_recovered':True,'orphan_foot_absent':True,'resolution':[384,224],
  'cart_sha256':hashlib.sha256((HERE/'dist/deshi-dojo-visual.lutro').read_bytes()).hexdigest(),
- 'scope':'Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height44, reactions and low planted stance. Hardware Pi pending.'}
+ 'scope':'Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height44, reactions and low planted stance, three CPU HUD ranks and four menu choices. Hardware Pi pending.'}
 (HERE/'docs/raster-results.json').write_text(json.dumps(result,indent=2)+'\n')
 print(json.dumps(result,indent=2))

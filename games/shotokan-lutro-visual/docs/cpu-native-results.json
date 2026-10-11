@@ -1,0 +1,75 @@
+{
+  "passed": 7,
+  "checks": [
+    "Real Lua5.1: observation delays22/12/6, ordinary buttons only, no human inputs/queue/stun reads or player mutations, frozen thinking stops",
+    "Three complete matches against idle P1, no port2 input; each CPU wins two rounds and Start rematches",
+    "Identical900tick human workload: increased CPU attack frequency, one/two/three technique caps, practice unlimited, collision stable",
+    "Hard CPU actually blocks a physical circular-kick barrage; no perfect guard assumption",
+    "Port2 direction/attack/guard buttons do not override or perturb the CPU",
+    "Select/menu on both ports: directions choose, held direction single step, freeze fight/CPU, defense cancels, hard confirmed, held Start single reset, human2 restored",
+    "1080 per-tick CPU replays: native Lua5.1 vs offline Fengari match positions, energy, inputs, decisions and RNG exactly after quantization"
+  ],
+  "matches": [
+    {
+      "level": "easy",
+      "ticks_to_two_wins": 1738,
+      "last_round_attacks": 12,
+      "max_chain": 1,
+      "jumps": 0
+    },
+    {
+      "level": "medium",
+      "ticks_to_two_wins": 767,
+      "last_round_attacks": 10,
+      "max_chain": 2,
+      "jumps": 0
+    },
+    {
+      "level": "hard",
+      "ticks_to_two_wins": 522,
+      "last_round_attacks": 11,
+      "max_chain": 3,
+      "jumps": 1
+    }
+  ],
+  "workload": [
+    {
+      "level": "easy",
+      "executed": 10,
+      "contacts": 10,
+      "blocks": 0,
+      "max_chain": 1,
+      "jumps": 0
+    },
+    {
+      "level": "medium",
+      "executed": 19,
+      "contacts": 19,
+      "blocks": 1,
+      "max_chain": 2,
+      "jumps": 0
+    },
+    {
+      "level": "hard",
+      "executed": 42,
+      "contacts": 36,
+      "blocks": 2,
+      "max_chain": 3,
+      "jumps": 1
+    }
+  ],
+  "guard_scenario": [
+    {
+      "level": "hard",
+      "cpu_blocks": 1,
+      "cpu_contacts": 48,
+      "human_contacts": 9
+    }
+  ],
+  "replay_ticks": 1080,
+  "artifact_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
+  "native_cpu_frames_measured": 1800,
+  "mean_ms": 0.2376119973147676,
+  "p95_ms": 0.28358800045680255,
+  "limitations": "Synthetic player/idle opponents validate behavior, not human difficulty ratings or Pi/GPIO/performance. Belt colors identify CPU profiles in HUD; character art unchanged."
+}

@@ -7,8 +7,8 @@ HERE=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser();parser.add_argument('--frames',type=int,default=0);args=parser.parse_args()
 window=tk.Tk();window.title('Deshi Dojo — prova visual Shotokan')
 label=tk.Label(window,bg='#111b20');label.pack()
-tk.Label(window,text='P1: setas / Z soco / X defesa / A chute     P2: I J K L / F soco / G defesa / H chute     Enter: recomeçar',bg='#111b20',fg='#eadbc1').pack(fill='x')
-keymap={'Up':(0,4),'Down':(0,5),'a':(0,8),'i':(1,4),'k':(1,5),'h':(1,8),'Left':(0,6),'Right':(0,7),'z':(0,0),'x':(0,1),'j':(1,6),'l':(1,7),'f':(1,0),'g':(1,1),'Return':(0,3)}
+tk.Label(window,text='P1: setas / Z soco / X defesa / A chute     P2: I J K L / F soco / G defesa / H chute     Enter: recomeçar     F2: CPU/nível/2 jogadores',bg='#111b20',fg='#eadbc1').pack(fill='x')
+keymap={'Up':(0,4),'Down':(0,5),'a':(0,8),'i':(1,4),'k':(1,5),'h':(1,8),'Left':(0,6),'Right':(0,7),'z':(0,0),'x':(0,1),'j':(1,6),'l':(1,7),'f':(1,0),'g':(1,1),'Return':(0,3),'F2':(0,2)}
 held=set();count=0;core=Native(HERE/'dist/deshi-dojo-visual.lutro')
 def press(event):
  if event.keysym in keymap:held.add(keymap[event.keysym])

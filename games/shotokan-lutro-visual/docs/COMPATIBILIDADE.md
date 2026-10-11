@@ -1,4 +1,4 @@
-# Lutro v04 — evidências e limites
+# Lutro v05 — evidências e limites
 
 Atualização de 11/10/2026 UTC. Combate e estudo de fundamentos em `games/shotokan-lutro-visual/`; independente dos projetos IKEMEN/TIC-80 preservados. Backup completo da versão Lutro v01 em `archives/shotokan-lutro-visual-v01.zip`, com manifesto SHA-256. Não houve acesso ao cartão, rede do gabinete ou modificação de jogos/configurações do fliperama.
 
@@ -7,6 +7,8 @@ Atualização de 11/10/2026 UTC. Combate e estudo de fundamentos em `games/shoto
 Três ações nos dois ports: B soco, Y defesa, A chute; direções relativas ao adversário. Oito ataques ativos no chão, dois no salto, quatro uke e guarda neutra. Foram importadas 92 poses; animações confusas ficam preservadas fora dos comandos ativos. A barreira entre corpos mantém a ordem anterior ao movimento, incluindo avanços, pulos e paredes; corrigiu o atravessamento. Preparação mais curta, buffer de 24 ticks através dos bloqueios temporários, recuo, poses de impacto e combos por acertos consecutivos.
 
 A luta usa energia, 60 segundos e dois rounds vencidos; treino/demonstração não limitam energia/tempo. Eventos de técnica e coordenadas do contato são emitidos por `Scene.onContact`, independente dessas regras, para permitir pontuação técnica futura. Não há arbitragem oficial. Catálogo JSON gera Lua único para cartucho/browser. O HTML ensina três ações na tela da luta e deixa as explicações completas em um painel opcional. Ver [FUNDAMENTOS.md](FUNDAMENTOS.md).
+A v05 acrescenta CPU nos três níveis solicitados: vermelha/fácil, laranja/médio, preta/difícil. Inicia no fácil; escolha pelo browser ou F2/Select/direcional no jogo. Dois jogadores, treino e demonstrações continuam disponíveis. O controlador devolve botões para o mesmo combate, sem bônus de energia/dano, leitura de comandos futuros ou serviço externo. Histórico curto de observação; observação/decisão/erro e sequências variam por nível. Ver [CPU.md](CPU.md) para os perfis e as limitações de balanceamento. As faixas são indicadas no HUD/menu; a arte original permanece preservada.
+
 ## Núcleo e APIs históricas
 
 Recalbox `6.1-Dragonblaze`, commit **8ffdef58cf5a555451581c6cf7a8bee33b0ed07c**, habilita `BR2_PACKAGE_LIBRETRO_LUTRO=y` na configuração Pi 3. O pacote fixa **a031f95394440022a561ce593d578474ac119c05**. Fontes primárias e declarações estão em `research/lutro/README.md`. Isso confirma a configuração oficial, não o conteúdo do cartão existente.
@@ -34,13 +36,15 @@ Limitações tratadas:
 | Mecânicas | Botão mantido, distância, contatos simultâneos, recepção/timing, contra-ataque da defesa, reação/recuo, input através de pausa/stun, base baixa |
 | Partida | KO, timeout, empate, round seguinte, vitória com dois rounds; treino preserva energia/tempo e eventos técnicos |
 | Browser offline | 12 grupos: teclado real, colisão por quadro, quatro uke, soco/chute, combo, salto/pouso, treino/luta/estudo, entrada gamepad **simulada**, Enter/foco e RAF/Escape; zero HTTP externo/erros JS |
-| Raster | 85 cenas/poses/bordas pixel a pixel nativo/browser; 92 poses espelhadas verificadas; regressão do pé 35/36 |
+| CPU nativa | Sete grupos, três partidas autônomas completas, carga comum nos três perfis, atraso/inputs comuns, defesa real, isolamento do port2, menu nos dois ports e 1.080 ticks de replay Lua5.1/Fengari |
+| CPU browser | Cinco grupos com seletores/teclado reais, solo/níveis, treino/demonstração/revanche, menu, retorno aos dois jogadores; offline/sem erros |
+| Raster | 92 cenas/poses/bordas pixel a pixel nativo/browser; 92 poses espelhadas verificadas; três HUDs CPU/quatro opções de menu; regressão do pé 35/36 |
 | Viewer desktop | 120 ticks em Xvfb, concluídos |
 | Localhost | Página HTTP do servidor real, teclado dos dois jogadores/combo, hash do HTML, HEAD/no-store e acesso limitado à página; nenhuma requisição externa |
 | Capturas | Cartucho entregue sem telemetria: 14 técnicas × 80 ticks, sequência básica adicional; PNG/GIF |
 | Desempenho desktop | 1.800 ticks medidos; simulação/desenho, excluindo conversão RGB Python/monitor; `native-results.json` |
 
-Resultados em `native-results.json`, `browser-results.json`, `raster-results.json`, `capture-results.json` e `web-server-results.json` vinculam hashes aos artefatos. O teste Windows CRLF/integridade também passou.
+Resultados em `native-results.json`, `browser-results.json`, `raster-results.json`, `capture-results.json` e `web-server-results.json`, `cpu-native-results.json` e `cpu-browser-results.json` vinculam hashes aos artefatos. O teste Windows CRLF/integridade também passou.
 Testes de lógica acrescentam telemetria apenas em uma fixture temporária, sem mudar cartucho/Lua entregues. Capturas executam o cartucho diretamente. Resultados JSON carregam hashes do artefato quando aplicável. Benchmarks x86-64 não demonstram 60 Hz no ARM; pausas do escalonador cloud também podem afetar máximos. Não há medição física de input lag ou sincronização do monitor.
 
 ## Memória conhecida
@@ -66,3 +70,5 @@ Obter acesso ao cartão e backup verificável antes de transferir. Identificar o
 A versão Lutro v02 também continua recuperável pelo commit Git `1498e2d24faa8f5d17a39d3d82fe28774aea12d2`.
 
 A versão Lutro v03 permanece recuperável no commit Git `2017b2c5b501a0472fb8955ecf97c18c570eb57a`. Nenhuma fonte antiga foi apagada.
+
+A versão de combate v04 fica recuperável no commit `49b0d080e4ccfd5e7a4709c32b3c10fb1b8e58a3`. A CPU não alterou os sprites ou o repertório de técnicas.

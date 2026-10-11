@@ -11,12 +11,19 @@ def controls(id,side=0):
   direction={'up':4,'down':5,'forward':7 if side==0 else 6,'back':6 if side==0 else 7}.get(d)
   if direction is not None:keys.append((side,direction))
  return keys
+def two_players(core):
+ # Delivered game starts solo. Choose humans through the real native menu.
+ core.step(2,[(0,2)]);core.step(2)
+ for _ in range(3):core.step(2,[(0,5)]);core.step(2)
+ core.step(2,[(0,0)]);core.step(2)
+ return 20
 record={};allframes=[];total_ticks=0
 for id in data['order']:
  frames=[];t=tech[id];defense=t['kind']=='defense';air=t.get('air',False)
  distance=88 if defense else max(88,int((t['hit']['near']+t['hit']['far'])/2))
  approach=max(0,int((176-distance)/3.8))
  with Native(HERE/'dist/deshi-dojo-visual.lutro') as core:
+  total_ticks+=two_players(core)
   core.step(approach,[(0,7),(1,6)]);core.step(2);total_ticks+=approach+2
   for n in range(80):
    trigger=12 if air else 2
@@ -37,6 +44,7 @@ allframes[0].save(HERE/'docs/fundamentos.gif',save_all=True,append_images=allfra
 # The same beginner combo as the real input tests, including early buffered presses.
 frames=[]
 with Native(HERE/'dist/deshi-dojo-visual.lutro') as core:
+ total_ticks+=two_players(core)
  core.step(30,[(0,7),(1,6)]);core.step(2);total_ticks+=32
  for n in range(66):
   keys=[(0,0)] if n in (0,1,3,4) else [(0,8)] if n in (12,13) else []

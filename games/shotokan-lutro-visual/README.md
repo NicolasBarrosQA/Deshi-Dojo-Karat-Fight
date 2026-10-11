@@ -1,8 +1,10 @@
-# Deshi Dojo — combate Shotokan, Lutro v04
+# Deshi Dojo — combate Shotokan, Lutro v05
 
 Dois jogadores e três botões: **soco, defesa e chute**. A luta tem energia, 60 segundos e melhor de três rounds. **Treino livre** mantém energia e tempo para experimentar. O combate usa técnicas Shotokan e eventos de contato separados das regras de energia, permitindo futuramente pontuação por distância, linha e precisão.
 
 A versão v04 corrige o atravessamento com uma barreira entre os corpos que preserva a ordem anterior ao movimento. Acelera os golpes básicos, guarda novas pressões durante recuperação/impacto e acrescenta reação ao receber golpe, recuo, combos por acertos consecutivos e uma apresentação mais simples. As animações são ilustrações provisórias: as que ainda não representam claramente a técnica foram retiradas dos comandos ativos, com fontes e catálogo preservados.
+A versão v05 acrescenta **CPU offline**: fácil/faixa vermelha, médio/faixa laranja e difícil/faixa preta. O jogo inicia no fácil. Selecione **Contra a CPU** ou **2 jogadores** acima da luta; a CPU ocupa o jogador 2. Cada nível usa os mesmos golpes/regras, com diferença de observação, iniciativa, defesa e sequências. As faixas identificam o perfil no HUD/menu; o sprite provisório continua preservado. [Comportamento, arquitetura e testes da CPU](docs/CPU.md).
+
 O IKEMEN e os dois projetos TIC-80 permanecem intactos. A amostra Lutro v01 inteira está preservada em `archives/shotokan-lutro-visual-v01.zip` na raiz do checkout, com manifesto SHA-256. Nenhum arquivo do fliperama foi acessado ou modificado.
 
 ## Jogar no notebook
@@ -57,7 +59,7 @@ Cima sozinho salta; diagonal para cima desloca o salto; baixo usa uma base baixa
 
 Defesa sem direção mantém cobertura média; as quatro direções selecionam os uke acima. A defesa tem preparação e cobre somente a altura efetiva do contato. Mudar direção reinicia a preparação; soltar libera o movimento. Uma recepção no tempo abre uma janela de contra-ataque. Segure defesa **antes** de inclinar para cima para executar age-uke sem saltar; a defesa também substitui a impulsão enquanto os pés ainda estão no chão.
 
-**Lutar** usa energia e rounds; golpes bloqueados não retiram energia. **Treino livre** não limita tempo/energia. Enter reinicia, Escape pausa no browser. Os indicadores dos comandos acendem e o nome/fase da técnica aparecem abaixo da luta. Em gamepads padrão no browser: A soco, X defesa, B chute; direcional/analógico movimenta, Start reinicia. A API foi testada com entradas simuladas; controles físicos/GPIO continuam pendentes.
+**Lutar** inicia uma partida com o modo/adversário escolhido. Trocar modo/nível também reinicia; Enter/Start preserva essa escolha. **Lutar** usa energia e rounds; golpes bloqueados não retiram energia. **Treino livre** não limita tempo/energia. Enter reinicia, Escape pausa no browser. F2/Select abre a seleção pelo direcional: soco/chute/Start confirma, defesa cancela. O relógio pausa durante essa seleção. Os indicadores dos comandos acendem e o nome/fase da técnica aparecem abaixo da luta. Em gamepads padrão no browser: A soco, X defesa, B chute; direcional/analógico movimenta, Start reinicia. A API foi testada com entradas simuladas; controles físicos/GPIO continuam pendentes.
 
 Abra **Aprender os golpes e ver todos os comandos** quando quiser estudar. Selecione a técnica e clique **Ver movimento**; use câmera lenta, pausa, quadro único ou colisões. **Lutar** retorna ao controle livre. Combate e demonstração usam o mesmo Lua. O painel explicativo é do browser; o cartucho mostra nome/fase. Combinações simultâneas ainda dependem do teclado. Consulte [FUNDAMENTOS.md](docs/FUNDAMENTOS.md) para princípios, fontes e revisão pendente.
 
@@ -70,7 +72,7 @@ python3 research/lutro/prepare.py
 python3 games/shotokan-lutro-visual/tools/play_notebook.py
 ```
 
-O viewer usa os mesmos comandos; Enter reinicia. A preparação inicial baixa/verifica fontes; depois funciona offline. Não precisa dele para jogar o HTML. `.lutro` usa RETROPAD B = soco, Y = defesa, A = chute; direções dos dois ports. O mapeamento físico/GPIO no gabinete ainda precisa ser testado. Não copie bibliotecas x86 ao Pi.
+O viewer usa os mesmos comandos; Enter reinicia e F2 escolhe CPU/nível/dois jogadores. A preparação inicial baixa/verifica fontes; depois funciona offline. Não precisa dele para jogar o HTML. `.lutro` usa RETROPAD B = soco, Y = defesa, A = chute; direções dos dois ports. O mapeamento físico/GPIO no gabinete ainda precisa ser testado. Não copie bibliotecas x86 ao Pi.
 
 ## Fonte e reconstrução
 
@@ -80,6 +82,8 @@ O viewer usa os mesmos comandos; Enter reinicia. A preparação inicial baixa/ve
 python3 games/shotokan-lutro-visual/tools/import_art.py
 python3 games/shotokan-lutro-visual/tools/build.py
 python3 games/shotokan-lutro-visual/tests/native.py
+python3 games/shotokan-lutro-visual/tests/cpu_native.py
+node games/shotokan-lutro-visual/tests/cpu_browser.cjs
 python3 games/shotokan-lutro-visual/tests/windows_checkout.py
 node games/shotokan-lutro-visual/tests/browser.cjs
 python3 games/shotokan-lutro-visual/tests/raster.py
@@ -96,7 +100,7 @@ PATH="$PWD/.cache/cloud-tools/usr/bin:$PATH" xvfb-run -a python3 games/shotokan-
 
 ## Evidências e pendências
 
-O cartucho foi exercitado no núcleo histórico que a configuração oficial do Recalbox 6.1 fixa, compilado para Linux x86-64. Passaram 19 grupos nativos, 56 casos técnica/porta/orientação, 40 pares no chão, 10 no ar, quatro combos básicos com **três contatos reais**, 680 verificações de colisão por tick e 12 grupos no browser offline. São 85 cenas/poses/bordas comparadas pixel a pixel, incluindo reações e base baixa; espelhamento de 92 poses importadas verificado. **Isso não comprova desempenho/compatibilidade ARM ou GPIO no Raspberry Pi 3, nem certifica a biomecânica das poses.** Leia [COMPATIBILIDADE.md](docs/COMPATIBILIDADE.md) e os resultados JSON.
+O cartucho foi exercitado no núcleo histórico que a configuração oficial do Recalbox 6.1 fixa, compilado para Linux x86-64. Passaram 19 grupos nativos, 56 casos técnica/porta/orientação, 40 pares no chão, 10 no ar, quatro combos básicos com **três contatos reais**, 680 verificações de colisão por tick e 12 grupos no browser offline. Os testes adicionais da CPU verificam três partidas completas, sete grupos nativos e cinco no browser, incluindo 1.080 ticks de replay entre os interpretadores. São 92 cenas/poses/bordas comparadas pixel a pixel, incluindo reações, base baixa, perfis CPU e menu; espelhamento de 92 poses importadas verificado. **Isso não comprova desempenho/compatibilidade ARM ou GPIO no Raspberry Pi 3, nem certifica a biomecânica das poses.** Leia [COMPATIBILIDADE.md](docs/COMPATIBILIDADE.md) e os resultados JSON.
 Para um futuro teste no gabinete: verificar alimentação/baixa tensão, obter acesso ao cartão, fazer backup verificável, identificar o núcleo/diretório realmente instalados e adicionar apenas o cartucho novo. Não atualizar Recalbox, sobrescrever jogos/configurações ou alterar GPIO. Ainda medir desempenho, memória total, temperatura, latência/monitor, duas portas físicas e saída/reabertura.
 
 [Captura das técnicas no jogo](docs/fundamentos.gif) · [age-uke](docs/age-3x.png) · [gedan-barai](docs/gedan-3x.png) · [soto-uke](docs/soto-3x.png) · [uchi-uke](docs/uchi-3x.png) · [mawashi](docs/mawashi-3x.png).

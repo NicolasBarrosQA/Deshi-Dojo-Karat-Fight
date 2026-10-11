@@ -25,7 +25,7 @@ class Builder:
 
     def refresh(self):
         paths = [
-            GAME / 'src/main.lua', GAME / 'src/art.lua',
+            GAME / 'src/main.lua', GAME / 'src/art.lua', GAME / 'src/cpu.lua',
             GAME / 'assets/techniques.json', GAME / 'assets/import.json',
             GAME / 'browser/template.html', GAME / 'browser/fengari-web.js',
             GAME / 'browser/runtime-provenance.json',

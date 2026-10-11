@@ -369,12 +369,12 @@
   "combo_cases": 4,
   "collision_ticks": 680,
   "core_commit": "a031f95394440022a561ce593d578474ac119c05",
-  "artifact_sha256": "2c8f44285e6bd5cea9f1dd90b87daae0428b1947ba53630b941dce95b929d966",
+  "artifact_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
   "native_frames_measured": 1800,
-  "mean_ms": 0.3381702976912493,
-  "p95_ms": 0.43525399814825505,
-  "p99_ms": 0.5200629966566339,
-  "max_ms": 0.7669799961149693,
+  "mean_ms": 0.22392602561821048,
+  "p95_ms": 0.264322996372357,
+  "p99_ms": 0.340883998433128,
+  "max_ms": 0.6140600016806275,
   "above_16_67_ms": 0,
   "limitations": "Linux x86-64 only; game feel, Pi/ARM/GPIO/real monitor/instructor review pending"
 }
