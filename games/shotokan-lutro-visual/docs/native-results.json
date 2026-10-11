@@ -1,5 +1,5 @@
 {
-  "passed": 19,
+  "passed": 21,
   "checks": [
     "Delivered cart without telemetry: historical loader/PNGs, 384x224, 600 movement ticks",
     "680 per-tick collision checks: no crossing, stationary opponent, both orientations, jumps, corners and extreme crossing proposals",
@@ -15,6 +15,8 @@
     "Planted low stance lowers hurt regions; high punch passes above",
     "10 aerial/defense pairs: actual height, one strike per jump, landing",
     "Soco > soco > chute: four port/facing cases, early buffer, three actual hits, real combo count, no held-button repetition",
+    "Defense replaces buffered offense during own preparation and incoming stun: both ports/facings; held guard blocks the fourth punch at either wall",
+    "Repeated unlinked frontal kick cannot infinitely reset hitstun; both ports can hold defense after the first hit",
     "Chest recoil pose, physical knockback and defender input retained through hitstop/stun",
     "Technical contact hook records geometry independently; practice disables energy/time loss",
     "Timeout energy comparison, draw, automatic next round and two-win match end",
@@ -369,12 +371,12 @@
   "combo_cases": 4,
   "collision_ticks": 680,
   "core_commit": "a031f95394440022a561ce593d578474ac119c05",
-  "artifact_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
+  "artifact_sha256": "7981a9780a21f2fd739c570170ffb235f2c0dc1f1a5ce7aa7ce131a23d174029",
   "native_frames_measured": 1800,
-  "mean_ms": 0.22392602561821048,
-  "p95_ms": 0.264322996372357,
-  "p99_ms": 0.340883998433128,
-  "max_ms": 0.6140600016806275,
+  "mean_ms": 0.22501628664839599,
+  "p95_ms": 0.2569110001786612,
+  "p99_ms": 0.3204259992344305,
+  "max_ms": 0.5646700010402128,
   "above_16_67_ms": 0,
   "limitations": "Linux x86-64 only; game feel, Pi/ARM/GPIO/real monitor/instructor review pending"
 }

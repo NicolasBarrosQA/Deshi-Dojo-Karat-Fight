@@ -10,6 +10,10 @@ for level in ('easy','medium','hard'):
  cases.append({'name':'cpu-'+level,'code':f'Scene.configure("cpu","{level}");'})
 for choice in range(1,5):
  cases.append({'name':f'arcade-menu-{choice}','code':f'Scene.menu=true;Scene.menuChoice={choice};'})
+for side in (1,2):
+ for defense,direction in (('kamae',None),('age',5),('gedan',6),('soto',8 if side==1 else 7),('uchi',7 if side==1 else 8)):
+  condition=f'(key==2'+(f' or key=={direction}' if direction else '')+')'
+  cases.append({'name':f'guard-{defense}-p{side}','code':f'local down=lutro.joystick.isDown;lutro.joystick.isDown=function(port,key) return port=={side} and {condition} end;for n=1,8 do Scene.advance() end;lutro.joystick.isDown=down;'})
 for pose in (35,36,42,47,67,71,75,85,86,89,90,91,92):
  for face in (1,-1):
   for x in (64,320):

@@ -1,6 +1,6 @@
 {
   "initial_scene_equal": true,
-  "frames_equal": 92,
+  "frames_equal": 102,
   "all_92_poses_mirrored": true,
   "cross_cell_mawashi_foot_recovered": true,
   "orphan_foot_absent": true,
@@ -8,6 +8,6 @@
     384,
     224
   ],
-  "cart_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
+  "cart_sha256": "7981a9780a21f2fd739c570170ffb235f2c0dc1f1a5ce7aa7ce131a23d174029",
   "scope": "Actual historical x86-64 software draw vs offline Chromium pixels: initial scene, wall/facing strike poses, all airborne poses at height44, reactions and low planted stance, three CPU HUD ranks and four menu choices. Hardware Pi pending."
 }

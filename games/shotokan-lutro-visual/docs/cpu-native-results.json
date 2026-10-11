@@ -12,22 +12,22 @@
   "matches": [
     {
       "level": "easy",
-      "ticks_to_two_wins": 1738,
-      "last_round_attacks": 12,
+      "ticks_to_two_wins": 1937,
+      "last_round_attacks": 13,
       "max_chain": 1,
       "jumps": 0
     },
     {
       "level": "medium",
-      "ticks_to_two_wins": 767,
-      "last_round_attacks": 10,
+      "ticks_to_two_wins": 745,
+      "last_round_attacks": 8,
       "max_chain": 2,
       "jumps": 0
     },
     {
       "level": "hard",
-      "ticks_to_two_wins": 522,
-      "last_round_attacks": 11,
+      "ticks_to_two_wins": 616,
+      "last_round_attacks": 9,
       "max_chain": 3,
       "jumps": 1
     }
@@ -35,41 +35,41 @@
   "workload": [
     {
       "level": "easy",
-      "executed": 10,
-      "contacts": 10,
-      "blocks": 0,
+      "executed": 9,
+      "contacts": 9,
+      "blocks": 1,
       "max_chain": 1,
       "jumps": 0
     },
     {
       "level": "medium",
-      "executed": 19,
-      "contacts": 19,
+      "executed": 18,
+      "contacts": 17,
       "blocks": 1,
       "max_chain": 2,
       "jumps": 0
     },
     {
       "level": "hard",
-      "executed": 42,
-      "contacts": 36,
-      "blocks": 2,
+      "executed": 27,
+      "contacts": 26,
+      "blocks": 1,
       "max_chain": 3,
-      "jumps": 1
+      "jumps": 0
     }
   ],
   "guard_scenario": [
     {
       "level": "hard",
-      "cpu_blocks": 1,
-      "cpu_contacts": 48,
-      "human_contacts": 9
+      "cpu_blocks": 5,
+      "cpu_contacts": 34,
+      "human_contacts": 14
     }
   ],
   "replay_ticks": 1080,
-  "artifact_sha256": "8e32144cb172144e94863790e0c091fe149a92e10c58b9311d0048a237103149",
+  "artifact_sha256": "7981a9780a21f2fd739c570170ffb235f2c0dc1f1a5ce7aa7ce131a23d174029",
   "native_cpu_frames_measured": 1800,
-  "mean_ms": 0.2376119973147676,
-  "p95_ms": 0.28358800045680255,
+  "mean_ms": 0.2424247061127163,
+  "p95_ms": 0.2926199958892539,
   "limitations": "Synthetic player/idle opponents validate behavior, not human difficulty ratings or Pi/GPIO/performance. Belt colors identify CPU profiles in HUD; character art unchanged."
 }

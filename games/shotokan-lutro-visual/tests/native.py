@@ -187,6 +187,45 @@ for side in (0,1):
     core.step(40,[(side,8)]);assert state(core)[f'executed{side+1}']==3,state(core)
     combo_cases+=1
 checks.append('Soco > soco > chute: four port/facing cases, early buffer, three actual hits, real combo count, no held-button repetition')
+# Defense replaces stale offense, in both ports and both facing directions.
+for side in (0,1):
+ for face in (1,-1):
+  with tempfile.TemporaryDirectory() as d:
+   initial=f'Scene.players[{side+1}].x={104 if face==1 else 280};Scene.players[{2-side}].x={280 if face==1 else 104};'
+   with Native(fixture(d,initial)) as core:
+    core.step(2);core.step(2,[(side,0)]);core.step(1);core.step(2,[(side,0)])
+    assert state(core)[f'queued{side+1}']==1,state(core)
+    core.step(2,controls('age',side,face));core.step(30,controls('age',side,face));s=state(core)
+    assert s[f'executed{side+1}']==1 and s[f'queued{side+1}']==0 and s[f'pose{side+1}']==15,s
+  # Take the first three-hit string, buffer a punch during hitstun, replace it
+  # with held middle guard, and block the next string at either wall.
+  attacker=1-side;left=1 if face==1 and side==0 or face==-1 and side==1 else 2
+  initial=f'Scene.players[{side+1}].x={64 if face==1 else 320};Scene.players[{attacker+1}].x={152 if face==1 else 232};Scene.left={left};'
+  with tempfile.TemporaryDirectory() as d:
+   with Native(fixture(d,initial)) as core:
+    core.step(2)
+    for n in range(110):
+     keys=[(attacker,0)] if n%2==0 else []
+     if n in (6,7):keys.append((side,0))
+     if n>=8:keys.append((side,1))
+     core.step(1,keys);invariant(state(core),left)
+    s=state(core)
+    assert s[f'executed{side+1}']==0 and s[f'blocks{side+1}']>0 and s[f'energy{side+1}']==78,s
+checks.append('Defense replaces buffered offense during own preparation and incoming stun: both ports/facings; held guard blocks the fourth punch at either wall')
+# Repeating the same unlinked technique must also release the defender. Counting
+# only alternating links used to leave repeated frontal kicks uncapped.
+for side in (0,1):
+ with tempfile.TemporaryDirectory() as d:
+  initial=f'Scene.players[{side+1}].x={232 if side==0 else 152};Scene.players[{2-side}].x={320 if side==0 else 64};Scene.left={1 if side==0 else 2};'
+  with Native(fixture(d,initial)) as core:
+   core.step(2);before=state(core)
+   for n in range(120):
+    keys=controls('mae',side,1 if side==0 else -1) if n%2==0 else []
+    if n>=8:keys.append((1-side,1))
+    core.step(1,keys)
+   s=state(core)
+   assert s[f'points{side+1}']==1 and s[f'blocks{2-side}']>0 and s[f'energy{2-side}']==86,s
+checks.append('Repeated unlinked frontal kick cannot infinitely reset hitstun; both ports can hold defense after the first hit')
 # Incoming stun/hitstop cannot eat a fresh defender command.
 with tempfile.TemporaryDirectory() as d:
  with Native(fixture(d,near)) as core:

@@ -1,5 +1,5 @@
 {
-  "passed": 12,
+  "passed": 13,
   "checks": [
     "Fight/three-action controls first; detailed lessons collapsed by default",
     "Both keyboard ports move independently; 280 per-frame barrier/order checks from both sides",
@@ -7,6 +7,7 @@
     "Punch/kick both ports: immediate startup, button indicators, single contact when held",
     "High coverage stops high punch; leaves middle kick vulnerable",
     "Soco > soco > chute through real keyboard: both ports/facings, early buffer, three actual hits and no held repeat",
+    "Fresh guard clears queued punches during preparation/stun on both keyboards/facings; visible coverage and fourth punch blocked at either wall",
     "Jump, airborne punch, one attack per jump and safe landing on both keyboards",
     "Ground reverse/advance/low/high punches and circular/low kicks use the revised commands",
     "Fight vs infinite practice; optional lessons/explanation, slow, pause, single-frame/debug and return to fight",
@@ -14,7 +15,7 @@
     "Standard gamepad API mapping mock: two pads, analog movement, both punch buttons (physical pads pending)",
     "Actual RAF movement with keyboard; Escape pauses/resumes"
   ],
-  "artifact_sha256": "18f28801349a0502d7a00c6afd0eb5fc3f3e597a475de124ea4c9eb7f440c924",
+  "artifact_sha256": "d70405148bf99e3cc4dad64345112e636120477d54e43dd8913d0fd67e584b4a",
   "external_requests": [],
   "errors": [],
   "platform": "Chromium offline/Linux x86-64; gamepad API mocked, Pi/GPIO/Windows hardware pending"

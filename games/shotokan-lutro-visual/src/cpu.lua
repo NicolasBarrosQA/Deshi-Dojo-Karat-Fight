@@ -8,7 +8,8 @@ local CPU={profiles={
 }}
 function CPU.new(level,seed)
  assert(CPU.profiles[level],'Unknown CPU level')
- return {level=level,rng=seed or 1080,clock=0,history={},input={},nextDecision=0,nextAttack=0,decisions=0,pulses=0}
+ return {level=level,rng=seed or 1080,clock=0,history={},input={},nextDecision=0,nextAttack=0,decisions=0,pulses=0,
+  pressure=0,attackSerial=0,pressureUntil=0,guardUntil=0,stringAttacks=0,visibleGap=0}
 end
 local function chance(s,n)
  -- Floating arithmetic is deliberate: Fengari uses 32-bit integers; Lua 5.1 doubles.
@@ -43,12 +44,42 @@ function CPU.update(s,self,opponent,frozen)
  local size=profile.reaction+1
  s.history[(s.clock-1)%size+1]=observe(opponent)
  local seen=s.clock>profile.reaction and s.history[(s.clock-profile.reaction-1)%size+1]
+ -- Recognize repetition from delayed, visible starts, never the human's keys.
+ if seen then
+  s.visibleGap=seen.kind=='attack' and 0 or s.visibleGap+1
+  if s.visibleGap>=8 then s.stringAttacks=0 end
+  local starts=seen.kind=='attack' and (seen.id~=s.seenId or
+   seen.phase=='PREPARA' and s.seenPhase~='PREPARA')
+  if starts then
+   s.attackSerial=s.attackSerial+1
+   s.stringAttacks=s.stringAttacks+1
+   s.pressure=seen.zone==s.pressureZone and s.clock<s.pressureUntil and math.min(3,s.pressure+1) or 1
+   s.pressureZone=seen.height>16 and 'jodan' or seen.zone
+   s.pressureUntil=s.clock+90
+  end
+  s.seenId=seen.id s.seenPhase=seen.phase
+ end
  -- Every action pulse has a release tick, so held buttons cannot create repeats.
  if s.release then s.release=false s.input={} return s.input end
  if not seen then s.input={} return s.input end
  local distance=math.abs(seen.x-self.x)
  local own=self.action and techniques[self.action.id]
- if self.stun>0 or self.landing>0 then s.input={} return s.input end
+ if self.stun>0 then
+  -- A person can hold defense while being hit. Do the same, once per observed
+  -- attack; the shared combat still waits for stun and defense preparation.
+  if s.recoveryDecision~=s.attackSerial and s.clock>=s.nextDecision then
+   s.recoveryDecision=s.attackSerial s.nextDecision=s.clock+profile.think
+   s.decisions=s.decisions+1
+   local anticipation=profile.guard+math.max(0,s.pressure-1)*(s.level=='easy' and 8 or 15)
+   if distance<130 and s.pressureZone and chance(s,anticipation) then
+    s.guardUntil=s.clock+self.stun+profile.think+5
+    return guard(s,profile,self.face,s.pressureZone)
+   end
+  end
+  if not s.input.y then s.input={} end
+  return s.input
+ end
+ if self.landing>0 then s.input={} return s.input end
  if self.blockstun>0 then return s.input end
  if self.air then
   if not self.airUsed and not own and self.height>=20 and distance<128 then
@@ -58,23 +89,46 @@ function CPU.update(s,self,opponent,frozen)
  end
  if own and own.kind=='attack' then
   -- Own recovery is known. Opponent information still comes from the delayed view.
-  if self.action.age>own.windup+own.active and self.chain<profile.max_combo and
+  if self.action.spent and self.action.age>own.windup+own.active and self.chain<profile.max_combo and
      not self.queued and s.comboTried~=self.executed then
    s.comboTried=self.executed
    if distance<116 and chance(s,profile.combo) then
-    if self.action.id=='kizami' or own.button=='kick' then return attack(s,'b',self.face)
-    else return attack(s,'a',self.face,distance>98 and 'forward' or nil) end
+    if self.action.id=='kizami' then return attack(s,'b',self.face,distance>94 and 'forward' or nil)
+    elseif own.button=='kick' or distance>98 then return attack(s,'b',self.face)
+    else return attack(s,'a',self.face) end
    end
   end
   s.input={} return s.input
  end
+ -- Punish an observed completed string, rather than always volunteering a slow
+ -- kick into the next jab. The observation delay and ordinary startup remain.
+ local opening=s.stringAttacks>=3 and (seen.kind~='attack' or seen.phase=='RECOLHE')
+ if opening and distance<116 and self.cooldown==0 and s.openingTried~=s.attackSerial and s.clock>=s.nextDecision then
+  s.openingTried=s.attackSerial s.nextDecision=s.clock+profile.think s.decisions=s.decisions+1
+  if chance(s,profile.accuracy) then return attack(s,'b',self.face) end
+ end
+ if s.input.y and s.clock<s.guardUntil and self.counter==0 then return s.input end
  if s.clock<s.nextDecision then return s.input end
  s.nextDecision=s.clock+profile.think s.decisions=s.decisions+1
+ if self.counter>0 then return attack(s,'b',self.face) end
  -- Watching the visible technique, never the human's keys or queued action.
  local threat=seen.kind=='attack' and seen.phase~='RECOLHE' and distance<130
  if threat and chance(s,profile.guard) then
   local zone=seen.height>16 and 'jodan' or seen.zone or 'chudan'
   return guard(s,profile,self.face,zone)
+ end
+ if self.cooldown>0 then
+  -- Recovery locks attacks, not defense. Cover the opponent's buffered answer
+  -- instead of standing idle after our own combination. One attempt per string.
+  if s.input.y then return s.input end
+  if s.coverTried~=self.executed then
+   s.coverTried=self.executed
+   local anticipation=profile.guard+math.max(0,s.pressure-1)*(s.level=='easy' and 8 or 15)
+   if distance<130 and chance(s,anticipation) then
+    return guard(s,profile,self.face,s.pressureZone or seen.zone or 'chudan')
+   end
+  end
+  s.input={} return s.input
  end
  if distance>profile.range+3 then
   if profile.jump>0 and distance<136 and chance(s,profile.jump) then
@@ -82,7 +136,6 @@ function CPU.update(s,self,opponent,frozen)
   end
   local c={};direction(c,self.face,true);s.input=c return c
  end
- if self.cooldown>0 then s.input={} return s.input end
  -- Anticipatory guard matters: fast punches cannot be reacted to after contact.
  if self.counter==0 and chance(s,math.floor(profile.guard*.75)) then
   return guard(s,profile,self.face,seen.zone or 'chudan')

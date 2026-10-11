@@ -53,6 +53,26 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
   await step(35);assert.equal((await state())[21+side],3);await page.keyboard.up(kick);
  }
  checks.push('Soco > soco > chute through real keyboard: both ports/facings, early buffer, three actual hits and no held repeat');
+ for(const side of [0,1])for(const reverse of [false,true]){
+  const punch=side?'f':'z',guard=side?'g':'x',high=side?'i':'ArrowUp';
+  await reset(false,reverse);await press(punch);await step(1);await press(punch);
+  await page.keyboard.down(guard);await page.keyboard.down(high);await step(35);
+  let s=await state();assert.equal(s[21+side],1,'New defense must replace stale buffered punch');assert.equal(s[3+side],15);
+  assert((await page.evaluate(()=>dojoHost.view())).includes('GUARDA ALTA'));
+  await page.keyboard.up(guard);await page.keyboard.up(high);
+  await reset(false,reverse);
+  const face=(side===0)!==reverse?1:-1;
+  await page.evaluate(({side,face})=>run(`Scene.players[${side+1}].x=${face===1?64:320};Scene.players[${2-side}].x=${face===1?152:232};`),{side,face});
+  const foe=side?'z':'f';
+  for(let n=0;n<110;n++){
+   if(n%2===0)await page.keyboard.down(foe);else await page.keyboard.up(foe);
+   if(n===6)await page.keyboard.down(punch);if(n===8){await page.keyboard.up(punch);await page.keyboard.down(guard)}
+   await step(1);
+  }
+  s=await state();assert.equal(s[21+side],0);assert(s[11+side]>0);assert.equal(s[25+side],78);
+  await page.keyboard.up(guard);await page.keyboard.up(foe);
+ }
+ checks.push('Fresh guard clears queued punches during preparation/stun on both keyboards/facings; visible coverage and fourth punch blocked at either wall');
  for(const [up,punch,kick,side] of [['ArrowUp','z','a',0],['i','f','h',1]]){
   await reset();await page.keyboard.down(up);await step(12);assert((await state())[15+side]>20);
   await press(punch);await step(1);await press(kick);await step(65);const s=await state();

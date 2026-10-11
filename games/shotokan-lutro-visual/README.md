@@ -1,9 +1,11 @@
-# Deshi Dojo — combate Shotokan, Lutro v05
+# Deshi Dojo — combate Shotokan, Lutro v06
 
 Dois jogadores e três botões: **soco, defesa e chute**. A luta tem energia, 60 segundos e melhor de três rounds. **Treino livre** mantém energia e tempo para experimentar. O combate usa técnicas Shotokan e eventos de contato separados das regras de energia, permitindo futuramente pontuação por distância, linha e precisão.
 
 A versão v04 corrige o atravessamento com uma barreira entre os corpos que preserva a ordem anterior ao movimento. Acelera os golpes básicos, guarda novas pressões durante recuperação/impacto e acrescenta reação ao receber golpe, recuo, combos por acertos consecutivos e uma apresentação mais simples. As animações são ilustrações provisórias: as que ainda não representam claramente a técnica foram retiradas dos comandos ativos, com fontes e catálogo preservados.
 A versão v05 acrescenta **CPU offline**: fácil/faixa vermelha, médio/faixa laranja e difícil/faixa preta. O jogo inicia no fácil. Selecione **Contra a CPU** ou **2 jogadores** acima da luta; a CPU ocupa o jogador 2. Cada nível usa os mesmos golpes/regras, com diferença de observação, iniciativa, defesa e sequências. As faixas identificam o perfil no HUD/menu; o sprite provisório continua preservado. [Comportamento, arquitetura e testes da CPU](docs/CPU.md).
+
+A v06 corrige a pressão repetida de soco e a prioridade da defesa: só ligações permitidas pulam a recuperação; iniciar outra sequência exige 16 ticks sem atacar, com movimento, defesa e salto disponíveis. Uma nova pressão de defesa remove um ataque antigo do buffer. A CPU prepara guarda durante o impacto, protege sua própria recuperação e reconhece sequências repetidas por observação atrasada. Energia, dano e sprites foram mantidos. [Diagnóstico, regras e regressões](docs/PRESSAO-E-DEFESA.md).
 
 O IKEMEN e os dois projetos TIC-80 permanecem intactos. A amostra Lutro v01 inteira está preservada em `archives/shotokan-lutro-visual-v01.zip` na raiz do checkout, com manifesto SHA-256. Nenhum arquivo do fliperama foi acessado ou modificado.
 
@@ -57,7 +59,7 @@ Comece aproximando os dois jogadores e pressionando **soco → soco → chute**,
 
 Cima sozinho salta; diagonal para cima desloca o salto; baixo usa uma base baixa com os pés apoiados. Um ataque por salto, sem defesa aérea, salto duplo ou lançamento do adversário. O pouso recompõe por dois ticks. Os corpos também se bloqueiam durante o salto. Trás/cima + chute usam o frontal por enquanto; yoko, ushiro e mawashi alto/aéreo estão guardados fora dos comandos ativos até revisão. O antigo oi também está preservado: a animação de soco reverso com avanço recebe o nome gyaku com yori-ashi para corresponder ao movimento representado.
 
-Defesa sem direção mantém cobertura média; as quatro direções selecionam os uke acima. A defesa tem preparação e cobre somente a altura efetiva do contato. Mudar direção reinicia a preparação; soltar libera o movimento. Uma recepção no tempo abre uma janela de contra-ataque. Segure defesa **antes** de inclinar para cima para executar age-uke sem saltar; a defesa também substitui a impulsão enquanto os pés ainda estão no chão.
+**Segure defesa.** Uma nova pressão substitui o ataque anterior no buffer, sem cancelar a extensão de um golpe em curso. O indicador **GUARDA ALTA/MEDIA/BAIXA** ou **RECEBE** confirma cobertura; PREPARA e IMPACTO ainda não protegem. Defesa sem direção mantém cobertura média; as quatro direções selecionam os uke acima. A defesa tem preparação e cobre somente a altura efetiva do contato. Mudar direção reinicia a preparação; soltar libera o movimento. Uma recepção no tempo abre uma janela de contra-ataque. Segure defesa **antes** de inclinar para cima para executar age-uke sem saltar; a defesa também substitui a impulsão enquanto os pés ainda estão no chão.
 
 **Lutar** inicia uma partida com o modo/adversário escolhido. Trocar modo/nível também reinicia; Enter/Start preserva essa escolha. **Lutar** usa energia e rounds; golpes bloqueados não retiram energia. **Treino livre** não limita tempo/energia. Enter reinicia, Escape pausa no browser. F2/Select abre a seleção pelo direcional: soco/chute/Start confirma, defesa cancela. O relógio pausa durante essa seleção. Os indicadores dos comandos acendem e o nome/fase da técnica aparecem abaixo da luta. Em gamepads padrão no browser: A soco, X defesa, B chute; direcional/analógico movimenta, Start reinicia. A API foi testada com entradas simuladas; controles físicos/GPIO continuam pendentes.
 
@@ -83,6 +85,7 @@ python3 games/shotokan-lutro-visual/tools/import_art.py
 python3 games/shotokan-lutro-visual/tools/build.py
 python3 games/shotokan-lutro-visual/tests/native.py
 python3 games/shotokan-lutro-visual/tests/cpu_native.py
+python3 games/shotokan-lutro-visual/tests/pressure.py
 node games/shotokan-lutro-visual/tests/cpu_browser.cjs
 python3 games/shotokan-lutro-visual/tests/windows_checkout.py
 node games/shotokan-lutro-visual/tests/browser.cjs

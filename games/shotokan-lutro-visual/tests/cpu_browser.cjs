@@ -36,6 +36,20 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  await page.locator('#mode').selectOption('versus');assert.equal((await match())[0],'versus');await page.locator('#mode').selectOption('cpu');assert.equal((await match())[0],'cpu');
  await page.locator('#difficulty').selectOption('hard');await step(150);await page.screenshot({path:path.join(root,'docs/cpu-notebook.png'),fullPage:true});
  checks.push('Mouse mode switch preserves two-player option; hard CPU HUD screenshot');
+ // The exact user exploit: establish first-hit initiative at distance88, then
+ // press/release only punch through real DOM keyboard bindings for a whole match.
+ for(const level of ['easy','medium','hard']){
+  await page.locator('#difficulty').selectOption(level);await page.locator('#play').click();
+  await page.evaluate(()=>run('Scene.players[1].x=140;Scene.players[2].x=228;'));
+  let winner=0,received=0,previous=0;
+  for(let cycle=0;cycle<750;cycle++){
+   await page.keyboard.down('z');await step(2);await page.keyboard.up('z');await step(2);
+   const s=await state();received+=Math.max(0,s[6]-previous);previous=s[6];winner=s[31];if(winner)break;
+  }
+  assert(winner,'Punch-only match should finish');if(level!=='easy')assert(received>0,'CPU must be able to answer pressure');
+  if(level==='hard')assert.equal(winner,2,'Fast punch-only exploit must be punished by hard CPU');
+ }
+ checks.push('Punch-only complete matches through keyboard at all three levels: medium/hard answer; hard wins with same energy/damage rules');
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
  const result={passed:checks.length,checks,artifact_sha256:crypto.createHash('sha256').update(html).digest('hex'),errors,external_requests:requests,scope:'Offline Chromium real UI/keyboard; physical controls/Pi and player-rated difficulty pending'};
  fs.writeFileSync(path.join(root,'docs/cpu-browser-results.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

@@ -5,9 +5,9 @@
     "CPU source change rebuilds HTTP HTML automatically; original bytes restored",
     "Delivered native cart unchanged by web-only rebuild; GET hash matches delivered HTML",
     "HEAD/no-store and only game page exposed",
-    "Real browser: autonomous default easy CPU, P1 keyboard movement/punch, collision and hard selection",
+    "Real HTTP browser: default easy CPU autonomous, hard selection, P1 movement/punch and ready neutral/high guards",
     "No external requests or JS errors"
   ],
-  "artifact_sha256": "18f28801349a0502d7a00c6afd0eb5fc3f3e597a475de124ea4c9eb7f440c924",
+  "artifact_sha256": "d70405148bf99e3cc4dad64345112e636120477d54e43dd8913d0fd67e584b4a",
   "platform": "Linux Python3.12/Chromium; Windows commands documented and CRLF separately tested, physical Windows/Pi pending"
 }

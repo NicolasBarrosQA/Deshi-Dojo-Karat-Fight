@@ -1023,7 +1023,8 @@
     "max_links": 3,
     "buffer_ticks": 24,
     "idle_ticks": 12,
-    "note": "Buffer geral de comandos; ligação após rechamber/retração. SOCO -> SOCO -> CHUTE usa kizami, gyaku e mae. Contador COMBO exige contatos consecutivos antes de recuperação do defensor."
+    "note": "Buffer geral de comandos; ligação após rechamber/retração. SOCO -> SOCO -> CHUTE usa kizami, gyaku e mae. Contador COMBO exige contatos consecutivos antes de recuperação do defensor. Nova sequência ou repetição sem ligação exige 16 ticks de recuperação ofensiva; deslocamento, salto e defesa continuam disponíveis.",
+    "restart_ticks": 16
   },
   "arcade": {
     "energy": 100,

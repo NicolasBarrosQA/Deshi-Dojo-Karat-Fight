@@ -36,7 +36,10 @@ local function poseAt(t,age)
 end
 local function phaseAt(t,a)
  if a.age<=t.windup then return 'PREPARA' end
- if t.kind=='defense' then return a.age<=t.windup+3 and 'RECEBE' or 'DEFENDE' end
+ if t.kind=='defense' then
+  local line=({jodan='ALTA',chudan='MEDIA',gedan='BAIXA'})[t.zone]
+  return (a.id~='kamae' and a.age<=t.windup+3 and 'RECEBE ' or 'GUARDA ')..line
+ end
  return a.age<=t.windup+t.active and 'GOLPE' or 'RECOLHE'
 end
 local function newPlayers()
@@ -262,6 +265,9 @@ function Scene.advance()
  for i,p in ipairs(Scene.players) do
   local c=input[i]
   local punch=c.b and not previous[i].b;local kick=c.a and not previous[i].a
+  -- A fresh defense command replaces an older buffered attack. A later fresh
+  -- punch while holding defense can still request a deliberate counterattack.
+  if c.y and not previous[i].y then p.queued=nil end
   if (punch or kick) and not (c.y and not previous[i].y) and not (p.air and p.airUsed) then
    local id=choose(punch and 'punch' or 'kick',c,p)
    if Scene.demo and i==1 then id=Scene.lesson end
@@ -302,7 +308,10 @@ function Scene.advance()
      startAction(p,queued.id)
     elseif a.age>total(t) then
      p.action=nil p.pose=p.air and 63 or 1 p.phase=p.air and 'SALTO' or 'KAMAE'
-     if p.chain>=skills.combo.max_links then p.cooldown=8 end
+     -- Only an authored link can skip the end of an attack. Starting a new
+     -- string (including repeating the same technique) must leave a response
+     -- window. Walking, jumping and guarding remain available during it.
+     if not t.air then p.cooldown=skills.combo.restart_ticks end
     end
    elseif a and t.kind=='defense' then
     if p.queued and p.cooldown==0 then startAction(p,p.queued.id)

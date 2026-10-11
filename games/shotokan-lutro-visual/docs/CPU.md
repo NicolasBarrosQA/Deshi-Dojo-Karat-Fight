@@ -1,4 +1,4 @@
-# CPU e níveis por faixa — Lutro v05
+# CPU e níveis por faixa — Lutro v06
 
 O jogo inicia em **Contra a CPU / Fácil / faixa vermelha**. Você controla o jogador 1; não precisa de segundo teclado/controle. No browser, escolha o modo e o adversário acima da luta. Trocar a opção inicia uma partida nova. **2 jogadores** mantém os controles anteriores. **Treino livre** usa o adversário selecionado com energia/tempo ilimitados. Demonstrações suspendem a CPU; voltar à luta mantém a dificuldade escolhida. Enter/Start inicia revanche no mesmo nível.
 
@@ -24,6 +24,8 @@ A luta e o relógio param enquanto o menu está aberto. Segurar direção move u
 
 `src/cpu.lua` é um controlador local: recebe observações e devolve botões. `src/main.lua` passa esses botões ao mesmo combate usado pelas pessoas. A CPU não teleporta, muda energia, aumenta dano, ignora colisões, pula recuperação nem cria técnicas. Usa somente os comandos ativos do catálogo. Assim também respeita contato único, alturas, preparação, recuperação, stun, defesa, salto e limite de sequências. O hook de pontuação técnica continua independente.
 
+Na v06, a CPU pode manter defesa enquanto recebe golpes, da mesma forma que uma pessoa: a proteção só começa quando o combate permite, após a preparação. Reconhece repetição da linha pelas técnicas visíveis atrasadas e tenta responder à abertura de uma sequência concluída. Defende durante sua própria recuperação e só pede continuação após contato confirmado, escolhendo avanço/alcance adequados. A decisão continua probabilística e pode errar. [Diagnóstico e regressão do soco repetido](PRESSAO-E-DEFESA.md).
+
 Os perfis têm atraso de observação de 22/12/6 ticks (aproximadamente 367/200/100 ms a 60 Hz), intervalos diferentes entre decisões/ataques e probabilidades de defesa/erro. As observações vêm da posição, altura, pose/fase e técnica visíveis; não dos botões, comandos guardados ou contador de stun do adversário. O estado da própria técnica é conhecido para pressionar o próximo comando no retorno permitido. Socos rápidos exigem defesa antecipada: não há bloqueio perfeito por leitura do comando humano.
 
 A CPU usa histórico limitado a 23 observações e decisões simples, sem busca de caminhos, modelo de IA, downloads ou serviços. A pausa de impacto congela também seu raciocínio. Um gerador local determinístico usa aritmética de ponto flutuante explícita para dar o mesmo resultado em Lua 5.1 e Fengari, que tem inteiros de 32 bits. Cada round reinicia o controlador com uma semente derivada do número do round. Uma revanche repete essa semente, útil para treino/reprodução; não é aprendizado de máquina.
@@ -31,7 +33,7 @@ A CPU usa histórico limitado a 23 observações e decisões simples, sem busca 
 ## O que foi comprovado
 
 - Três partidas completas com o jogador 1 parado e nenhuma entrada do port2: CPU venceu dois rounds, resultado permaneceu e Start reiniciou. Isso verifica autonomia/rounds, não a dificuldade para uma pessoa.
-- Na mesma sequência de 900 ticks do jogador 1, os perfis executaram 10/19/42 técnicas e atingiram limites de uma/duas/três técnicas ligadas. Houve defesa real no médio/difícil e bloqueio contra uma sequência física de mawashi no difícil. Os números são de uma carga sintética, não taxas de vitória humanas.
+- Na mesma sequência de 900 ticks do jogador 1, os perfis executaram 9/18/27 técnicas e atingiram limites de uma/duas/três técnicas ligadas. Houve defesa real no médio/difícil e bloqueio contra uma sequência física de mawashi no difícil. Os números são de uma carga sintética, não taxas de vitória humanas.
 - Entradas físicas do port2 não alteraram a trajetória ou o gerador da CPU.
 - Menu operado pelos dois ports: seleção, confirmação, cancelamento/pausa e restauração do segundo jogador. As cores/textos dos três perfis e quatro opções são comparados entre renderizadores.
 - 1.080 ticks de replay do controlador bateram entre o núcleo histórico Lua 5.1/x86 e o browser Fengari, incluindo botões, posições/altura quantizadas a 1/16 pixel, energia, decisões e gerador.
@@ -45,5 +47,7 @@ Na raiz do checkout, com as ferramentas de desenvolvimento preparadas:
 python3 games/shotokan-lutro-visual/tests/cpu_native.py
 node games/shotokan-lutro-visual/tests/cpu_browser.cjs
 ```
+
+`tests/pressure.py` acrescenta 48 partidas de soco repetido: três níveis, quatro cadências, centro/canto e duas orientações. No cenário fixo, a CPU preta venceu 14/16; a laranja respondeu em todos. A vermelha ainda pode sofrer perfect, e a preta perdeu nas duas orientações da cadência de 10 ticks no centro. Isso não mede taxa de vitória contra pessoas.
 
 O teste nativo chama `cpu_replay.cjs` automaticamente. Jogar pelo `scripts/play_web.py` continua requerendo somente Python standard library e um navegador.

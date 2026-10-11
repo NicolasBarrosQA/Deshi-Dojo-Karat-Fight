@@ -1,0 +1,1151 @@
+{
+  "passed": 48,
+  "cases": [
+    {
+      "level": "easy",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 861,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 861,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 0,
+      "cpu_blocks": 0,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 683,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 0,
+      "cpu_blocks": 0,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 683,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 861,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 861,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 1,
+      "cpu_blocks": 1,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 869,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 1,
+      "cpu_blocks": 1,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 869,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 3,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 753,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 88,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 3,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 753,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 88,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 0,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 713,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 0,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 713,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 1,
+      "cpu_blocks": 0,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 789,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 1,
+      "cpu_blocks": 0,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 789,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 94,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 640,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "easy",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 1,
+      "cpu_blocks": 2,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 640,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 86,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 100,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 9,
+      "cpu_blocks": 1,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 946,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 9,
+      "cpu_blocks": 1,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 946,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 8,
+      "cpu_blocks": 8,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1024,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 66,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 8,
+      "cpu_blocks": 8,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1024,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 66,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 10,
+      "cpu_blocks": 6,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1065,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 72,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 10,
+      "cpu_blocks": 6,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1065,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 72,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 8,
+      "cpu_blocks": 3,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 891,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 66,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 8,
+      "cpu_blocks": 3,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 891,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 66,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 78,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 14,
+      "cpu_blocks": 3,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1073,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 40,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 14,
+      "cpu_blocks": 3,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1073,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 58,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 40,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 10,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 903,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 76,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 60,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 10,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 903,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 76,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 60,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 16,
+      "cpu_blocks": 7,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1137,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 38,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 50,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 16,
+      "cpu_blocks": 7,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1137,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 38,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 50,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 10,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 828,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 82,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 50,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "medium",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 10,
+      "cpu_blocks": 5,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 828,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 82,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 50,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 31,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1561,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 56,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 2,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 31,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1561,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 56,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 2,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 31,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1561,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 56,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 4,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 31,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1561,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 56,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 4,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 37,
+      "cpu_blocks": 16,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1720,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 4,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 6,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 37,
+      "cpu_blocks": 16,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1720,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 4,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 6,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 25,
+      "cpu_blocks": 13,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1107,
+      "rounds": [
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 10
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": false,
+      "cpu_hits": 20,
+      "cpu_blocks": 6,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1079,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 20,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 22,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 10,
+      "corner": false,
+      "reversed": true,
+      "cpu_hits": 20,
+      "cpu_blocks": 6,
+      "max_human_combo": 3,
+      "winner": 1,
+      "ticks": 1079,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 20,
+          "energy2": 0
+        },
+        {
+          "winner": 1,
+          "energy1": 22,
+          "energy2": 0
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": false,
+      "cpu_hits": 31,
+      "cpu_blocks": 11,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1539,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 36,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    },
+    {
+      "level": "hard",
+      "cadence_ticks": 10,
+      "corner": true,
+      "reversed": true,
+      "cpu_hits": 31,
+      "cpu_blocks": 11,
+      "max_human_combo": 3,
+      "winner": 2,
+      "ticks": 1539,
+      "rounds": [
+        {
+          "winner": 1,
+          "energy1": 36,
+          "energy2": 0
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 16
+        },
+        {
+          "winner": 2,
+          "energy1": 0,
+          "energy2": 60
+        }
+      ]
+    }
+  ],
+  "artifact_sha256": "7981a9780a21f2fd739c570170ffb235f2c0dc1f1a5ce7aa7ce131a23d174029",
+  "scope": "Actual historical Lua5.1/x86 core, first P1 sequence given initiative by starting at distance88; ordinary punch input only, same round seed1080. Both facings, open stage/corner, 2/4/6/10tick tap cycles. No injected hits, health changes or CPU input changes. These are reproducible exploit tests, not human win-rate ratings."
+}
