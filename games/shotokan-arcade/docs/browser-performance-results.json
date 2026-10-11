@@ -1,0 +1,16 @@
+{
+  "platform": "Chromium headless offline, Linux cloud; not ARM, desktop-only",
+  "update": {
+    "frames": 1200,
+    "mean_ms": 1.9587499999937912,
+    "p95_ms": 6.899999998509884,
+    "p99_ms": 8.800000004470348,
+    "max_ms": 146.19999999552965,
+    "over_16_67_ms": 2
+  },
+  "cadence": {
+    "wall_ms": 2015.1999999955297,
+    "logical_ticks": 121,
+    "raf_callbacks": 121
+  }
+}

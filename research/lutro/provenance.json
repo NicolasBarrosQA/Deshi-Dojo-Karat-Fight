@@ -1,0 +1,8 @@
+{
+  "commit": "a031f95394440022a561ce593d578474ac119c05",
+  "source_url": "https://codeload.github.com/libretro/libretro-lutro/tar.gz/a031f95394440022a561ce593d578474ac119c05",
+  "archive_sha256": "eb01640a8c192434976434074b72d35d05f3cbd5899056689f5789bf929088b8",
+  "build": "make clean && CFLAGS=-fcommon make -j4 platform=unix WANT_JIT=0",
+  "source_changes": false,
+  "hardware_tested": false
+}

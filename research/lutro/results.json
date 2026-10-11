@@ -1,0 +1,15 @@
+{
+  "core_commit": "a031f95394440022a561ce593d578474ac119c05",
+  "resolution": [
+    384,
+    224
+  ],
+  "png_pixel_identical": true,
+  "colors": 30720,
+  "inputs": 16,
+  "independent_movement": true,
+  "joystick_cache_delay_ticks": 1,
+  "extra_stability_frames": 600,
+  "errors": [],
+  "platform": "Linux x86-64 only; no Pi/GPIO validation"
+}

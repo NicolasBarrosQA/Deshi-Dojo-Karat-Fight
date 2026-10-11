@@ -1,0 +1,54 @@
+{
+  "accessed": "2026-10-10 America/Sao_Paulo",
+  "sources": [
+    {
+      "path": "content/resources/general/glossary/_index.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/general/glossary/_index.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "c949b0899ad12ddea0e372f57ea7795a9747e78a0ef31db29a8b953cc0b08304"
+    },
+    {
+      "path": "content/post/control-is-distance-not-speed/index.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/post/control-is-distance-not-speed/index.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "4c8ba9d5e0fae02bfb9bb9a1635d6772a79e6ccc3df3631e334d89a42fcc0f1d"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit01.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit01.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "e35ad6876f3f81723de9cee98d3527cb45193cbb670beee28a068d594a4c714b"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit02.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit02.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "1cb658c39b2a9cd5a8e1eee0b676e9e1fd1c5d67189387975deafeb4b268bf0a"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit03.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit03.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "096421ccd5562b249497d5e062cf4ce269543b0b2ba2e5b67c2810eeba13bdb5"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit04.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit04.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "037fe8bc1bf897ffb9543b9b6c3211f9680c180925cd8dffe52f81b90c12edec"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit06.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit06.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "6e9e3226155343589d81eb836aad49389c66344826343da39671321112b208e0"
+    },
+    {
+      "path": "content/resources/mcc/PED101KA/unit09.md",
+      "url": "https://gitlab.com/edwin.chandler/desertvalleyshotokan/-/blob/ea25df8a0f2af934f3663bc6446ba39529be3240/content/resources/mcc/PED101KA/unit09.md",
+      "revision": "ea25df8a0f2af934f3663bc6446ba39529be3240",
+      "sha256": "e28aa63c295a72f29a96f92bccae5a6d80fab44fe8c8b6500fafab7fe8eedf29"
+    }
+  ],
+  "scope": "units 1-4 and glossary/distance consulted substantively; units6/9 have headings only and do not substantiate detailed kick/soto/uchi biomechanics"
+}

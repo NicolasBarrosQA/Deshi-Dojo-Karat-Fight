@@ -1,0 +1,81 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'">
+<title>Deshi Dojo — Shotokan Arcade</title>
+<style>
+*{box-sizing:border-box}body{margin:0;color:#f2ede2;background:#10131a;font:15px system-ui,sans-serif;min-height:100vh}main{width:min(1040px,96vw);margin:auto;padding:30px 20px}header{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:20px}h1{font-size:30px;letter-spacing:-1px;margin:4px 0}small{color:#d4a96a;letter-spacing:3px;font-size:11px}p{color:#9ca4b0;margin:8px 0;line-height:1.6}.badge{border:1px solid #343e49;padding:8px 14px;color:#b5c3bc;font-size:12px;border-radius:20px}.cabinet{background:#080b11;border:1px solid #303846;border-radius:12px;padding:10px;box-shadow:0 15px 70px #0007}canvas{width:100%;display:block;aspect-ratio:240/136;image-rendering:pixelated;outline:none;background:#11141f}canvas:focus{box-shadow:inset 0 0 0 1px #f4d8a0}.bar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 20px}button{font:inherit;border:1px solid #36424e;background:#1b2430;color:#e0e7eb;padding:10px 16px;border-radius:5px;cursor:pointer}button.primary{background:#cc9b62;color:#171820;border-color:#cc9b62}button:hover{filter:brightness(1.15)}.players{display:grid;grid-template-columns:1fr 1fr;gap:15px}.player{border-top:2px solid #dc594c;background:#18202b;padding:16px;border-radius:0 0 8px 8px}.player.two{border-color:#509cad}.player strong{font-size:12px;letter-spacing:2px}.player div{display:flex;gap:20px;flex-wrap:wrap;margin-top:10px}kbd{font:12px monospace;background:#2c3643;color:#fff;padding:3px 6px;border-radius:3px}.help{margin-top:16px;font-size:13px}footer{margin-top:22px;border-top:1px solid #27313d;padding-top:12px;font-size:11px;color:#747f8e}#status{font-size:12px}@media(max-width:650px){main{padding:18px 8px}h1{font-size:23px}.players{grid-template-columns:1fr}header{align-items:start}.badge{display:none}}
+</style></head><body><main><header><div><small>SHOTOKAN ARCADE · VERSÃO 02</small><h1>Deshi Dojo Karate Fight</h1><p>Distância, técnica e controle. Dois karatecas, um dojo.</p></div><span class="badge">2 JOGADORES · OFFLINE</span></header>
+<div class="cabinet"><canvas id="game" width="240" height="136" tabindex="0" aria-label="Deshi Dojo Karate Fight"></canvas></div>
+<div class="bar"><button id="play" class="primary">Escolher personagens</button><button id="title">Tela inicial</button><button id="diagnostic">Testar controles</button><button id="fullscreen">Tela cheia</button><button id="audio">Som: ligado</button></div>
+<div class="players"><section class="player"><strong>JOGADOR 1</strong><div><span>Mover: <kbd>↑ ↓ ← →</kbd></span><span>Confirmar: <kbd>Z</kbd></span></div><p><kbd>Z</kbd> Oi-zuki &nbsp; <kbd>X</kbd> Gyaku-zuki<br><kbd>A</kbd> Mae-geri &nbsp; <kbd>S</kbd> Mawashi-geri</p></section><section class="player two"><strong>JOGADOR 2</strong><div><span>Mover: <kbd>I K J L</kbd></span><span>Confirmar: <kbd>F</kbd></span></div><p><kbd>F</kbd> Oi-zuki &nbsp; <kbd>G</kbd> Gyaku-zuki<br><kbd>R</kbd> Mae-geri &nbsp; <kbd>T</kbd> Mawashi-geri</p></section></div>
+<p class="help">Na seleção, use esquerda/direita e confirme cada jogador. Segure para trás para defender. Primeiro a 5 pontos, ou melhor pontuação em 60 segundos, vence. Na tela de resultado, escolha revanche ou seleção e confirme.</p><p id="status" role="status">Preparando o dojo…</p><footer>Arte original e execução local. Pontuação experimental, sujeita à revisão do dojo. Efeitos originais; o som começa após uma interação. O teste do Raspberry Pi e dos controles físicos ainda está pendente. Código/arte: MIT · Fonte TIC-80: MIT · Fengari-web: MIT.</footer>
+</main><script>__VM__</script><script>
+'use strict';
+const assets=__ASSETS__,canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),status=document.getElementById('status');ctx.imageSmoothingEnabled=false;
+const palette=assets.palette.map(c=>'#'+c),rgb=assets.palette.map(c=>[0,2,4].map(i=>parseInt(c.slice(i,i+2),16)));
+const unhex=s=>Uint8Array.from(s.match(/../g),b=>parseInt(b,16));
+const bg=unhex(assets.background),tileData=unhex(assets.tiles),font=unhex(assets.font);
+function raster(data,w,h,transparent){const c=document.createElement('canvas');c.width=w;c.height=h;const out=c.getContext('2d'),im=out.createImageData(w,h);for(let i=0;i<w*h;i++){const index=(data[i>>1]>>((i%2)*4))&15;im.data.set([...rgb[index],transparent&&index===0?0:255],i*4)}out.putImageData(im,0,0);return c}
+const backdrop=raster(bg,240,136,false),tiles=Array.from({length:tileData.length/32},(_,i)=>raster(tileData.slice(i*32,i*32+32),8,8,true));
+let held=new Set(),override=null,streamTile=null;
+const soundState={context:null,muted:false,buffers:[],channels:[],events:[],played:0};
+function unlockAudio(){
+ if(soundState.muted)return;
+ const Audio=window.AudioContext||window.webkitAudioContext;
+ if(!Audio)return;
+ if(!soundState.context){
+  soundState.context=new Audio();
+  for(const [id,s] of assets.audio.sounds.entries()){
+   const rate=22050,length=Math.ceil(s.duration*rate/60),buffer=soundState.context.createBuffer(1,length,rate),out=buffer.getChannelData(0);
+   let phase=0,lfsr=0x1ace+id,noise=0;
+   for(let n=0;n<length;n++){
+    const t=Math.min(s.duration-1,Math.floor(n*60/rate)),arp=s.arp?s.arp[t]:0,pitch=s.wave===0?-Math.min(t,7):0;
+    const frequency=440*Math.pow(2,(s.note-8+arp-49)/12)+pitch;
+    phase+=Math.max(1,frequency)*(s.wave===0?16:1)/rate;
+    if(phase>=1){phase-=1;lfsr=(lfsr>>1)^(-(lfsr&1)&0x6000);noise=(lfsr&1)?1:-1}
+    const wave=s.wave===0?noise:(assets.audio.waves[s.wave][Math.floor(phase*32)%32]-7.5)/7.5;
+    out[n]=wave*(s.amp[t]/15)*.22;
+   }
+   soundState.buffers[id]=buffer;
+  }
+ }
+ soundState.context.resume().catch(()=>{});
+}
+window.addEventListener('pointerdown',unlockAudio,{capture:true});window.addEventListener('keydown',unlockAudio,{capture:true});
+document.getElementById('audio').onclick=()=>{soundState.muted=!soundState.muted;if(soundState.muted){for(const source of soundState.channels)if(source)try{source.stop()}catch(e){}}else unlockAudio();document.getElementById('audio').textContent=soundState.muted?'Som: desligado':'Som: ligado'};
+const host=globalThis.dojoHost={
+ cache(id){if(!tiles[id])throw Error('Cache tile inválido '+id);streamTile=tiles[id]},
+ sound(id,note,duration,channel,volume){
+  soundState.events.push({id,note,duration,channel,volume});if(soundState.events.length>64)soundState.events.shift();
+  if(soundState.muted||!soundState.context||soundState.context.state!=='running')return;
+  const source=soundState.context.createBufferSource(),gain=soundState.context.createGain();source.buffer=soundState.buffers[id];gain.gain.value=volume/15;
+  if(soundState.channels[channel])try{soundState.channels[channel].stop()}catch(e){}
+  source.connect(gain);gain.connect(soundState.context.destination);source.start();soundState.channels[channel]=source;soundState.played++;
+ },
+ audioStatus(){return {muted:soundState.muted,state:soundState.context?soundState.context.state:'locked',played:soundState.played,events:soundState.events}},
+ button(id){return (override||held).has(id)},background(){ctx.drawImage(backdrop,0,0)},clear(c){ctx.fillStyle=palette[c];ctx.fillRect(0,0,240,136)},
+ rect(x,y,w,h,c){ctx.fillStyle=palette[c];ctx.fillRect(Math.floor(x),Math.floor(y),w,h)},
+ rectb(x,y,w,h,c){this.rect(x,y,w,1,c);this.rect(x,y+h-1,w,1,c);this.rect(x,y,1,h,c);this.rect(x+w-1,y,1,h,c)},
+ line(x1,y1,x2,y2,c){x1=Math.floor(x1);y1=Math.floor(y1);x2=Math.floor(x2);y2=Math.floor(y2);let dx=Math.abs(x2-x1),sx=x1<x2?1:-1,dy=-Math.abs(y2-y1),sy=y1<y2?1:-1,err=dx+dy;for(let n=0;n<1024;n++){this.rect(x1,y1,1,1,c);if(x1===x2&&y1===y2)break;let e=2*err;if(e>=dy){err+=dy;x1+=sx}if(e<=dx){err+=dx;y1+=sy}}},
+ sprite(id,x,y,flip){const tile=id===480?streamTile:tiles[id];if(!tile)throw Error('Tile inválido '+id);x=Math.floor(x);y=Math.floor(y);if(flip===1){ctx.save();ctx.translate(x+8,y);ctx.scale(-1,1);ctx.drawImage(tile,0,0);ctx.restore()}else ctx.drawImage(tile,x,y)},
+ text(text,x,y,c,scale){x=Math.floor(x)+2*(scale-1);y=Math.floor(y);for(const ch of String(text)){let char=ch.charCodeAt(0);for(let row=0;row<6;row++)for(let col=0;col<6;col++)if(font[char*8+row]&(1<<(7-col)))this.rect(x+col*scale,y+row*scale,scale,scale,c);x+=6*scale}}
+};
+const keys={ArrowUp:0,ArrowDown:1,ArrowLeft:2,ArrowRight:3,KeyZ:4,KeyX:5,KeyA:6,KeyS:7,KeyI:8,KeyK:9,KeyJ:10,KeyL:11,KeyF:12,KeyG:13,KeyR:14,KeyT:15};
+window.addEventListener('keydown',e=>{if(e.code in keys){e.preventDefault();held.add(keys[e.code])}});window.addEventListener('keyup',e=>{if(e.code in keys){e.preventDefault();held.delete(keys[e.code])}});window.addEventListener('blur',()=>held.clear());document.addEventListener('visibilitychange',()=>held.clear());
+try{
+ fengari.load(__LUA__,'@shotokan-arcade.lua')();
+ const actions={play:fengari.load('G.select()'),title:fengari.load('G.mode="title";G.hold=0'),diagnostic:fengari.load('G.diagnostic()')};
+ for(const [id,action] of Object.entries(actions))document.getElementById(id).onclick=()=>{held.clear();action();canvas.focus()};
+ document.getElementById('fullscreen').onclick=async()=>{try{await canvas.requestFullscreen();canvas.focus()}catch(e){status.textContent='Seu navegador não permitiu tela cheia.'}};
+ host.update();canvas.focus();status.textContent='Pronto. Clique no dojo e jogue. Alguns teclados limitam teclas simultâneas.';
+ if(new URLSearchParams(location.search).has('selftest')){
+  const step=(n,ids=[])=>{override=new Set(ids);for(let i=0;i<n;i++)host.update()},state=()=>host.snapshot().split('|');
+  step(1,[4]);step(1);step(1,[4,12]);step(1);if(state()[0]!=='fight')throw Error('Seleção falhou');
+  step(36);step(48,[3,10]);step(1,[5,13]);step(7);if(state()[3]!=='1'||state()[4]!=='1')throw Error('Contato simultâneo falhou '+state());
+  override=null;status.textContent='SELFTEST PASS: seleção, sprites, colisões e pontuação P1/P2';document.body.dataset.test='passed';
+ }else if(new URLSearchParams(location.search).has("capture")){
+  document.body.dataset.capture="ready";
+ }else{
+  let last=performance.now(),acc=0;const tick=now=>{try{acc+=Math.min(now-last,100);last=now;let n=0;while(acc>=1000/60&&n<6){host.update();acc-=1000/60;n++}requestAnimationFrame(tick)}catch(e){status.textContent='Falha: '+String(e);console.error(e)}};requestAnimationFrame(tick);
+ }
+}catch(e){status.textContent='Falha: '+String(e);document.body.dataset.test='failed';console.error(e)}
+</script></body></html>

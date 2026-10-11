@@ -1,0 +1,6 @@
+.runtime/
+.cache/
+__pycache__/
+*.pyc
+games/shotokan-lutro-visual/dist/*.zip
+games/shotokan-lutro-visual/dist/deshi-dojo-visual/

@@ -1,0 +1,26 @@
+{
+  "platform": "Linux cloud x86-64, historical Lua-only core; no ARM/GPIO validation",
+  "excludes": "Python RGB conversion, Tk display and actual monitor/input latency",
+  "before_sha256": "d974c03007b0a552937f625da240157a93e88d834a3630514e742eae3660402b",
+  "after_sha256": "3dd42788ca01f873b4ce49024c778e3396eb74949fffdbaa71c339061a05af54",
+  "before": {
+    "frames": 7080,
+    "rendered": 7120,
+    "mean_ms": 0.183,
+    "p95_ms": 0.178,
+    "p99_ms": 0.821,
+    "max_ms": 11.249,
+    "over_16_67_ms": 0,
+    "lua_errors": []
+  },
+  "after": {
+    "frames": 7080,
+    "rendered": 7120,
+    "mean_ms": 0.282,
+    "p95_ms": 0.367,
+    "p99_ms": 4.252,
+    "max_ms": 9.492,
+    "over_16_67_ms": 0,
+    "lua_errors": []
+  }
+}

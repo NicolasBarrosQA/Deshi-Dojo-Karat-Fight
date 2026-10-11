@@ -1,0 +1,18 @@
+{
+  "previous_projects": [
+    {
+      "baseline": "shotokan-preserved.json",
+      "files": 36,
+      "unchanged": true
+    },
+    {
+      "baseline": "shotokan-pre-visual-preserved.json",
+      "files": 186,
+      "unchanged": true
+    }
+  ],
+  "visual_v01_archive": "archives/shotokan-lutro-visual-v01.zip",
+  "visual_v01_verified_files": 68,
+  "archive_sha256": "d937f84f67a06fe3dd3dfe80721b6a4cd96b0b733322773814ce257c318fdb6c",
+  "arcade_access": false
+}

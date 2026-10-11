@@ -1,0 +1,20 @@
+{
+  "cart_sha256": "a0a47d3156ff3a632c3e5b41b0f7e54442008d29471dd220d951c05bc80e0e29",
+  "techniques": {
+    "age": 38,
+    "gedan": 38,
+    "soto": 38,
+    "uchi": 38,
+    "gyaku": 38,
+    "oi": 38,
+    "jodan": 38,
+    "mae": 38,
+    "mae_low": 38,
+    "mawashi": 38
+  },
+  "technique_ticks": 750,
+  "total_ticks": 1226,
+  "sample_every_ticks": 2,
+  "gif_presentation": "slowed 70/80ms per sampled frame; simulation remains 60Hz",
+  "instrumentation": false
+}

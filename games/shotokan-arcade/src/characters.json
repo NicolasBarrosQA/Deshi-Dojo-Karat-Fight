@@ -1,0 +1,26 @@
+{
+  "ren": {
+    "name": "REN",
+    "belt": 12,
+    "hair": "short",
+    "body_width": 1.12,
+    "jaw": 4,
+    "height_offset": 0,
+    "skin_shadow": 6,
+    "skin_highlight": 7,
+    "hair_shadow": 1,
+    "hair_highlight": 2
+  },
+  "aki": {
+    "name": "AKI",
+    "belt": 13,
+    "hair": "ponytail",
+    "body_width": 0.88,
+    "jaw": 3,
+    "height_offset": 1,
+    "skin_shadow": 6,
+    "skin_highlight": 7,
+    "hair_shadow": 4,
+    "hair_highlight": 5
+  }
+}

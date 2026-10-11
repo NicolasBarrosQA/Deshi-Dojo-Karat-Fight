@@ -1,0 +1,73 @@
+{
+  "created_for": "Deshi Dojo original fictional karateka visual proof",
+  "date_local": "2026-10-10",
+  "creation_tool": "image_gen.imagegen",
+  "method": "Original generated karateka and dojo; added three technique sheets and targeted age-uke/gedan-barai correction. Mechanical per-sheet atlas import only. No photographs or franchise assets.",
+  "requirements": [
+    "athletic adult male, short black hair, white karate gi, black belt",
+    "4x3 grid of full-body guard/footwork/reverse-punch poses",
+    "grounded Shotokan reference, middle-level straight punch, hip rotation and hikite",
+    "quiet Japanese dojo, warm sunlight, green tatami, empty foreground"
+  ],
+  "import": "Per-sheet uniform scale ~128px tall, binary alpha, belt anchors; 44 cells 224x144, mirrored 896x1584 atlases; silhouettes checked for no horizontal clipping.",
+  "files": [
+    {
+      "path": "assets/source/defenses-initial.png",
+      "sha256": "8089c9af7cbca7089b215ff388594f62f2522a82c0d09c1456da79bbabfb8cc5",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/source/defenses.png",
+      "sha256": "2bafc308f34fed63afc8fa307b6d09de6bdbb7e1077a8d22061e4bb8c1facbd9",
+      "dimensions": [
+        1024,
+        1536
+      ]
+    },
+    {
+      "path": "assets/source/dojo.png",
+      "sha256": "bdfb99701ea5a53b848a4ef72269e00bf2fb7f68add89fe01f810df1d120ab6a",
+      "dimensions": [
+        1642,
+        958
+      ]
+    },
+    {
+      "path": "assets/source/karateca-sheet-initial.png",
+      "sha256": "7139abd1a1ced1339bcea4a4d0a3b15601f13e97c5424cc0d87c8ead5dab2390",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "assets/source/karateca-sheet.png",
+      "sha256": "79ad1db1636a75c890e03035595b7212fd809c06636cd6ba836af5e871b7cfa7",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "assets/source/kicks.png",
+      "sha256": "d43f1abaaf9d8a97356d02299427cc0d090c4ba3f0cc723545f9f037337661a7",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    },
+    {
+      "path": "assets/source/punches.png",
+      "sha256": "7b25f127f336cfea20e112b6da7a8acc8ff101af8dfa0200e7627f6a818f0e95",
+      "dimensions": [
+        1536,
+        1024
+      ]
+    }
+  ],
+  "font": "Historical TIC-80 bitmap font, MIT; license in docs/TIC80-LICENSE.txt",
+  "runtime": "Fengari-web 0.1.4, bundled verified SHA256 with MIT license in browser/"
+}

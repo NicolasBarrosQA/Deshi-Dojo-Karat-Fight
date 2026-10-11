@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'">
+<title>Deshi Dojo — jogar</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10121b;color:#f4f0e6;font:16px system-ui,sans-serif;min-height:100vh;display:grid;place-items:center}main{width:min(950px,96vw);padding:20px}h1{font-size:25px;margin:0 0 6px}p{color:#bfc3d0;margin:8px 0}canvas{display:block;background:#140c1c;width:100%;aspect-ratio:240/136;image-rendering:pixelated;border:2px solid #363c4c;border-radius:8px;outline:none}canvas:focus{border-color:#daa94d}.controls{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}.controls>div{flex:1;min-width:240px;padding:14px;background:#1c2030;border-radius:8px}.p1{color:#e5b24e}.p2{color:#92c8e3}kbd{font:inherit;color:#fff;background:#30364b;padding:1px 6px;border-radius:4px}button{font:inherit;padding:10px 15px;margin:12px 8px 6px 0;background:#e5b24e;border:0;border-radius:5px;cursor:pointer}button.secondary{background:#30364b;color:white}#status{font-size:13px}footer{font-size:12px;color:#989daf;margin-top:15px}
+</style></head><body><main>
+<h1>Deshi Dojo Karate Fight</h1><p>Dois jogadores no mesmo teclado. Clique no jogo para começar.</p>
+<canvas id="game" width="240" height="136" tabindex="0" aria-label="Jogo de dois jogadores"></canvas>
+<button id="fight">Jogar kumite</button><button id="diagnostic" class="secondary">Testar controles</button><button id="reset" class="secondary">Reiniciar</button>
+<div class="controls"><div><strong class="p1">JOGADOR 1</strong><p>Mover: <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd></p><p>Golpes: <kbd>Z</kbd> oi-zuki · <kbd>X</kbd> gyaku-zuki<br><kbd>A</kbd> mae-geri · <kbd>S</kbd> mawashi-geri</p></div><div><strong class="p2">JOGADOR 2</strong><p>Mover: <kbd>I</kbd> <kbd>K</kbd> <kbd>J</kbd> <kbd>L</kbd></p><p>Golpes: <kbd>F</kbd> oi-zuki · <kbd>G</kbd> gyaku-zuki<br><kbd>R</kbd> mae-geri · <kbd>T</kbd> mawashi-geri</p></div></div>
+<p>Defenda segurando para trás. Primeiro a 5 pontos vence.</p><p id="status" role="status">Carregando…</p>
+<footer>Protótipo experimental. Versão de navegador com Lua 5.3/Fengari; não substitui o teste do cartucho TIC-80 no Raspberry Pi. Lua do jogo sob MIT; Fengari-web sob MIT. Todas as dependências estão neste arquivo.</footer>
+</main><script>
+__VM__
+</script><script>
+'use strict';
+const canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
+const palette=['#140c1c','#442434','#30346d','#4e4a4e','#854c30','#346524','#d04648','#757161','#597dce','#d27d2c','#8595a1','#6daa2c','#d2aa99','#6dc2ca','#dad45e','#deeed6'];
+let held=new Set(),override=null;
+const host=globalThis.dojoHost={
+ button(id){return (override||held).has(id)},
+ clear(c){ctx.fillStyle=palette[c%16];ctx.fillRect(0,0,240,136)},
+ rect(x,y,w,h,c){ctx.fillStyle=palette[c%16];ctx.fillRect(Math.floor(x),Math.floor(y),w,h)},
+ rectb(x,y,w,h,c){this.rect(x,y,w,1,c);this.rect(x,y+h-1,w,1,c);this.rect(x,y,1,h,c);this.rect(x+w-1,y,1,h,c)},
+ line(x1,y1,x2,y2,c){x1=Math.floor(x1);y1=Math.floor(y1);x2=Math.floor(x2);y2=Math.floor(y2);let dx=Math.abs(x2-x1),sx=x1<x2?1:-1,dy=-Math.abs(y2-y1),sy=y1<y2?1:-1,err=dx+dy;for(let n=0;n<1024;n++){this.rect(x1,y1,1,1,c);if(x1===x2&&y1===y2)break;let e=2*err;if(e>=dy){err+=dy;x1+=sx}if(e<=dx){err+=dx;y1+=sy}}},
+ text(text,x,y,c){ctx.fillStyle=palette[c%16];ctx.font='6px monospace';ctx.textBaseline='top';ctx.fillText(String(text),Math.floor(x),Math.floor(y))}
+};
+const keys={ArrowUp:0,ArrowDown:1,ArrowLeft:2,ArrowRight:3,KeyZ:4,KeyX:5,KeyA:6,KeyS:7,KeyI:8,KeyK:9,KeyJ:10,KeyL:11,KeyF:12,KeyG:13,KeyR:14,KeyT:15};
+window.addEventListener('keydown',e=>{if(e.code in keys){e.preventDefault();held.add(keys[e.code])}});
+window.addEventListener('keyup',e=>{if(e.code in keys){e.preventDefault();held.delete(keys[e.code])}});
+window.addEventListener('blur',()=>held.clear());
+document.addEventListener('visibilitychange',()=>held.clear());
+try{
+ fengari.load(__LUA__,'@dojo.lua')();
+ const menus={fight:fengari.load('DD.mode="fight"; DD.reset()','@menu.lua'),diagnostic:fengari.load('DD.mode="diagnostic"; DD.reset()','@menu.lua')};
+ function select(mode){menus[mode]();held.clear();canvas.focus()}
+ document.getElementById('fight').onclick=()=>select('fight');
+ document.getElementById('diagnostic').onclick=()=>select('diagnostic');
+ document.getElementById('reset').onclick=()=>select(host.snapshot().split('|')[0]);
+ host.update();canvas.focus();status.textContent='Pronto. Funciona offline; teclado pode limitar algumas combinações simultâneas.';
+ if(new URLSearchParams(location.search).has('selftest')){
+  const step=(n,ids=[])=>{override=new Set(ids);for(let i=0;i<n;i++)host.update()};
+  const state=()=>host.snapshot().split('|');
+  let initial=state();step(10,[3,10]);let s=state();
+  if(+s[1]!==+initial[1]+10||+s[2]!==+initial[2]-10)throw Error('Movimento independente falhou');
+  select('fight');step(35,[3,10]);step(1,[4,12]);step(8);s=state();
+  if(s[3]!=='1'||s[4]!=='1')throw Error('Pontuacao simultanea falhou: '+s);
+  select('diagnostic');step(60,[4,5]);if(state()[0]!=='fight')throw Error('Troca de tela falhou');
+  override=null;host.update();status.textContent='SELFTEST PASS: Lua, P1/P2, pontuacao simultanea e troca de tela';document.body.dataset.test='passed';
+ }else{
+  let last=performance.now(),acc=0;
+  const tick=now=>{try{acc+=Math.min(now-last,100);last=now;let n=0;while(acc>=1000/60&&n<6){host.update();acc-=1000/60;n++}requestAnimationFrame(tick)}catch(err){status.textContent='Falha: '+(err.message||String(err));console.error(err)}};
+  requestAnimationFrame(tick);
+ }
+}catch(err){status.textContent='Falha: '+(err.message||String(err));document.body.dataset.test='failed';console.error(err)}
+</script></body></html>

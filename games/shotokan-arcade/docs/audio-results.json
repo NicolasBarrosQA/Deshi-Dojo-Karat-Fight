@@ -1,0 +1,44 @@
+[
+  {
+    "effect": "step",
+    "frames": 36,
+    "peak": 1096,
+    "rms": 69.2
+  },
+  {
+    "effect": "punch",
+    "frames": 36,
+    "peak": 3841,
+    "rms": 433.94
+  },
+  {
+    "effect": "kick",
+    "frames": 36,
+    "peak": 3765,
+    "rms": 561.43
+  },
+  {
+    "effect": "block",
+    "frames": 36,
+    "peak": 7689,
+    "rms": 858.56
+  },
+  {
+    "effect": "impact",
+    "frames": 36,
+    "peak": 13179,
+    "rms": 1536.19
+  },
+  {
+    "effect": "point",
+    "frames": 36,
+    "peak": 4177,
+    "rms": 591.91
+  },
+  {
+    "effect": "victory",
+    "frames": 36,
+    "peak": 4086,
+    "rms": 1007.14
+  }
+]

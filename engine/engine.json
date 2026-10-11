@@ -1,0 +1,9 @@
+{
+  "name": "IKEMEN GO",
+  "version": "1.0.0",
+  "release_url": "https://github.com/ikemen-engine/Ikemen-GO/releases/tag/v1.0.0",
+  "platforms": {
+    "linux": {"asset": "Ikemen_GO-v1.0.0-linux.zip", "binary": "Ikemen_GO_Linux", "sha256": "cc533c1a2ab84d63cbf9126d9dcb3f2dcc1a41c6206f2da419b0c91084f193e4"},
+    "windows": {"asset": "Ikemen_GO-v1.0.0-windows.zip", "binary": "Ikemen_GO.exe", "sha256": "9338eaeb68599ceb13b0867819a091ea3f92eba58077e800b4540b7a1f9c3731"}
+  }
+}

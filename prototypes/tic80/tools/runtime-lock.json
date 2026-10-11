@@ -1,0 +1,18 @@
+{
+  "tic80": {
+    "url": "https://github.com/nesbox/TIC-80.git",
+    "commit": "b3e158c15997beba019aa02cfad3c7d70caca84e"
+  },
+  "lua": {
+    "url": "https://github.com/lua/lua.git",
+    "commit": "a1415c0d72053cf6f6f7e68033fa3b7f999ad960"
+  },
+  "giflib": {
+    "url": "https://github.com/nesbox/giflib.git",
+    "commit": "1aa11b06d0025eda77b56aec8254130654d4397b"
+  },
+  "blip": {
+    "url": "https://github.com/nesbox/blip-buf.git",
+    "commit": "330226d9b55ecbeea644e17b5e0f096a165ca07e"
+  }
+}

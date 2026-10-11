@@ -1,0 +1,5 @@
+915ee0c8ce96e860e0aab71c505e9ddd2940fe3e1c339e3f30ab4bd69880d47c  Ikemen_GO-v1.0.0-android.zip
+cc533c1a2ab84d63cbf9126d9dcb3f2dcc1a41c6206f2da419b0c91084f193e4  Ikemen_GO-v1.0.0-linux.zip
+2b0a8ff44c23b764340d7e428ddbf3a86c4d157c16ee78fe7a960117464bfc12  Ikemen_GO-v1.0.0-macos.zip
+9338eaeb68599ceb13b0867819a091ea3f92eba58077e800b4540b7a1f9c3731  Ikemen_GO-v1.0.0-windows.zip
+d1b1245310fd6a87b8846b5b92dee9722ecc15563e938732bc8f88f451b6e6c6  src_ffmpeg.tar.gz

@@ -1,0 +1,424 @@
+{
+  "order": [
+    "age",
+    "gedan",
+    "soto",
+    "uchi",
+    "gyaku",
+    "oi",
+    "jodan",
+    "mae",
+    "mae_low",
+    "mawashi"
+  ],
+  "techniques": {
+    "kamae": {
+      "label": "KAMAE",
+      "name": "Kamae — guarda",
+      "kind": "defense",
+      "zone": "chudan",
+      "poses": [
+        1,
+        2
+      ],
+      "durations": [
+        2,
+        1
+      ],
+      "windup": 2,
+      "active": 0,
+      "command": "Defesa sem direção",
+      "foundation": "Guarda pronta na linha média. É uma postura de cobertura, não uma execução de uke.",
+      "phases": [
+        "preparação",
+        "cobertura"
+      ],
+      "tips": [
+        "Mãos prontas e joelhos flexionados.",
+        "Guarda média não cobre automaticamente cabeça e linha baixa."
+      ]
+    },
+    "age": {
+      "label": "AGE-UKE",
+      "name": "Age-uke",
+      "kind": "defense",
+      "zone": "jodan",
+      "poses": [
+        13,
+        14,
+        15
+      ],
+      "durations": [
+        5,
+        3,
+        7
+      ],
+      "windup": 8,
+      "active": 7,
+      "command": "Cima + defesa",
+      "foundation": "O antebraço sobe em diagonal e recebe/desvia a linha alta. Termina acima da testa, com espaço entre braço e cabeça.",
+      "phases": [
+        "preparação",
+        "subida",
+        "desvio alto"
+      ],
+      "tips": [
+        "Cotovelo flexionado, punho fechado e antebraço inclinado.",
+        "A outra mão recolhe à cintura: hikite.",
+        "Não é um soco lançado para cima."
+      ]
+    },
+    "gedan": {
+      "label": "GEDAN-BARAI",
+      "name": "Gedan-barai",
+      "kind": "defense",
+      "zone": "gedan",
+      "poses": [
+        16,
+        17,
+        18
+      ],
+      "durations": [
+        5,
+        3,
+        7
+      ],
+      "windup": 8,
+      "active": 7,
+      "command": "Baixo + defesa",
+      "foundation": "A mão prepara perto do ombro/orelha opostos; o antebraço varre para baixo e cruza o corpo até a linha baixa.",
+      "phases": [
+        "câmara cruzada",
+        "varredura",
+        "desvio baixo"
+      ],
+      "tips": [
+        "A mesma mão que prepara executa a varredura.",
+        "O outro braço recolhe em hikite.",
+        "Quadril e antebraço trabalham juntos; não é só baixar a mão."
+      ]
+    },
+    "soto": {
+      "label": "SOTO-UKE",
+      "name": "Soto-uke",
+      "kind": "defense",
+      "zone": "chudan",
+      "poses": [
+        19,
+        20,
+        21
+      ],
+      "durations": [
+        5,
+        3,
+        7
+      ],
+      "windup": 8,
+      "active": 7,
+      "command": "Frente + defesa",
+      "foundation": "Na convenção Shotokan usada aqui, o braço prepara por fora, perto da orelha do mesmo lado, e descreve um arco de fora para dentro.",
+      "phases": [
+        "câmara externa",
+        "arco para dentro",
+        "desvio médio"
+      ],
+      "tips": [
+        "Cotovelo baixo e flexionado na conclusão.",
+        "Não transformar o bloqueio em soco.",
+        "A trajetória distingue soto de uchi, mesmo com finais semelhantes."
+      ]
+    },
+    "uchi": {
+      "label": "UCHI-UKE",
+      "name": "Uchi-uke",
+      "kind": "defense",
+      "zone": "chudan",
+      "poses": [
+        22,
+        23,
+        24
+      ],
+      "durations": [
+        5,
+        3,
+        7
+      ],
+      "windup": 8,
+      "active": 7,
+      "command": "Trás + defesa",
+      "foundation": "Na convenção Shotokan usada aqui, a mão prepara por dentro, sob o braço oposto, e o antebraço abre de dentro para fora.",
+      "phases": [
+        "câmara interna",
+        "arco para fora",
+        "desvio médio"
+      ],
+      "tips": [
+        "Antebraço termina à frente, cotovelo flexionado e próximo ao tronco.",
+        "A outra mão recolhe à cintura.",
+        "Frente/trás são comandos do jogo; não definem por si a aplicação real."
+      ]
+    },
+    "gyaku": {
+      "label": "GYAKU-ZUKI",
+      "name": "Gyaku-zuki chudan",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "durations": [
+        5,
+        4,
+        3,
+        4,
+        2,
+        5,
+        4
+      ],
+      "windup": 12,
+      "active": 4,
+      "hit": {
+        "near": 55,
+        "far": 66,
+        "y": 99,
+        "h": 10
+      },
+      "step": 0,
+      "command": "Soco",
+      "foundation": "Soco com o braço oposto à perna dianteira. A rotação do quadril conduz o punho ao tronco, enquanto a outra mão recolhe.",
+      "phases": [
+        "câmara",
+        "rotação",
+        "projeção",
+        "extensão",
+        "contato",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Punho e antebraço alinhados.",
+        "O corpo não deve se desequilibrar para alcançar.",
+        "Hikite e retorno à guarda fazem parte da técnica."
+      ]
+    },
+    "oi": {
+      "label": "OI-ZUKI",
+      "name": "Oi-zuki chudan",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        37,
+        38,
+        39,
+        40,
+        12
+      ],
+      "durations": [
+        7,
+        7,
+        6,
+        9,
+        4
+      ],
+      "windup": 14,
+      "active": 6,
+      "hit": {
+        "near": 54,
+        "far": 65,
+        "y": 99,
+        "h": 10
+      },
+      "step": 14,
+      "command": "Frente + soco",
+      "foundation": "Soco com avanço: a perna que chega à frente e o braço que soca são do mesmo lado. Passo e extensão chegam juntos.",
+      "phases": [
+        "início do passo",
+        "passagem",
+        "extensão",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Manter a altura do quadril durante o avanço.",
+        "Não separar o passo da conclusão do soco.",
+        "No jogo o deslocamento e a troca de base são projeções em 2D."
+      ]
+    },
+    "jodan": {
+      "label": "GYAKU JODAN",
+      "name": "Gyaku-zuki jodan",
+      "kind": "attack",
+      "zone": "jodan",
+      "poses": [
+        41,
+        42,
+        43,
+        44,
+        12
+      ],
+      "durations": [
+        6,
+        5,
+        5,
+        8,
+        4
+      ],
+      "windup": 11,
+      "active": 5,
+      "hit": {
+        "near": 56,
+        "far": 67,
+        "y": 70,
+        "h": 10
+      },
+      "step": 0,
+      "command": "Cima + soco",
+      "foundation": "Soco reverso dirigido à linha alta, mantendo a mecânica de quadril, alinhamento do punho e recolhimento.",
+      "phases": [
+        "câmara",
+        "rotação",
+        "extensão alta",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "É uma trajetória reta ligeiramente ascendente, não um gancho.",
+        "A direção alta muda o alvo, não a importância do equilíbrio."
+      ]
+    },
+    "mae": {
+      "label": "MAE-GERI",
+      "name": "Mae-geri chudan",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        25,
+        26,
+        27,
+        28,
+        12
+      ],
+      "durations": [
+        6,
+        7,
+        6,
+        10,
+        5
+      ],
+      "windup": 13,
+      "active": 6,
+      "hit": {
+        "near": 53,
+        "far": 64,
+        "y": 104,
+        "h": 13
+      },
+      "step": 0,
+      "command": "Chute",
+      "foundation": "Chute frontal: o joelho sobe, a perna estende para a frente e recolhe à câmara antes de voltar ao chão.",
+      "phases": [
+        "preparação",
+        "joelho/câmara",
+        "extensão frontal",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Koshi: bola do pé, com dedos recolhidos.",
+        "Perna de apoio e quadril sustentam o equilíbrio.",
+        "Recolher o joelho faz parte do golpe."
+      ]
+    },
+    "mae_low": {
+      "label": "MAE GEDAN",
+      "name": "Mae-geri gedan",
+      "kind": "attack",
+      "zone": "gedan",
+      "poses": [
+        29,
+        30,
+        31,
+        32,
+        12
+      ],
+      "durations": [
+        6,
+        7,
+        6,
+        10,
+        5
+      ],
+      "windup": 13,
+      "active": 6,
+      "hit": {
+        "near": 76,
+        "far": 87,
+        "y": 147,
+        "h": 13
+      },
+      "step": 0,
+      "command": "Baixo + chute",
+      "foundation": "Variação baixa para visualizar a linha gedan em kihon: câmara, projeção frontal mais baixa e recolhimento controlado.",
+      "phases": [
+        "preparação",
+        "câmara baixa",
+        "extensão baixa",
+        "recolhimento",
+        "guarda"
+      ],
+      "tips": [
+        "Usado aqui para estudo de altura e defesa baixa.",
+        "Não confundir os acertos do protótipo com pontuação oficial de kumite."
+      ]
+    },
+    "mawashi": {
+      "label": "MAWASHI-GERI",
+      "name": "Mawashi-geri chudan",
+      "kind": "attack",
+      "zone": "chudan",
+      "poses": [
+        33,
+        34,
+        35,
+        36,
+        12
+      ],
+      "durations": [
+        8,
+        8,
+        7,
+        11,
+        5
+      ],
+      "windup": 16,
+      "active": 7,
+      "hit": {
+        "near": 79,
+        "far": 90,
+        "y": 94,
+        "h": 10
+      },
+      "step": 0,
+      "command": "Frente + chute",
+      "foundation": "Chute circular: câmara lateral, giro do quadril e pivô do pé de apoio conduzem a perna em arco à linha média.",
+      "phases": [
+        "preparação",
+        "câmara lateral",
+        "arco/extensão",
+        "recolhimento lateral",
+        "guarda"
+      ],
+      "tips": [
+        "A câmara e o pivô diferem do mae-geri.",
+        "A ilustração usa o peito do pé na conclusão.",
+        "O arco tridimensional é aproximado no plano do jogo."
+      ]
+    }
+  }
+}

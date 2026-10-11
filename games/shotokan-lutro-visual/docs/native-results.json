@@ -1,0 +1,177 @@
+{
+  "passed": 10,
+  "checks": [
+    "Delivered uninstrumented .lutro loads/renders historical PNGs, 384x224; 600 movement frames",
+    "Two independent ports, body separation, stage limits",
+    "40 technique/port/facing cases: all authored poses reached by commands",
+    "30 attack/defense pairs: correct zone blocks; wrong zones are vulnerable",
+    "Held attack button cannot repeat; release/fresh press works",
+    "Simultaneous contacts evaluate both fighters before stun",
+    "Out-of-range kick misses",
+    "Early coverage receives on time and enables tagged counterattack",
+    "Late defence does not protect during its preparation",
+    "Held defence direction change starts a fresh technique preparation"
+  ],
+  "technique_input_cases": 40,
+  "zone_matrix": [
+    {
+      "attack": "gyaku",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "gyaku",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "gyaku",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "gyaku",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "gyaku",
+      "defense": "uchi",
+      "blocked": true
+    },
+    {
+      "attack": "oi",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "oi",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "oi",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "oi",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "oi",
+      "defense": "uchi",
+      "blocked": true
+    },
+    {
+      "attack": "jodan",
+      "defense": "kamae",
+      "blocked": false
+    },
+    {
+      "attack": "jodan",
+      "defense": "age",
+      "blocked": true
+    },
+    {
+      "attack": "jodan",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "jodan",
+      "defense": "soto",
+      "blocked": false
+    },
+    {
+      "attack": "jodan",
+      "defense": "uchi",
+      "blocked": false
+    },
+    {
+      "attack": "mae",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "mae",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "mae",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "mae",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "mae",
+      "defense": "uchi",
+      "blocked": true
+    },
+    {
+      "attack": "mae_low",
+      "defense": "kamae",
+      "blocked": false
+    },
+    {
+      "attack": "mae_low",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "mae_low",
+      "defense": "gedan",
+      "blocked": true
+    },
+    {
+      "attack": "mae_low",
+      "defense": "soto",
+      "blocked": false
+    },
+    {
+      "attack": "mae_low",
+      "defense": "uchi",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi",
+      "defense": "kamae",
+      "blocked": true
+    },
+    {
+      "attack": "mawashi",
+      "defense": "age",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi",
+      "defense": "gedan",
+      "blocked": false
+    },
+    {
+      "attack": "mawashi",
+      "defense": "soto",
+      "blocked": true
+    },
+    {
+      "attack": "mawashi",
+      "defense": "uchi",
+      "blocked": true
+    }
+  ],
+  "core_commit": "a031f95394440022a561ce593d578474ac119c05",
+  "artifact_sha256": "a0a47d3156ff3a632c3e5b41b0f7e54442008d29471dd220d951c05bc80e0e29",
+  "native_frames_measured": 1800,
+  "mean_ms": 0.23839718958899742,
+  "p95_ms": 0.2832970058079809,
+  "p99_ms": 0.5157720006536692,
+  "max_ms": 10.078767998493277,
+  "above_16_67_ms": 0,
+  "limitations": "Linux x86-64 only; Pi/ARM/GPIO/real monitor/instructor review pending"
+}
