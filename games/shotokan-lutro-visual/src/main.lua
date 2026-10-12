@@ -6,6 +6,7 @@ local art=require('art')
 local CPU=require('cpu')
 local Characters=require('characters')
 local Specials=require('specials')
+local Ceremony=require('ceremony')
 local rules=skills.arcade
 local W,H,FLOOR=224,144,195
 local image,fontQuad={},{}
@@ -57,6 +58,7 @@ local function newPlayers()
  Scene.left=1 Scene.freeze=0 Scene.flash=0 Scene.lastContact=nil
  Scene.timer=rules.round_ticks Scene.result=nil Scene.roundWait=0 Scene.impact=nil
  Scene.cpu=CPU.new(Scene.difficulty,103+Scene.round*977)
+ Ceremony.start(Scene)
 end
 function Scene.character(port,definition)
  local d=Characters.select(port,definition)
@@ -68,10 +70,11 @@ function Scene.student(port,id)
  if Scene.players[port] then Scene.players[port].character=d end
  return d
 end
-function Scene.reset()
+function Scene.reset(skipIntro)
  Scene.tick=0 Scene.wins={0,0} Scene.round=1 Scene.matchWinner=nil
  Scene.message='SOCO > SOCO > CHUTE' Scene.messageTicks=100
  newPlayers() previous={{},{}} physicalPrevious={{},{}} Scene.menu=false
+ if skipIntro then Ceremony.finish(Scene) end
 end
 local menuOptions={{mode='cpu',level='easy',label='CPU FACIL'},
  {mode='cpu',level='medium',label='CPU MEDIO'},
@@ -80,11 +83,11 @@ local menuOptions={{mode='cpu',level='easy',label='CPU FACIL'},
  {port=1,field='belt',label='P1 FAIXA'},
  {port=2,field='belt',label='P2 FAIXA'},
  {port=1,field='student',label='P1 ALUNO'}, {port=2,field='student',label='P2 ALUNO'}}
-function Scene.configure(mode,level)
+function Scene.configure(mode,level,skipIntro)
  assert(mode=='cpu' or mode=='versus','Unknown match mode')
  assert(CPU.profiles[level],'Unknown difficulty')
  Scene.mode=mode Scene.difficulty=level Scene.demo=false
- Scene.reset()
+ Scene.reset(skipIntro)
 end
 local function openMenu()
  Scene.menu=true
@@ -283,6 +286,11 @@ function Scene.advance()
   end
   if Scene.demo then input[i]=lessonInput(i) end
  end
+ if Ceremony.update(Scene) then
+  -- Consume button edges during the greeting; no motion/buffer reaches combat.
+  previous=physical
+  return
+ end
  if Scene.mode=='cpu' and not Scene.demo then
   input[2]=Scene.result and {} or CPU.update(Scene.cpu,Scene.players[2],Scene.players[1],Scene.freeze>0)
  end
@@ -315,6 +323,7 @@ function Scene.advance()
  local old={Scene.players[1].x,Scene.players[2].x}
  local leftIndex=old[1]<old[2] and 1 or old[2]<old[1] and 2 or Scene.left
  for i,p in ipairs(Scene.players) do
+  p.ceremonyPose=nil
   local c=input[i];local other=Scene.players[3-i]
   if not p.action and not p.air and not p.special and not p.knockdown then p.face=i==leftIndex and 1 or -1 end
   p.counter=math.max(0,p.counter-1) p.cooldown=math.max(0,p.cooldown-1)
@@ -368,7 +377,8 @@ function Scene.advance()
    elseif p.queued and p.cooldown==0 then startAction(p,p.queued.id)
    elseif c.y then startAction(p,choose('defense',c,p))
    elseif c.up and not c.down and not previous[i].up then jump(p,c)
-   elseif c.down and not c.up then p.low=true p.pose=90 p.phase='BASE BAIXA'
+   -- Keep the existing low-base collision bands; draw authored kiba instead.
+   elseif c.down and not c.up then p.low=true p.pose=90 p.ceremonyPose={group='ceremony',frame=9} p.phase='KIBA-DACHI'
    elseif c.left~=c.right then
     p.low=false local dir=c.right and 1 or -1
     move(p,dir*(dir==p.face and rules.walk_speed or rules.back_speed))
@@ -520,6 +530,15 @@ function lutro.draw()
   local winner=Scene.matchWinner==2 and Scene.mode=='cpu' and 'CPU' or 'P'..(Scene.matchWinner or 0)
   centered(Scene.matchWinner and winner..' VENCEU A PARTIDA' or Scene.message,103)
   centered(Scene.matchWinner and 'START / ENTER: REVANCHE' or 'PROXIMO ROUND',116)
+ end
+ if Scene.intro then
+  local intro=Scene.intro;local digit=math.ceil((intro.total-intro.age)/60)
+  local segments={{0,0,1,0,0,1,0},{1,0,1,1,1,0,1},{1,0,1,1,0,1,1},{0,1,1,1,0,1,0},{1,1,0,1,0,1,1}}
+  local rects={{0,0,18,3},{0,0,3,22},{15,0,3,22},{0,20,18,3},{0,22,3,22},{15,22,3,22},{0,42,18,3}}
+  box(174,49,36,54,13,23,29);box(174,49,36,54,185,151,94,true)
+  for i,on in ipairs(segments[digit]) do local r=rects[i];if on==1 then box(183+r[1],54+r[2],r[3],r[4],245,208,128) end end
+  centered('ROUND '..Scene.round,43);centered(intro.label,109)
+  box(152,120,80,2,60,71,71);box(152,120,80*(intro.total-intro.age)/intro.total,2,185,151,94)
  end
  if Scene.menu then
   Characters.portrait(1,28,3) Characters.portrait(2,324,3)

@@ -8,7 +8,7 @@ const folder=process.argv[2],root=path.resolve(__dirname,'..');
  await require('./offline_page.cjs')(page);
  await page.waitForFunction(()=>document.body.dataset.ready==='true');
  for(const c of JSON.parse(fs.readFileSync(path.join(folder,'cases.json'),'utf8'))){
-  const url=await page.evaluate(async code=>{dojoHost.clear();run('Scene.configure("versus","easy");'+code);await Promise.all([...assetLoads.values()]);dojoHost.render();return document.getElementById('game').toDataURL()},c.code);
+  const url=await page.evaluate(async code=>{dojoHost.clear();run('Scene.configure("versus","easy",true);'+code);await Promise.all([...assetLoads.values()]);dojoHost.render();return document.getElementById('game').toDataURL()},c.code);
   fs.writeFileSync(path.join(folder,c.name+'-browser.png'),Buffer.from(url.split(',')[1],'base64'));
  }
  if(errors.length||requests.length)throw Error(JSON.stringify({errors,requests}));

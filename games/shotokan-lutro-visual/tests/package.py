@@ -6,7 +6,7 @@ manifest=json.loads((HERE/'assets/character-assets.json').read_text())
 with zipfile.ZipFile(HERE/'dist/deshi-dojo-visual.lutro') as cart:
     names=cart.namelist();assert names[0]=='assets/'
     assert not any('\\' in name for name in names),'Windows separators in cartridge'
-    for module in ('main.lua','conf.lua','characters.lua','character_data.lua','art.lua','cpu.lua','techniques.lua','motion.lua','specials.lua'):
+    for module in ('main.lua','conf.lua','characters.lua','character_data.lua','art.lua','cpu.lua','techniques.lua','motion.lua','specials.lua','ceremony.lua'):
         assert module in names
     roster=json.loads((HERE/'assets/characters.json').read_text(encoding='utf-8'))
     visual_path=HERE/'assets/character-visuals.json'
@@ -32,6 +32,7 @@ with zipfile.ZipFile(HERE/'dist/deshi-dojo-visual.lutro') as cart:
                     assert struct.unpack('>II',raw[16:24])==(part['width'],part['height'])
                     assert raw==(HERE/'src'/name).read_bytes()
     specials=json.loads((HERE/'assets/special-assets.json').read_text())
+    for body,animation in json.loads((HERE/'assets/ceremony-assets.json').read_text()).items():specials[body]['ceremony']=animation
     for groups in specials.values():
         for animation in groups.values():
             for part in [animation['body'],*animation['belts'].values()]:

@@ -5,6 +5,7 @@ const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),ass
   const page=await browser.newPage({offline:true});
   await require('./offline_page.cjs')(page,false);
   await page.waitForFunction(()=>document.body.dataset.ready==='true');
+  await page.waitForFunction(()=>!dojoHost.introActive());
   await page.locator('#study > summary').click();
   const value=()=>page.evaluate(()=>speed);
   assert.equal(await value(),.5);

@@ -5,3 +5,4 @@ __pycache__/
 *.pyc
 games/shotokan-lutro-visual/dist/*.zip
 games/shotokan-lutro-visual/dist/deshi-dojo-visual/
+games/shotokan-lutro-visual/docs/skin-personalization/creator-test.log

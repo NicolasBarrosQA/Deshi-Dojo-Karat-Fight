@@ -1,0 +1,17 @@
+{
+  "six_bodies_both_ports": true,
+  "intro_ticks": 300,
+  "real_seconds_at_quarter_speed": 4.971899999976158,
+  "native_retained_bytes_with_intro": 55031600,
+  "native_reselection_no_extra_allocations": true,
+  "locked_damage_timer_cpu_inputs": true,
+  "held_attack_does_not_leak": true,
+  "next_round_and_menu": true,
+  "kiba_separate_from_low_punch": true,
+  "offline": true,
+  "captures": [
+    "adults",
+    "teens",
+    "children"
+  ]
+}

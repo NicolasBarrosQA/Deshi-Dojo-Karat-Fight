@@ -11,7 +11,7 @@ const root=path.resolve(__dirname,'..'),url=process.env.DOJO_EDITOR_URL||'http:/
  await game.goto(url+'/?capture=1');await game.waitForFunction(()=>document.body.dataset.ready==='true');await game.locator('#mode').selectOption('versus');
  for(const [a,b] of [['adult','teen'],['teen','child'],['child','adult']]){
   for(const [port,body] of [[1,a],[2,b]]){await game.locator(`#p${port}-student`).selectOption('demo-'+body);await game.waitForFunction(p=>!document.getElementById(`p${p}-student`).disabled,port)}
-  await game.evaluate(()=>{dojoHost.clear();run('Scene.reset();Scene.players[1].x=140;Scene.players[2].x=228');dojoHost.render()});
+  await game.evaluate(()=>{dojoHost.clear();run('Scene.reset(true);Scene.players[1].x=140;Scene.players[2].x=228');dojoHost.render()});
   await game.keyboard.down('z');await game.evaluate(()=>{for(let i=0;i<7;i++)dojoHost.update();dojoHost.render()});await game.keyboard.up('z');
   await game.locator('#game').screenshot({path:path.join(root,`docs/demo-combat-${a}-${b}.png`)});
  }

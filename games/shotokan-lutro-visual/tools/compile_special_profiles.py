@@ -6,12 +6,16 @@ def compile_all():
  source=HERE/'assets/special-assets.json';target=HERE/'assets/special-profiles.json'
  if not source.exists():return
  bases=json.loads(source.read_text());roster=json.loads((HERE/'assets/characters.json').read_text())
+ ceremony=HERE/'assets/ceremony-assets.json'
+ if ceremony.exists():
+  for body,animation in json.loads(ceremony.read_text()).items():bases[body]['ceremony']=animation
  result=json.loads(target.read_text()) if target.exists() else {}
  from identity_art import sources as identity_sources,attachments,replace,paint,head
  signatures={}
  body_signatures={}
  for body,groups in bases.items():
   digest=hashlib.sha256(source.read_bytes()+Path(__file__).read_bytes()+(HERE/'tools/compile_character.py').read_bytes()+(HERE/'tools/character_registry.py').read_bytes()+(HERE/'tools/skin_palette.py').read_bytes())
+  if ceremony.exists():digest.update(ceremony.read_bytes())
   for group in groups.values():
    for part in [group['body'],*group['belts'].values()]:digest.update((HERE/'src/assets'/(part['right']+'.png')).read_bytes())
   body_signatures[body]=digest.digest()

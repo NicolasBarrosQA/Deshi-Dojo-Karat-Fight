@@ -13,7 +13,7 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  const motion=async(name,button)=>{const parts={qcf:[['ArrowDown'],['ArrowDown','ArrowRight'],['ArrowRight']],qcb:[['ArrowDown'],['ArrowDown','ArrowLeft'],['ArrowLeft']],hcf:[['ArrowLeft'],['ArrowLeft','ArrowDown'],['ArrowDown'],['ArrowDown','ArrowRight'],['ArrowRight']],hcb:[['ArrowRight'],['ArrowRight','ArrowDown'],['ArrowDown'],['ArrowDown','ArrowLeft'],['ArrowLeft']],z:[['ArrowRight'],['ArrowDown'],['ArrowDown','ArrowRight']]};for(const c of parts[name]){await keys(c);await step(2)}await keys([...parts[name].at(-1),button]);await step(2);await keys([]);await step(1)};
  for(const [id,name,button] of [['ashi-sequence','qcf','a'],['ura_mawashi','hcf','a'],['ushiro','hcb','a'],['tai_sabaki','qcb','x'],['renzoku','z','z'],['nidan','z','a']]){
   dir=path.join(out,id);fs.mkdirSync(dir,{recursive:true});frame=0;trace=[];await keys([]);
-  await page.evaluate(()=>{dojoHost.clear();run("Scene.practice=false;Scene.configure('versus','easy');Scene.captureContacts={};Scene.onContact=function(e) Scene.captureContacts[#Scene.captureContacts+1]=e.technique..':'..e.player..':'..e.damage..':'..tostring(e.blocked)..':'..Scene.tick end")});
+  await page.evaluate(()=>{dojoHost.clear();run("Scene.practice=false;Scene.configure('versus','easy',true);Scene.captureContacts={};Scene.onContact=function(e) Scene.captureContacts[#Scene.captureContacts+1]=e.technique..':'..e.player..':'..e.damage..':'..tostring(e.blocked)..':'..Scene.tick end")});
   await step(8);await keys(['ArrowRight']);await step(47);await keys([]);await step(8);await motion(name,button);
   if(id==='ashi-sequence'){
    for(let j=0;j<120;j++){const s=(await page.evaluate(()=>dojoHost.specialState())).split('|');if(s[11]==='down'&&s[3]==='-'&&Number(s[7])===0)break;await step(1);assert(j<119,'No finish opportunity')}
@@ -29,7 +29,7 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
   const id='scale-'+body;dir=path.join(out,id);fs.mkdirSync(dir,{recursive:true});frame=0;trace=[];await keys([]);
   const student='demo-'+body.replace('_female','-female');await page.selectOption('#p1-student',student);
   await page.waitForFunction(body=>run('return Scene.players[1].character.body')===body,body);
-  await page.evaluate(()=>{dojoHost.clear();run("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy');Scene.players[1].x=100;Scene.players[2].x=310")});
+  await page.evaluate(()=>{dojoHost.clear();run("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy',true);Scene.players[1].x=100;Scene.players[2].x=310")});
   await step(12);await keys(['z']);await step(2);await keys([]);await step(42);
   await keys(['a']);await step(2);await keys([]);await step(48);
   await keys(['ArrowUp']);await step(12);

@@ -37,6 +37,7 @@ def lua(value):
  raise TypeError(value)
 techniques=json.loads((HERE/'assets/techniques.json').read_text(encoding='utf-8'))
 techniques.update(json.loads((HERE/'assets/specials.json').read_text(encoding='utf-8')))
+techniques.update(json.loads((HERE/'assets/ceremony.json').read_text(encoding='utf-8')))
 (HERE/'src/techniques.lua').write_text('return '+lua(techniques)+'\n',encoding='utf-8')
 characters=json.loads((HERE/'assets/characters.json').read_text(encoding='utf-8'))
 characters['bodies']=json.loads((HERE/'assets/character-assets.json').read_text(encoding='utf-8'))
@@ -44,6 +45,8 @@ from character_registry import validate,visual_key
 characters['visual_profiles']=json.loads((HERE/'assets/character-visuals.json').read_text(encoding='utf-8')) if (HERE/'assets/character-visuals.json').exists() else {}
 characters['student_order']=list(characters['students'])
 characters['specials']=json.loads((HERE/'assets/special-assets.json').read_text(encoding='utf-8')) if (HERE/'assets/special-assets.json').exists() else {}
+ceremonies=json.loads((HERE/'assets/ceremony-assets.json').read_text(encoding='utf8')) if (HERE/'assets/ceremony-assets.json').exists() else {}
+for body,animation in ceremonies.items():characters['specials'][body]['ceremony']=animation
 if characters['specials']:
  import subprocess,sys
  compiler=sys.executable
@@ -74,7 +77,7 @@ characters['visual_profiles']={k:v for k,v in characters['visual_profiles'].item
 characters['special_profiles']={k:v for k,v in characters['special_profiles'].items() if k in active_visuals}
 (HERE/'src/character_data.lua').write_text('return '+lua(characters)+'\n',encoding='utf-8')
 modules=''
-for name in ('art','techniques','motion','specials','cpu','character_data','characters'):
+for name in ('art','techniques','motion','specials','cpu','character_data','characters','ceremony'):
  modules+="package.preload['"+name+"']=function()\n"+(HERE/'src'/f'{name}.lua').read_text(encoding='utf-8')+'\nend\n'
 active_visuals={s['visual'] for s in characters['students'].values() if s.get('visual')}
 characters['visual_profiles']={k:v for k,v in characters['visual_profiles'].items() if k in active_visuals}

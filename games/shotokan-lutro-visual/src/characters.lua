@@ -92,19 +92,21 @@ function C.prepareAnimation(p,a)
  end
 end
 function C.bounds(p)
+ if p.ceremonyPose then local a=animations(p.character)[p.ceremonyPose.group];if a then return a.bounds[p.ceremonyPose.frame] end end
  if p.specialPose then local a=animations(p.character)[p.specialPose.group];if a then return a.bounds[p.specialPose.frame] end end
  local b=p.character.visual and data.visual_profiles[p.character.visual] or data.bodies[p.character.body]
  return b.bounds[p.pose]
 end
 function C.draw(p,x,y)
- if p.specialPose then
-  local a=animations(p.character)[p.specialPose.group]
+ local pose=p.ceremonyPose or p.specialPose
+ if pose then
+  local a=animations(p.character)[pose.group]
   if a then
    C.prepareAnimation(p,a)
    local side=p.face==1 and 'right' or 'left'
    for _,part in ipairs({a.body,a.belts[p.character.belt]}) do
-    local f=part.frames[p.specialPose.frame];local offset=p.face==1 and f.x or 224-f.x-f.w
-    g.draw(C.cache[part[side]],C.quads[part.right][p.specialPose.frame],x+offset,y+f.y)
+    local f=part.frames[pose.frame];local offset=p.face==1 and f.x or 224-f.x-f.w
+    g.draw(C.cache[part[side]],C.quads[part.right][pose.frame],x+offset,y+f.y)
    end
    return
   end

@@ -20,7 +20,7 @@ const root=path.resolve(__dirname,'..');
  await page.locator('#p2-body').selectOption('teen');await page.waitForFunction(()=>!document.getElementById('p2-body').disabled);
  await page.locator('#p1-belt').selectOption('branca');await page.waitForFunction(()=>!document.getElementById('p1-belt').disabled);
  await page.locator('#p2-belt').selectOption('verde');await page.waitForFunction(()=>!document.getElementById('p2-belt').disabled);
- await page.evaluate(()=>run('Scene.reset()'));await step(2);
+ await page.evaluate(()=>run('Scene.reset(true)'));await step(2);
  assert.equal(await page.evaluate(()=>dojoHost.characterInfo()),'child|branca|teen|verde');
  await page.locator('#mode').selectOption('cpu');await page.locator('#difficulty').selectOption('hard');
  assert.equal(await page.evaluate(()=>dojoHost.characterInfo()),'child|branca|teen|verde');
@@ -53,14 +53,14 @@ const root=path.resolve(__dirname,'..');
  return count
  `));assert.equal(guardCount,150);
  checks.push('150 transition/zone/player cases: old coverage retained, new coverage/parry only after preparation');
- await page.evaluate(()=>{dojoHost.clear();run('Scene.reset();Scene.players[1].x=140;Scene.players[2].x=228;')});
+ await page.evaluate(()=>{dojoHost.clear();run('Scene.reset(true);Scene.players[1].x=140;Scene.players[2].x=228;')});
  await page.keyboard.down('g');await step(12);await page.keyboard.down('ArrowUp');await page.keyboard.down('z');await step(2);await page.keyboard.up('z');await page.keyboard.up('ArrowUp');await step(35);await page.keyboard.up('g');
  const contact=await page.evaluate(()=>run('local e=Scene.lastContact;assert(e and e.blocked and e.defense=="kamae");assert(Scene.players[2].energy==100);return e.defense'));
  assert.equal(contact,'kamae');checks.push('Real keyboard high punch blocked by neutral guard; no energy loss; event identifies kamae');
  const transitionContacts=await page.evaluate(()=>run(`
  local tech=require('techniques').techniques;local count=0
  for _,targetIndex in ipairs({1,2}) do
-  Scene.reset();local attackerIndex=3-targetIndex
+  Scene.reset(true);local attackerIndex=3-targetIndex
   local target,attacker=Scene.players[targetIndex],Scene.players[attackerIndex]
   Scene.players[1].x=140;Scene.players[2].x=228
   target.action={id='kamae',age=20};target.coverage=nil
@@ -91,7 +91,7 @@ const root=path.resolve(__dirname,'..');
  C.overrides=overrides;C.cache={};C.retained={};C.retainedBytes=0;lutro.browser=true;g.newImage=saved;C.prepare()
  return bytes
  `));checks.push('Historical cache logic: revisiting all bases/belts allocates zero extra images; bounded bytes='+nativeCache);
- await page.evaluate(()=>run('Scene.reset()'));await step(2);await page.screenshot({path:path.join(root,'docs/personalization-browser.png'),fullPage:true});
+ await page.evaluate(()=>run('Scene.reset(true)'));await step(2);await page.screenshot({path:path.join(root,'docs/personalization-browser.png'),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
  const active=await page.evaluate(()=>Object.keys(images).filter(x=>x.startsWith('char-')));
  assert(active.length<=20,active.join(','));checks.push('Offline with zero network requests/errors; at most two selected characters decoded');

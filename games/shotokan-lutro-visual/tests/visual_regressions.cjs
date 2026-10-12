@@ -12,7 +12,7 @@ const root=path.resolve(__dirname,'..');
    await page.locator(`#p${port}-body`).selectOption(body);await page.waitForFunction(id=>!document.getElementById(id).disabled,`p${port}-body`);
    await page.locator(`#p${port}-belt`).selectOption(port===1?'amarela':'branca');await page.waitForFunction(id=>!document.getElementById(id).disabled,`p${port}-belt`);
   }
-  await page.evaluate(()=>{dojoHost.clear();run('Scene.reset()');dojoHost.render()});
+  await page.evaluate(()=>{dojoHost.clear();run('Scene.reset(true)');dojoHost.render()});
   const seen=new Set();await page.keyboard.down('ArrowUp');
   for(let n=0;n<45;n++){
    await step();const state=(await page.evaluate(()=>run('local p=Scene.players[1];return p.pose.."|"..p.height'))).split('|').map(Number);

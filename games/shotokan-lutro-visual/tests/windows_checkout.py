@@ -20,10 +20,10 @@ def fixture(parent):
         shutil.copytree(HERE / name, game / name,
                         ignore=shutil.ignore_patterns('__pycache__', 'pose-*.png'))
     (game / 'assets').mkdir()
-    for name in ('techniques.json', 'specials.json', 'import.json', 'characters.json', 'character-assets.json'):
+    for name in ('techniques.json', 'specials.json', 'ceremony.json', 'import.json', 'characters.json', 'character-assets.json'):
         shutil.copyfile(HERE / 'assets' / name, game / 'assets' / name)
     if (HERE/'assets/character-visuals.json').exists():shutil.copyfile(HERE/'assets/character-visuals.json',game/'assets/character-visuals.json')
-    for name in ('special-assets.json','special-profiles.json'):
+    for name in ('special-assets.json','special-profiles.json','ceremony-assets.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
     for name in ('character-identities.json','identity-adult-attachments.json','character-masks.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)

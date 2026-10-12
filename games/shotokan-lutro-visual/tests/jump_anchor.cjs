@@ -7,7 +7,7 @@ const base=JSON.parse(fs.readFileSync(path.join(root,'assets/character-assets.js
  await require('./offline_page.cjs')(page);await page.waitForFunction(()=>document.body.dataset.ready==='true');const checks=[];
  for(const body of Object.keys(base))for(const port of [1,2])for(const horizontal of [false,true]){
   await page.selectOption('#p1-body',body);await page.selectOption('#p2-body',body);
-  await page.evaluate(port=>{dojoHost.clear();run(`Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy');Scene.players[1].x=90;Scene.players[2].x=310
+  await page.evaluate(port=>{dojoHost.clear();run(`Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy',true);Scene.players[1].x=90;Scene.players[2].x=310
    local C=require('characters');local p=Scene.players[${port}];local part=C.data.bodies[p.character.body].parts.body.default
    local g=lutro.graphics;Scene.anchorSavedDraw=g.draw;g.draw=function(image,quad,x,y)
     local side=p.face==1 and 'right' or 'left';if image==C.cache[part[side]] then Scene.anchorDrawX=x end

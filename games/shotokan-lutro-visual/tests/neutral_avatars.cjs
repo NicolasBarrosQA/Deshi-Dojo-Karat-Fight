@@ -18,13 +18,13 @@ const bodies=['adult','teen','child','adult_female','teen_female','child_female'
  assert.equal(await page.locator('#p1-student option[value^="pilot-"]').count(),0);
  await page.selectOption('#mode','versus');
  for(const port of [1,2])for(const body of bodies){
-  await select(1,body);await select(2,body);await lua('Scene.reset()');await step(2);
+  await select(1,body);await select(2,body);await lua('Scene.reset(true)');await step(2);
   await lua(`local C=require('characters');local p=Scene.players[${port}]
    assert(p.character.body=='${body}' and (not p.character.identity or p.character.identity=='default') and not p.character.visual)
    for i=1,92 do p.pose=i;lutro.draw() end
    for group,a in pairs(C.data.specials['${body}']) do for i=1,9 do p.specialPose={group=group,frame=i};lutro.draw() end end
    p.specialPose=nil;p.pose=1`);
-  await lua("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy');Scene.players[1].x=150;Scene.players[2].x=280");
+  await lua("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy',true);Scene.players[1].x=150;Scene.players[2].x=280");
   if(process.env.DOJO_NEUTRAL_GIFS){capture=body+'-p'+port;index=0;traces[capture]=[];await page.evaluate(()=>window.neutralCaptureTick=0)}
   await step(2);
   const forward=port===1?'ArrowRight':'j',down=port===1?'ArrowDown':'k',kick=port===1?'a':'h',guard=port===1?'x':'g';

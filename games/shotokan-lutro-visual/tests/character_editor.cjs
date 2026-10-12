@@ -26,12 +26,13 @@ const root=path.resolve(__dirname,'..'),url=process.env.DOJO_EDITOR_URL;
   const step=async n=>game.evaluate(n=>{for(let i=0;i<n;i++)dojoHost.update();dojoHost.render()},n);
   const selected=await game.evaluate(()=>run('local a,b=Scene.players[1].character,Scene.players[2].character;return a.id.."|"..a.body.."|"..a.belt.."|"..b.id'));
   assert.equal(selected,'editor-qa|child|roxa|demo-adult');
+  await step(300);
   await game.evaluate(()=>run('Scene.players[1].x=140;Scene.players[2].x=228'));
   await game.keyboard.down('z');await step(3);await game.keyboard.up('z');await step(25);
   assert(Number(await game.evaluate(()=>run('return Scene.players[1].contacts')))>0);
   await game.evaluate(()=>{run('for n=1,92 do Scene.players[1].pose=n;lutro.draw() end;Scene.players[1].pose=39');dojoHost.render()});
   await game.locator('#game').screenshot({path:path.join(root,'docs/character-creator-combat.png')});
-  await game.locator('#mode').selectOption('cpu');await game.locator('#difficulty').selectOption('hard');await game.locator('#p2-student').selectOption('demo-teen');await game.waitForFunction(()=>!document.getElementById('p2-student').disabled);await step(160);
+  await game.locator('#mode').selectOption('cpu');await game.locator('#difficulty').selectOption('hard');await game.locator('#p2-student').selectOption('demo-teen');await game.waitForFunction(()=>!document.getElementById('p2-student').disabled);await step(460);
   assert.equal(await game.locator('#difficulty').inputValue(),'hard');assert.equal(await game.evaluate(()=>run('return Scene.players[2].character.id')),'demo-teen');
   assert(Number(await game.evaluate(()=>run('return Scene.players[2].executed')))>0);
   const cache=await game.evaluate(()=>run(`local C=require('characters');local expected={}

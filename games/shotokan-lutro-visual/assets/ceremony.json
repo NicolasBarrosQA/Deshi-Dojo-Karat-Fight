@@ -1,0 +1,16 @@
+{
+  "presentation": {
+    "intro_ticks": 300,
+    "steps": [
+      {"until_tick": 30, "frame": 1, "label": "REI"},
+      {"until_tick": 48, "frame": 2, "label": "OSS!"},
+      {"until_tick": 102, "frame": 3, "label": "OSS!"},
+      {"until_tick": 120, "frame": 2, "label": "REI"},
+      {"until_tick": 138, "frame": 4, "label": "YOI"},
+      {"until_tick": 156, "frame": 5, "label": "YOI"},
+      {"until_tick": 228, "frame": 6, "label": "YOI"},
+      {"until_tick": 252, "frame": 7, "label": "KAMAE"},
+      {"until_tick": 300, "frame": 8, "label": "KAMAE"}
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "risk": "alto",
+  "approved_snapshot_commit": "0f4e931",
+  "branch": "codex/shotokan-specials",
+  "runtime": {
+    "six_bodies_both_ports": true,
+    "intro_ticks": 300,
+    "real_seconds_at_quarter_speed": 4.971899999976158,
+    "native_retained_bytes_with_intro": 55031600,
+    "native_reselection_no_extra_allocations": true,
+    "locked_damage_timer_cpu_inputs": true,
+    "held_attack_does_not_leak": true,
+    "next_round_and_menu": true,
+    "kiba_separate_from_low_punch": true,
+    "offline": true,
+    "captures": [
+      "adults",
+      "teens",
+      "children"
+    ]
+  },
+  "art_checks": "54 frames / 432 belts / 648 skin variants; exact approved guard endpoints",
+  "combat_regression_groups": 13,
+  "specials_regression": "passed",
+  "jump_regression_cases": 24,
+  "creator_skin_frames_verified": 81,
+  "creator_e2e": "passed",
+  "playback_e2e": "passed",
+  "native_device_executed": false,
+  "source_prompts": "assets/source/ceremony/prompts.json",
+  "generation_mode": "built-in imagegen",
+  "gifs": {
+    "html_sha256": "939ba11ee23178ac52a198ab9206514b32fe34ab6c8c8eb71b232f8322011798",
+    "gifs": {
+      "adults": {
+        "source_frames": 117,
+        "gif_sha256": "29ff08253202b00a0ca307c38c923919b983c8a95769baa7b085f7fe9b9ea19d",
+        "screenshots_sha256": "cd55fcb84cff132addde5d7a026f37ba61346e4115b16518949be8527ec87422"
+      },
+      "teens": {
+        "source_frames": 117,
+        "gif_sha256": "e96ea54eb8134223a9ff10066779bcb62a16b2e0d36c81fa1ccf3910e72b13a2",
+        "screenshots_sha256": "af67cad4230c20a3bb2faf43c67d9a8fc1ff5fb61287eea0176efe225dd7915e"
+      },
+      "children": {
+        "source_frames": 117,
+        "gif_sha256": "0b5e8ddf6772c2648e54d5c7138b091db9eb15ff61f0a76c68a770f228ab663a",
+        "screenshots_sha256": "a72d6486ad5bdc82177dab5ca20bebdf6c77851968b38af75420e49b2d40e0aa"
+      }
+    }
+  },
+  "artifacts": {
+    "deshi-dojo-visual.html": "939ba11ee23178ac52a198ab9206514b32fe34ab6c8c8eb71b232f8322011798",
+    "deshi-dojo-visual.lutro": "4d18630870dd3864e0c850396235b6971233690fe86478a56f8741c30f83b1e7"
+  }
+}

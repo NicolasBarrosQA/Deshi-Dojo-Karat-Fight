@@ -9,7 +9,7 @@ const docs=path.resolve(root,process.env.DOJO_TEST_OUTPUT||'docs');fs.mkdirSync(
  await require('./offline_page.cjs')(page);await page.waitForFunction(()=>document.body.dataset.ready==='true');
  const step=async n=>page.evaluate(n=>{for(let i=0;i<n;i++)dojoHost.update();dojoHost.render()},n);
  const state=async()=> (await page.evaluate(()=>dojoHost.snapshot())).split('|').map(Number);
- const reset=async(near=false,reverse=false)=>{await page.evaluate(({near,reverse})=>{dojoHost.clear();run('Scene.demo=false;Scene.practice=false;Scene.configure(\"versus\",\"easy\");'+(near?'Scene.players[1].x=140;Scene.players[2].x=228;':'')+(reverse?'local x=Scene.players[1].x;Scene.players[1].x=Scene.players[2].x;Scene.players[2].x=x;Scene.left=2;':''))},{near,reverse});await step(2)};
+ const reset=async(near=false,reverse=false)=>{await page.evaluate(({near,reverse})=>{dojoHost.clear();run('Scene.demo=false;Scene.practice=false;Scene.configure(\"versus\",\"easy\",true);'+(near?'Scene.players[1].x=140;Scene.players[2].x=228;':'')+(reverse?'local x=Scene.players[1].x;Scene.players[1].x=Scene.players[2].x;Scene.players[2].x=x;Scene.left=2;':''))},{near,reverse});await step(2)};
  const press=async(key,n=2)=>{await page.keyboard.down(key);await step(n);await page.keyboard.up(key)};
  const invariant=(s,reverse=false)=>{assert(s[1]>=64&&s[2]<=320&&Math.abs(s[2]-s[1])>=87.999,String(s));assert.equal(s[2]>s[1],!reverse)};
  assert.equal(await page.locator('#study').getAttribute('open'),null);
@@ -87,7 +87,7 @@ const docs=path.resolve(root,process.env.DOJO_TEST_OUTPUT||'docs');fs.mkdirSync(
  }
  checks.push('Ground reverse/advance/low/high punches and circular/low kicks use the revised commands');
  await page.locator('#practice').click();await press('z');await step(28);let s=await state();assert.equal(s[25],100);assert.equal(s[26],100);assert.equal(s[27],3600);
- await page.locator('#play').click();await step(8);assert((await state())[27]<3600);assert.equal((await state())[10],0);
+ await page.locator('#play').click();await step(8);assert.equal((await state())[27],3600);await step(300);assert((await state())[27]<3600);assert.equal((await state())[10],0);
  await page.locator('#study summary').click();await page.locator('#technique').selectOption('mawashi');await page.locator('#lesson').click();await step(35);
  assert.equal((await state())[10],1);assert((await page.locator('#tech-foundation').textContent()).includes('quadril'));
  await page.locator('#pause').click();let tick=(await state())[0];await page.locator('#step').click();assert.equal((await state())[0],tick+1);
@@ -104,7 +104,7 @@ const docs=path.resolve(root,process.env.DOJO_TEST_OUTPUT||'docs');fs.mkdirSync(
  checks.push('Standard gamepad API mapping mock: two pads, analog movement, both punch buttons (physical pads pending)');
  // Actual RAF response and Escape pause, outside the capture/manual-step loop.
  await require('./offline_page.cjs')(page,false);await page.waitForFunction(()=>document.body.dataset.ready==='true');
- await page.locator('#mode').selectOption('versus');await page.locator('#play').click();let before=await state();await page.keyboard.down('ArrowRight');await page.keyboard.down('j');await page.waitForTimeout(220);
+ await page.locator('#mode').selectOption('versus');await page.locator('#play').click();await page.waitForFunction(()=>!dojoHost.introActive());let before=await state();await page.keyboard.down('ArrowRight');await page.keyboard.down('j');await page.waitForTimeout(220);
  await page.keyboard.up('ArrowRight');await page.keyboard.up('j');let after=await state();assert(after[1]>before[1]&&after[2]<before[2]);
  await page.keyboard.press('Escape');tick=(await state())[0];await page.waitForTimeout(80);assert.equal((await state())[0],tick);await page.keyboard.press('Escape');await page.waitForTimeout(80);assert((await state())[0]>tick);
  checks.push('Actual RAF movement with keyboard; Escape pauses/resumes');await page.screenshot({path:path.join(docs,'notebook.png'),fullPage:true});

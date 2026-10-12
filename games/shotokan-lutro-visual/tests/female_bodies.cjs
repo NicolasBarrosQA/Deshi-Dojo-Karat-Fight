@@ -14,14 +14,14 @@ const lua=s=>page.evaluate(s=>run(s),s),step=async n=>{
 const select=async(port,body)=>{await page.locator('#p'+port+'-body').selectOption(body);await page.waitForFunction(port=>!document.getElementById('p'+port+'-body').disabled,port);};
 await page.locator('#mode').selectOption('versus');
 for(const age of ['adult','teen','child']){
- const body=age+'_female';await select(1,body);await select(2,body);await lua('Scene.reset()');await step(2);
+ const body=age+'_female';await select(1,body);await select(2,body);await lua('Scene.reset(true)');await step(2);
  await lua("for p=1,2 do for n=1,92 do Scene.players[p].pose=n;lutro.draw() end;Scene.players[p].pose=1 end");
  await lua(`local C=require('characters');local p=Scene.players[1]
  for group,a in pairs(C.data.specials['${body}']) do for n=1,9 do p.specialPose={group=group,frame=n};lutro.draw() end end;p.specialPose=nil`);
  for(const belt of ['branca','amarela','vermelha','laranja','verde','roxa','marrom','preta']){await page.locator('#p1-belt').selectOption(belt);await page.waitForFunction(()=>!document.getElementById('p1-belt').disabled);}
- await lua('Scene.reset()');await step(2);await page.screenshot({path:path.join(out,body+'-game.png')});
+ await lua('Scene.reset(true)');await step(2);await page.screenshot({path:path.join(out,body+'-game.png')});
  await page.keyboard.down('ArrowUp');await step(5);await page.keyboard.up('ArrowUp');await lua('assert(Scene.players[1].air)');await step(90);await lua('assert(not Scene.players[1].air)');
- await lua("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy');Scene.players[1].x=150;Scene.players[2].x=280");
+ await lua("Scene.demo=false;Scene.practice=false;Scene.configure('versus','easy',true);Scene.players[1].x=150;Scene.players[2].x=280");
  if(process.env.DOJO_FEMALE_GIFS){capture=body;index=0;frames[body]=[];await page.evaluate(()=>window.femaleCaptureTick=0);}
  await step(2);await page.keyboard.down('ArrowRight');await step(20);await page.keyboard.up('ArrowRight');await step(2);
  await page.keyboard.down('ArrowDown');await step(2);await page.keyboard.down('ArrowRight');await step(2);await page.keyboard.up('ArrowDown');await step(2);await page.keyboard.down('a');await step(2);await page.keyboard.up('a');await page.keyboard.up('ArrowRight');

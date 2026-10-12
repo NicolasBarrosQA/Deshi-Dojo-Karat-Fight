@@ -52,15 +52,16 @@ def run():
                 status,result=request('/api/characters',student,{'X-Character-Operation':'create'});assert status==200,result;students.append(result['student'])
             assert len({s['visual'] for s in students})==4
             deep=json.loads((game/'assets/special-profiles.json').read_text())[students[0]['visual']]
-            assert len(deep['groups'])==8
+            assert set(deep['groups'])=={'ashi_barai','ashi_finish','knockdown','ura_mawashi','ushiro','tai_sabaki','renzoku','nidan','ceremony'}
             assert all(len(group['body']['frames'])==9 for group in deep['groups'].values())
             from skin_palette import apply_skin_palette
             sources=json.loads((game/'assets/special-assets.json').read_text())['adult']
+            sources['ceremony']=json.loads((game/'assets/ceremony-assets.json').read_text())['adult']
             def special_frame(part,index):
                 f=part['frames'][index];atlas=Image.open(game/'src/assets'/(part['right']+'.png')).convert('RGBA');frame=Image.new('RGBA',(224,144));frame.paste(atlas.crop((f['sx'],f['sy'],f['sx']+f['w'],f['sy']+f['h'])),(f['x'],f['y']));return frame
             for group,record in deep['groups'].items():
                 for index in range(9):assert special_frame(record['body'],index).tobytes()==apply_skin_palette(special_frame(sources[group]['body'],index),'retinta').tobytes(),(group,index,'Exported special skin differs from preview material')
-            checks.append('Retinta is baked exactly into all 72 special/knockdown frames, using the same material as basic moves')
+            checks.append('Retinta is baked exactly into all 81 special/knockdown/presentation frames, using the same material as basic moves')
             status,result=request('/api/characters',students[0],{'X-Character-Operation':'create'});assert status==400 and 'identificador' in result['error']
             edited={**students[0],'name':'Exemplo editado','belt':'preta'}
             status,result=request('/api/characters',edited,{'X-Character-Operation':'update'});assert status==200,result;assert result['student']['visual']==students[0]['visual']
