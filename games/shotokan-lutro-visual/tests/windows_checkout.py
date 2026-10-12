@@ -25,12 +25,14 @@ def fixture(parent):
     if (HERE/'assets/character-visuals.json').exists():shutil.copyfile(HERE/'assets/character-visuals.json',game/'assets/character-visuals.json')
     for name in ('special-assets.json','special-profiles.json','ceremony-assets.json','hand-touch-assets.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
-    for name in ('character-identities.json','identity-adult-attachments.json','character-masks.json','hair-assets.json','hair-bindings.json','hair-binding-overrides.json'):
+    for name in ('character-identities.json','identity-adult-attachments.json','character-masks.json','hair-assets.json','beard-assets.json','beard-bindings.json','hair-bindings.json','hair-binding-overrides.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
     source=HERE/'assets/source/identities'
     if source.exists():shutil.copytree(source,game/'assets/source/identities')
     source=HERE/'assets/source/hair-v1'
     if source.exists():shutil.copytree(source,game/'assets/source/hair-v1')
+    source=HERE/'assets/source/hair-catalog-v1'
+    if source.exists():shutil.copytree(source,game/'assets/source/hair-catalog-v1')
     return game
 
 

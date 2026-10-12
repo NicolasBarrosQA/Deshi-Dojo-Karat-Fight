@@ -46,7 +46,7 @@ def run():
         record=pack(frames,'hair-roundtrip',Path(tmp));atlas=Image.open(Path(tmp)/'hair-roundtrip-right.png')
         for frame,f in zip(frames,record['frames']):
             rebuilt=Image.new('RGBA',frame.size);rebuilt.paste(atlas.crop((f['sx'],f['sy'],f['sx']+f['w'],f['sy']+f['h'])),(f['x'],f['y']+PAD));assert rebuilt.tobytes()==frame.tobytes()
-    result={'pose_style_cases':3276,'proportions_verified':geometry,'palette_material_cases':materials,'pack_roundtrip_frames':92,'body_pixels_and_scale_preserved':True,'binary_alpha':True}
+    result={'pose_style_cases':sum(len(frames) for groups in allposes.values() for frames in groups.values())*len(styles()),'proportions_verified':geometry,'palette_material_cases':materials,'pack_roundtrip_frames':92,'body_pixels_and_scale_preserved':True,'binary_alpha':True}
     (ROOT/'docs/hair/asset-tests.json').write_text(json.dumps(result,indent=2)+'\n');print(json.dumps(result))
 
 if __name__=='__main__':run()

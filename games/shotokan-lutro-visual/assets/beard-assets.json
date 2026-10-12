@@ -1,0 +1,377 @@
+{
+  "version": 1,
+  "styles": {
+    "barba_sombra": {
+      "label": "Barba curta",
+      "category": "barba",
+      "brief": "fine dense close cropped full stubble following jaw and mustache",
+      "source_sha256": "8059515e1c747dc5080f0580d6fd0acb3b26bdc20a655901e59684d07d7f3973",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/barba_sombra-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "barba_cheia": {
+      "label": "Barba cheia",
+      "category": "barba",
+      "brief": "neat compact full beard, connected mustache, rounded jaw silhouette",
+      "source_sha256": "aea82a2c61a2730b073b853f3a6dbead1b09745277cad83aac3aad609e50aa15",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/barba_cheia-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "barba_quadrada": {
+      "label": "Barba quadrada",
+      "category": "barba",
+      "brief": "short boxed beard with crisp squared lower chin and tapered cheek line",
+      "source_sha256": "cca104e42fd8a671caea7bce19590dd38fcebf914cfc632876bc692e9c30e60d",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/barba_quadrada-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "cavanhaque": {
+      "label": "Cavanhaque",
+      "category": "barba",
+      "brief": "connected compact mustache and chin goatee, clean cheeks",
+      "source_sha256": "15d498ca3f54bf6eeb178e80f738af24a9aeb67540eae6310e73473514703b7d",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/cavanhaque-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "van_dyke": {
+      "label": "Van Dyke",
+      "category": "barba",
+      "brief": "separate slender mustache and pointed small chin beard, clean cheeks",
+      "source_sha256": "752d639fc78b15c45d6494c3ab6001a74fb1a259b77acbb8a324105dcda4290f",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/van_dyke-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "bigode": {
+      "label": "Bigode",
+      "category": "barba",
+      "brief": "neat thick classic mustache only, no cheek or chin beard",
+      "source_sha256": "a688cd59ab94466056c8239f5fbb5e92c4d82964c23ae5004a6b0cfafe316509",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/bigode-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bigode-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/bigode-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bigode-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/bigode-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/bigode-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    }
+  }
+}

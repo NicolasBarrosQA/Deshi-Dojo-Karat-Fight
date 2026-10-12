@@ -14,7 +14,8 @@ def run():
         input_path=Path(tmp)/'student.json'
         for i,body in enumerate(config['body_order']):
             s=next(s.copy() for s in config['students'].values() if s['body']==body)
-            s.update(id='hair-'+body.replace('_','-'),name='Cabelo '+body,hair=['curto_classico','medio_ondulado','crespo_curto'][i%3])
+            s.update(id='hair-'+body.replace('_','-'),name='Cabelo '+body,hair=['buzz_uniforme','medio_ondulado','crespo_curto','curto_classico','bob_cacheado','coque_trancado_baixo'][i])
+            if i==0:s['beard']='barba_cheia'
             s['appearance']={**s['appearance'],'hair_color':['branco','preto','ruivo','castanho','loiro','#80a4cc'][i]}
             write(input_path,s)
             done=subprocess.run([sys.executable,str(game/'tools/compile_character.py'),'--input',str(input_path),'--out',str(game/'src/assets')],capture_output=True,text=True,timeout=90)
@@ -28,7 +29,7 @@ def run():
         http=ThreadingHTTPServer(('127.0.0.1',0),server.handler_for(server.Builder()));thread=threading.Thread(target=http.serve_forever,daemon=True);thread.start()
         env={**os.environ,'DOJO_EDITOR_URL':'http://127.0.0.1:'+str(http.server_port),'DOJO_EDITOR_DIST':str(game/'dist/deshi-dojo-visual.html'),'DOJO_HAIR_CASES':json.dumps(cases)}
         try:
-            done=subprocess.run(['node',str(HERE/'tests/hair_editor.cjs')],env=env,capture_output=True,text=True,timeout=240)
+            done=subprocess.run(['node',str(HERE/'tests/hair_editor.cjs')],env=env,capture_output=True,text=True,timeout=480)
             assert done.returncode==0,done.stdout+'\n'+done.stderr
             print(done.stdout)
             import zipfile

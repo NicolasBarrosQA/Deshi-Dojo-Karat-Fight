@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "existing_male": [
+    "curto_classico",
+    "medio_ondulado",
+    "crespo_curto"
+  ],
+  "entries": [
+    {
+      "id": "buzz_uniforme",
+      "label": "Buzz uniforme",
+      "category": "masculino",
+      "brief": "uniform close buzz cut with fine visible bristle texture",
+      "status": "pending"
+    },
+    {
+      "id": "crew_cut",
+      "label": "Crew cut",
+      "category": "masculino",
+      "brief": "short upright flat crew cut, neatly tapered temples",
+      "status": "pending"
+    },
+    {
+      "id": "caesar",
+      "label": "Caesar",
+      "category": "masculino",
+      "brief": "short textured Caesar with straight tiny fringe",
+      "status": "pending"
+    },
+    {
+      "id": "french_crop",
+      "label": "French crop",
+      "category": "masculino",
+      "brief": "heavy textured French crop with thick blunt forward fringe",
+      "status": "pending"
+    },
+    {
+      "id": "risca_lateral",
+      "label": "Risca lateral",
+      "category": "masculino",
+      "brief": "classic side parted medium hair with polished comb ridges",
+      "status": "pending"
+    },
+    {
+      "id": "cortina_curta",
+      "label": "Cortina curta",
+      "category": "masculino",
+      "brief": "short center parted curtain fringe at brow height",
+      "status": "pending"
+    },
+    {
+      "id": "franja_lateral",
+      "label": "Franja lateral",
+      "category": "masculino",
+      "brief": "asymmetric long diagonal fringe with compact short back",
+      "status": "pending"
+    },
+    {
+      "id": "cacheado_taper",
+      "label": "Cacheado taper",
+      "category": "masculino",
+      "brief": "tight small curls atop neatly tapered sides",
+      "status": "pending"
+    },
+    {
+      "id": "cacheado_medio",
+      "label": "Cacheado médio",
+      "category": "masculino",
+      "brief": "round ear length loose curly mop, separated ringlets",
+      "status": "pending"
+    },
+    {
+      "id": "afro_redondo",
+      "label": "Afro redondo",
+      "category": "masculino",
+      "brief": "compact perfectly rounded dense afro silhouette",
+      "status": "pending"
+    },
+    {
+      "id": "coque_trancado_baixo",
+      "label": "Coque trançado baixo",
+      "category": "feminino",
+      "brief": "neat center-part crown, two fine side braids merging into a compact low nape bun",
+      "status": "pending"
+    },
+    {
+      "id": "pixie_classico",
+      "label": "Pixie clássico",
+      "category": "feminino",
+      "brief": "very short feminine pixie with tapered nape and tiny soft side fringe",
+      "status": "pending"
+    },
+    {
+      "id": "pixie_longo",
+      "label": "Pixie longo",
+      "category": "feminino",
+      "brief": "long asymmetric pixie fringe sweeping one brow and compact tapered back",
+      "status": "pending"
+    },
+    {
+      "id": "bob_reto",
+      "label": "Bob reto",
+      "category": "feminino",
+      "brief": "precise chin length straight bob with center part and blunt ends",
+      "status": "pending"
+    },
+    {
+      "id": "bob_franja",
+      "label": "Bob com franja",
+      "category": "feminino",
+      "brief": "compact chin length bob with dense straight brow fringe",
+      "status": "pending"
+    },
+    {
+      "id": "bob_ondulado",
+      "label": "Bob ondulado",
+      "category": "feminino",
+      "brief": "chin length soft S wave bob with off center part",
+      "status": "pending"
+    },
+    {
+      "id": "bob_cacheado",
+      "label": "Bob cacheado",
+      "category": "feminino",
+      "brief": "chin length springy ringlet bob with rounded volume",
+      "status": "pending"
+    },
+    {
+      "id": "coque_bailarina",
+      "label": "Coque bailarina",
+      "category": "feminino",
+      "brief": "sleek crown with perfectly circular compact ballet bun high at rear",
+      "status": "pending"
+    },
+    {
+      "id": "rabo_alto_curto",
+      "label": "Rabo alto curto",
+      "category": "feminino",
+      "brief": "high tied ponytail with a short fan of hair ending above nape",
+      "status": "pending"
+    },
+    {
+      "id": "rabo_baixo_curto",
+      "label": "Rabo baixo curto",
+      "category": "feminino",
+      "brief": "low tied short ponytail compact behind neck",
+      "status": "pending"
+    },
+    {
+      "id": "barba_sombra",
+      "label": "Barba curta",
+      "category": "barba",
+      "brief": "fine dense close cropped full stubble following jaw and mustache",
+      "status": "pending"
+    },
+    {
+      "id": "barba_cheia",
+      "label": "Barba cheia",
+      "category": "barba",
+      "brief": "neat compact full beard, connected mustache, rounded jaw silhouette",
+      "status": "pending"
+    },
+    {
+      "id": "barba_quadrada",
+      "label": "Barba quadrada",
+      "category": "barba",
+      "brief": "short boxed beard with crisp squared lower chin and tapered cheek line",
+      "status": "pending"
+    },
+    {
+      "id": "cavanhaque",
+      "label": "Cavanhaque",
+      "category": "barba",
+      "brief": "connected compact mustache and chin goatee, clean cheeks",
+      "status": "pending"
+    },
+    {
+      "id": "van_dyke",
+      "label": "Van Dyke",
+      "category": "barba",
+      "brief": "separate slender mustache and pointed small chin beard, clean cheeks",
+      "status": "pending"
+    },
+    {
+      "id": "bigode",
+      "label": "Bigode",
+      "category": "barba",
+      "brief": "neat thick classic mustache only, no cheek or chin beard",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "styles": {
     "curto_classico": {
       "label": "Curto clÃ¡ssico",
@@ -58,7 +58,8 @@
           "width": 340,
           "height": 340
         }
-      }
+      },
+      "category": "masculino"
     },
     "medio_ondulado": {
       "label": "MÃ©dio ondulado",
@@ -117,7 +118,8 @@
           "width": 340,
           "height": 340
         }
-      }
+      },
+      "category": "masculino"
     },
     "crespo_curto": {
       "label": "Crespo curto",
@@ -175,6 +177,1247 @@
           ],
           "width": 340,
           "height": 340
+        }
+      },
+      "category": "masculino"
+    },
+    "buzz_uniforme": {
+      "label": "Buzz uniforme",
+      "category": "masculino",
+      "brief": "uniform close buzz cut with fine visible bristle texture",
+      "source_sha256": "fd1de7213618f97fe12a28e463955a66fe8f4f3226f9925585d95c7a946e3fec",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/buzz_uniforme-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "crew_cut": {
+      "label": "Crew cut",
+      "category": "masculino",
+      "brief": "short upright flat crew cut, neatly tapered temples",
+      "source_sha256": "0f01c2febe7b407172c3d8df05b4a3ec01967bb9452d940ecb32ad96587599af",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/crew_cut-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "caesar": {
+      "label": "Caesar",
+      "category": "masculino",
+      "brief": "short textured Caesar with straight tiny fringe",
+      "source_sha256": "3f2027ecf2c04111e7e8605e3de7f8147ea2439e1df8fbb84bd9f8c4ee0354db",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/caesar-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/caesar-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/caesar-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/caesar-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/caesar-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/caesar-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "french_crop": {
+      "label": "French crop",
+      "category": "masculino",
+      "brief": "heavy textured French crop with thick blunt forward fringe",
+      "source_sha256": "e14a718daa5c2df48d76bcbf823128001b524e8c2cbf2ccd308ec744ad4926f8",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/french_crop-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/french_crop-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/french_crop-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/french_crop-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/french_crop-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/french_crop-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "coque_trancado_baixo": {
+      "label": "Coque trançado baixo",
+      "category": "feminino",
+      "brief": "neat center-part crown, two fine side braids merging into a compact low nape bun",
+      "source_sha256": "bbc4fd4cad7d3bd7abc61e79c3bbc7c8d3fd52d544bed6b2e9234e6e7c8a3409",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/coque_trancado_baixo-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "risca_lateral": {
+      "label": "Risca lateral",
+      "category": "masculino",
+      "brief": "classic side parted medium hair with polished comb ridges",
+      "source_sha256": "de87a36a42d11e995cfa4c0e7f7c9ba9667fa594f4fe9e559c0e137b0db26161",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/risca_lateral-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "cortina_curta": {
+      "label": "Cortina curta",
+      "category": "masculino",
+      "brief": "short center parted curtain fringe at brow height",
+      "source_sha256": "ebf5c90ca3e459d06b65eddb9e8cf7770699da51d959f5dc7f4b79712a30eb3b",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/cortina_curta-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "franja_lateral": {
+      "label": "Franja lateral",
+      "category": "masculino",
+      "brief": "asymmetric long diagonal fringe with compact short back",
+      "source_sha256": "68776ff79e286113e0bc0ce35a99ad278d704c6fb1ae18274345b5ab6eaa1d59",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/franja_lateral-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "cacheado_taper": {
+      "label": "Cacheado taper",
+      "category": "masculino",
+      "brief": "tight small curls atop neatly tapered sides",
+      "source_sha256": "c2998682e23d1f95f92e7baf2b7c62b3bd4bde31495e26ec3073a5d2161302dd",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/cacheado_taper-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "cacheado_medio": {
+      "label": "Cacheado médio",
+      "category": "masculino",
+      "brief": "round ear length loose curly mop, separated ringlets",
+      "source_sha256": "0284d3447212c7224edb8824ffa5d5b885ee4b1da6a107bea655ceb60e4b64ed",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/cacheado_medio-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "afro_redondo": {
+      "label": "Afro redondo",
+      "category": "masculino",
+      "brief": "compact perfectly rounded dense afro silhouette",
+      "source_sha256": "b2344e45e0823de39cd67b3c60627226e5fd3271f98f57bc7f2b6017262085e1",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/afro_redondo-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "pixie_classico": {
+      "label": "Pixie clássico",
+      "category": "feminino",
+      "brief": "very short feminine pixie with tapered nape and tiny soft side fringe",
+      "source_sha256": "a7d2d1c9435b6ef2c46ee1b62794132c327476aeb43808cb3dbd06c7852a11df",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/pixie_classico-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "pixie_longo": {
+      "label": "Pixie longo",
+      "category": "feminino",
+      "brief": "long asymmetric pixie fringe sweeping one brow and compact tapered back",
+      "source_sha256": "e6efebbd5557ec1fa7e364a144219e8018ebd7052f83200e8b9d32748d3bb521",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/pixie_longo-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "bob_reto": {
+      "label": "Bob reto",
+      "category": "feminino",
+      "brief": "precise chin length straight bob with center part and blunt ends",
+      "source_sha256": "1de043e6b2478c5e2e4eab82eb13c2d1b3160c2c6377b93350f736cea0259b32",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/bob_reto-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "bob_franja": {
+      "label": "Bob com franja",
+      "category": "feminino",
+      "brief": "compact chin length bob with dense straight brow fringe",
+      "source_sha256": "e06037e42e4976a335c05da8875d8dabda990a4400db5298983048e88a44655c",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/bob_franja-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "bob_ondulado": {
+      "label": "Bob ondulado",
+      "category": "feminino",
+      "brief": "chin length soft S wave bob with off center part",
+      "source_sha256": "616a1dee60193c43cff41516eac208ae0532449f56d6c2d1c46956db22f801db",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/bob_ondulado-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "bob_cacheado": {
+      "label": "Bob cacheado",
+      "category": "feminino",
+      "brief": "chin length springy ringlet bob with rounded volume",
+      "source_sha256": "c0081ff437ad49c03d0e18c6bd7725571dcc24eab38da9c9115ba17bbe7ee5c9",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/bob_cacheado-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "coque_bailarina": {
+      "label": "Coque bailarina",
+      "category": "feminino",
+      "brief": "sleek crown with perfectly circular compact ballet bun high at rear",
+      "source_sha256": "a5c1d04b0c6301f900a86dd2a8e1629eac90a9228b3cd80448a8726b052c9586",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/coque_bailarina-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "rabo_alto_curto": {
+      "label": "Rabo alto curto",
+      "category": "feminino",
+      "brief": "high tied ponytail with a short fan of hair ending above nape",
+      "source_sha256": "212012c2995a4d7e559c73310b9c74cfacfb36b0b2f1c6de7dac4861f3460c53",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/rabo_alto_curto-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        }
+      }
+    },
+    "rabo_baixo_curto": {
+      "label": "Rabo baixo curto",
+      "category": "feminino",
+      "brief": "low tied short ponytail compact behind neck",
+      "source_sha256": "7011ffef6706a0cbf20c4932a8496577309cfe4ff0913e3926c697dd45648651",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-front.png",
+          "center": [
+            256.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-three_quarter.png",
+          "center": [
+            260.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "profile": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-profile.png",
+          "center": [
+            253.0,
+            270.0
+          ],
+          "width": 340.0,
+          "height": 380.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "rear": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
+        },
+        "top": {
+          "path": "assets/source/hair-catalog-v1/rabo_baixo_curto-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 340.0,
+          "height": 340.0
         }
       }
     }

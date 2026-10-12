@@ -16,7 +16,7 @@ def write(path,value):
     tmp.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');tmp.replace(path)
 def validate(value,config,manifest):
     if not isinstance(value,dict):raise ValueError('O personagem deve ser um objeto JSON.')
-    allowed={'id','name','nickname','body','belt','face','hair','identity','appearance','visual','portrait'}
+    allowed={'id','name','nickname','body','belt','face','hair','beard','identity','appearance','visual','portrait'}
     if set(value)-allowed:raise ValueError('Campos desconhecidos: '+', '.join(sorted(set(value)-allowed)))
     result={k:value.get(k,'default') for k in ('face','hair')}
     for k in ('id','name','body','belt'):result[k]=value.get(k)
@@ -41,8 +41,12 @@ def validate(value,config,manifest):
             from hair_art import styles
             available={**available,**styles()}
         if not isinstance(result[layer],str) or result[layer] not in available:raise ValueError('Asset de '+layer+' inexistente para este corpo.')
+    from hair_art import beards
+    beard=value.get('beard','default')
+    if not isinstance(beard,str) or (beard!='default' and beard not in beards()):raise ValueError('Asset de barba inexistente.')
+    if beard!='default':result['beard']=beard
     appearance=value.get('appearance',{})
-    if not isinstance(appearance,dict) or set(appearance)-set(DEFAULT):raise ValueError('Configuracao de aparencia invalida.')
+    if not isinstance(appearance,dict) or set(appearance)-set(DEFAULT)-{'beard_color'}:raise ValueError('Configuracao de aparencia invalida.')
     appearance={**DEFAULT,**appearance}
     choices={'skin':SKINS,'hair_color':HAIR_COLORS,'height':HEIGHTS,'build':BUILDS,'emblem':['nenhum','dojo']}
     for key,options in choices.items():
@@ -50,22 +54,28 @@ def validate(value,config,manifest):
             if appearance[key].startswith('#'):appearance[key]=appearance[key].lower()
             continue
         if isinstance(appearance[key],(dict,list,bool)) or appearance[key] not in options:raise ValueError('Opcao de '+key+' indisponivel.')
+    if 'beard_color' in appearance:
+        if not isinstance(appearance['beard_color'],str) or not valid_hair_color(appearance['beard_color']):raise ValueError('Cor de barba invalida.')
+        appearance['beard_color']=appearance['beard_color'].lower()
+        if appearance['beard_color']=='original':appearance.pop('beard_color')
     result['appearance']=appearance
     return result
 def visual_key(student):
     data={k:student[k] for k in ('body','face','hair','appearance')}
     if student.get('identity','default')!='default':data['identity']=student['identity']
+    if student.get('beard','default')!='default':data['beard']=student['beard']
     return hashlib.sha256(json.dumps(data,sort_keys=True).encode()).hexdigest()[:16]
 def catalog(config,manifest):
     path=Path(__file__).resolve().parents[1]/'assets/character-identities.json'
     identities=read(path)['bodies'] if path.exists() else {}
     neutral=all(b.get('revision')=='neutral-2d-v3' for b in manifest.values())
-    from hair_art import styles
+    from hair_art import styles,beards
     hair_styles=styles()
     return {'bodies':config['body_order'],'belts':config['belt_order'],'skins':list(SKINS),'hair_colors':list(HAIR_COLORS),'heights':HEIGHTS,'builds':list(BUILDS),'emblems':['nenhum','dojo'],
             'neutral_bases':neutral,
             'skin_palettes':skin_catalog(),'creator_only':True,
-            'hair_styles':[{'id':'default','label':'Sem cabelo'},*[{'id':key,'label':value['label']} for key,value in hair_styles.items()]],'hair_palettes':hair_palette_catalog(),
+            'hair_styles':[{'id':'default','label':'Sem cabelo','category':'neutro'},*[{'id':key,'label':value['label'],'category':value.get('category','masculino')} for key,value in hair_styles.items()]],'hair_palettes':hair_palette_catalog(),
+            'beard_styles':[{'id':'default','label':'Sem barba'},*[{'id':key,'label':value['label']} for key,value in beards().items()]],
             'identities':{body:[{'id':'default','label':'Base neutra aprovada' if neutral else 'Personagem original'},*[{'id':key,'label':entry['label'],'thumbnail':'identity-thumbnail-'+body+'-'+key} for key,entry in identities.get(body,{}).items()]] for body in config['body_order']},
             'parts':{b:{p:list(v['parts'][p])+([] if p!='hair' else list(hair_styles)) for p in ('face','hair')} for b,v in manifest.items()},
-            'art_note':'Seis bases 2D aprovadas. Os tres cabelos desenhados acompanham as poses e usam cores independentes da pele. Rostos ainda neutros. Personalizacao preparada no computador e exportada pronta para o fliperama.' if neutral else 'Bases corporais com cabelos e cores preparados antes da exportacao.'}
+            'art_note':'Seis bases 2D aprovadas. Cabelos e barbas preparados por pose, com cores independentes da pele. Rostos ainda neutros. Personalizacao no computador; personagens exportados prontos para o fliperama.' if neutral else 'Bases corporais com cabelos e cores preparados antes da exportacao.'}

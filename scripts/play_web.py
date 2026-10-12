@@ -85,6 +85,8 @@ class Builder:
         paths += sorted((GAME/'assets/source/identities').glob('*.png'))
         paths += [p for p in (GAME/'tools/hair_art.py',GAME/'tools/hair_palette.py',GAME/'assets/hair-assets.json',GAME/'assets/hair-bindings.json') if p.exists()]
         paths += sorted((GAME/'assets/source/hair-v1').glob('*.png'))
+        paths += sorted((GAME/'assets/source/hair-catalog-v1').glob('*.png'))
+        paths += [p for p in (GAME/'assets/beard-assets.json',GAME/'assets/beard-bindings.json') if p.exists()]
         paths += [p for p in [GAME/'assets/character-visuals.json',GAME/'browser/editor.html',GAME/'tools/skin_palette.py',GAME/'tools/compile_character.py',GAME/'tools/character_registry.py',GAME/'tools/compile_special_profiles.py'] if p.exists()]
         paths += sorted(p for p in (GAME / 'src/assets').glob('*.png')
                         if not p.name.startswith('pose-'))
@@ -163,10 +165,11 @@ def handler_for(builder):
                 config=read(GAME/'assets/characters.json');self.json_response(200,{'students':config['students'],'catalog':catalog(config,read(GAME/'assets/character-assets.json')),'techniques':read(GAME/'assets/techniques.json')});return
             if path=='/editor':
                 data=(GAME/'browser/editor.html').read_bytes();self.send_response(200);self.send_header('Content-Type','text/html; charset=utf-8');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data);return
-            if path.startswith('/preview-assets/') or path.startswith('/portraits/'):
+            if path.startswith('/preview-assets/') or path.startswith('/portraits/') or path.startswith('/hair-thumbnails/'):
                 name=path.rsplit('/',1)[-1]
                 if not name.endswith('.png') or not all(c.isalnum() or c in '-_.' for c in name):self.send_error(404);return
                 root=ROOT/'.runtime/character-previews' if path.startswith('/preview-assets/') else GAME/'src/assets'
+                if path.startswith('/hair-thumbnails/'):root=GAME/'assets/source/hair-catalog-v1/thumbnails'
                 asset=root/name
                 if not asset.is_file():self.send_error(404);return
                 data=asset.read_bytes();self.send_response(200);self.send_header('Content-Type','image/png');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data);return

@@ -75,3 +75,18 @@ def runs(mask):
         padded=np.pad(row.astype('int8'),1);edges=np.where(np.diff(padded)!=0)[0]
         for start,end in zip(edges[::2],edges[1::2]):result.append([int(y),int(start),int(end)])
     return result
+
+def beard_foreground(frame,binding):
+    """Source-labelled clothes/limbs, with a jaw-sized opening for facial hair."""
+    p=np.asarray(frame);rgb=p[:,:,:3].astype(float);r,g,b=[rgb[:,:,i] for i in range(3)]
+    rows,cols=np.indices(p.shape[:2]);cx,cy=binding['center'];rx=binding['width']/2;ry=binding['height']/2
+    a=math.radians(binding.get('angle',0));dx=cols-cx;dy=rows-cy
+    x=np.cos(a)*dx-np.sin(a)*dy;y=np.sin(a)*dx+np.cos(a)*dy
+    face=(np.abs(x)<rx*1.4)&(y>-ry*.4)&(y<ry*1.8)
+    white=(p[:,:,3]>0)&(np.minimum.reduce([r,g,b])>130)&(np.maximum.reduce([r,g,b])-np.minimum.reduce([r,g,b])<75)
+    protect=white|(skin_mask(frame)&~face)
+    near=np.asarray(Image.fromarray((white*255).astype('uint8')).filter(ImageFilter.MaxFilter(3)))>0
+    protect|=near&(p[:,:,3]>0)&(np.maximum.reduce([r,g,b])<100)
+    for px,py in binding.get('foreground_points',[]):protect[py,px]=True
+    protect&=(np.abs(x)<rx*2.6)&(np.abs(y)<ry*2.6)
+    return protect

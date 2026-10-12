@@ -2,22 +2,22 @@
   "adult": {
     "source_frames": 119,
     "milliseconds": 5950,
-    "gif_sha256": "6aa5506923445ed90d341365bcb36aab89ce09133f6e25b3f33b56385190e2b5",
-    "capture_sha256": "b48d1eaf16ea7a9bce4f85e9cbbe1fbb9ebe7b90a69d6c53e155229f60da2a94",
+    "gif_sha256": "f0df9c9c4828b7bde41f6dd57e6c261debb46361870f71e52f7977fac7f3fc21",
+    "capture_sha256": "dfb989cab30921610e4d81a119e1ec913c0bd6056baa4169e898bd5d3aa064fd",
     "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
   },
   "teen": {
     "source_frames": 119,
     "milliseconds": 5950,
-    "gif_sha256": "a8bb9cd3bd7c08539cd1075218529d95825e3d86609a510d412d47e7390ae7ef",
-    "capture_sha256": "2db6649ac2fcb77032ec7183c560d98aa69353e69bb325ff559cae4e88e4a256",
+    "gif_sha256": "b6792dbabd78a9e0d9a0701a2a2b0de13efb75eb09a16695c18385dfaf6691a8",
+    "capture_sha256": "ae1ec82d915297f0ed209d21480a0f6889b06840900fc5f3aface67ea83f4e7d",
     "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
   },
   "child": {
     "source_frames": 119,
     "milliseconds": 5950,
-    "gif_sha256": "61db536d4c4c4cbceebef902c59f42f6566d158463e877fc5f3ff103ce310f9b",
-    "capture_sha256": "3fec01191c43aacc4d5149e82c1594577e427b9b3cbf5db4bba314cf6374b60c",
+    "gif_sha256": "73438dbe3d7203f13c195b0cb31c3012a15ca3161e9f82828bfbf8c789e002b3",
+    "capture_sha256": "07acbfcbb7d934ea382d11b6c84383c9e5240c759e39cf597e91121f1e3f8223",
     "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
   }
 }

@@ -1,0 +1,9 @@
+{
+  "id": "cacheado_taper",
+  "label": "Cacheado taper",
+  "category": "masculino",
+  "brief": "tight small curls atop neatly tapered sides",
+  "status": "generated",
+  "source": "C:/Users/nicol/OneDrive/Desktop/Deshi-Dojo-Karat-Fight/games/shotokan-lutro-visual/assets/source/hair-catalog-v1/cacheado_taper-views.png",
+  "prompt": "Create ONE production 2D fighting-game MALE hair asset turnaround: tight small curls atop neatly tapered sides. Exactly six matching views of the SAME haircut on identical featureless CYAN mannequin heads in equal 3-column by 2-row landscape1536x1024 layout. Views top row FRONT, RIGHT THREE QUARTER, RIGHT PROFILE; bottom row REAR THREE QUARTER facing right, REAR, TOP. Each cell512x512. Pure flat vivid green #00ff00 background. Hair warm medium BROWN with crisp dark brown contours, 8 cel shaded tones, clean detailed illustrated strands, polished hand drawn Street Fighter sprite style. Pure CYAN mannequin skin/ears/neck with thin black contours; no facial features or clothes. Fixed consistent head shapes roughly340px wide; anatomical skull center top row(256,270), rear/top(256,230), neck ends near y480. Compact haircut completely inside eachcell without clipping, practical for martial arts. Tied hair compact against head; keep ponytails short ending above neck end. Brown hair fully covers scalp in rear/top views except intentional shaved/cropped areas which use brown bristle material, never blank cyan bald holes. No ornaments, no text, no blur, no3D, no photography. Distinct Cacheado taper silhouette, no generic substitutions."
+}

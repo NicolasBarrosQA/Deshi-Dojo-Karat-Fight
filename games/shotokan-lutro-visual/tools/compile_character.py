@@ -125,7 +125,7 @@ def compile(student,out):
                 if a and min(r,g,b)>140 and max(r,g,b)-min(r,g,b)<65:frame.putpixel((x+dx,y+dy),(112,54,45,255))
     frames=[transform(apply_hair(f,student,'base',i),ap,manifest[body]['bounds'][i]) for i,f in enumerate(frames)]
     parts={'body':pack(frames,'char-visual-'+key,out),'belt':{}}
-    geometry={'height':ap['height'],'build':ap['build']};gkey=visual_key({**student,'face':'default','hair':'default','identity':'default','appearance':geometry})
+    geometry={'height':ap['height'],'build':ap['build']};gkey=visual_key({**student,'face':'default','hair':'default','beard':'default','identity':'default','appearance':geometry})
     for belt in config['belt_order']:
         belt_frames=[transform(f,ap,manifest[body]['bounds'][i]) for i,f in enumerate(layer_frames(body,'belt',belt,manifest))]
         parts['belt'][belt]=pack(belt_frames,'char-geometry-'+gkey+'-'+belt,out)
@@ -137,7 +137,7 @@ def compile(student,out):
     portrait=portrait.crop((max(0,portrait_head[0]-margins[0]),max(0,portrait_head[1]+padding-margins[1]-6),min(224,portrait_head[2]+margins[2]),min(portrait.height,portrait_head[3]+padding+margins[3])))
     portrait.thumbnail((32,40),Image.Resampling.NEAREST);thumbnail=Image.new('RGBA',(32,40));thumbnail.paste(portrait,((32-portrait.width)//2,(40-portrait.height)//2));thumbnail.save(out/('portrait-'+key+'.png'))
     result={'id':key,'body':body,'parts':parts,'bounds':[logical_bounds(f) for f in frames],'portrait':'portrait-'+key,'signature':signature,
-            'appearance':ap,'identity':identity,'hair':student['hair'],'revision':hashlib.sha256(json.dumps(signature).encode()).hexdigest()[:16],'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
+            'appearance':ap,'identity':identity,'hair':student['hair'],'beard':student.get('beard','default'),'revision':hashlib.sha256(json.dumps(signature).encode()).hexdigest()[:16],'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
     write(record,result);return result
 
 if __name__=='__main__':

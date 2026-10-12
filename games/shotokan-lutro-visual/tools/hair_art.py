@@ -16,11 +16,16 @@ def read(name):
     return _read(str(p),p.stat().st_mtime_ns) if p.exists() else {}
 
 def styles():return read('hair-assets.json').get('styles',{})
+def beards():return read('beard-assets.json').get('styles',{})
 
 def sources(student):
-    style=styles().get(student.get('hair'))
-    if not style:return []
-    return [Path(__file__),ROOT/'tools/hair_palette.py',ROOT/'assets/hair-assets.json',ROOT/'assets/hair-bindings.json',*(ROOT/v['path'] for v in style['views'].values())]
+    selected=[(styles().get(student.get('hair')),'hair-assets.json'),(beards().get(student.get('beard')),'beard-assets.json')]
+    if not any(style for style,_ in selected):return []
+    result=[Path(__file__),ROOT/'tools/hair_palette.py',ROOT/'assets/hair-bindings.json']
+    for style,catalog in selected:
+        if style:result.extend([ROOT/'assets'/catalog,*(ROOT/v['path'] for v in style['views'].values())])
+    if selected[1][0]:result.append(ROOT/'assets/beard-bindings.json')
+    return result
 
 @lru_cache(maxsize=512)
 def _layer(path,stamp,width,height,color):
@@ -30,12 +35,13 @@ def _layer(path,stamp,width,height,color):
     p=np.asarray(result).copy();p[:,:,3]=(p[:,:,3]>=128)*255;p[p[:,:,3]==0]=0
     return Image.fromarray(p)
 
-def overlay(student,group,index):
-    style=styles().get(student.get('hair'))
+def overlay(student,group,index,kind='hair'):
+    style=(beards() if kind=='beard' else styles()).get(student.get(kind))
     if not style:return None
     binding=read('hair-bindings.json')[student['body']][group][index]
     view=style['views'][binding['view']];path=ROOT/view['path'];sx=binding['width']/view['width'];sy=binding.get('height',binding['width'])/view.get('height',view['width'])
-    layer=_layer(str(path),path.stat().st_mtime_ns,sx,sy,student['appearance']['hair_color']).copy()
+    color=student['appearance'].get('beard_color','original') if kind=='beard' else student['appearance']['hair_color']
+    layer=_layer(str(path),path.stat().st_mtime_ns,sx,sy,color).copy()
     cx,cy=view['center'][0]*sx,view['center'][1]*sy;w,h=layer.size
     if binding.get('mirror'):layer=ImageOps.mirror(layer);cx=w-1-cx
     angle=binding.get('angle',0)
@@ -47,14 +53,16 @@ def overlay(student,group,index):
     x=round(binding['center'][0]-cx);y=round(binding['center'][1]-cy)
     bounds=layer.getbbox()
     if bounds and (x+bounds[0]<0 or x+bounds[2]>224 or y+bounds[1]<-PAD or y+bounds[3]>144):
-        raise ValueError(f'Cabelo recortado: {student["body"]}/{group}/{index+1}: {x,y,bounds}')
+        raise ValueError(f'{kind} recortado: {student["body"]}/{group}/{index+1}: {x,y,bounds}')
     result=Image.new('RGBA',(224,144+PAD));result.paste(layer,(x,y+PAD));result.info['logical_origin_y']=-PAD
     return result
 
 def apply(frame,student,group,index):
     hair=overlay(student,group,index)
-    if hair is None:return frame
-    result=Image.new('RGBA',hair.size);result.paste(frame,(0,PAD));result.alpha_composite(hair)
+    beard=overlay(student,group,index,'beard')
+    if hair is None and beard is None:return frame
+    result=Image.new('RGBA',(224,144+PAD));result.paste(frame,(0,PAD))
+    if hair is not None:result.alpha_composite(hair)
     # Sleeves and hands that cross the scalp remain in front. The original bald
     # head material is preserved everywhere except the authored hair coverage.
     binding=read('hair-bindings.json')[student['body']][group][index]
@@ -68,7 +76,18 @@ def apply(frame,student,group,index):
     for x,y in binding.get('foreground_points',[]):protect[y,x]=p[y,x,3]>0
     for rect in binding.get('occlusion',[]):protect[rect[1]:rect[3],rect[0]:rect[2]]=p[rect[1]:rect[3],rect[0]:rect[2],3]>0
     pixels=np.asarray(result).copy();pixels[PAD:PAD+144][protect]=p[protect]
-    result=Image.fromarray(pixels);result.info['logical_origin_y']=-PAD
+    result=Image.fromarray(pixels)
+    if beard is not None:
+        # Bangs and side locks sit in front of facial hair. Only visible hair
+        # owns these pixels; a sleeve masking the hair does not mask the beard.
+        if hair is not None:
+            hair_visible=np.asarray(hair)[:,:,3]>0;hair_visible[PAD:PAD+144]&=~protect
+            beard_pixels=np.asarray(beard).copy();beard_pixels[hair_visible]=0;beard=Image.fromarray(beard_pixels)
+        previous=np.asarray(result).copy();result.alpha_composite(beard)
+        beard_protect=np.zeros(p.shape[:2],dtype=bool)
+        for y,start,end in read('beard-bindings.json')[student['body']][group][index]:beard_protect[y,start:end]=p[y,start:end,3]>0
+        pixels=np.asarray(result).copy();pixels[PAD:PAD+144][beard_protect]=previous[PAD:PAD+144][beard_protect];result=Image.fromarray(pixels)
+    result.info['logical_origin_y']=-PAD
     return result
 
 def logical_bounds(frame):

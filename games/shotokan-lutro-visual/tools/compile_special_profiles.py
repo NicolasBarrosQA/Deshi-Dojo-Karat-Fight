@@ -45,7 +45,7 @@ def compile_all():
   return frames
  for s in needed:
   key=s['visual'];ap=s['appearance'];groups={}
-  gkey=visual_key({**s,'face':'default','hair':'default','identity':'default','appearance':{'height':ap['height'],'build':ap['build']}})
+  gkey=visual_key({**s,'face':'default','hair':'default','beard':'default','identity':'default','appearance':{'height':ap['height'],'build':ap['build']}})
   for group,a in bases[s['body']].items():
    originals=unpack(a['body']);frames=[]
    for index,im in enumerate(originals):

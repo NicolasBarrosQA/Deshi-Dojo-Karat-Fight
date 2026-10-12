@@ -5,7 +5,11 @@ const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/hair'),url=proc
  try{
   const page=await browser.newPage({viewport:{width:1400,height:1100}}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await page.goto(url+'/editor');await page.waitForFunction(()=>document.body.dataset.ready==='true');
-  assert.equal(await page.locator('#hair-cards button').count(),4);assert.equal(await page.locator('#hair-colors button').count(),14);
+  const catalog=await page.evaluate(()=>fetch('/api/characters').then(r=>r.json()).then(r=>r.catalog));
+  assert.equal(await page.locator('#hair-cards button').count(),catalog.hair_styles.length);assert.equal(await page.locator('#hair-colors button').count(),14);
+  await page.selectOption('#hair-category','masculino');assert.equal(await page.locator('#hair-cards button').count(),1+catalog.hair_styles.filter(e=>e.category==='masculino').length);
+  await page.selectOption('#hair-category','feminino');assert.equal(await page.locator('#hair-cards button').count(),1+catalog.hair_styles.filter(e=>e.category==='feminino').length);
+  await page.fill('#hair-search','trança');assert(await page.locator('#hair-cards button').count()>1);await page.fill('#hair-search','');await page.selectOption('#hair-category','todos');
   const previews=[];
   for(const body of ['adult','teen','child','adult_female','teen_female','child_female']){
    await page.selectOption('#body',body);
@@ -19,10 +23,19 @@ const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/hair'),url=proc
   await page.selectOption('#roster',cases[3]);
   await page.evaluate(()=>{document.getElementById('hair-custom').value='#663399';document.getElementById('hair-custom').dispatchEvent(new Event('input',{bubbles:true}))});
   await page.waitForFunction(()=>window.editorVisual?.appearance.hair_color==='#663399',{},{timeout:90000});
+  for(const entry of catalog.beard_styles.filter(e=>e.id!=='default')){
+   await page.selectOption('#beard',entry.id);await page.selectOption('#beard_color','branco');
+   await page.waitForFunction(id=>window.editorVisual?.beard===id&&window.editorVisual.appearance.beard_color==='branco',entry.id,{timeout:90000});
+   for(const pose of [1,15,59,62,85]){await page.fill('#pose',String(pose));await page.locator('#pose').dispatchEvent('input');await page.selectOption('#facing','left');await page.selectOption('#facing','right')}
+  }
+  const lastBeard=catalog.beard_styles.at(-1).id;
+  await page.evaluate(()=>{document.getElementById('beard-custom').value='#934521';document.getElementById('beard-custom').dispatchEvent(new Event('input',{bubbles:true}))});
+  await page.waitForFunction(()=>window.editorVisual?.appearance.beard_color==='#934521',{},{timeout:90000});
   await page.click('#save');await page.waitForFunction(()=>document.getElementById('status').textContent.startsWith('Salvo e exportado:'),{},{timeout:90000});
   await page.reload();await page.waitForFunction(()=>document.body.dataset.ready==='true');await page.selectOption('#roster',cases[3]);
   await page.waitForFunction(()=>window.editorVisual?.appearance.hair_color==='#663399',{},{timeout:90000});
   assert.equal(await page.inputValue('#hair-custom'),'#663399');assert.equal(await page.inputValue('#hair'),'curto_classico');
+  assert.equal(await page.inputValue('#beard'),lastBeard);assert.equal(await page.inputValue('#beard-custom'),'#934521');
   await page.screenshot({path:path.join(out,'editor.png'),fullPage:true});
   const game=await browser.newPage({offline:true});game.on('pageerror',e=>errors.push(String(e)));
   await require('./offline_page.cjs')(game,true,process.env.DOJO_EDITOR_DIST);await game.waitForFunction(()=>document.body.dataset.ready==='true');

@@ -1,6 +1,7 @@
 {
   "independent_guard_landmarks": 6,
-  "crown_coverage_cases": 216,
-  "reported_pose_15_forearm_cases": 9,
+  "crown_coverage_cases": 1656,
+  "reported_pose_15_forearm_cases": 69,
+  "beard_forearm_cases": 18,
   "previous_mapping_rejected": true
 }

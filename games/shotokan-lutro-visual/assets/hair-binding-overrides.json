@@ -1,8 +1,21 @@
 {
   "adult": {
     "base:15": {
-      "foreground_points": [[113, 12]],
-      "note": "Reviewed fist underside touching the crown, original base-10 cell 6."
+      "foreground_points": [
+        [
+          113,
+          12
+        ],
+        [
+          110,
+          11
+        ],
+        [
+          111,
+          11
+        ]
+      ],
+      "note": "Reviewed raised-fist underside: preserve all three contact pixels for cropped hair as well as the original cuts"
     }
   }
 }

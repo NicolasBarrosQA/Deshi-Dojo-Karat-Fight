@@ -2,7 +2,7 @@
 import json,math
 from pathlib import Path
 from PIL import Image,ImageDraw
-from head_registration import measure,runs
+from head_registration import measure,runs,beard_foreground
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -25,11 +25,11 @@ def animations():
 def prepare():
     overrides_path=ROOT/'assets/hair-binding-overrides.json'
     overrides=json.loads(overrides_path.read_text()) if overrides_path.exists() else {}
-    result={};docs=ROOT/'docs/hair';docs.mkdir(parents=True,exist_ok=True)
+    result={};beard_result={};docs=ROOT/'docs/hair';docs.mkdir(parents=True,exist_ok=True)
     for body,entries in animations().items():
-        result[body]={};crops=[]
+        result[body]={};beard_result[body]={};crops=[]
         for group,frames in entries.items():
-            result[body][group]=[]
+            result[body][group]=[];beard_result[body][group]=[]
             for index,im in enumerate(frames):
                 key=f'{group}:{index+1}';change=overrides.get(body,{}).get(key,{})
                 floor=group=='knockdown' and 5<=index+1<=7
@@ -47,7 +47,7 @@ def prepare():
                 binding={**registration,'view':view,'foreground_runs':runs(foreground),'registration':'cranial-oval-v2'}
                 # Reviewed overrides are applied to the final cranial measurement,
                 # never to a component that can include the supporting forearm.
-                binding.update(change);result[body][group].append(binding)
+                binding.update(change);beard_result[body][group].append(runs(beard_foreground(im,binding)));result[body][group].append(binding)
                 cx,cy=binding['center']
                 crop=im.crop((max(0,round(cx)-30),max(0,round(cy)-30),min(224,round(cx)+30),min(144,round(cy)+35)))
                 crops.append((key,crop))
@@ -57,5 +57,6 @@ def prepare():
         sheet.save(docs/(body+'-heads-before.png'));print(body,len(crops),'cranial registrations',flush=True)
     from character_registry import write
     write(ROOT/'assets/hair-bindings.json',result)
+    target=ROOT/'assets/beard-bindings.json';temp=target.with_suffix('.json.tmp');temp.write_text(json.dumps(beard_result,separators=(',',':'))+'\n');temp.replace(target)
 
 if __name__=='__main__':prepare()

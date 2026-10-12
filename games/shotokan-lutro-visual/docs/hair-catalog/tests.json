@@ -1,0 +1,13 @@
+{
+  "complete_catalog_required": true,
+  "hair_counts": {
+    "masculino": 13,
+    "feminino": 10
+  },
+  "beards": 6,
+  "pose_cases": 31668,
+  "proportion_cases": 285012,
+  "material_cases": 2610,
+  "errors": [],
+  "elapsed_seconds": 344.9
+}
