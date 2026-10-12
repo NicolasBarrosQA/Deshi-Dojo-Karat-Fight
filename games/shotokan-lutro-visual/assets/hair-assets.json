@@ -1,32 +1,35 @@
 {
-  "version": 1,
+  "version": 2,
   "styles": {
     "curto_classico": {
-      "label": "Curto clássico",
+      "label": "Curto clÃ¡ssico",
       "views": {
         "front": {
           "path": "assets/source/hair-v1/curto_classico-front.png",
           "center": [
             256.0,
-            285.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "three_quarter": {
           "path": "assets/source/hair-v1/curto_classico-three_quarter.png",
           "center": [
             260.0,
-            285.0
+            270
           ],
-          "width": 310.0
+          "width": 340,
+          "height": 380
         },
         "profile": {
           "path": "assets/source/hair-v1/curto_classico-profile.png",
           "center": [
             253.0,
-            292.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "rear_three_quarter": {
           "path": "assets/source/hair-v1/curto_classico-rear_three_quarter.png",
@@ -34,7 +37,8 @@
             265.0,
             235.0
           ],
-          "width": 320.0
+          "width": 340,
+          "height": 340
         },
         "rear": {
           "path": "assets/source/hair-v1/curto_classico-rear.png",
@@ -42,7 +46,8 @@
             256.0,
             230.0
           ],
-          "width": 290.0
+          "width": 340,
+          "height": 340
         },
         "top": {
           "path": "assets/source/hair-v1/curto_classico-top.png",
@@ -50,36 +55,40 @@
             256.0,
             230.0
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 340
         }
       }
     },
     "medio_ondulado": {
-      "label": "Médio ondulado",
+      "label": "MÃ©dio ondulado",
       "views": {
         "front": {
           "path": "assets/source/hair-v1/medio_ondulado-front.png",
           "center": [
             256.0,
-            285.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "three_quarter": {
           "path": "assets/source/hair-v1/medio_ondulado-three_quarter.png",
           "center": [
             260.0,
-            285.0
+            270
           ],
-          "width": 310.0
+          "width": 340,
+          "height": 380
         },
         "profile": {
           "path": "assets/source/hair-v1/medio_ondulado-profile.png",
           "center": [
             253.0,
-            292.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "rear_three_quarter": {
           "path": "assets/source/hair-v1/medio_ondulado-rear_three_quarter.png",
@@ -87,7 +96,8 @@
             265.0,
             235.0
           ],
-          "width": 320.0
+          "width": 340,
+          "height": 340
         },
         "rear": {
           "path": "assets/source/hair-v1/medio_ondulado-rear.png",
@@ -95,7 +105,8 @@
             256.0,
             230.0
           ],
-          "width": 290.0
+          "width": 340,
+          "height": 340
         },
         "top": {
           "path": "assets/source/hair-v1/medio_ondulado-top.png",
@@ -103,7 +114,8 @@
             256.0,
             230.0
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 340
         }
       }
     },
@@ -114,25 +126,28 @@
           "path": "assets/source/hair-v1/crespo_curto-front.png",
           "center": [
             256.0,
-            285.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "three_quarter": {
           "path": "assets/source/hair-v1/crespo_curto-three_quarter.png",
           "center": [
             260.0,
-            285.0
+            270
           ],
-          "width": 310.0
+          "width": 340,
+          "height": 380
         },
         "profile": {
           "path": "assets/source/hair-v1/crespo_curto-profile.png",
           "center": [
             253.0,
-            292.0
+            270
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 380
         },
         "rear_three_quarter": {
           "path": "assets/source/hair-v1/crespo_curto-rear_three_quarter.png",
@@ -140,7 +155,8 @@
             265.0,
             235.0
           ],
-          "width": 320.0
+          "width": 340,
+          "height": 340
         },
         "rear": {
           "path": "assets/source/hair-v1/crespo_curto-rear.png",
@@ -148,7 +164,8 @@
             256.0,
             230.0
           ],
-          "width": 290.0
+          "width": 340,
+          "height": 340
         },
         "top": {
           "path": "assets/source/hair-v1/crespo_curto-top.png",
@@ -156,7 +173,8 @@
             256.0,
             230.0
           ],
-          "width": 300.0
+          "width": 340,
+          "height": 340
         }
       }
     }

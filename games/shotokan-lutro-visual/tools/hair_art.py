@@ -23,9 +23,9 @@ def sources(student):
     return [Path(__file__),ROOT/'tools/hair_palette.py',ROOT/'assets/hair-assets.json',ROOT/'assets/hair-bindings.json',*(ROOT/v['path'] for v in style['views'].values())]
 
 @lru_cache(maxsize=512)
-def _layer(path,stamp,width,color):
+def _layer(path,stamp,width,height,color):
     with Image.open(path) as im:result=recolor(im.convert('RGBA'),color)
-    result.thumbnail((round(result.width*width),round(result.height*width)),Image.Resampling.LANCZOS)
+    result=result.resize((round(result.width*width),round(result.height*height)),Image.Resampling.LANCZOS)
     # The game uses binary coverage; remove resampling fringes without tinting skin.
     p=np.asarray(result).copy();p[:,:,3]=(p[:,:,3]>=128)*255;p[p[:,:,3]==0]=0
     return Image.fromarray(p)
@@ -34,9 +34,9 @@ def overlay(student,group,index):
     style=styles().get(student.get('hair'))
     if not style:return None
     binding=read('hair-bindings.json')[student['body']][group][index]
-    view=style['views'][binding['view']];path=ROOT/view['path'];scale=binding['width']/view['width']
-    layer=_layer(str(path),path.stat().st_mtime_ns,scale,student['appearance']['hair_color']).copy()
-    cx,cy=[v*scale for v in view['center']];w,h=layer.size
+    view=style['views'][binding['view']];path=ROOT/view['path'];sx=binding['width']/view['width'];sy=binding.get('height',binding['width'])/view.get('height',view['width'])
+    layer=_layer(str(path),path.stat().st_mtime_ns,sx,sy,student['appearance']['hair_color']).copy()
+    cx,cy=view['center'][0]*sx,view['center'][1]*sy;w,h=layer.size
     if binding.get('mirror'):layer=ImageOps.mirror(layer);cx=w-1-cx
     angle=binding.get('angle',0)
     if angle:
@@ -60,8 +60,12 @@ def apply(frame,student,group,index):
     binding=read('hair-bindings.json')[student['body']][group][index]
     p=np.asarray(frame);rgb=p[:,:,:3].astype(float);r,g,b=[rgb[:,:,i] for i in range(3)]
     white=(p[:,:,3]>0)&(np.minimum.reduce([r,g,b])>135)&(np.maximum.reduce([r,g,b])-np.minimum.reduce([r,g,b])<70)
-    protect=white.copy()
+    # Source material labels are independent of the selected skin tone. Inferring
+    # white cloth from recolored RGB would classify pale skin as gi and punch
+    # bald holes through the hair. V2 has an authored-source foreground matte.
+    protect=np.zeros(white.shape,dtype=bool) if binding.get('registration')=='cranial-oval-v2' else white.copy()
     for y,start,end in binding.get('foreground_runs',[]):protect[y,start:end]=p[y,start:end,3]>0
+    for x,y in binding.get('foreground_points',[]):protect[y,x]=p[y,x,3]>0
     for rect in binding.get('occlusion',[]):protect[rect[1]:rect[3],rect[0]:rect[2]]=p[rect[1]:rect[3],rect[0]:rect[2],3]>0
     pixels=np.asarray(result).copy();pixels[PAD:PAD+144][protect]=p[protect]
     result=Image.fromarray(pixels);result.info['logical_origin_y']=-PAD

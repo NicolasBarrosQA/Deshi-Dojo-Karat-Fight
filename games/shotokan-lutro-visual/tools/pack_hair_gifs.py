@@ -4,7 +4,7 @@ import json,hashlib
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1];out=ROOT/'docs/hair';reports={}
 for name in ('adult','teen','child'):
-    paths=sorted((ROOT/'.runtime/hair-captures'/name).glob('*.png'));assert len(paths)==187
+    paths=sorted(p for p in (ROOT/'.runtime/hair-captures'/name).glob('*.png') if int(p.stem)<=354);assert len(paths)==119
     frames=[Image.open(p).convert('RGB').resize((768,448),Image.Resampling.NEAREST).quantize(colors=256,method=Image.Quantize.FASTOCTREE) for p in paths]
     target=out/(name+'-runtime.gif');temporary=target.with_suffix('.tmp')
     frames[0].save(temporary,format='GIF',save_all=True,append_images=frames[1:],duration=50,loop=0,optimize=True,disposal=1);temporary.replace(target)

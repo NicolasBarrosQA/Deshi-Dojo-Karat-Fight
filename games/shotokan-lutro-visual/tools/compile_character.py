@@ -3,7 +3,7 @@
 Equivalent appearances share one content-addressed atlas regardless of name/belt.
 Compact shelf packing avoids empty 224x144 cells. Runtime only blits old quads.
 """
-import argparse,json,math,sys
+import argparse,json,math,sys,hashlib
 from pathlib import Path
 from PIL import Image,ImageOps,ImageFilter
 from character_registry import read,write,validate,visual_key,SKINS,HAIR_COLORS,BUILDS
@@ -137,7 +137,7 @@ def compile(student,out):
     portrait=portrait.crop((max(0,portrait_head[0]-margins[0]),max(0,portrait_head[1]+padding-margins[1]-6),min(224,portrait_head[2]+margins[2]),min(portrait.height,portrait_head[3]+padding+margins[3])))
     portrait.thumbnail((32,40),Image.Resampling.NEAREST);thumbnail=Image.new('RGBA',(32,40));thumbnail.paste(portrait,((32-portrait.width)//2,(40-portrait.height)//2));thumbnail.save(out/('portrait-'+key+'.png'))
     result={'id':key,'body':body,'parts':parts,'bounds':[logical_bounds(f) for f in frames],'portrait':'portrait-'+key,'signature':signature,
-            'appearance':ap,'identity':identity,'hair':student['hair'],'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
+            'appearance':ap,'identity':identity,'hair':student['hair'],'revision':hashlib.sha256(json.dumps(signature).encode()).hexdigest()[:16],'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
     write(record,result);return result
 
 if __name__=='__main__':

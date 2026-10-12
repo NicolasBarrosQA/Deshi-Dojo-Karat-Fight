@@ -46,11 +46,14 @@ const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/hair'),url=proc
    C.selected=selected;C.overrides=overrides;C.cache={};C.retained={};C.retainedBytes=0;lutro.browser=true;g.newImage=saved;C.prepare();return bytes`);
   const captures=[];
   for(const [one,two,name] of [[0,3,'adult'],[1,4,'teen'],[2,5,'child']]){
-   await game.evaluate(({one,two,cases})=>{dojoHost.clear();run(`Scene.configure('versus','easy');Scene.student(1,'${cases[one]}');Scene.student(2,'${cases[two]}')`)},{one,two,cases});
+   await game.evaluate(({one,two,cases})=>{dojoHost.clear();run(`Scene.configure('versus','easy',true);Scene.student(1,'${cases[one]}');Scene.student(2,'${cases[two]}')`)},{one,two,cases});
    await game.evaluate(()=>Promise.all([...assetLoads.values()]));const dir=path.join(root,'.runtime/hair-captures',name);fs.mkdirSync(dir,{recursive:true});
-   for(let tick=0;tick<=558;tick+=3){
-    if(tick===438)await game.keyboard.down('ArrowUp');if(tick===441)await game.keyboard.up('ArrowUp');
-    if(tick===486)await lua("require('specials').start(Scene.players[1],'nidan')");
+   for(let tick=0;tick<=354;tick+=3){
+    if(tick===12){await game.keyboard.down('x');await game.keyboard.down('ArrowUp');await game.keyboard.down('g');await game.keyboard.down('i')}
+    if(tick===42){for(const key of ['ArrowUp','x','i','g'])await game.keyboard.up(key)}
+    if(tick===60)await game.keyboard.down('ArrowUp');if(tick===63)await game.keyboard.up('ArrowUp');
+    if(tick===114)await lua("assert(require('specials').start(Scene.players[1],'nidan'))");
+    if(tick===234)await lua("assert(require('specials').start(Scene.players[1],'ushiro'))");
     if(tick)await step(3);else await game.evaluate(()=>dojoHost.render());
     const frame=await game.locator('#game').evaluate(canvas=>canvas.toDataURL('image/png').split(',')[1]);fs.writeFileSync(path.join(dir,String(tick).padStart(4,'0')+'.png'),Buffer.from(frame,'base64'));
    }captures.push(name);

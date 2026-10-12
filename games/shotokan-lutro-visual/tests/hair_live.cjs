@@ -11,6 +11,11 @@ const root=path.resolve(__dirname,'..'),roster=path.join(root,'assets/characters
  await page.selectOption('#body','child');assert.equal(await page.inputValue('#hair'),'medio_ondulado');
  await page.waitForFunction(()=>window.editorVisual?.body==='child'&&window.editorVisual.hair==='medio_ondulado',{},{timeout:90000});
  await page.locator('[data-hair="default"]').click();assert(await page.locator('#hair_color').isDisabled());
+  await page.selectOption('#body','adult');await page.locator('[data-hair="curto_classico"]').click();await page.selectOption('#hair_color','grisalho');await page.selectOption('#skin','clara');
+  await page.waitForFunction(()=>window.editorVisual?.body==='adult'&&window.editorVisual.hair==='curto_classico'&&window.editorVisual.appearance.hair_color==='grisalho'&&window.editorVisual.appearance.skin==='clara',{},{timeout:90000});
+  await page.selectOption('#belt','preta');await page.waitForFunction(()=>images[editorVisual.parts.belt.preta.right],{},{timeout:90000});
+  await page.fill('#pose','15');await page.locator('#pose').dispatchEvent('input');await page.locator('#preview').screenshot({path:path.join(out,'reported-pose-corrected.png')});
+  assert(await page.evaluate(()=>Object.values(images).every(image=>image.src.includes('?v='+editorVisual.revision))),'Preview images must carry the authored-source revision');
  const after=crypto.createHash('sha256').update(fs.readFileSync(roster)).digest('hex');assert.equal(before,after);assert.deepEqual(errors,[]);
  fs.writeFileSync(path.join(out,'live-tests.json'),JSON.stringify({live_editor:true,white_hair:true,style_preserved_across_body_change:true,bald_option:true,roster_unchanged:true,errors},null,2)+'\n');console.log('PASS live hair editor, white palette, body switch, bald option, no roster writes');
 }finally{await browser.close()}})().catch(e=>{console.error(e);process.exitCode=1});

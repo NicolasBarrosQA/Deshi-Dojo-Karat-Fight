@@ -1,5 +1,7 @@
 # Cabelo no estúdio de personagens
 
+O encaixe e as sobreposições foram corrigidos na revisão v2. Consulte [o diagnóstico e as novas validações](fit-v2.md).
+
 Três cortes aprovados: curto clássico, médio ondulado e crespo curto. Todos disponíveis nos seis corpos, incluindo criança, adolescente e adulto, masculinos e femininos. A opção sem cabelo mantém as bases carecas aprovadas.
 
 No editor local, escolha **Corte de cabelo**, uma paleta ou a **Cor livre**, confira as poses e use **Salvar e levar ao jogo**. Existem 14 opções, incluindo a cor original, preto, castanhos, loiros, ruivo, grisalho, branco e cores fantasia. O seletor livre aceita qualquer RGB hexadecimal. A cor persiste na configuração JSON e nas skins exportadas.
@@ -17,7 +19,7 @@ Arte: imagegen integrado. Os três pilotos aprovados estão em `assets/source/ha
 Risco de regressão: alto, por envolver compilação, cache, exportação e seleção dos personagens. Validação:
 
 - `tests/hair_assets.py`: 3.276 encaixes; 29.484 combinações de altura/porte; 45.864 verificações de paleta; transparência binária, proteção dos pixels do corpo, piso e roundtrip de 92 quadros pelo empacotador.
-- `tests/hair_creator.py` + `tests/hair_editor.cjs`: 18 previews reais, cor livre salva e reaberta, seis corpos exportados, mesmos dados no HTML/Lutro, saudações, saltos, nidan e todos os quadros especiais nos dois ports. Memória retida das seleções básicas: 103.644.272 bytes, abaixo do orçamento de 128 MiB.
+- `tests/hair_creator.py` + `tests/hair_editor.cjs`: 18 previews reais, cor livre salva e reaberta, seis corpos exportados, mesmos dados no HTML/Lutro, saudações, saltos, nidan e todos os quadros especiais nos dois ports. Memória retida das seleções básicas: 103.383.760 bytes, abaixo do orçamento de 128 MiB.
 - `tests/hair_live.cjs`: editor real no localhost, branco, troca de corpo preservando o corte, opção careca e cadastro sem alterações.
 - `tests/character_creator.py`: CRUD/exportação anterior, pele retinta em 90 quadros, combate, CPU, seleção F2 e cache.
 - `tests/browser.cjs`: 13 grupos de regressão do combate; `tests/specials.cjs`: comandos e finalizações.
