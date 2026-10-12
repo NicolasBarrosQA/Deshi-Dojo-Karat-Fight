@@ -1,0 +1,45 @@
+{
+  "changes": [
+    {
+      "body": "teen",
+      "pose": 63,
+      "shift_x": -2,
+      "total_shift_from_original_x": 8
+    },
+    {
+      "body": "child",
+      "pose": 63,
+      "shift_x": 0,
+      "total_shift_from_original_x": -14
+    },
+    {
+      "body": "teen_female",
+      "pose": 63,
+      "shift_x": 0,
+      "total_shift_from_original_x": -4
+    },
+    {
+      "body": "child_female",
+      "pose": 63,
+      "shift_x": 2,
+      "total_shift_from_original_x": -12
+    },
+    {
+      "body": "adult",
+      "pose": 63,
+      "shift_x": 0,
+      "total_shift_from_original_x": 10
+    },
+    {
+      "body": "adult_female",
+      "pose": 63,
+      "shift_x": -1,
+      "total_shift_from_original_x": -30
+    }
+  ],
+  "backup": "C:\\Users\\nicol\\.codex\\backups\\deshi-dojo\\before-jump-anchor-20261012-045040.zip",
+  "pixels_and_scale_unchanged": true,
+  "physics_changed": false,
+  "purpose": "Remove the visible upper-body jump at the rise-to-descent transition, including mirrored P2.",
+  "reference": "Cranial cap centre excludes the neck angle"
+}

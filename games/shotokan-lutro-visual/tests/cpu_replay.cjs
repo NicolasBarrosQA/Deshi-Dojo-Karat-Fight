@@ -1,9 +1,9 @@
 // Reproduce native controller workload in offline Fengari; exact deterministic state.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const data=JSON.parse(fs.readFileSync(process.argv[2])),root=path.resolve(__dirname,'..');
-(async()=>{const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});try{
+(async()=>{const browser=await chromium.launch({executablePath:process.env.DOJO_CHROMIUM||(process.platform==='win32'?'C:/Program Files/Google/Chrome/Application/chrome.exe':'/usr/bin/chromium'),headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});try{
  const page=await browser.newPage({offline:true}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
- await page.goto('about:blank?capture=1');await page.setContent(fs.readFileSync(path.join(root,'dist/deshi-dojo-visual.html'),'utf8'));await page.waitForFunction(()=>document.body.dataset.ready==='true');
+ await require('./offline_page.cjs')(page);await page.waitForFunction(()=>document.body.dataset.ready==='true');
  for(const replay of data.replays){
   const actual=await page.evaluate(replay=>{
    dojoHost.clear();run(replay.initial);const output=[];

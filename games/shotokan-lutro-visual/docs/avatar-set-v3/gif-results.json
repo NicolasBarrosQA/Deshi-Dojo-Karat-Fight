@@ -1,0 +1,74 @@
+[
+  {
+    "sequence": "adult-p1",
+    "frames": 119,
+    "file": "adult-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "teen-p1",
+    "frames": 119,
+    "file": "teen-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "child-p1",
+    "frames": 119,
+    "file": "child-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "adult_female-p1",
+    "frames": 119,
+    "file": "adult_female-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "teen_female-p1",
+    "frames": 119,
+    "file": "teen_female-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "child_female-p1",
+    "frames": 119,
+    "file": "child_female-p1-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "adult-p2",
+    "frames": 119,
+    "file": "adult-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "teen-p2",
+    "frames": 119,
+    "file": "teen-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "child-p2",
+    "frames": 119,
+    "file": "child-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "adult_female-p2",
+    "frames": 119,
+    "file": "adult_female-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "teen_female-p2",
+    "frames": 119,
+    "file": "teen_female-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  },
+  {
+    "sequence": "child_female-p2",
+    "frames": 119,
+    "file": "child_female-p2-ashi-sequence.gif",
+    "source_html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+  }
+]

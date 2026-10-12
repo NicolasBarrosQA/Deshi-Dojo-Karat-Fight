@@ -1,11 +1,12 @@
 // Offline keyboard/gamepad controls and actual fight loop; no action injection.
 const {chromium}=require('playwright'),fs=require('fs'),path=require('path'),assert=require('assert/strict');
 const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dist/deshi-dojo-visual.html'),'utf8');
+const docs=path.resolve(root,process.env.DOJO_TEST_OUTPUT||'docs');fs.mkdirSync(docs,{recursive:true});
 (async()=>{let browser;try{
- browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu']});
+ browser=await chromium.launch({executablePath:process.env.DOJO_CHROMIUM||(process.platform==='win32'?'C:/Program Files/Google/Chrome/Application/chrome.exe':'/usr/bin/chromium'),headless:true,args:['--no-sandbox','--disable-dev-shm-usage','--disable-gpu']});
  const context=await browser.newContext({offline:true,viewport:{width:1200,height:1000}}),page=await context.newPage(),errors=[],requests=[],checks=[];
  page.on('pageerror',e=>errors.push(String(e)));page.on('request',r=>{if(/^https?:/.test(r.url()))requests.push(r.url())});
- await page.goto('about:blank?capture=1');await page.setContent(html,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.body.dataset.ready==='true');
+ await require('./offline_page.cjs')(page);await page.waitForFunction(()=>document.body.dataset.ready==='true');
  const step=async n=>page.evaluate(n=>{for(let i=0;i<n;i++)dojoHost.update();dojoHost.render()},n);
  const state=async()=> (await page.evaluate(()=>dojoHost.snapshot())).split('|').map(Number);
  const reset=async(near=false,reverse=false)=>{await page.evaluate(({near,reverse})=>{dojoHost.clear();run('Scene.demo=false;Scene.practice=false;Scene.configure(\"versus\",\"easy\");'+(near?'Scene.players[1].x=140;Scene.players[2].x=228;':'')+(reverse?'local x=Scene.players[1].x;Scene.players[1].x=Scene.players[2].x;Scene.players[2].x=x;Scene.left=2;':''))},{near,reverse});await step(2)};
@@ -14,7 +15,7 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  assert.equal(await page.locator('#study').getAttribute('open'),null);
  assert(await page.locator('#practice').isVisible());assert((await page.locator('.quick').textContent()).includes('soco'));
  checks.push('Fight/three-action controls first; detailed lessons collapsed by default');
- let data=await page.evaluate(()=>document.getElementById('game').toDataURL());fs.writeFileSync(path.join(root,'docs/scene-browser.png'),Buffer.from(data.split(',')[1],'base64'));
+ let data=await page.evaluate(()=>document.getElementById('game').toDataURL());fs.writeFileSync(path.join(docs,'scene-browser.png'),Buffer.from(data.split(',')[1],'base64'));
  for(const reverse of [false,true]){
   await reset(false,reverse);const inward=reverse?['ArrowLeft','l']:['ArrowRight','j'];
   const before=await state();for(const key of inward)await page.keyboard.down(key);
@@ -102,12 +103,12 @@ const root=path.resolve(__dirname,'..'),html=fs.readFileSync(path.join(root,'dis
  await page.evaluate(()=>{for(const p of testPads)p.buttons[0].pressed=false;pollGamepads()});
  checks.push('Standard gamepad API mapping mock: two pads, analog movement, both punch buttons (physical pads pending)');
  // Actual RAF response and Escape pause, outside the capture/manual-step loop.
- await page.goto('about:blank');await page.setContent(html,{waitUntil:'domcontentloaded'});await page.waitForFunction(()=>document.body.dataset.ready==='true');
+ await require('./offline_page.cjs')(page,false);await page.waitForFunction(()=>document.body.dataset.ready==='true');
  await page.locator('#mode').selectOption('versus');await page.locator('#play').click();let before=await state();await page.keyboard.down('ArrowRight');await page.keyboard.down('j');await page.waitForTimeout(220);
  await page.keyboard.up('ArrowRight');await page.keyboard.up('j');let after=await state();assert(after[1]>before[1]&&after[2]<before[2]);
  await page.keyboard.press('Escape');tick=(await state())[0];await page.waitForTimeout(80);assert.equal((await state())[0],tick);await page.keyboard.press('Escape');await page.waitForTimeout(80);assert((await state())[0]>tick);
- checks.push('Actual RAF movement with keyboard; Escape pauses/resumes');await page.screenshot({path:path.join(root,'docs/notebook.png'),fullPage:true});
+ checks.push('Actual RAF movement with keyboard; Escape pauses/resumes');await page.screenshot({path:path.join(docs,'notebook.png'),fullPage:true});
  assert.deepEqual(errors,[]);assert.deepEqual(requests,[]);
- const result={passed:checks.length,checks,artifact_sha256:require('crypto').createHash('sha256').update(html).digest('hex'),external_requests:requests,errors,platform:'Chromium offline/Linux x86-64; gamepad API mocked, Pi/GPIO/Windows hardware pending'};
- fs.writeFileSync(path.join(root,'docs/browser-results.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
+ const result={passed:checks.length,checks,artifact_sha256:require('crypto').createHash('sha256').update(html).digest('hex'),external_requests:requests,errors,platform:process.platform+' offline Chromium/Chrome; gamepad API mocked, physical pads/Pi/GPIO pending'};
+ fs.writeFileSync(path.join(docs,'browser-results.json'),JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
  }catch(e){console.error(e);process.exitCode=1}finally{if(browser)await browser.close()}})();

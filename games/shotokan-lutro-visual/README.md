@@ -1,4 +1,10 @@
-# Deshi Dojo — combate Shotokan, Lutro v06
+# Deshi Dojo — combate Shotokan, bases neutras 2D
+
+Esta edição usa as **seis bases neutras 2D aprovadas**: criança, adolescente e adulto, masculinos e femininos, carecas e sem feições. Cada corpo tem 92 quadros básicos e 72 quadros de especiais, queda e finalização, totalizando 984 posições. A arte anterior foi substituída. [Fontes, revisão, demonstrações e validação desta edição](docs/avatar-set-v3/README.md).
+
+O **criador de personagens** funciona no notebook: execute `python scripts/play_web.py` na raiz do repositório e abra `http://localhost:8000/editor`. Nome, corpo, faixa, pele, pequenas proporções e emblema continuam configuráveis sem editar Lua. As bases desta etapa permanecem sem rosto e cabelo; as antigas identidades foram retiradas. Rostos e cabelos novos serão preparados para estas bases. [Como cadastrar alunos e exportar](docs/CRIADOR-DE-PERSONAGENS.md).
+
+Os seletores abaixo da luta e o menu F2 permitem escolher entre os seis corpos e oito faixas para cada jogador. A faixa tem máscara exclusiva de cintura, nó e pontas; sua cor é independente da dificuldade da CPU. A guarda neutra cobre cabeça e tronco; a defesa baixa cobre a linha baixa; uma troca de defesa mantém a cobertura anterior durante a preparação. As regras de combate foram preservadas.
 
 Dois jogadores e três botões: **soco, defesa e chute**. A luta tem energia, 60 segundos e melhor de três rounds. **Treino livre** mantém energia e tempo para experimentar. O combate usa técnicas Shotokan e eventos de contato separados das regras de energia, permitindo futuramente pontuação por distância, linha e precisão.
 
@@ -23,7 +29,7 @@ Porta ocupada: `python scripts/play_web.py --port 8001`. Para abrir o navegador 
 
 No Windows, `.gitattributes` preserva os bytes do interpretador Fengari. Clones antigos que já converteram esse arquivo para CRLF são reparados automaticamente pelo build, somente após confirmar o SHA-256 original dos bytes com LF. Alterações reais de conteúdo continuam sendo rejeitadas; não desative a checagem nem troque o hash para contornar erros.
 
-O HTML em `dist/deshi-dojo-visual.html` também continua abrindo diretamente por arquivo. ZIPs são uma opção de distribuição gerada por `tools/build.py`, não o fluxo necessário para desenvolver ou jogar pelo Git.
+O HTML em `dist/deshi-dojo-visual.html` também continua abrindo diretamente por arquivo. `python tools/build.py` gera HTML e cartucho. Os ZIPs antigos só são gerados ao acrescentar `--archives`; o fluxo de atualização continua pelo Git.
 
 | Controle | Jogador 1 | Jogador 2 |
 |---|---|---|

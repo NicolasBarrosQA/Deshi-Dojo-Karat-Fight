@@ -1,0 +1,20 @@
+{
+  "adult": {
+    "51": "assets/source/audit-corrections/after-adult-51.png",
+    "55": "assets/source/audit-corrections/after-adult-55.png",
+    "59": "assets/source/audit-corrections/after-adult-59.png",
+    "75": "assets/source/audit-corrections/after-adult-75.png"
+  },
+  "teen": {
+    "51": "assets/source/audit-corrections/after-teen-51.png",
+    "55": "assets/source/audit-corrections/after-teen-55.png",
+    "59": "assets/source/audit-corrections/after-teen-59.png",
+    "75": "assets/source/audit-corrections/after-teen-75.png"
+  },
+  "child": {
+    "51": "assets/source/audit-corrections/after-child-51.png",
+    "55": "assets/source/audit-corrections/after-child-55.png",
+    "59": "assets/source/audit-corrections/after-child-59.png",
+    "75": "assets/source/audit-corrections/after-child-75.png"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "approved_guard_hashes": {
+    "teen": "8674b12cfc4c22a9abf69638a4ecb1c94c2d95bbc279cca8ccdba7758ce44d56",
+    "child": "ab7c87b83feb33bedde97844cd6455c69514e6cca47e43b2d2a786c1f1b5f1ca",
+    "teen_female": "fd94a3e1a11e6e6383f9d720214ebe4961a1ecf90c69f9b2b167872f524115f3",
+    "child_female": "e85a769e954e2c66d7d6dab7755f53ec83e0deadfb2fdc7402ef02168b5aefc6",
+    "adult": "17805dfde492591d1475e07c9f087c29d68a6a6ca351b9a2e6fb8a4e4c35dd76",
+    "adult_female": "9091788d6bc60a2893424c073eba12e92c12809ac9374dc10463fd6d9abb244e"
+  },
+  "roster_preserved_sha256": "a05d3df72db9ba721d821c480227c8ea29a30aca1adc080631ac410182f25b18",
+  "backup": "C:\\Users\\nicol\\.codex\\backups\\deshi-dojo\\before-avatar-scale-20261012-042521.zip",
+  "method": "Upright reference cells set each grounded sheet to its body height; cranial cap calibrates execution and folded airborne poses, excluding exposed neck/chest. A maximum 5% margin adjustment prevents clipping; no runtime scaling or physics changes.",
+  "physics_changed": false,
+  "bodies": 6,
+  "poses": 984
+}

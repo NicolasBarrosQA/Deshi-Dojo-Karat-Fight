@@ -8,8 +8,16 @@ from native_host import Native
 cases=[{'name':'initial','code':''}]
 for level in ('easy','medium','hard'):
  cases.append({'name':'cpu-'+level,'code':f'Scene.configure("cpu","{level}");'})
-for choice in range(1,5):
+for choice in range(1,9):
  cases.append({'name':f'arcade-menu-{choice}','code':f'Scene.menu=true;Scene.menuChoice={choice};'})
+for body in ('adult','teen','child'):
+ for pose in range(1,93):
+  for face in (1,-1):
+   cases.append({'name':f'{body}-pose-{pose}-face-{face}',
+    'code':f'Scene.character(1,{{body="{body}"}});Scene.players[1].pose={pose};Scene.players[1].face={face};'})
+ for belt in ('branca','amarela','vermelha','laranja','verde','roxa','marrom','preta'):
+  cases.append({'name':f'{body}-belt-{belt}',
+   'code':f'Scene.character(1,{{body="{body}",belt="{belt}"}});Scene.character(2,{{body="child"}});'})
 for side in (1,2):
  for defense,direction in (('kamae',None),('age',5),('gedan',6),('soto',8 if side==1 else 7),('uchi',7 if side==1 else 8)):
   condition=f'(key==2'+(f' or key=={direction}' if direction else '')+')'
@@ -34,7 +42,7 @@ for pose in range(1,json.loads((HERE/'assets/import.json').read_text())['frames'
  assert mirrored.tobytes()==ImageOps.mirror(Image.open(HERE/f'src/assets/pose-{pose:02d}.png').convert('RGBA')).tobytes(),pose
 with tempfile.TemporaryDirectory(prefix='dojo-raster-') as tmp:
  folder=Path(tmp);fixture=folder/'fixture';fixture.mkdir();(fixture/'assets').symlink_to(HERE/'src/assets',target_is_directory=True)
- for name in ('conf.lua','art.lua','techniques.lua','cpu.lua'):(fixture/name).write_bytes((HERE/'src'/name).read_bytes())
+ for name in ('conf.lua','art.lua','techniques.lua','cpu.lua','characters.lua','character_data.lua'):(fixture/name).write_bytes((HERE/'src'/name).read_bytes())
  for c in cases:
   (fixture/'main.lua').write_text((HERE/'src/main.lua').read_text()+ '\nfunction lutro.update(dt) end\nlocal originalLoad=lutro.load\nfunction lutro.load() originalLoad();Scene.configure("versus","easy");'+c['code']+' end\n')
   with Native(fixture/'main.lua') as core:

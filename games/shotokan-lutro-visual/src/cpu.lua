@@ -1,6 +1,7 @@
 -- Local opponent: observations in, ordinary controller buttons out.
 -- No player mutations, input reading, health/damage bonuses or external services.
 local techniques=require('techniques').techniques
+local specials=require('techniques').specials
 local CPU={profiles={
  easy={belt='VERMELHA',name='FACIL',color={198,66,60},reaction=22,think=14,attack_gap=50,guard=18,accuracy=45,combo=0,max_combo=1,jump=0,range=96},
  medium={belt='LARANJA',name='MEDIO',color={224,143,57},reaction=12,think=8,attack_gap=28,guard=36,accuracy=72,combo=40,max_combo=2,jump=4,range=94},
@@ -17,8 +18,8 @@ local function chance(s,n)
  return math.floor(s.rng/2147483647.0*100)<n
 end
 local function observe(p)
- local t=p.action and techniques[p.action.id]
- return {x=p.x,height=p.height,air=p.air,phase=p.phase,kind=t and t.kind,zone=t and t.zone,id=p.action and p.action.id}
+ local t=p.action and techniques[p.action.id] or p.special and specials[p.special.id]
+ return {x=p.x,height=p.height,air=p.air,phase=p.phase,state=p.combatState,kind=t and t.kind,zone=t and t.zone,id=p.action and p.action.id or p.special and p.special.id}
 end
 local function direction(c,face,forward) c[(forward and face or -face)==1 and 'right' or 'left']=true end
 local function attack(s,kind,face,modifier)
@@ -64,6 +65,26 @@ function CPU.update(s,self,opponent,frozen)
  if not seen then s.input={} return s.input end
  local distance=math.abs(seen.x-self.x)
  local own=self.action and techniques[self.action.id]
+ if self.special and self.special.id=='tai_sabaki' and self.special.age>=24 and self.special.age<=36 and distance<110 and s.taiTried~=self.executed then
+  s.taiTried=self.executed;if chance(s,profile.accuracy) then return attack(s,'b',self.face) end
+ end
+ if self.knockdown or self.special then s.plan=nil;s.input={};return s.input end
+ if s.plan then
+  if self.stun>0 or self.blockstun>0 or self.cooldown>0 then s.plan=nil;s.input={};return s.input end
+  if seen.kind=='attack' and seen.phase~='RECOLHE' and distance<125 then s.plan=nil;return guard(s,profile,self.face,seen.zone or 'chudan') end
+  local item=s.plan[s.planIndex];s.planTick=s.planTick+1
+  local c={};for _,d in ipairs(item.directions) do if d=='down' then c.down=true else direction(c,self.face,d=='forward') end end
+  if item.button then c[item.button]=true end
+  if s.planTick>=2 then s.planTick=0;s.planIndex=s.planIndex+1;if s.planIndex>#s.plan then s.plan=nil;s.release=true end end
+  s.input=c;return c
+ end
+ if self.finishPermission and seen.state=='down' and distance<=114 and self.cooldown==0 and self.stun==0 and self.blockstun==0 and (not own or own.kind=='defense') then
+  if s.finishTried~=self.executed then
+   s.finishTried=self.executed
+   if chance(s,s.level=='easy' and 30 or s.level=='medium' and 65 or 85) then return attack(s,'y',self.face,'down') end
+  end
+ end
+ if seen.state=='down' or seen.state=='falling' or seen.state=='receiving_finish' then s.input={};return s.input end
  if self.stun>0 then
   -- A person can hold defense while being hit. Do the same, once per observed
   -- attack; the shared combat still waits for stun and defense preparation.
@@ -113,6 +134,9 @@ function CPU.update(s,self,opponent,frozen)
  if self.counter>0 then return attack(s,'b',self.face) end
  -- Watching the visible technique, never the human's keys or queued action.
  local threat=seen.kind=='attack' and seen.phase~='RECOLHE' and distance<130
+ if threat and s.pressure<2 and s.stringAttacks<2 and self.cooldown==0 and seen.zone~='gedan' and s.level~='easy' and chance(s,s.level=='hard' and 12 or 5) then
+  s.plan={{directions={'down'}},{directions={'down','back'}},{directions={'back'},button='y'}};s.planIndex=1;s.planTick=0;s.input={};return s.input
+ end
  if threat and chance(s,profile.guard) then
   local zone=seen.height>16 and 'jodan' or seen.zone or 'chudan'
   return guard(s,profile,self.face,zone)
@@ -141,6 +165,16 @@ function CPU.update(s,self,opponent,frozen)
   return guard(s,profile,self.face,seen.zone or 'chudan')
  end
  if (s.clock>=s.nextAttack or self.counter>0) and (self.counter>0 or chance(s,s.level=='easy' and 55 or 82)) then
+  if self.counter==0 and s.pressure<2 and s.stringAttacks<2 and seen.kind~='attack' and not seen.air and chance(s,s.level=='easy' and 7 or s.level=='medium' and 22 or 38) then
+   local options={{'down'},{'down','forward'},{'forward'}};local button='a'
+   if s.level~='easy' and chance(s,45) then
+    if chance(s,40) then options={{'back'},{'back','down'},{'down'},{'down','forward'},{'forward'}}
+    elseif chance(s,45) then options={{'forward'},{'forward','down'},{'down'},{'down','back'},{'back'}}
+    else options={{'forward'},{'down'},{'down','forward'}};button=chance(s,50) and 'a' or 'b' end
+   end
+   s.plan={};for _,dirs in ipairs(options) do s.plan[#s.plan+1]={directions=dirs} end
+   s.plan[#s.plan].button=button;s.planIndex=1;s.planTick=0;s.input={};s.nextAttack=s.clock+profile.attack_gap;s.pulses=s.pulses+1;return s.input
+  end
   if seen.kind=='defense' and s.level~='easy' and chance(s,profile.accuracy) then
    if seen.zone=='jodan' then return attack(s,'a',self.face)
    elseif chance(s,50) then return attack(s,'b',self.face,'up')

@@ -1,0 +1,24 @@
+{
+  "risk": "alto",
+  "branch": "codex/shotokan-specials",
+  "current_html_sha256": "eec804a699bcf2a6df68095c5818c1333f871f92438c0008a65d53c97432292a",
+  "audit_poses": 492,
+  "base_corrections": 12,
+  "passed": [
+    "specials.cjs (current HTML)",
+    "special_assets.py (216 poses / 1728 belt variants)",
+    "personalization.py (276 poses / 2208 belt variants / pose 75 scale)",
+    "appearance.py (276 appearance reconstructions)",
+    "personalization.cjs (150 defense transition cases / selection / cache simulation)",
+    "package.py (current Lutro and SHA256)",
+    "browser.cjs (13 checks, pre-final finisher adjustment)",
+    "cpu_browser.cjs (6 checks, pre-final visual contact adjustment)",
+    "playback.cjs (real .5 / .25 / 1 cadence)",
+    "git diff --check"
+  ],
+  "pending": [
+    "Historical native Lutro execution",
+    "Raspberry Pi 3 / Recalbox 6.1 performance and real memory",
+    "Physical gamepads / GPIO and native audio playback"
+  ]
+}

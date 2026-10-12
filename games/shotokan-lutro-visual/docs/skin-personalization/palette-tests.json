@@ -1,0 +1,11 @@
+{
+  "bodies": 6,
+  "poses": 984,
+  "tone_options": 12,
+  "pose_tone_combinations": 11808,
+  "changed_skin_pixels_checked": 10153128,
+  "alpha_and_geometry_preserved": true,
+  "cloth_ink_and_transparency_protected": true,
+  "strictly_increasing_shading_ramps": true,
+  "runtime_recoloring": false
+}

@@ -1,0 +1,20 @@
+{
+  "tones": 12,
+  "bodies": [
+    "adult",
+    "teen",
+    "child",
+    "adult_female",
+    "teen_female",
+    "child_female"
+  ],
+  "comparison": true,
+  "poses": [
+    1,
+    27,
+    63
+  ],
+  "roster_unchanged": true,
+  "production_body_controls_hidden": true,
+  "errors": []
+}

@@ -6,8 +6,9 @@
 </style>
 <main>
 <header><div><div class="eyebrow">DESHI DOJO</div><h1>Karate Fight</h1></div><span class="tag">CPU ou 2 jogadores · soco, defesa e chute</span></header>
-<div class="match-options"><label for="mode">Modo <select id="mode"><option value="cpu">Contra a CPU</option><option value="versus">2 jogadores</option></select></label><label for="difficulty">Adversário <select id="difficulty"><option value="easy">Fácil · faixa vermelha</option><option value="medium">Médio · faixa laranja</option><option value="hard">Difícil · faixa preta</option></select></label><span class="belt" id="cpu-belt">Faixa vermelha</span></div>
+<div class="match-options"><label for="mode">Modo <select id="mode"><option value="cpu">Contra a CPU</option><option value="versus">2 jogadores</option></select></label><label for="difficulty">Adversário <select id="difficulty"><option value="easy">Fácil</option><option value="medium">Médio</option><option value="hard">Difícil</option></select></label><span class="belt" id="cpu-belt">Faixa vermelha</span></div>
 <div class="stage"><canvas id="game" width="384" height="224" tabindex="0" aria-label="Luta de karatê contra CPU ou segundo jogador"></canvas></div>
+<div class="match-options" id="characters"><span>Personagens:</span></div>
 <div class="bar"><button class="primary" id="play">Lutar</button><button id="practice">Treino livre</button><button id="reset">Recomeçar</button><button id="fullscreen">Tela cheia</button><span id="status" role="status">Preparando o dojo…</span></div>
 <div class="controls">
  <div class="control"><div class="label">JOGADOR 1</div><div class="pad" data-port="1"><div class="stick"><span data-key="5">↑</span><span data-key="6">↓</span><span data-key="7">←</span><span data-key="8">→</span></div><span data-key="1"><kbd>Z</kbd> Soco</span><span data-key="2"><kbd>X</kbd> Defesa</span><span data-key="9"><kbd>A</kbd> Chute</span></div><div class="feedback"><strong id="p1-tech">Guarda</strong><em id="p1-phase">pronto</em></div></div>
@@ -15,26 +16,47 @@
 </div>
 <div class="quick"><p><b>Comece assim:</b> aproxime-se e aperte <b>soco → soco → chute</b>, soltando entre cada pressão. A mão da frente abre, o soco reverso segue e o chute frontal fecha.</p><p><b>Frente + chute:</b> mawashi-geri circular. <b>Cima:</b> salto. <b>Baixo:</b> base baixa. Segure <b>defesa + cima</b> para age-uke, ou <b>defesa + baixo</b> para gedan-barai. Frente e trás acompanham o adversário.</p></div>
 <details class="study" id="study"><summary>Aprender os golpes e ver todos os comandos</summary>
- <div class="bar"><label for="technique">Técnica:</label><select id="technique"></select><button id="lesson">Ver movimento</button><button id="demo">Repetir demonstração</button><button id="slow">Câmera lenta</button><button id="pause">Pausar</button><button id="step">Um quadro</button><button id="boxes">Ver colisões</button></div>
+ <div class="bar"><label for="technique">Técnica:</label><select id="technique"></select><button id="lesson">Ver movimento</button><button id="demo">Repetir demonstração</button><button id="slow">Velocidade: 0.5x</button><button id="pause">Pausar</button><button id="step">Um quadro</button><button id="boxes">Ver colisões</button></div>
  <div id="foundation"><strong id="tech-name"></strong><p id="tech-foundation"></p><p id="tech-phases"></p><p id="tech-tips"></p></div>
  <div class="guide"><table><thead><tr><th>Comando</th><th>Técnica</th></tr></thead><tbody>
  <tr><td>Soco</td><td>Kizami-zuki · mão da frente</td></tr><tr><td>Segundo soco</td><td>Gyaku-zuki · mão reversa</td></tr><tr><td>Trás + soco</td><td>Gyaku-zuki</td></tr><tr><td>Frente + soco</td><td>Gyaku-zuki com avanço curto</td></tr><tr><td>Cima + soco, juntos</td><td>Gyaku-zuki jodan · alto</td></tr><tr><td>Baixo + soco</td><td>Gyaku-zuki em base baixa</td></tr><tr><td>Chute</td><td>Mae-geri · frontal</td></tr><tr><td>Frente + chute</td><td>Mawashi-geri · circular</td></tr><tr><td>Baixo + chute</td><td>Mae-geri gedan · estudo da linha baixa</td></tr><tr><td>No salto: soco ou chute</td><td>Tsuki ou mae-geri no ar</td></tr>
- </tbody></table><div><p><b>Defesa:</b> segure o botão. Sem direção protege a linha média; cima dá age-uke (alta); baixo dá gedan-barai (baixa); frente dá soto-uke; trás dá uchi-uke (média). Aguarde o indicador <b>GUARDA</b> ou <b>RECEBE</b>: durante PREPARA ou IMPACTO ainda não há cobertura. Uma nova pressão de defesa descarta o ataque antigo no buffer. A recepção no tempo abre o contra-ataque.</p><p><b>Lutar:</b> energia, 60 segundos e melhor de três rounds. <b>Treino livre:</b> sem limite de energia ou tempo. Enter reinicia; Escape pausa. F2 abre a seleção de CPU, nível ou dois jogadores pelo direcional e botões.</p><p>Os indicadores acima acendem quando você aperta. O nome mostra a técnica executada; preparação, contato e recolhimento aparecem durante o movimento. Gamepads padrão podem usar A: soco, X: defesa, B: chute.</p></div></div>
- <p class="note">Nomes e princípios vêm do karatê Shotokan; tempos, aplicações aéreas e energia são regras do jogo. Pontuação técnica oficial e revisão das poses pelo instrutor continuam pendentes. Giros ainda sem representação clara ficam preservados fora da luta.</p>
+ </tbody></table><div><p><b>Defesa:</b> segure o botão. Sem direção protege cabeça e tronco; cima dá age-uke (alta); baixo dá gedan-barai (baixa); frente dá soto-uke; trás dá uchi-uke (média). Aguarde o indicador <b>GUARDA</b> ou <b>RECEBE</b>: na primeira PREPARA ainda não há cobertura; ao trocar de defesa, a cobertura anterior permanece até a nova ficar pronta; IMPACTO não protege. Uma nova pressão de defesa descarta o ataque antigo no buffer. A recepção no tempo abre o contra-ataque.</p><p><b>Lutar:</b> energia, 60 segundos e melhor de três rounds. <b>Treino livre:</b> sem limite de energia ou tempo. Enter reinicia; Escape pausa. F2 abre a seleção de CPU, nível ou dois jogadores pelo direcional e botões.</p><p>Os indicadores acima acendem quando você aperta. O nome mostra a técnica executada; preparação, contato e recolhimento aparecem durante o movimento. Gamepads padrão podem usar A: soco, X: defesa, B: chute.</p></div></div>
+ <table><thead><tr><th>Especial · frente relativa ao adversário</th><th>Comando</th></tr></thead><tbody><tr><td>De-ashi-barai</td><td>↓ ↘ → + chute</td></tr><tr><td>Finalização da sua rasteira</td><td>Com o alvo caído: ↓ + nova pressão de defesa</td></tr><tr><td>Ura-mawashi-geri</td><td>← ↙ ↓ ↘ → + chute</td></tr><tr><td>Ushiro-geri</td><td>→ ↘ ↓ ↙ ← + chute</td></tr><tr><td>Tai-sabaki</td><td>↓ ↙ ← + defesa; soco durante o retorno para responder</td></tr><tr><td>Renzoku-zuki</td><td>→ ↓ ↘ + soco</td></tr><tr><td>Nidan-geri</td><td>→ ↓ ↘ + chute</td></tr></tbody></table>
+ <p>A rasteira abre uma janela curta depois da queda. Solte e pressione novamente defesa + baixo: somente o atacante pode finalizar, uma vez. Fora dessa situação, o comando continua sendo gedan-barai. Um especial errado deixa tempo para resposta.</p>
+ <p class="note">Nomes e princípios vêm do karatê Shotokan; tempos, aplicações aéreas e energia são regras do jogo. O dano Arcade não representa pontuação oficial de kumite.</p>
 </details></main>
 <script>__VM__</script><script>
 'use strict';
 const assets=__ASSETS__,source=__LUA__,techniques=__TECHNIQUES__,canvas=document.getElementById('game'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
 const images={},held=new Set(),padHeld=new Set(),maps=[{ArrowUp:5,ArrowDown:6,ArrowLeft:7,ArrowRight:8,KeyZ:1,KeyX:2,KeyA:9,Enter:4,F2:3},{KeyI:5,KeyK:6,KeyJ:7,KeyL:8,KeyF:1,KeyG:2,KeyH:9}],errors=[];
+const assetLoads=new Map();
+function ensureImage(name){
+ if(assetLoads.has(name))return assetLoads.get(name);
+ const pending=new Promise((resolve,reject)=>{
+  const im=new Image();im.onerror=()=>reject(Error('Asset '+name));
+  im.onload=()=>{
+   const surface=document.createElement('canvas');surface.width=im.width;surface.height=im.height;
+   const c=surface.getContext('2d');c.drawImage(im,0,0);const pix=c.getImageData(0,0,im.width,im.height);
+   for(let i=3;i<pix.data.length;i+=4)pix.data[i]=pix.data[i]>=128?255:0;
+   c.putImageData(pix,0,0);images[name]=surface;resolve();
+  };im.src=assets[name];
+ });assetLoads.set(name,pending);return pending;
+}
 ctx.imageSmoothingEnabled=false;
-let speed=1,paused=false;
+let speed=.5,paused=false;
+const soundAssets=__SOUNDS__,soundBuffers=new Map();let audioContext;
+function unlockAudio(){if(!audioContext){audioContext=new (window.AudioContext||window.webkitAudioContext)();for(const [name,url] of Object.entries(soundAssets)){const bytes=Uint8Array.from(atob(url.split(',')[1]),c=>c.charCodeAt(0));audioContext.decodeAudioData(bytes.buffer).then(b=>soundBuffers.set(name,b)).catch(()=>{})}}if(audioContext.state==='suspended')audioContext.resume().catch(()=>{})}
+document.addEventListener('keydown',unlockAudio);document.addEventListener('pointerdown',unlockAudio);
+function setSpeed(value){speed=value;document.getElementById("slow").textContent="Velocidade: "+value+"x"}
 const host=window.dojoHost={color:[255,255,255,255],update:null,snapshot:null,
+ ensureImage,
+ playSound(name){const buffer=soundBuffers.get(name);if(audioContext&&buffer){const source=audioContext.createBufferSource();source.buffer=buffer;source.connect(audioContext.destination);source.start()}},
  button(port,index){return held.has(port+':'+index)||padHeld.has(port+':'+index)},
  setColor(r,g,b,a){this.color=[r,g,b,a]},
  rectangle(mode,x,y,w,h){ctx.fillStyle=`rgb(${this.color.slice(0,3).join(',')})`;ctx.strokeStyle=ctx.fillStyle;if(mode==='fill')ctx.fillRect(Math.floor(x),Math.floor(y),w,h);else{ctx.lineWidth=1;ctx.strokeRect(Math.floor(x)+.5,Math.floor(y)+.5,w,h)}},
  draw(name,sx,sy,sw,sh,x,y){
   // Historical software blitter has binary transparency, no image tint/scaling.
-  const im=images[name];ctx.drawImage(im,sx,sy,sw,sh,Math.floor(x),Math.floor(y),sw,sh);
+  const im=images[name];if(im)ctx.drawImage(im,sx,sy,sw,sh,Math.floor(x),Math.floor(y),sw,sh);
  },
  render(){ctx.clearRect(0,0,384,224);this.drawFrame();updateFeedback()},
  press(port,key,on){const id=port+':'+key;if(on)held.add(id);else held.delete(id)},
@@ -43,9 +65,13 @@ const host=window.dojoHost={color:[255,255,255,255],update:null,snapshot:null,
 function run(s){return fengari.load(s)()}
 const bridge=`local js=require 'js'
 local h=js.global.dojoHost
-lutro={graphics={},joystick={}}
+lutro={graphics={},joystick={},browser=true}
+lutro.audio={}
+function lutro.audio.newSource(path) return {name=path:match('([^/]+)%.wav$')} end
+function lutro.audio.play(source) h:playSound(source.name) end
 function lutro.graphics.newImage(path)
  local name=path:match('([^/]+)%.png$')
+ h:ensureImage(name)
  local w,h=384,224
  if name=='fighter-left' or name=='fighter-right' then w,h=896,__ATLAS_HEIGHT__ end
  if name=='font' then w,h=570,6 end
@@ -64,14 +90,7 @@ function lutro.joystick.isDown(port,key) return cached[port..':'..key] or false 
 function refreshInputs() for p=1,2 do for k=1,14 do cached[p..':'..k]=h:button(p,k) end end end
 `;
 async function init(){
- for(const [name,url] of Object.entries(assets)){
-  const im=new Image();await new Promise((resolve,reject)=>{im.onload=resolve;im.onerror=reject;im.src=url});
-  // Match the old core's binary alpha, including non-opaque shadow RGB.
-  const surface=document.createElement('canvas');surface.width=im.width;surface.height=im.height;
-  const c=surface.getContext('2d');c.drawImage(im,0,0);const pix=c.getImageData(0,0,im.width,im.height);
-  for(let i=3;i<pix.data.length;i+=4)pix.data[i]=pix.data[i]?255:0;
-  c.putImageData(pix,0,0);images[name]=surface;
- }
+ await Promise.all(['dojo','font','shadow'].map(ensureImage));
  run(bridge+'\n'+source+`\nlutro.load()
 local h=require('js').global.dojoHost
 h.update=function() lutro.update(1/60);refreshInputs() end
@@ -83,11 +102,43 @@ end
 h.matchInfo=function()
  return table.concat({Scene.mode,Scene.difficulty,Scene.menu and 1 or 0,Scene.demo and 1 or 0},'|')
 end
+h.characterAssets=function()
+ local names={} for name in pairs(require('characters').cache) do names[#names+1]=name end
+ return table.concat(names,'|')
+end
+h.characterInfo=function()
+ local a,b=Scene.players[1].character,Scene.players[2].character
+ return table.concat({a.body,a.belt,b.body,b.belt},'|')
+end
+h.guardInfo=function()
+ local result={}
+ for i,p in ipairs(Scene.players) do
+  local zones={}
+  for _,zone in ipairs({'jodan','chudan','gedan'}) do
+   local covered,parry,id=Scene.defended(p,zone)
+   if covered then zones[#zones+1]=zone..' ('..id..')' end
+  end
+  local e=Scene.lastContact
+  result[i]='Cobertura: '..(#zones>0 and table.concat(zones,', ') or 'nenhuma')
+  if e and e.player==3-i then result[i]=result[i]..' / Contato: '..(e.defense or e.defenseReason or '') end
+ end
+ return table.concat(result,'|')
+end
 h.snapshot=function()
  local a,b=Scene.players[1],Scene.players[2]
  return table.concat({Scene.tick,a.x,b.x,a.pose,b.pose,a.points,b.points,a.contacts,b.contacts,Scene.freeze,Scene.demo and 1 or 0,a.blocks,b.blocks,a.parries,b.parries,a.height,b.height,a.air and 1 or 0,b.air and 1 or 0,a.chain,b.chain,a.executed,b.executed,a.jumps,b.jumps,a.energy,b.energy,Scene.timer,Scene.wins[1],Scene.wins[2],Scene.result or -1,Scene.matchWinner or 0,a.comboHits,b.comboHits},'|')
+end
+h.specialState=function()
+ local result={Scene.tick}
+ for _,p in ipairs(Scene.players) do
+  result[#result+1]=p.x;result[#result+1]=p.energy;result[#result+1]=p.special and p.special.id or '-';result[#result+1]=p.combatState;result[#result+1]=p.specialPose and p.specialPose.frame or 0;result[#result+1]=p.knockdown and p.knockdown.age or 0;result[#result+1]=p.cooldown
+ end
+ return table.concat(result,'|')
 end`);
- host.render();status.textContent='Pronto. Você é o jogador 1; a CPU está na faixa vermelha.';
+ const requested=new URLSearchParams(location.search).get('student');
+ if(requested&&Object.hasOwn(characterOptions.students,requested))run(`Scene.student(1,${JSON.stringify(requested)})`);
+ await Promise.all([...assetLoads.values()]);
+ host.render();status.textContent='Pronto. Escolha os personagens de P1 e P2 / CPU abaixo da luta.';
  document.body.dataset.ready='true';
  let previous=performance.now(),accumulator=0;
  function loop(now){accumulator=Math.min(accumulator+Math.max(0,now-previous),100);previous=now;
@@ -100,23 +151,80 @@ const indicators=[...document.querySelectorAll('.pad [data-key]')];
 const phaseNames={PREPARA:'preparando',GOLPE:'contato',RECOLHE:'recolhendo',KAMAE:'pronto',DEFENDE:'defendendo',RECEBE:'recebendo',IMPACTO:'recebeu o golpe',DESLOCAR:'movendo',SALTO:'no ar',IMPULSAO:'saltando',POUSAR:'pousando','BASE BAIXA':'base baixa'};
 const modes=document.getElementById('mode'),difficulty=document.getElementById('difficulty');
 const cpuProfiles={easy:{belt:'vermelha',color:'#c6423c',description:'Ataques isolados e mais tempo para responder.'},medium:{belt:'laranja',color:'#e08f39',description:'Sequências curtas, mais movimento e defesa.'},hard:{belt:'preta',color:'#2b2e33',description:'Pressão, sequências de até três golpes e contra-ataques.'}};
+const characterOptions=__CHARACTER_OPTIONS__;
+const developerTools=new URLSearchParams(location.search).has('developer')||new URLSearchParams(location.search).has('capture');
+const roster=document.createElement('section');roster.id='roster';roster.style.cssText='display:flex;gap:10px;flex-wrap:wrap;margin:12px 0';
+document.getElementById('characters').after(roster);
+const editorLink=document.createElement('a');editorLink.textContent='Criar ou editar personagens';editorLink.href='/editor';editorLink.style.color='#e8c584';
+if(developerTools&&(location.protocol==='http:'||location.protocol==='https:'))roster.before(editorLink);
+const rosterSelectors={};
+for(let port=1;port<=2;port++){
+ const label=document.createElement('label');label.textContent=`P${port} personagem `;
+ const selector=document.createElement('select');selector.id=`p${port}-student`;rosterSelectors[port]=selector;
+ for(const [id,student] of Object.entries(characterOptions.students)){
+  const option=document.createElement('option');option.value=id;option.textContent=student.name+(student.nickname?' · '+student.nickname:'');selector.append(option);
+ }
+ selector.value='demo-adult';label.append(selector);roster.append(label);
+ selector.addEventListener('change',async()=>{
+  selector.disabled=true;try{host.clear();run(`Scene.student(${port},${JSON.stringify(selector.value)})`);await Promise.all([...assetLoads.values()]);host.render()}
+  catch(e){status.textContent=String(e)}finally{selector.disabled=false}
+ });
+}
+for(const [id,student] of Object.entries(characterOptions.students)){
+ const card=document.createElement('article');card.style.cssText='background:#17242d;border:1px solid #465052;border-radius:6px;padding:10px;min-width:145px';card.dataset.student=id;
+ const portrait=document.createElement('img');portrait.alt='Retrato de '+student.name;portrait.width=48;portrait.height=60;portrait.style.cssText='image-rendering:pixelated;object-fit:contain;float:left;margin-right:8px';
+ if(student.portrait&&assets[student.portrait])portrait.src=assets[student.portrait];else portrait.hidden=true;
+ const name=document.createElement('strong');name.textContent=student.name;
+ const detail=document.createElement('p');detail.textContent=({adult:'Adulto · masculino',teen:'Adolescente · masculino',child:'Criança · masculino',adult_female:'Adulta · feminino',teen_female:'Adolescente · feminino',child_female:'Criança · feminino'})[student.body]+' · faixa '+student.belt;
+ card.append(portrait,name,detail);
+ for(let port=1;port<=2;port++){
+  const button=document.createElement('button');button.textContent=port===1?'Escolher P1':'P2 / CPU';
+  button.addEventListener('click',()=>{rosterSelectors[port].value=id;rosterSelectors[port].dispatchEvent(new Event('change'))});card.append(button);
+ }
+ roster.append(card);
+}
+for(let port=1;port<=2;port++){
+ for(const [field,options] of [['body',characterOptions.body_order],['belt',characterOptions.belt_order]]){
+  const label=document.createElement('label');label.textContent=`P${port} ${field==='body'?'corpo':'faixa'}`;
+  label.hidden=field==='body'&&!developerTools;
+  const select=document.createElement('select');select.id=`p${port}-${field}`;
+  for(const value of options){const option=document.createElement('option');option.value=value;option.textContent=({adult:'Adulto · masculino',teen:'Adolescente · masculino',child:'Criança · masculino',adult_female:'Adulta · feminino',teen_female:'Adolescente · feminino',child_female:'Criança · feminino'})[value]||value;select.append(option)}
+  select.value=field==='body'?'adult':'preta';label.append(select);document.getElementById('characters').append(label);
+  select.addEventListener('change',async()=>{
+   if(!host.update)return;
+   select.disabled=true;
+   try{run(`Scene.character(${port},{${field}=${JSON.stringify(select.value)}})`);await Promise.all([...assetLoads.values()]);host.render()}
+   catch(e){errors.push(String(e));status.textContent=String(e)}
+   finally{select.disabled=false}
+  });
+ }
+}
 function updateFeedback(){
  if(!host.view)return;
  const [mode,level,menu,demo]=host.matchInfo().split('|'),cpu=mode==='cpu'&&demo==='0',profile=cpuProfiles[level];
+ const active=new Set(host.characterAssets().split('|'));
+ for(const name of Object.keys(images))if((name.startsWith('char-')||name.startsWith('portrait-')||name.startsWith('special-'))&&!active.has(name)){delete images[name];assetLoads.delete(name)}
+ const appearance=host.characterInfo().split('|');
+ for(let port=1;port<=2;port++)rosterSelectors[port].value=run(`return require('characters').selected[${port}]`);
+ for(let i=0;i<2;i++)for(const [j,field] of ['body','belt'].entries())document.getElementById(`p${i+1}-${field}`).value=appearance[i*2+j];
  const changed=modes.value!==mode||difficulty.value!==level;
  if(modes.value!==mode)modes.value=mode;if(difficulty.value!==level)difficulty.value=level;
- if(changed&&demo==='0')status.textContent=mode==='cpu'?'Você vs CPU · faixa '+profile.belt+'.':'Dois jogadores: 60 segundos, melhor de três rounds.';
+ if(changed&&demo==='0')status.textContent=mode==='cpu'?'Você vs CPU · '+level+'.':'Dois jogadores: 60 segundos, melhor de três rounds.';
  difficulty.disabled=mode!=='cpu';
- const badge=document.getElementById('cpu-belt');badge.hidden=!cpu;badge.style.setProperty('--belt',profile.color);badge.textContent='Faixa '+profile.belt;
+ const badge=document.getElementById('cpu-belt');badge.hidden=!cpu;badge.textContent='CPU '+level+' · faixa '+appearance[3];badge.style.setProperty('--belt',`rgb(${characterOptions.belts[appearance[3]].join(',')})`);
  document.querySelector('.pad[data-port="2"]').hidden=cpu;
- document.getElementById('opponent-label').textContent=cpu?'CPU · FAIXA '+profile.belt.toUpperCase():'JOGADOR 2';
+ document.getElementById('opponent-label').textContent=cpu?'CPU · '+level.toUpperCase():'JOGADOR 2';
  const info=document.getElementById('cpu-info');info.hidden=!cpu;info.textContent=profile.description;
  const parts=host.view().split('|');
+ const guards=host.guardInfo().split('|');
  for(let i=0;i<2;i++){
   const t=techniques.techniques[parts[i*2]];
   const name=t?.plain||'Guarda',phase=phaseNames[parts[i*2+1]]||parts[i*2+1];
   const n=document.getElementById('p'+(i+1)+'-tech'),p=document.getElementById('p'+(i+1)+'-phase');
   if(n.textContent!==name)n.textContent=name;if(p.textContent!==phase)p.textContent=phase;
+  let coverage=document.getElementById('p'+(i+1)+'-coverage');
+  if(!coverage){coverage=document.createElement('p');coverage.id='p'+(i+1)+'-coverage';coverage.style.fontSize='12px';p.closest('.control').append(coverage)}
+  if(coverage.textContent!==guards[i])coverage.textContent=guards[i];
  }
  for(const element of indicators)element.classList.toggle('pressed',host.button(Number(element.closest('.pad').dataset.port),Number(element.dataset.key)));
 }
@@ -137,12 +245,12 @@ function startFight(){
  if(!host.update)return;
  const mode=modes.value,level=difficulty.value;
  host.clear();run('Scene.practice=false;Scene.configure('+JSON.stringify(mode)+','+JSON.stringify(level)+')');
- paused=false;speed=1;canvas.focus();host.render();
- status.textContent=mode==='cpu'?'Você vs CPU · faixa '+cpuProfiles[level].belt+'.':'Dois jogadores: 60 segundos, melhor de três rounds.';
+ paused=false;setSpeed(.5);canvas.focus();host.render();
+ status.textContent=mode==='cpu'?'Você vs CPU · '+level+'.':'Dois jogadores: 60 segundos, melhor de três rounds.';
 }
 modes.onchange=startFight;difficulty.onchange=startFight;
 document.getElementById('play').onclick=startFight;
-document.getElementById('practice').onclick=()=>{host.clear();run('Scene.demo=false;Scene.practice=true;Scene.reset()');paused=false;speed=1;canvas.focus();status.textContent='Treino livre: energia e tempo sem limite, com o adversário selecionado.'};
+document.getElementById('practice').onclick=()=>{host.clear();run('Scene.demo=false;Scene.practice=true;Scene.reset()');paused=false;setSpeed(.5);canvas.focus();status.textContent='Treino livre: energia e tempo sem limite, com o adversário selecionado.'};
 document.getElementById('demo').onclick=()=>{host.clear();startLesson();status.textContent='Demonstração do fundamento selecionado.'};
 document.getElementById('reset').onclick=()=>{host.clear();run('Scene.reset();Scene.demo=false');canvas.focus()};
 document.getElementById('boxes').onclick=()=>run('Scene.debug=not Scene.debug');
@@ -150,9 +258,9 @@ document.getElementById('fullscreen').onclick=()=>canvas.requestFullscreen?.();
 const select=document.getElementById('technique');
 for(const id of techniques.order){const option=document.createElement('option');option.value=id;option.textContent=techniques.techniques[id].name;select.appendChild(option)}
 function explain(){const t=techniques.techniques[select.value];document.getElementById('tech-name').textContent=t.name+' — '+t.command;document.getElementById('tech-foundation').textContent=t.foundation;document.getElementById('tech-phases').textContent=t.phases.map((p,i)=>(i+1)+'. '+p).join(' → ');document.getElementById('tech-tips').textContent=t.tips.join(' ')}
-function startLesson(){host.clear();run('Scene.reset();Scene.demo=true;Scene.practice=true;Scene.lesson='+JSON.stringify(select.value));paused=false;document.getElementById('study').open=true;explain()}
+function startLesson(){setSpeed(.5);host.clear();run('Scene.reset();Scene.demo=true;Scene.practice=true;Scene.lesson='+JSON.stringify(select.value));paused=false;document.getElementById('study').open=true;explain()}
 select.onchange=explain;document.getElementById('lesson').onclick=startLesson;
-document.getElementById('slow').onclick=()=>{speed=speed===1?.25:1;status.textContent=speed===1?'Velocidade normal.':'Câmera lenta: ¼ da velocidade.'};
+document.getElementById('slow').onclick=()=>{setSpeed(speed===.5?.25:speed===.25?1:.5);status.textContent=speed===1?'Velocidade normal.':speed===.5?'Meia velocidade: acompanhe cada fase do movimento.':'Camera lenta: 0.25x.'};
 document.getElementById('pause').onclick=()=>{paused=!paused;status.textContent=paused?'Pausado. Use Um quadro para estudar a posição.':'Movimento retomado.'};
 document.getElementById('step').onclick=()=>{paused=true;host.update();host.render()};
 explain();

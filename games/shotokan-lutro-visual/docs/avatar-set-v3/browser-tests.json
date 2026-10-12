@@ -1,0 +1,12 @@
+{
+  "bodies": 6,
+  "ports": 2,
+  "rendered_basic_poses": 1104,
+  "rendered_special_poses": 864,
+  "real_sweep_finish_recovery_sequences": 12,
+  "native_pair_simulated_max_bytes": 30753168,
+  "native_device_tested": false,
+  "errors": [],
+  "requests": [],
+  "artifact_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+}

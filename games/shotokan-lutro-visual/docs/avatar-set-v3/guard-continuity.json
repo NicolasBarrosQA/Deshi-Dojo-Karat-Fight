@@ -1,0 +1,377 @@
+{
+  "purpose": "Exact new-body kamae at return to guard, avoiding a silhouette change when switching back to the normal repertoire. Authored execution/reaction frames unchanged.",
+  "bindings": [
+    {
+      "body": "teen",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "teen_female",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "child_female",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "ashi_barai",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "ashi_finish",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "knockdown",
+      "frames": [
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "ura_mawashi",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "ushiro",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "tai_sabaki",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "renzoku",
+      "frames": [
+        1,
+        9
+      ]
+    },
+    {
+      "body": "adult_female",
+      "group": "nidan",
+      "frames": [
+        1,
+        9
+      ]
+    }
+  ]
+}

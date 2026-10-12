@@ -1,0 +1,152 @@
+{
+  "passed": 24,
+  "checks": [
+    {
+      "body": "teen",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "teen",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "teen",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "teen",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "child",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "child",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "child",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "child",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "teen_female",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "teen_female",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "teen_female",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "teen_female",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "child_female",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "child_female",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "child_female",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "child_female",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "adult",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "adult",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "adult",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "adult",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "adult_female",
+      "port": 1,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "adult_female",
+      "port": 1,
+      "horizontal": true,
+      "transition_count": 1
+    },
+    {
+      "body": "adult_female",
+      "port": 2,
+      "horizontal": false,
+      "transition_count": 1
+    },
+    {
+      "body": "adult_female",
+      "port": 2,
+      "horizontal": true,
+      "transition_count": 1
+    }
+  ],
+  "errors": [],
+  "actual_draw_coordinates": true,
+  "artifact_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a"
+}

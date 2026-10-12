@@ -17,7 +17,7 @@ end
 '''
 def fixture(folder,initial=''):
  p=Path(folder);(p/'assets').symlink_to(HERE/'src/assets',target_is_directory=True)
- for name in ('conf.lua','art.lua','techniques.lua','cpu.lua'):(p/name).write_bytes((HERE/'src'/name).read_bytes())
+ for name in ('conf.lua','art.lua','techniques.lua','cpu.lua','characters.lua','character_data.lua'):(p/name).write_bytes((HERE/'src'/name).read_bytes())
  (p/'main.lua').write_text((HERE/'src/main.lua').read_text()+telemetry+'\nlocal originalLoad=lutro.load\nfunction lutro.load() originalLoad();'+initial+' end\n');return p/'main.lua'
 def values(core):return [r+g*256 for r,g,b in [core.frame.getpixel((i,223)) for i in range(1,len(fields)+1)]]
 def state(core):return dict(zip(fields,values(core)))

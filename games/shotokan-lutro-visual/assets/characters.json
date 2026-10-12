@@ -1,0 +1,169 @@
+{
+  "body_order": [
+    "adult",
+    "teen",
+    "child",
+    "adult_female",
+    "teen_female",
+    "child_female"
+  ],
+  "belt_order": [
+    "branca",
+    "amarela",
+    "vermelha",
+    "laranja",
+    "verde",
+    "roxa",
+    "marrom",
+    "preta"
+  ],
+  "belts": {
+    "branca": [
+      238,
+      235,
+      222
+    ],
+    "amarela": [
+      239,
+      199,
+      47
+    ],
+    "vermelha": [
+      198,
+      66,
+      60
+    ],
+    "laranja": [
+      224,
+      143,
+      57
+    ],
+    "verde": [
+      66,
+      140,
+      78
+    ],
+    "roxa": [
+      133,
+      83,
+      163
+    ],
+    "marrom": [
+      118,
+      76,
+      48
+    ],
+    "preta": [
+      43,
+      46,
+      51
+    ]
+  },
+  "students": {
+    "demo-adult": {
+      "id": "demo-adult",
+      "name": "Adulto Masculino",
+      "nickname": "Base neutra 2D",
+      "body": "adult",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    },
+    "demo-teen": {
+      "id": "demo-teen",
+      "name": "Adolescente Masculino",
+      "nickname": "Base neutra 2D",
+      "body": "teen",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    },
+    "demo-child": {
+      "id": "demo-child",
+      "name": "Crianca Masculina",
+      "nickname": "Base neutra 2D",
+      "body": "child",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    },
+    "demo-adult-female": {
+      "id": "demo-adult-female",
+      "name": "Adulta Feminina",
+      "nickname": "Base neutra 2D",
+      "body": "adult_female",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    },
+    "demo-teen-female": {
+      "id": "demo-teen-female",
+      "name": "Adolescente Feminina",
+      "nickname": "Base neutra 2D",
+      "body": "teen_female",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    },
+    "demo-child-female": {
+      "id": "demo-child-female",
+      "name": "Crianca Feminina",
+      "nickname": "Base neutra 2D",
+      "body": "child_female",
+      "belt": "branca",
+      "face": "default",
+      "hair": "default",
+      "appearance": {
+        "skin": "original",
+        "hair_color": "original",
+        "height": 1,
+        "build": "medio",
+        "emblem": "nenhum"
+      }
+    }
+  },
+  "note": "Ordem editavel do dojo para o seletor; nao representa graduacao universal. Dificuldade da CPU e independente.",
+  "student_order": [
+    "demo-adult",
+    "demo-teen",
+    "demo-child",
+    "demo-adult-female",
+    "demo-teen-female",
+    "demo-child-female"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "adult: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 104373 only skin pixels, preserves silhouette",
+    "teen: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 85036 only skin pixels, preserves silhouette",
+    "child: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 81025 only skin pixels, preserves silhouette",
+    "adult_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 99600 only skin pixels, preserves silhouette",
+    "teen_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 85516 only skin pixels, preserves silhouette",
+    "child_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 77952 only skin pixels, preserves silhouette"
+  ],
+  "poses": 552,
+  "belt_pose_combinations": 4416
+}

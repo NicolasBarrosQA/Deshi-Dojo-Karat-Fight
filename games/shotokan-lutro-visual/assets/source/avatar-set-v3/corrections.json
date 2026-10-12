@@ -1,0 +1,80 @@
+{
+  "adult_female/base-73": {
+    "source": "adult_female/base-73-fix.png",
+    "cells": [
+      6
+    ]
+  },
+  "child_female/base-73": {
+    "source": "child_female/base-73-fix.png",
+    "cells": [
+      6
+    ]
+  },
+  "child/base-82": {
+    "source": "child/base-82-fix.png",
+    "cells": [
+      1
+    ]
+  },
+  "adult/ashi_finish": {
+    "source": "adult/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "teen/ashi_finish": {
+    "source": "teen/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "child/ashi_finish": {
+    "source": "child/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "adult_female/ashi_finish": {
+    "source": "adult_female/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "teen_female/ashi_finish": {
+    "source": "teen_female/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "child_female/ashi_finish": {
+    "source": "child_female/ashi_finish-fix.png",
+    "cells": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  }
+}

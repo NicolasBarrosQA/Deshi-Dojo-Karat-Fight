@@ -1,0 +1,14 @@
+{
+  "artifact_sha256": "af155e251df49040e3d83064bb5abeb674fb937889043d8ac37232dd352d8f6c",
+  "checks": [
+    "All five motions; mirrored facing; incomplete/stale rejection; optional four-way tolerance",
+    "Priority over normal actions and deliberate second guard command",
+    "P1 and P2 finish from both sides; no fallen counterattack; one finish per knockdown",
+    "Low block, miss, expiry and out-of-range gedan fallback",
+    "Eight wall/facing/player finish cases and restored standing barrier",
+    "All other specials activate and recover",
+    "Round KO/reset and practice energy",
+    "CPU performs sweep and finish through ordinary input over 7000 ticks"
+  ],
+  "errors": []
+}

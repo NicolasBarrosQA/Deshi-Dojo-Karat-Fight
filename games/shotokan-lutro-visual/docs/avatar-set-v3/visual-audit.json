@@ -1,0 +1,80 @@
+{
+  "reviewed_groups": [
+    "base-01",
+    "base-10",
+    "base-19",
+    "base-28",
+    "base-37",
+    "base-46",
+    "base-55",
+    "base-64",
+    "base-73",
+    "base-82",
+    "base-91",
+    "ashi_barai",
+    "ashi_finish",
+    "knockdown",
+    "ura_mawashi",
+    "ushiro",
+    "tai_sabaki",
+    "renzoku",
+    "nidan"
+  ],
+  "reviewed_slots": 984,
+  "method": "Visual review of all 19 plates, all six bodies; extra source close-ups for extended kicks and finish contact.",
+  "repairs": [
+    {
+      "body": "adult_female",
+      "group": "base-73",
+      "cell": 7,
+      "issue": "Kick pointed left; edited original art."
+    },
+    {
+      "body": "child_female",
+      "group": "base-73",
+      "cell": 7,
+      "issue": "Kick pointed left; edited original art."
+    },
+    {
+      "body": "child",
+      "group": "base-82",
+      "cell": 2,
+      "issue": "Rear kick looked front-facing; edited original art."
+    },
+    {
+      "bodies": "all six",
+      "group": "knockdown",
+      "cells": [
+        5,
+        6,
+        7
+      ],
+      "issue": "Ground poses reversed the fall direction; choose opposite-direction authored ground poses."
+    },
+    {
+      "bodies": "all six",
+      "group": "ashi_finish",
+      "cells": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "issue": "Contact punch lowered through six original-art edits; reviewed in runtime plates and actual-game captures."
+    }
+  ],
+  "status": "All 19 runtime plates reviewed; repaired kick, ground orientation and low controlled finish reviewed; 12 real-game sweep/finish/recovery sequences passed.",
+  "scale_follow_up": {
+    "reviewed_plates": [
+      "base-28",
+      "base-64"
+    ],
+    "actual_game_frames_reviewed": [
+      "scale-adult/0000.png",
+      "scale-adult/0064.png",
+      "scale-adult/0116.png"
+    ],
+    "all_six_body_recordings_passed": true
+  }
+}

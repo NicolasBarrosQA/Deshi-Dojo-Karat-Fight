@@ -1,0 +1,221 @@
+{
+  "status": "review_only_not_integrated",
+  "native_canvas": [
+    224,
+    144
+  ],
+  "runtime_frame_bytes": 129024,
+  "generation": "built-in image_gen, original 2D illustrations",
+  "bodies": [
+    {
+      "body": "crianca-masculina",
+      "source_sha256": "da983c18c9963fb536f1692fddb2e6554190d3411bf53b98979d8e4b22f8cee8",
+      "source_size": [
+        2048,
+        768
+      ],
+      "uniform_scale": 0.12988826815642457,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            76,
+            90
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            89,
+            90
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            69,
+            93
+          ],
+          "ground": 143
+        }
+      ]
+    },
+    {
+      "body": "crianca-feminina",
+      "source_sha256": "05487ce25687d24e80c45137b8694adc487e8d8c79b66e3125302bb2f7211289",
+      "source_size": [
+        2048,
+        768
+      ],
+      "uniform_scale": 0.13304721030042918,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            78,
+            91
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            89,
+            91
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            71,
+            93
+          ],
+          "ground": 143
+        }
+      ]
+    },
+    {
+      "body": "adolescente-masculino",
+      "source_sha256": "f9a912d0889caafa350ae8aad62186d7fb27d91e0dca315463ea235c2e5fd18e",
+      "source_size": [
+        1774,
+        887
+      ],
+      "uniform_scale": 0.14919354838709678,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            80,
+            107
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            96,
+            106
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            81,
+            111
+          ],
+          "ground": 143
+        }
+      ]
+    },
+    {
+      "body": "adolescente-feminina",
+      "source_sha256": "e2f4235052f7bb5023b2197c96bfce3d029d18bd7c73dfdfd52ebab3c75f63cf",
+      "source_size": [
+        1881,
+        836
+      ],
+      "uniform_scale": 0.15502793296089384,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            82,
+            110
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            98,
+            110
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            85,
+            111
+          ],
+          "ground": 143
+        }
+      ]
+    },
+    {
+      "body": "adulto-masculino",
+      "source_sha256": "ffc0005889fc3e8cfe92c17046b293faace3c7a6b6640448d7fd12b30220fba6",
+      "source_size": [
+        2172,
+        724
+      ],
+      "uniform_scale": 0.1925373134328358,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            119,
+            129
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            138,
+            129
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            118,
+            129
+          ],
+          "ground": 143
+        }
+      ]
+    },
+    {
+      "body": "adulta-feminina",
+      "source_sha256": "2ff646b1fd9b180b3094e2e1c6c99c837fff43b26d93b4a8c32a23a00bb70f9e",
+      "source_size": [
+        1774,
+        887
+      ],
+      "uniform_scale": 0.1620603015075377,
+      "poses": [
+        {
+          "pose": "guarda",
+          "size": [
+            81,
+            128
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "gyaku-zuki",
+          "size": [
+            105,
+            127
+          ],
+          "ground": 143
+        },
+        {
+          "pose": "mae-geri",
+          "size": [
+            89,
+            129
+          ],
+          "ground": 143
+        }
+      ]
+    }
+  ]
+}

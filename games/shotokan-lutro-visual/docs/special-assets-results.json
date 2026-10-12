@@ -1,0 +1,14 @@
+{
+  "poses": 432,
+  "groups": 8,
+  "bodies": 6,
+  "checks": [
+    "9 cells per animation",
+    "binary alpha",
+    "exact mirrors",
+    "ground anchor",
+    "cloth silhouette retained across eight belts",
+    "no recoloring outside cloth"
+  ],
+  "anatomy": "Separate visual review in docs/avatar-set-v3; this automated test does not judge anatomy."
+}

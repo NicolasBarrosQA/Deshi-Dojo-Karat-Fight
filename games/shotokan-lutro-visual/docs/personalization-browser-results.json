@@ -1,0 +1,18 @@
+{
+  "checks": [
+    "All body/belt selectors, all 92 draw poses, independent CPU difficulty and appearance survives reset",
+    "Child vs teenager retain shared collision barrier for 200 movement ticks",
+    "150 transition/zone/player cases: old coverage retained, new coverage/parry only after preparation",
+    "Real keyboard high punch blocked by neutral guard; no energy loss; event identifies kamae",
+    "Both facings: actual contact during kamae-to-gedan startup records kamae, blocks high strike, no early parry",
+    "Historical cache logic: revisiting all bases/belts allocates zero extra images; bounded bytes=79418912",
+    "Offline with zero network requests/errors; at most two selected characters decoded"
+  ],
+  "guard_transition_cases": 150,
+  "transition_contacts": 2,
+  "native_cache_simulation_bytes": 79418912,
+  "native_core_executed": false,
+  "errors": [],
+  "requests": [],
+  "active_assets": 20
+}

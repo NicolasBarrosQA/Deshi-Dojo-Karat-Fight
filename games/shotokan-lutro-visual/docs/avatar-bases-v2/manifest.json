@@ -1,0 +1,85 @@
+{
+  "status": "visual concepts for approval; not rigged 3D models or separated production layers",
+  "tool": "built-in image_gen",
+  "pose": "front neutral A-pose",
+  "images": [
+    {
+      "id": "crianca-masculina",
+      "label": "Criança · masculino",
+      "file": "assets\\source\\avatar-bases-v2\\crianca-masculina.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "f9d69a62c510d86288958e3318828bef9d2f3cf84768abbf24ebdfb261be71fa",
+      "display_height": 510
+    },
+    {
+      "id": "adolescente-masculino",
+      "label": "Adolescente · masculino",
+      "file": "assets\\source\\avatar-bases-v2\\adolescente-masculino.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "6ddf825a7135d0fe141c8f2c81df2d5b3401dc3b099a2a30ee659e6cc19bad06",
+      "display_height": 675
+    },
+    {
+      "id": "adulto-masculino",
+      "label": "Adulto · masculino",
+      "file": "assets\\source\\avatar-bases-v2\\adulto-masculino.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "c781c40d4e22f6cd1bd135db736747ce03aaf20d210185f29a768b2008805c1c",
+      "display_height": 780
+    },
+    {
+      "id": "crianca-feminina",
+      "label": "Criança · feminino",
+      "file": "assets\\source\\avatar-bases-v2\\crianca-feminina.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "6903df35f36882d9c7046cff1ee4b431dcdef2b119089448b07029ee6476f680",
+      "display_height": 510
+    },
+    {
+      "id": "adolescente-feminina",
+      "label": "Adolescente · feminino",
+      "file": "assets\\source\\avatar-bases-v2\\adolescente-feminina.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "d7d18c340f8b87a84e50a6ce0ab84fd8ada11af9bc46127dbbee9dffad45a4a4",
+      "display_height": 660
+    },
+    {
+      "id": "adulta-feminina",
+      "label": "Adulta · feminino",
+      "file": "assets\\source\\avatar-bases-v2\\adulta-feminina.png",
+      "width": 1024,
+      "height": 1536,
+      "alpha_range": [
+        0,
+        254
+      ],
+      "sha256": "711f1c39afac272355bc34eea92af6dd989b3f164a60585716f88bf4f41925f0",
+      "display_height": 765
+    }
+  ]
+}

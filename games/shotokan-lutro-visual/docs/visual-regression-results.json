@@ -1,0 +1,9 @@
+{
+  "checks": [
+    "adult: actual keyboard takeoff, ascent, descent and landing; standing opponent and colored belt captured",
+    "teen: actual keyboard takeoff, ascent, descent and landing; standing opponent and colored belt captured",
+    "child: actual keyboard takeoff, ascent, descent and landing; standing opponent and colored belt captured"
+  ],
+  "errors": [],
+  "requests": []
+}

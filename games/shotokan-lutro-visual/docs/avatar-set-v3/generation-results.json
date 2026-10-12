@@ -1,0 +1,550 @@
+{
+  "original_sheets": 114,
+  "original_successes": 114,
+  "failures": [],
+  "generator": "built-in image_gen",
+  "source_poses_used": 984,
+  "repair_sheets": 9,
+  "results": [
+    {
+      "body": "adult",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-19",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-10",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-28",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-37",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-46",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-55",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-64",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-73",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "base-82",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "base-91",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "ashi_barai",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "ashi_finish",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "knockdown",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "ura_mawashi",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "ushiro",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "tai_sabaki",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "adult",
+      "group": "nidan",
+      "ok": true
+    },
+    {
+      "body": "teen",
+      "group": "nidan",
+      "ok": true
+    },
+    {
+      "body": "child",
+      "group": "nidan",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "renzoku",
+      "ok": true
+    },
+    {
+      "body": "adult_female",
+      "group": "nidan",
+      "ok": true
+    },
+    {
+      "body": "teen_female",
+      "group": "nidan",
+      "ok": true
+    },
+    {
+      "body": "child_female",
+      "group": "nidan",
+      "ok": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "adult: 92 reconstructed poses, foot anchors verified, exact mirrors, 8 belt silhouettes",
+    "teen: 92 reconstructed poses, foot anchors verified, exact mirrors, 8 belt silhouettes",
+    "child: 92 reconstructed poses, foot anchors verified, exact mirrors, 8 belt silhouettes",
+    "Adult layers match all 92 audited source poses, including requested foot corrections",
+    "Teen and child jumps retain standing head scale within 8%; adult jump pixels remain at native scale; only cloth pixels recolored in all 2208 combinations",
+    "Distinct authored base heights: [129, 111, 93]",
+    "Corrected airborne kick 75 retains standing hair width within one native pixel for all bodies",
+    "High-resolution child/teen sources: 7 sheets each, no enlargement, at most 16 poses per sheet"
+  ],
+  "poses": 276,
+  "belt_pose_combinations": 2208,
+  "native_parity": "pending: Linux historical core absent on this Windows checkout",
+  "raspberry_pi": "pending: ARM, GPIO, memory and performance untested"
+}

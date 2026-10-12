@@ -1,0 +1,12 @@
+{
+  "poses": 984,
+  "belt_pose_combinations": 7872,
+  "proportion_checks": 8856,
+  "six_bases_distinct": true,
+  "binary_alpha": true,
+  "exact_mirrors": true,
+  "belt_pixels_isolated": true,
+  "all_native_atlases_bytes": 137432232,
+  "native_device_tested": false,
+  "staged": false
+}

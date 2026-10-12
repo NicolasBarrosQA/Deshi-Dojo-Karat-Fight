@@ -1,14 +1,14 @@
 {
   "passed": 6,
   "checks": [
-    "Default solo/easy/red profile attacks autonomously; CPU labels visible, P2 keyboard instructions hidden",
-    "Three difficulty choices reset into the matching colored rank; P1 still moves and attacks",
+    "Default solo/easy CPU attacks autonomously with selected character belt; CPU labels visible, P2 keyboard instructions hidden",
+    "Three difficulty choices preserve independently selected character belt; P1 still moves and attacks",
     "Selected hard profile persists through infinite training, isolated lesson, return to fight and Enter rematch",
     "F2/controller menu freezes fight, held direction changes once, punch chooses 2P, P2 restored; kick chooses solo again",
     "Mouse mode switch preserves two-player option; hard CPU HUD screenshot",
     "Punch-only complete matches through keyboard at all three levels: medium/hard answer; hard wins with same energy/damage rules"
   ],
-  "artifact_sha256": "d70405148bf99e3cc4dad64345112e636120477d54e43dd8913d0fd67e584b4a",
+  "artifact_sha256": "095ee95047e1ce5909dc01cb527031ac61dc4ffa0f46ac0128cb2a32502858c5",
   "errors": [],
   "external_requests": [],
   "scope": "Offline Chromium real UI/keyboard; physical controls/Pi and player-rated difficulty pending"

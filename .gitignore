@@ -1,5 +1,6 @@
 .runtime/
 .cache/
+private_refs/
 __pycache__/
 *.pyc
 games/shotokan-lutro-visual/dist/*.zip

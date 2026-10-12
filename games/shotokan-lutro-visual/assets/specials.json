@@ -1,0 +1,317 @@
+{
+  "special_rules": {
+    "motion": {
+      "window": 22,
+      "max_gap": 10,
+      "button_grace": 4,
+      "four_way": false
+    },
+    "balance_ticks": 10,
+    "fall_ticks": 36,
+    "finish_window": 38,
+    "finish_range": 114,
+    "rise_ticks": 26,
+    "guard_recovery": 8,
+    "finish_hitstop": 7,
+    "ground_push_distance": 48,
+    "ground_visual_radius": 76
+  },
+  "specials": {
+    "ashi_barai": {
+      "label": "DE-ASHI-BARAI",
+      "group": "ashi_barai",
+      "kind": "attack",
+      "zone": "gedan",
+      "command": "DOWN, DOWN-FORWARD, FORWARD + KICK",
+      "durations": [
+        6,
+        6,
+        6,
+        6,
+        4,
+        4,
+        8,
+        10,
+        10
+      ],
+      "windup": 24,
+      "active_end": 32,
+      "total": 60,
+      "recovery_lock": 12,
+      "step": 8,
+      "contacts": [
+        {
+          "first": 25,
+          "last": 32,
+          "near": 40,
+          "far": 114,
+          "y": 157,
+          "height": 24,
+          "damage": 4
+        }
+      ]
+    },
+    "ashi_finish": {
+      "label": "ASHI-BARAI FINISH!",
+      "group": "ashi_finish",
+      "kind": "attack",
+      "zone": "chudan",
+      "command": "DOWN + DEFENSE AFTER YOUR SWEEP",
+      "durations": [
+        7,
+        7,
+        7,
+        7,
+        5,
+        7,
+        8,
+        10,
+        10
+      ],
+      "windup": 33,
+      "active_end": 48,
+      "total": 68,
+      "recovery_lock": 12,
+      "contacts": [
+        {
+          "first": 34,
+          "last": 48,
+          "near": 36,
+          "far": 114,
+          "y": 180,
+          "height": 12,
+          "damage": 12
+        }
+      ],
+      "step": 40,
+      "visual_contact": {
+        "adult": {
+          "x": 48,
+          "y": 171
+        },
+        "teen": {
+          "x": 41,
+          "y": 175
+        },
+        "child": {
+          "x": 34,
+          "y": 178
+        }
+      }
+    },
+    "ura_mawashi": {
+      "label": "URA-MAWASHI-GERI",
+      "group": "ura_mawashi",
+      "kind": "attack",
+      "zone": "jodan",
+      "command": "BACK, DOWN-BACK, DOWN, DOWN-FORWARD, FORWARD + KICK",
+      "durations": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        8,
+        10,
+        10,
+        10
+      ],
+      "windup": 24,
+      "active_end": 38,
+      "total": 68,
+      "recovery_lock": 16,
+      "contacts": [
+        {
+          "first": 25,
+          "last": 38,
+          "near": 44,
+          "far": 120,
+          "y": 73,
+          "height": 24,
+          "damage": 18
+        }
+      ]
+    },
+    "ushiro": {
+      "label": "USHIRO-GERI",
+      "group": "ushiro",
+      "kind": "attack",
+      "zone": "chudan",
+      "command": "FORWARD, DOWN-FORWARD, DOWN, DOWN-BACK, BACK + KICK",
+      "durations": [
+        7,
+        7,
+        7,
+        7,
+        6,
+        8,
+        10,
+        10,
+        10
+      ],
+      "windup": 28,
+      "active_end": 34,
+      "total": 72,
+      "recovery_lock": 18,
+      "contacts": [
+        {
+          "first": 29,
+          "last": 34,
+          "near": 44,
+          "far": 120,
+          "y": 111,
+          "height": 26,
+          "damage": 20
+        }
+      ]
+    },
+    "tai_sabaki": {
+      "label": "TAI-SABAKI",
+      "group": "tai_sabaki",
+      "kind": "evade",
+      "zone": "chudan",
+      "command": "DOWN, DOWN-BACK, BACK + DEFENSE; PUNCH DURING RETURN",
+      "durations": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5
+      ],
+      "windup": 8,
+      "active_end": 24,
+      "total": 40,
+      "recovery_lock": 10,
+      "evade_from": 9,
+      "evade_to": 22,
+      "counter_from": 24,
+      "counter_to": 36,
+      "contacts": [],
+      "step": -8
+    },
+    "tai_counter": {
+      "label": "TAI-SABAKI / GYAKU-ZUKI",
+      "group": "tai_sabaki",
+      "kind": "attack",
+      "zone": "chudan",
+      "command": "PUNCH AFTER TAI-SABAKI",
+      "durations": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        5,
+        5,
+        7,
+        7
+      ],
+      "windup": 10,
+      "active_end": 20,
+      "total": 34,
+      "recovery_lock": 14,
+      "contacts": [
+        {
+          "first": 11,
+          "last": 20,
+          "near": 38,
+          "far": 110,
+          "y": 111,
+          "height": 24,
+          "damage": 10
+        }
+      ]
+    },
+    "renzoku": {
+      "label": "RENZOKU-ZUKI",
+      "group": "renzoku",
+      "kind": "attack",
+      "zone": "chudan",
+      "command": "FORWARD, DOWN, DOWN-FORWARD + PUNCH",
+      "durations": [
+        5,
+        5,
+        6,
+        5,
+        5,
+        5,
+        6,
+        10,
+        11
+      ],
+      "windup": 10,
+      "active_end": 37,
+      "total": 58,
+      "recovery_lock": 16,
+      "contacts": [
+        {
+          "first": 11,
+          "last": 16,
+          "near": 36,
+          "far": 108,
+          "y": 111,
+          "height": 24,
+          "damage": 6
+        },
+        {
+          "first": 27,
+          "last": 37,
+          "near": 36,
+          "far": 116,
+          "y": 111,
+          "height": 24,
+          "damage": 9
+        }
+      ]
+    },
+    "nidan": {
+      "label": "NIDAN-GERI",
+      "group": "nidan",
+      "kind": "attack",
+      "zone": "chudan",
+      "command": "FORWARD, DOWN, DOWN-FORWARD + KICK",
+      "durations": [
+        6,
+        6,
+        7,
+        7,
+        7,
+        7,
+        10,
+        10,
+        12
+      ],
+      "windup": 19,
+      "active_end": 40,
+      "total": 72,
+      "recovery_lock": 18,
+      "takeoff": 10,
+      "landing": 53,
+      "jump_height": 24,
+      "contacts": [
+        {
+          "first": 20,
+          "last": 26,
+          "near": 36,
+          "far": 112,
+          "y": 134,
+          "height": 30,
+          "damage": 7
+        },
+        {
+          "first": 34,
+          "last": 40,
+          "near": 36,
+          "far": 118,
+          "y": 134,
+          "height": 30,
+          "damage": 10
+        }
+      ]
+    }
+  }
+}

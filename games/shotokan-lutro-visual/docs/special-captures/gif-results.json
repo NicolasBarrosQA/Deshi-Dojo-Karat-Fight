@@ -1,0 +1,77 @@
+{
+  "html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a",
+  "gifs": {
+    "ashi-sequence": {
+      "source_frames": 144,
+      "encoded_frames": 92,
+      "gif_sha256": "ce1c46fcab6762fd72b68feb46314e966aa03511a31f45766f2b933cec75b8f1",
+      "captured_pngs_sha256": "94b53607fc682814434414ac84836eca7191bf6bde9f7c0b158ffb925e8d9ec2"
+    },
+    "nidan": {
+      "source_frames": 91,
+      "encoded_frames": 57,
+      "gif_sha256": "36967fb5276a60eaed39f22903c23a46c85d8494d115b9a5d160911427161ffe",
+      "captured_pngs_sha256": "c991fa198bf9ce8b83a7c7caad01a9b265dd72527a5bdcbc007babac7fb74d61"
+    },
+    "renzoku": {
+      "source_frames": 91,
+      "encoded_frames": 49,
+      "gif_sha256": "fb70f639f891ffa563c09cf55952cd96242b53bb6aa38d42d55190c42e74382e",
+      "captured_pngs_sha256": "bae289ac8507a3f990390a8f4ea609b9d3291e6c1d609ba22c5027aac260444d"
+    },
+    "scale-adult": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "0831ed966fcc8fa9e5c47542a2287f1ec21a9cb856cbc39e4fce7fab84eaa687",
+      "captured_pngs_sha256": "474010512457273d7969b433ec4dc57c1e2e50f4a303ceee364a859a280e46a7"
+    },
+    "scale-adult_female": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "050923ce8870708f0dcda16a105633e1964a2ff539b1b63a642f09a9a23806cb",
+      "captured_pngs_sha256": "02e76717d0ebaac914b615b65cbbe3f9e6ad6c197601be919f2dc8c328b87273"
+    },
+    "scale-child": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "f2fc978035186332b9564c1d8183ff17730ec4477e8e81dd999dca305ec09866",
+      "captured_pngs_sha256": "8ed311cf03c139e961496c2024c849dd29bd0d4e5a16ac2dc01cdd870b409e38"
+    },
+    "scale-child_female": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "1d4dfa2c17de950584d94eb4a729484a8d6eeb198ac0ddc891c6cde0dc333c43",
+      "captured_pngs_sha256": "d2474bc3c661a77261bc0b62c9981eb423c1fb5767055b61317a73725a9ffc3e"
+    },
+    "scale-teen": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "92e78ad5bc6c502bdd8abc37d1fb5e8aa05c677df951f8a3beda1ed0a6536c9f",
+      "captured_pngs_sha256": "b69e02b7980785c80b242d6f4696319bedf0face7c34445af8b654ddf812cd62"
+    },
+    "scale-teen_female": {
+      "source_frames": 114,
+      "encoded_frames": 55,
+      "gif_sha256": "c28b6e4f48a0da2327b9c3871df0bfad54447c24eccd6e87bbbec6e7039677a2",
+      "captured_pngs_sha256": "d8226aa987a4b60f7d575e58aa4171d0f95f896935fb4ee903d68d4912ac8453"
+    },
+    "tai_sabaki": {
+      "source_frames": 94,
+      "encoded_frames": 59,
+      "gif_sha256": "9ee09407ad3b9f18402fed392bbcfad3aea4731878ac49ff076ea7fd9b430818",
+      "captured_pngs_sha256": "9fab9b257733a9a7f7bbc19c8d4f51c83352746ce4d02c4967cb5ba1fd2c64fa"
+    },
+    "ura_mawashi": {
+      "source_frames": 93,
+      "encoded_frames": 49,
+      "gif_sha256": "c3d01197c49eba65103dadf96e056e7f0e294d75d894235cec83ed9dc7450ff6",
+      "captured_pngs_sha256": "b3df69934bfdc177e0e03ea6214ef53aba11abfe5a97164dddcfaaa024ba2db6"
+    },
+    "ushiro": {
+      "source_frames": 93,
+      "encoded_frames": 50,
+      "gif_sha256": "208664a5007476ce483dfbd9a6d01dab208e46eb8b485117c0216ce52fc1e0f0",
+      "captured_pngs_sha256": "ec836437c1636681163d30ebf6d883d05f8435005cab41ca1082f792df2a334f"
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "html_sha256": "0b5cde91aa3c41c5345ecfac4c95f534d8a9afa5f0c45a9c1fb3ff6f1415041a",
+  "capture": "Actual offline HTML/Lua combat; DOM keys; manual 60 Hz ticks; every second rendered tick; playback 0.5x",
+  "sequences": {
+    "ashi-sequence": {
+      "frames": 144,
+      "contacts": "ashi_barai:1:4:false:95|ashi_finish:1:12:false:180",
+      "end": "287|212.0|100|-|standing|0|0|0|300.0|84|-|standing|0|0|0"
+    },
+    "ura_mawashi": {
+      "frames": 93,
+      "contacts": "ura_mawashi:1:18:false:99",
+      "end": "186|192.0|100|-|standing|0|0|0|280.0|82|-|standing|0|0|0"
+    },
+    "ushiro": {
+      "frames": 93,
+      "contacts": "ushiro:1:20:false:103",
+      "end": "186|188.8|100|-|standing|0|0|0|280.0|80|-|standing|0|0|0"
+    },
+    "tai_sabaki": {
+      "frames": 94,
+      "contacts": "tai_counter:1:10:false:107",
+      "end": "187|180.8|100|-|standing|0|0|0|280.0|90|-|standing|0|0|0"
+    },
+    "renzoku": {
+      "frames": 91,
+      "contacts": "renzoku:1:6:false:81|renzoku:1:9:false:100",
+      "end": "182|192.0|100|-|standing|0|0|0|280.0|85|-|standing|0|0|0"
+    },
+    "nidan": {
+      "frames": 91,
+      "contacts": "nidan:1:7:false:90|nidan:1:10:false:107",
+      "end": "182|192.0|100|-|standing|0|0|0|280.0|83|-|standing|0|0|0"
+    },
+    "scale-adult": {
+      "body": "adult",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    },
+    "scale-teen": {
+      "body": "teen",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    },
+    "scale-child": {
+      "body": "child",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    },
+    "scale-adult_female": {
+      "body": "adult_female",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    },
+    "scale-teen_female": {
+      "body": "teen_female",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    },
+    "scale-child_female": {
+      "body": "child_female",
+      "frames": 114,
+      "end": "228|100.0|100|-|standing|0|0|0|310|100|-|standing|0|0|0",
+      "commands": [
+        "punch",
+        "kick",
+        "plain jump with descent and landing",
+        "second jump with air punch",
+        "landing"
+      ]
+    }
+  }
+}

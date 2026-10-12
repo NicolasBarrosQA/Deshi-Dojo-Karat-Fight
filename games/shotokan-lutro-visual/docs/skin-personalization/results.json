@@ -1,0 +1,68 @@
+{
+  "risk": "medio",
+  "palette_tests": {
+    "bodies": 6,
+    "poses": 984,
+    "tone_options": 12,
+    "pose_tone_combinations": 11808,
+    "changed_skin_pixels_checked": 10153128,
+    "alpha_and_geometry_preserved": true,
+    "cloth_ink_and_transparency_protected": true,
+    "strictly_increasing_shading_ramps": true,
+    "runtime_recoloring": false
+  },
+  "editor_tests": {
+    "tones": 12,
+    "bodies": [
+      "adult",
+      "teen",
+      "child",
+      "adult_female",
+      "teen_female",
+      "child_female"
+    ],
+    "comparison": true,
+    "poses": [
+      1,
+      27,
+      63
+    ],
+    "roster_unchanged": true,
+    "production_body_controls_hidden": true,
+    "errors": []
+  },
+  "export_and_combat_tests": {
+    "checks": [
+      "Appearance keys reuse animation/atlas across names, IDs and belts",
+      "Configuration errors rejected with explicit messages",
+      "All 2484 body/pose/height/build transforms stay inside cells, anchored to the same floor",
+      "Retinta is baked exactly into all 72 special/knockdown frames, using the same material as basic moves",
+      "9 characters across 3 bodies: create, edit, duplicate ID, persistence, shared profiles and same-origin write protection",
+      "Real editor create -> personalize -> save -> reopen -> select P1/P2 -> keyboard combat -> CPU -> offline HTML",
+      "Generated Lutro contains the same validated roster and appearance manifests as HTML; physical Pi not executed"
+    ],
+    "native_core_executed": false,
+    "raspberry_pi_executed": false
+  },
+  "appearance_tests": {
+    "checks": [
+      "adult: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 104373 only skin pixels, preserves silhouette",
+      "teen: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 85036 only skin pixels, preserves silhouette",
+      "child: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 81025 only skin pixels, preserves silhouette",
+      "adult_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 99600 only skin pixels, preserves silhouette",
+      "teen_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 85516 only skin pixels, preserves silhouette",
+      "child_female: all 92 original poses exactly reconstructed/mirrored; 8 exact belt layers; skin changes 77952 only skin pixels, preserves silhouette"
+    ],
+    "poses": 552,
+    "belt_pose_combinations": 4416
+  },
+  "pipeline": "Developer-only seven-point skin ramps baked into PNGs; no runtime color editor or shader",
+  "native_cache_fixture_bytes": 94134024,
+  "native_budget_bytes": 134217728,
+  "native_device_tested": false,
+  "artifacts": {
+    "deshi-dojo-visual.html": "aca6adb204832617c19a11671140204265d331fc2e77f8463b3809a073883e1b",
+    "deshi-dojo-visual.lutro": "f1f5a4174e08443eb147d085aae629cee6da3999a5baf03e2ec51a049f048895"
+  },
+  "local_rebuild_cache_test": "passed: one build per source revision; derived metadata does not trigger a rebuild loop"
+}

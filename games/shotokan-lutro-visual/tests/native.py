@@ -18,7 +18,7 @@ end
 '''
 def fixture(parent,initial=''):
  p=Path(parent);(p/'assets').symlink_to(HERE/'src/assets',target_is_directory=True)
- for name in ('conf.lua','art.lua','techniques.lua','cpu.lua'):(p/name).write_bytes((HERE/'src'/name).read_bytes())
+ for name in ('conf.lua','art.lua','techniques.lua','cpu.lua','characters.lua','character_data.lua'):(p/name).write_bytes((HERE/'src'/name).read_bytes())
  (p/'main.lua').write_text((HERE/'src/main.lua').read_text()+telemetry+'\nlocal originalLoad=lutro.load\nfunction lutro.load() originalLoad();Scene.configure("versus","easy");'+initial+' end\n')
  return p/'main.lua'
 def state(core):
@@ -91,7 +91,7 @@ for attack in [id for id in catalog['order'] if tech[id]['kind']=='attack' and n
    with Native(fixture(d,'Scene.players[1].x=232;Scene.players[2].x=320;')) as core:
     guard=controls(defense,1,-1);core.step(8,guard)
     core.step(2,guard+controls(attack));core.step(36,guard);s=state(core)
-    zone={1:'jodan',2:'chudan',3:'gedan'}.get(s['zone']);blocked=zone==tech[defense]['zone']
+    zone={1:'jodan',2:'chudan',3:'gedan'}.get(s['zone']);blocked=zone==tech[defense]['zone'] or defense=='kamae' and zone=='jodan'
     assert s['contacts1']==1 and s['points1']==int(not blocked) and s['blocks2']==int(blocked),(attack,defense,s)
     assert zone is not None,(attack,defense,s)
     assert s['energy2']==100-(0 if blocked else tech[attack]['damage']),s
@@ -158,7 +158,7 @@ for attack in ('tobi_mae','air_tsuki'):
     guard=controls(defense,1,-1);core.step(8,guard)
     core.step(2,guard+[(0,4)]);core.step(8,guard)
     core.step(2,guard+controls(attack));core.step(46,guard);s=state(core)
-    zone={1:'jodan',2:'chudan',3:'gedan'}.get(s['zone']);blocked=zone==tech[defense]['zone']
+    zone={1:'jodan',2:'chudan',3:'gedan'}.get(s['zone']);blocked=zone==tech[defense]['zone'] or defense=='kamae' and zone=='jodan'
     assert s['contacts1']==s['airborne']==1 and zone is not None,(attack,defense,s)
     assert s['points1']==int(not blocked) and s['blocks2']==int(blocked),(attack,defense,s)
     assert s['h1']==s['air1']==0 and s['executed1']==1,s

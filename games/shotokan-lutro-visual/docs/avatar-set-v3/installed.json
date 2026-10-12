@@ -1,0 +1,22 @@
+{
+  "bodies": [
+    "adult",
+    "teen",
+    "child",
+    "adult_female",
+    "teen_female",
+    "child_female"
+  ],
+  "poses": 984,
+  "roster": [
+    "demo-adult",
+    "demo-teen",
+    "demo-child",
+    "demo-adult-female",
+    "demo-teen-female",
+    "demo-child-female"
+  ],
+  "legacy_cleanup_pending": false,
+  "physics_changed": false,
+  "legacy_files_removed": 4187
+}
