@@ -1,5 +1,5 @@
 {
-  "artifact_sha256": "1b885156399631fddfb3a29c69f9248fe4c33f99a79a0beaa6ea331a7ffb4515",
+  "artifact_sha256": "1f640f98cbef780037b98fcbd0665934c6a00182e263b2ce333f58ce6173afc9",
   "checks": [
     "All five motions; mirrored facing; incomplete/stale rejection; optional four-way tolerance",
     "Priority over normal actions and deliberate second guard command",

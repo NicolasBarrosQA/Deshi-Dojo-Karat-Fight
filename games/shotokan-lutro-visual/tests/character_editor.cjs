@@ -6,7 +6,7 @@ const root=path.resolve(__dirname,'..'),url=process.env.DOJO_EDITOR_URL;
   const page=await browser.newPage({viewport:{width:1280,height:1050}}),errors=[];page.on('pageerror',e=>errors.push(String(e)));
   await page.goto(url+'/editor');await page.waitForFunction(()=>document.body.dataset.ready==='true');
   await page.locator('#new').click();await page.locator('#id').fill('editor-qa');await page.locator('#name').fill('EDITOR QA');
-  await page.locator('#body').selectOption('child');await page.locator('#skin').selectOption('clara');await page.locator('#hair_color').selectOption('loiro');await page.locator('#belt').selectOption('roxa');await page.locator('#height').selectOption('0.94');await page.locator('#build').selectOption('forte');
+  await page.locator('#body').selectOption('child');await page.locator('#skin').selectOption('clara');await page.locator('#hair').selectOption('curto_classico');await page.locator('#hair_color').selectOption('loiro');await page.locator('#belt').selectOption('roxa');await page.locator('#height').selectOption('0.94');await page.locator('#build').selectOption('forte');
   await page.locator('#save').click();await page.waitForFunction(()=>document.getElementById('status').textContent.startsWith('Salvo e exportado:'),{},{timeout:90000});
   assert.equal(await page.locator('#roster').inputValue(),'editor-qa');
   await page.locator('#technique').selectOption('gyaku');await page.locator('#animate').click();await page.waitForTimeout(400);

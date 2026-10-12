@@ -1,0 +1,11 @@
+{
+  "child": {
+    "knockdown:6": {
+      "center": [
+        83.65,
+        126.5
+      ],
+      "note": "Keep the reviewed scalp contact above the tatame; one-pixel floor adjustment."
+    }
+  }
+}

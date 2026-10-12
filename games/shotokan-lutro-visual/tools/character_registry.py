@@ -4,7 +4,8 @@ from pathlib import Path
 
 from skin_palette import PALETTES,catalog as skin_catalog
 SKINS={key:entry['swatch'] if entry['ramp'] is not None else None for key,entry in PALETTES.items()}
-HAIR_COLORS={'original':None,'preto':[35,32,30],'castanho':[83,48,27],'loiro':[172,134,64],'ruivo':[133,57,30],'grisalho':[135,139,142]}
+from hair_palette import COLORS,valid as valid_hair_color,target as hair_target,catalog as hair_palette_catalog
+HAIR_COLORS={key:hair_target(key) for key in COLORS}
 HEIGHTS=[.94,1,1.04]
 BUILDS={'leve':.94,'medio':1,'forte':1.06}
 DEFAULT={'skin':'original','hair_color':'original','height':1,'build':'medio','emblem':'nenhum'}
@@ -35,12 +36,19 @@ def validate(value,config,manifest):
         result['identity']=identity
     if not isinstance(result['belt'],str) or result['belt'] not in config['belts']:raise ValueError('Faixa inexistente.')
     for layer in ('face','hair'):
-        if not isinstance(result[layer],str) or result[layer] not in manifest[result['body']]['parts'][layer]:raise ValueError('Asset de '+layer+' inexistente para este corpo.')
+        available=manifest[result['body']]['parts'][layer]
+        if layer=='hair':
+            from hair_art import styles
+            available={**available,**styles()}
+        if not isinstance(result[layer],str) or result[layer] not in available:raise ValueError('Asset de '+layer+' inexistente para este corpo.')
     appearance=value.get('appearance',{})
     if not isinstance(appearance,dict) or set(appearance)-set(DEFAULT):raise ValueError('Configuracao de aparencia invalida.')
     appearance={**DEFAULT,**appearance}
     choices={'skin':SKINS,'hair_color':HAIR_COLORS,'height':HEIGHTS,'build':BUILDS,'emblem':['nenhum','dojo']}
     for key,options in choices.items():
+        if key=='hair_color' and isinstance(appearance[key],str) and valid_hair_color(appearance[key]):
+            if appearance[key].startswith('#'):appearance[key]=appearance[key].lower()
+            continue
         if isinstance(appearance[key],(dict,list,bool)) or appearance[key] not in options:raise ValueError('Opcao de '+key+' indisponivel.')
     result['appearance']=appearance
     return result
@@ -52,9 +60,12 @@ def catalog(config,manifest):
     path=Path(__file__).resolve().parents[1]/'assets/character-identities.json'
     identities=read(path)['bodies'] if path.exists() else {}
     neutral=all(b.get('revision')=='neutral-2d-v3' for b in manifest.values())
+    from hair_art import styles
+    hair_styles=styles()
     return {'bodies':config['body_order'],'belts':config['belt_order'],'skins':list(SKINS),'hair_colors':list(HAIR_COLORS),'heights':HEIGHTS,'builds':list(BUILDS),'emblems':['nenhum','dojo'],
             'neutral_bases':neutral,
             'skin_palettes':skin_catalog(),'creator_only':True,
+            'hair_styles':[{'id':'default','label':'Sem cabelo'},*[{'id':key,'label':value['label']} for key,value in hair_styles.items()]],'hair_palettes':hair_palette_catalog(),
             'identities':{body:[{'id':'default','label':'Base neutra aprovada' if neutral else 'Personagem original'},*[{'id':key,'label':entry['label'],'thumbnail':'identity-thumbnail-'+body+'-'+key} for key,entry in identities.get(body,{}).items()]] for body in config['body_order']},
-            'parts':{b:{p:list(v['parts'][p]) for p in ('face','hair')} for b,v in manifest.items()},
-            'art_note':'Seis bases neutras em 2D: crianca, adolescente e adulto, masculinos e femininos, com suas animacoes de combate. Rosto e cabelo ainda nao definidos.' if neutral else 'Ha bases corporais masculinas e femininas proprias para crianca, adolescente e adulto. Cada base tem suas poses de golpes, saltos e quedas. As identidades adicionais de rosto e cabelo aparecem quando compativeis com o corpo escolhido.'}
+            'parts':{b:{p:list(v['parts'][p])+([] if p!='hair' else list(hair_styles)) for p in ('face','hair')} for b,v in manifest.items()},
+            'art_note':'Seis bases 2D aprovadas. Os tres cabelos desenhados acompanham as poses e usam cores independentes da pele. Rostos ainda neutros. Personalizacao preparada no computador e exportada pronta para o fliperama.' if neutral else 'Bases corporais com cabelos e cores preparados antes da exportacao.'}

@@ -28,15 +28,22 @@ def transform(frame,appearance,bounds=None):
     sx=BUILDS[appearance['build']];sy=appearance['height']
     if sx==1 and sy==1:return frame
     # Scale the same logical canvas for every layer, retaining exact pixel alignment.
-    crop=frame.resize((round(224*sx),round(144*sy)),Image.Resampling.NEAREST)
-    x=112-round(112*sx);y=143-round(143*sy)
+    padding=frame.height-144
+    if padding:
+        width=round(224*sx);body=frame.crop((0,padding,224,frame.height)).resize((width,round(144*sy)),Image.Resampling.NEAREST)
+        upper=frame.crop((0,0,224,padding)).resize((width,round(padding*sy)),Image.Resampling.NEAREST)
+        crop=Image.new('RGBA',(width,upper.height+body.height));crop.paste(upper,(0,0));crop.paste(body,(0,upper.height))
+        y=143+padding-round(143*sy)-upper.height
+    else:
+        crop=frame.resize((round(224*sx),round(144*sy)),Image.Resampling.NEAREST);y=143-round(143*sy)
+    x=112-round(112*sx)
     # Wide archived poses can reach the cell edge. Shift every layer equally,
     # using the shared pose bounds, rather than clipping an extended hand/foot.
     bounds=bounds or frame.getbbox()
     if bounds:x=max(-math.floor(bounds[0]*sx),min(x,224-math.ceil(bounds[2]*sx)))
     b=crop.getbbox()
-    if b and (x+b[0]<0 or y+b[1]<0 or x+b[2]>224 or y+b[3]>144):raise ValueError('Esta proporcao recorta uma pose; use altura/porte menores.')
-    im=Image.new('RGBA',(224,144));im.paste(crop,(x,y));return im
+    if b and (x+b[0]<0 or y+b[1]<0 or x+b[2]>224 or y+b[3]>frame.height):raise ValueError('Esta proporcao recorta uma pose; use altura/porte menores.')
+    im=Image.new('RGBA',(224,frame.height));im.paste(crop,(x,y));im.info.update(frame.info);return im
 def pack(frames,name,out):
     crops=[]
     for frame in frames:
@@ -46,7 +53,7 @@ def pack(frames,name,out):
         records=[];x=y=row=used=0
         for b,crop in crops:
             if x+crop.width>shelf_width:x=0;y+=row;row=0
-            records.append({'x':b[0],'y':b[1],'w':crop.width,'h':crop.height,'sx':x,'sy':y})
+            records.append({'x':b[0],'y':b[1]+frames[len(records)].info.get('logical_origin_y',0),'w':crop.width,'h':crop.height,'sx':x,'sy':y})
             x+=crop.width;used=max(used,x);row=max(row,crop.height)
         height=y+row
         if height<=4096:layouts.append((used*height,used,height,records))
@@ -65,8 +72,11 @@ def compile(student,out):
     sources=[Path(__file__),HERE/'tools/skin_palette.py',HERE/'tools/character_registry.py',HERE/'assets/character-assets.json',HERE/'assets/character-masks.json']
     from identity_art import sources as identity_sources,attachments,replace,head
     sources.extend(identity_sources(student))
+    from hair_art import sources as hair_sources,styles as hair_styles,apply as apply_hair,logical_bounds
+    sources.extend(hair_sources(student))
     for layer in ('body','face','hair','foreground'):
         variant=student[layer] if layer in ('face','hair') else 'default'
+        if layer=='hair' and variant in hair_styles():variant='default'
         sources.append(HERE/'src/assets'/(manifest[student['body']]['parts'][layer][variant]['right']+'.png'))
     sources.extend(HERE/'src/assets'/(part['right']+'.png') for part in manifest[student['body']]['parts']['belt'].values())
     signature=[[p.name,p.stat().st_mtime_ns,p.stat().st_size] for p in sources]
@@ -76,9 +86,11 @@ def compile(student,out):
     body=student['body'];ap=student['appearance'];identity=student.get('identity','default');frames=[Image.new('RGBA',(224,144)) for _ in range(92)]
     for layer in ('body','face','hair','foreground'):
         variant=student[layer] if layer in ('face','hair') else 'default'
+        if layer=='hair' and variant in hair_styles():variant='default'
         for i,frame in enumerate(layer_frames(body,layer,variant,manifest)):
             if identity=='default' and layer!='hair':frame=apply_skin_palette(frame,ap['skin'])
-            hair_target=HAIR_COLORS[ap['hair_color']] if layer=='hair' else None
+            from hair_palette import target as hair_color_target
+            hair_target=hair_color_target(ap['hair_color']) if layer=='hair' else None
             skin_target=SKINS[ap['skin']]
             if identity=='default' and hair_target:
                 pixels=frame.load();b=frame.getbbox() or (0,0,0,0)
@@ -111,7 +123,7 @@ def compile(student,out):
             for dx,dy in [(0,0),(1,0),(2,1),(2,2),(2,3),(1,4),(0,4),(0,1),(0,2),(0,3)]:
                 r,g,b,a=frame.getpixel((x+dx,y+dy))
                 if a and min(r,g,b)>140 and max(r,g,b)-min(r,g,b)<65:frame.putpixel((x+dx,y+dy),(112,54,45,255))
-    frames=[transform(f,ap,manifest[body]['bounds'][i]) for i,f in enumerate(frames)]
+    frames=[transform(apply_hair(f,student,'base',i),ap,manifest[body]['bounds'][i]) for i,f in enumerate(frames)]
     parts={'body':pack(frames,'char-visual-'+key,out),'belt':{}}
     geometry={'height':ap['height'],'build':ap['build']};gkey=visual_key({**student,'face':'default','hair':'default','identity':'default','appearance':geometry})
     for belt in config['belt_order']:
@@ -121,10 +133,11 @@ def compile(student,out):
     portrait=frames[0].copy()
     portrait_head=read(HERE/'assets/character-masks.json')[body]['1']['head'] if identity=='default' else transform(head(student,attachments(body)[0]),ap,manifest[body]['bounds'][0]).getbbox()
     margins=(12,6,16,30) if identity=='default' else (8,4,8,22)
-    portrait=portrait.crop((max(0,portrait_head[0]-margins[0]),max(0,portrait_head[1]-margins[1]),min(224,portrait_head[2]+margins[2]),min(144,portrait_head[3]+margins[3])))
+    padding=portrait.height-144
+    portrait=portrait.crop((max(0,portrait_head[0]-margins[0]),max(0,portrait_head[1]+padding-margins[1]-6),min(224,portrait_head[2]+margins[2]),min(portrait.height,portrait_head[3]+padding+margins[3])))
     portrait.thumbnail((32,40),Image.Resampling.NEAREST);thumbnail=Image.new('RGBA',(32,40));thumbnail.paste(portrait,((32-portrait.width)//2,(40-portrait.height)//2));thumbnail.save(out/('portrait-'+key+'.png'))
-    result={'id':key,'body':body,'parts':parts,'bounds':[list(f.getbbox() or (0,0,1,1)) for f in frames],'portrait':'portrait-'+key,'signature':signature,
-            'appearance':ap,'identity':identity,'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
+    result={'id':key,'body':body,'parts':parts,'bounds':[logical_bounds(f) for f in frames],'portrait':'portrait-'+key,'signature':signature,
+            'appearance':ap,'identity':identity,'hair':student['hair'],'portrait_bytes':32*40*4,'decoded_bytes':parts['body']['decoded_bytes']+parts['belt'][student['belt']]['decoded_bytes']}
     write(record,result);return result
 
 if __name__=='__main__':

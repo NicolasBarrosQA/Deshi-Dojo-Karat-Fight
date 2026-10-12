@@ -15,7 +15,7 @@
     "Standard gamepad API mapping mock: two pads, analog movement, both punch buttons (physical pads pending)",
     "Actual RAF movement with keyboard; Escape pauses/resumes"
   ],
-  "artifact_sha256": "1b885156399631fddfb3a29c69f9248fe4c33f99a79a0beaa6ea331a7ffb4515",
+  "artifact_sha256": "1f640f98cbef780037b98fcbd0665934c6a00182e263b2ce333f58ce6173afc9",
   "external_requests": [],
   "errors": [],
   "platform": "win32 offline Chromium/Chrome; gamepad API mocked, physical pads/Pi/GPIO pending"

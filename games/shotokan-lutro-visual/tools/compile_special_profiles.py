@@ -14,6 +14,7 @@ def compile_all():
   for body,animation in json.loads(touch.read_text()).items():bases[body]['hand_touch']=animation
  result=json.loads(target.read_text()) if target.exists() else {}
  from identity_art import sources as identity_sources,attachments,replace,paint,head
+ from hair_art import sources as hair_sources,styles as hair_styles,apply as apply_hair,logical_bounds
  signatures={}
  body_signatures={}
  for body,groups in bases.items():
@@ -27,6 +28,7 @@ def compile_all():
   if not s.get('visual'):continue
   digest=hashlib.sha256(body_signatures[s['body']])
   for p in identity_sources(s):digest.update(p.read_bytes())
+  for p in hair_sources(s):digest.update(p.read_bytes())
   signatures[s['visual']]=digest.hexdigest()
  needed=list({s['visual']:s for s in roster['students'].values() if s.get('visual') and result.get(s['visual'],{}).get('signature')!=signatures[s['visual']]}.values())
  if not needed:return
@@ -47,11 +49,13 @@ def compile_all():
   for group,a in bases[s['body']].items():
    originals=unpack(a['body']);frames=[]
    for index,im in enumerate(originals):
+    if s.get('hair') in hair_styles():
+     frames.append(transform(apply_hair(apply_skin_palette(im,ap['skin']),s,group,index),ap,a['bounds'][index]));continue
     if s.get('identity','default')!='default':
      binding=attachments(s['body'],group)[index]
      im=paint(replace(im,s,binding)[0],s,head(s,binding))
      frames.append(transform(im,ap,a['bounds'][index]));continue
-    if HAIR_COLORS[ap['hair_color']] is None or neutral_bodies[s['body']].get('revision')=='neutral-2d-v3':
+    if HAIR_COLORS.get(ap['hair_color']) is None or neutral_bodies[s['body']].get('revision')=='neutral-2d-v3':
      frames.append(transform(apply_skin_palette(im,ap['skin']),ap,a['bounds'][index]));continue
     hair=Image.new('L',im.size)
     im=apply_skin_palette(im,ap['skin'])
@@ -81,7 +85,10 @@ def compile_all():
    for belt,part in a['belts'].items():
     belts=[transform(im,ap,a['bounds'][i]) for i,im in enumerate(unpack(part))]
     rec['belts'][belt]=pack(belts,f'special-geometry-{gkey}-{group}-belt-{belt}',HERE/'src/assets')
-    if belt=='preta':rec['bounds']=[list(Image.alpha_composite(im,b).getbbox()) for im,b in zip(frames,belts)]
+    if belt=='preta':
+     for im,b in zip(frames,belts):
+      one=logical_bounds(im);two=logical_bounds(b) if b.getbbox() else one
+      rec['bounds'].append([min(one[0],two[0]),min(one[1],two[1]),max(one[2],two[2]),max(one[3],two[3])])
    groups[group]=rec
   result[key]={'signature':signatures[key],'identity':s.get('identity','default'),'groups':groups}
  target.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf8')

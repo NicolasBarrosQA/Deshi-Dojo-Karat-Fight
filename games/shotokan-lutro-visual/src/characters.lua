@@ -28,7 +28,7 @@ function C.select(port,definition)
  assert(data.bodies[d.body],'Unknown body')
  assert(data.belts[d.belt],'Unknown belt')
  assert(data.bodies[d.body].parts.face[d.face],'Unknown face')
- assert(data.bodies[d.body].parts.hair[d.hair],'Unknown hair')
+ assert((d.visual and data.visual_profiles[d.visual]) or data.bodies[d.body].parts.hair[d.hair],'Unknown hair')
  local previous=C.overrides[port]
  C.overrides[port]=d
  local ok,reason=pcall(C.prepare)

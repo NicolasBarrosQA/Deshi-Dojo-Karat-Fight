@@ -1,0 +1,191 @@
+{
+  "risk": "alto",
+  "generation_mode": "built-in imagegen",
+  "art_prompts": [
+    "assets/source/hair-pilot-v1/prompts.json",
+    "assets/source/hair-v1/prompts.json"
+  ],
+  "assets": {
+    "pose_style_cases": 3276,
+    "proportions_verified": 29484,
+    "palette_material_cases": 45864,
+    "pack_roundtrip_frames": 92,
+    "body_pixels_and_scale_preserved": true,
+    "binary_alpha": true
+  },
+  "editor": {
+    "previews": [
+      {
+        "body": "adult",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "adult",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "adult",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      },
+      {
+        "body": "teen",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "teen",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "teen",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      },
+      {
+        "body": "child",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "child",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "child",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      },
+      {
+        "body": "adult_female",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "adult_female",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "adult_female",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      },
+      {
+        "body": "teen_female",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "teen_female",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "teen_female",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      },
+      {
+        "body": "child_female",
+        "hair": "curto_classico",
+        "color": "branco"
+      },
+      {
+        "body": "child_female",
+        "hair": "medio_ondulado",
+        "color": "preto"
+      },
+      {
+        "body": "child_female",
+        "hair": "crespo_curto",
+        "color": "ruivo"
+      }
+    ],
+    "custom_color_persisted": true,
+    "offline": true,
+    "all_special_frames_both_ports": true,
+    "native_retained_basic_bytes": 103644272,
+    "captures": [
+      "adult",
+      "teen",
+      "child"
+    ],
+    "errors": []
+  },
+  "creator": {
+    "six_bodies_exported": true,
+    "HTML_Lutro_same_roster": true,
+    "editor_and_runtime": "passed",
+    "live_roster_unchanged": true,
+    "physical_Pi_executed": false
+  },
+  "live": {
+    "live_editor": true,
+    "white_hair": true,
+    "style_preserved_across_body_change": true,
+    "bald_option": true,
+    "roster_unchanged": true,
+    "errors": []
+  },
+  "combat_regression_groups": 13,
+  "specials": "passed",
+  "prior_creator_regression": "passed",
+  "package": "passed",
+  "editor_rebuild_cache": "passed",
+  "physical_Pi_executed": false,
+  "gifs": {
+    "adult": {
+      "source_frames": 187,
+      "milliseconds": 9350,
+      "gif_sha256": "669d0aac9fa9c8e5f56a329f7af08564419dec2ec1fdfa2f6000a82fb37f62b5",
+      "capture_sha256": "d8dc560474f197e44a04fb846029a15af6804599f59c98c099ab524d836972ed",
+      "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
+    },
+    "teen": {
+      "source_frames": 187,
+      "milliseconds": 9350,
+      "gif_sha256": "eb2230f504cbace5c0ad6beac397f60f16d5f0b05fbc6f31960d12a5bec29d24",
+      "capture_sha256": "0ffd26725ed220a771612ab0a70882c6ef503df393c74e9ea5a319955ee4c0a9",
+      "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
+    },
+    "child": {
+      "source_frames": 187,
+      "milliseconds": 9350,
+      "gif_sha256": "589b7d580d665ca5c8afbacdef4f7fc057a7c76a5c62dc2342daecc1aca7fbb8",
+      "capture_sha256": "3554ae73dacfe81be8684acf6dd9ef56a1c4e0abd752d1efc3e5f12aef162200",
+      "source": "Actual offline export generated in isolated hair_creator fixture; live roster preserved."
+    }
+  },
+  "artifacts": {
+    "deshi-dojo-visual.html": "1f640f98cbef780037b98fcbd0665934c6a00182e263b2ce333f58ce6173afc9",
+    "deshi-dojo-visual.lutro": "e7a8cc829b941c952454d0d53e6fad92317af9b26ad20f2d86077ac00d6d0701"
+  },
+  "source_sha256": {
+    "assets/source/hair-v1/01-curto-classico-views.png": "b957481d68dcb009f949d40f0dabda0772680a1bf3e91ea015bca6b25bcf2e71",
+    "assets/source/hair-v1/02-medio-ondulado-views.png": "c0f6d2d608016fcdb631a3b415104539b96e27397030d584c51d8aeeddc170e3",
+    "assets/source/hair-v1/03-crespo-curto-views.png": "619797c65afe3b848b3e5a4430ae2d8a97b23cf4a14292d114a00bf7c5fae477",
+    "assets/source/hair-v1/crespo_curto-front.png": "fd88ccb3522d7b0ddb8524df126fbb87ab1870b3e3487e34115f5c81785e9cc2",
+    "assets/source/hair-v1/crespo_curto-profile.png": "113783c650602a6ae91ada4061f2dac1723854211eaa144e0c1a5e9c3aeb322b",
+    "assets/source/hair-v1/crespo_curto-rear.png": "39b92415a53d96ffcc83968a0fb1c28d9c9d3a8c6539aab0449e296295e4d411",
+    "assets/source/hair-v1/crespo_curto-rear_three_quarter.png": "3a84d353d63ec511c331d5d681656cc42568ad23e927ed18d33d1468af2d75da",
+    "assets/source/hair-v1/crespo_curto-three_quarter.png": "b77045f72669a70e92a720aeb8eb0b123553160b02f898206528135bf9da3c23",
+    "assets/source/hair-v1/crespo_curto-top.png": "347cd8a4ff1b92628ea401a419df4b877f7d5be233237dc9b2978157c4b081ad",
+    "assets/source/hair-v1/curto_classico-front.png": "444bef9304a3ca7910e7ff60c2c2f5d015c6c898d072f6508f99bf63777c0ce1",
+    "assets/source/hair-v1/curto_classico-profile.png": "36225f201b158faaece5e747282bcea0831857f54109658444a4ddaee47dfee4",
+    "assets/source/hair-v1/curto_classico-rear.png": "836a50595a35ba3027ea7db3d8798fe0ac75d07c23af00d1bb5fc3e31eaaafca",
+    "assets/source/hair-v1/curto_classico-rear_three_quarter.png": "82f8f5a5e130562413be329761aa275e035d46f86a07d4708f93ea64a95f2aab",
+    "assets/source/hair-v1/curto_classico-three_quarter.png": "4172d29c910be3b12baf9471c773b7bcf6de30492bd85abd6a3391152ff30299",
+    "assets/source/hair-v1/curto_classico-top.png": "61924484cf94905c2a1b75314ed5d2fba50a062a7f77da823130c3fe6ea5f221",
+    "assets/source/hair-v1/medio_ondulado-front.png": "0ac0612708bfd072ce69b832f251f087ef75ee35c4a6b3f89306b53a337e62a1",
+    "assets/source/hair-v1/medio_ondulado-profile.png": "74e536faf9c4b396b12712c9c982ec1193763aa3719dd702fdc87b22f9a61be7",
+    "assets/source/hair-v1/medio_ondulado-rear.png": "26acc4e5df891231481705f96693942b8022c30d66899ac5770fc523e33ab36d",
+    "assets/source/hair-v1/medio_ondulado-rear_three_quarter.png": "f7ee39be2a846f263cf32fa7ceed44abf4fb92be7902e1883f44f57e5e8820d2",
+    "assets/source/hair-v1/medio_ondulado-three_quarter.png": "bf291c493f4094aeba6debcd58d86409224789c70478a12b9adccbea051847b7",
+    "assets/source/hair-v1/medio_ondulado-top.png": "bb4dcc83053d6a9bf13670c72f9da2eb5d5fec3f35f6275e3e37722c56faebd0"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "previews": [
+    {
+      "body": "adult",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "adult",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "adult",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    },
+    {
+      "body": "teen",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "teen",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "teen",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    },
+    {
+      "body": "child",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "child",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "child",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    },
+    {
+      "body": "adult_female",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "adult_female",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "adult_female",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    },
+    {
+      "body": "teen_female",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "teen_female",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "teen_female",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    },
+    {
+      "body": "child_female",
+      "hair": "curto_classico",
+      "color": "branco"
+    },
+    {
+      "body": "child_female",
+      "hair": "medio_ondulado",
+      "color": "preto"
+    },
+    {
+      "body": "child_female",
+      "hair": "crespo_curto",
+      "color": "ruivo"
+    }
+  ],
+  "custom_color_persisted": true,
+  "offline": true,
+  "all_special_frames_both_ports": true,
+  "native_retained_basic_bytes": 103644272,
+  "captures": [
+    "adult",
+    "teen",
+    "child"
+  ],
+  "errors": []
+}

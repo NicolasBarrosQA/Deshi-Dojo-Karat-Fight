@@ -1,0 +1,164 @@
+{
+  "version": 1,
+  "styles": {
+    "curto_classico": {
+      "label": "Curto clássico",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-v1/curto_classico-front.png",
+          "center": [
+            256.0,
+            285.0
+          ],
+          "width": 300.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-v1/curto_classico-three_quarter.png",
+          "center": [
+            260.0,
+            285.0
+          ],
+          "width": 310.0
+        },
+        "profile": {
+          "path": "assets/source/hair-v1/curto_classico-profile.png",
+          "center": [
+            253.0,
+            292.0
+          ],
+          "width": 300.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-v1/curto_classico-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 320.0
+        },
+        "rear": {
+          "path": "assets/source/hair-v1/curto_classico-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 290.0
+        },
+        "top": {
+          "path": "assets/source/hair-v1/curto_classico-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 300.0
+        }
+      }
+    },
+    "medio_ondulado": {
+      "label": "Médio ondulado",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-v1/medio_ondulado-front.png",
+          "center": [
+            256.0,
+            285.0
+          ],
+          "width": 300.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-v1/medio_ondulado-three_quarter.png",
+          "center": [
+            260.0,
+            285.0
+          ],
+          "width": 310.0
+        },
+        "profile": {
+          "path": "assets/source/hair-v1/medio_ondulado-profile.png",
+          "center": [
+            253.0,
+            292.0
+          ],
+          "width": 300.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-v1/medio_ondulado-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 320.0
+        },
+        "rear": {
+          "path": "assets/source/hair-v1/medio_ondulado-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 290.0
+        },
+        "top": {
+          "path": "assets/source/hair-v1/medio_ondulado-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 300.0
+        }
+      }
+    },
+    "crespo_curto": {
+      "label": "Crespo curto",
+      "views": {
+        "front": {
+          "path": "assets/source/hair-v1/crespo_curto-front.png",
+          "center": [
+            256.0,
+            285.0
+          ],
+          "width": 300.0
+        },
+        "three_quarter": {
+          "path": "assets/source/hair-v1/crespo_curto-three_quarter.png",
+          "center": [
+            260.0,
+            285.0
+          ],
+          "width": 310.0
+        },
+        "profile": {
+          "path": "assets/source/hair-v1/crespo_curto-profile.png",
+          "center": [
+            253.0,
+            292.0
+          ],
+          "width": 300.0
+        },
+        "rear_three_quarter": {
+          "path": "assets/source/hair-v1/crespo_curto-rear_three_quarter.png",
+          "center": [
+            265.0,
+            235.0
+          ],
+          "width": 320.0
+        },
+        "rear": {
+          "path": "assets/source/hair-v1/crespo_curto-rear.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 290.0
+        },
+        "top": {
+          "path": "assets/source/hair-v1/crespo_curto-top.png",
+          "center": [
+            256.0,
+            230.0
+          ],
+          "width": 300.0
+        }
+      }
+    }
+  }
+}

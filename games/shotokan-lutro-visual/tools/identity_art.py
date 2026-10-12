@@ -94,8 +94,9 @@ def paint(frame,student,new_head):
     from compile_character import skin,shade
     from character_registry import SKINS,HAIR_COLORS
     from skin_palette import apply_skin_palette
+    from hair_palette import target as hair_color_target
     appearance=student['appearance'];result=apply_skin_palette(frame,appearance['skin'])
-    target_skin=SKINS[appearance['skin']];target_hair=HAIR_COLORS[appearance['hair_color']]
+    target_skin=SKINS[appearance['skin']];target_hair=hair_color_target(appearance['hair_color'])
     if target_skin is None and target_hair is None:return result
     entry=catalog()['bodies'][student['body']][student['identity']]
     if entry.get('bald'):target_hair=None

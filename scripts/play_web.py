@@ -83,6 +83,8 @@ class Builder:
         paths += [GAME / 'tools/build.py', GAME / 'assets/characters.json', GAME / 'assets/character-assets.json', GAME / 'assets/specials.json', GAME / 'assets/special-assets.json', GAME / 'assets/ceremony.json', GAME / 'assets/ceremony-assets.json', GAME / 'assets/hand-touch-assets.json']
         paths += [p for p in (GAME/'tools/identity_art.py',GAME/'assets/character-identities.json',GAME/'assets/identity-adult-attachments.json') if p.exists()]
         paths += sorted((GAME/'assets/source/identities').glob('*.png'))
+        paths += [p for p in (GAME/'tools/hair_art.py',GAME/'tools/hair_palette.py',GAME/'assets/hair-assets.json',GAME/'assets/hair-bindings.json') if p.exists()]
+        paths += sorted((GAME/'assets/source/hair-v1').glob('*.png'))
         paths += [p for p in [GAME/'assets/character-visuals.json',GAME/'browser/editor.html',GAME/'tools/skin_palette.py',GAME/'tools/compile_character.py',GAME/'tools/character_registry.py',GAME/'tools/compile_special_profiles.py'] if p.exists()]
         paths += sorted(p for p in (GAME / 'src/assets').glob('*.png')
                         if not p.name.startswith('pose-'))
