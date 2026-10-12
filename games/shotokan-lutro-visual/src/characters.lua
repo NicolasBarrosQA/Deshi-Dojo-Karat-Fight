@@ -3,6 +3,7 @@ local data=require('character_data')
 local C={data=data,selected={'demo-adult','demo-adult'},overrides={},cache={},quads={},retained={},retainedBytes=0,nativeBudget=128*1024*1024}
 local g=lutro.graphics
 local function animations(d) return d.visual and data.special_profiles[d.visual] or data.specials[d.body] or {} end
+function C.animation(p,group) return animations(p.character)[group] end
 function C.definition(port)
  local result={}
  for k,v in pairs(data.students[C.selected[port]]) do result[k]=v end

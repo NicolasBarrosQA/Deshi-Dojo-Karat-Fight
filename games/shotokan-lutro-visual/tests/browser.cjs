@@ -87,7 +87,7 @@ const docs=path.resolve(root,process.env.DOJO_TEST_OUTPUT||'docs');fs.mkdirSync(
  }
  checks.push('Ground reverse/advance/low/high punches and circular/low kicks use the revised commands');
  await page.locator('#practice').click();await press('z');await step(28);let s=await state();assert.equal(s[25],100);assert.equal(s[26],100);assert.equal(s[27],3600);
- await page.locator('#play').click();await step(8);assert.equal((await state())[27],3600);await step(300);assert((await state())[27]<3600);assert.equal((await state())[10],0);
+ await page.locator('#play').click();await step(8);assert.equal((await state())[27],3600);await step(420);assert((await state())[27]<3600);assert.equal((await state())[10],0);
  await page.locator('#study summary').click();await page.locator('#technique').selectOption('mawashi');await page.locator('#lesson').click();await step(35);
  assert.equal((await state())[10],1);assert((await page.locator('#tech-foundation').textContent()).includes('quadril'));
  await page.locator('#pause').click();let tick=(await state())[0];await page.locator('#step').click();assert.equal((await state())[0],tick+1);

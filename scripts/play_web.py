@@ -80,7 +80,7 @@ class Builder:
         ]
         paths += sorted(p for p in (GAME / 'src').glob('*.lua')
                         if p.name not in ('techniques.lua', 'character_data.lua'))
-        paths += [GAME / 'tools/build.py', GAME / 'assets/characters.json', GAME / 'assets/character-assets.json', GAME / 'assets/specials.json', GAME / 'assets/special-assets.json', GAME / 'assets/ceremony.json', GAME / 'assets/ceremony-assets.json']
+        paths += [GAME / 'tools/build.py', GAME / 'assets/characters.json', GAME / 'assets/character-assets.json', GAME / 'assets/specials.json', GAME / 'assets/special-assets.json', GAME / 'assets/ceremony.json', GAME / 'assets/ceremony-assets.json', GAME / 'assets/hand-touch-assets.json']
         paths += [p for p in (GAME/'tools/identity_art.py',GAME/'assets/character-identities.json',GAME/'assets/identity-adult-attachments.json') if p.exists()]
         paths += sorted((GAME/'assets/source/identities').glob('*.png'))
         paths += [p for p in [GAME/'assets/character-visuals.json',GAME/'browser/editor.html',GAME/'tools/skin_palette.py',GAME/'tools/compile_character.py',GAME/'tools/character_registry.py',GAME/'tools/compile_special_profiles.py'] if p.exists()]

@@ -1,0 +1,12 @@
+[
+  {
+    "body": "adult",
+    "source": "adult-low-fix.png",
+    "prompt": "Edit this exact 3x3 original 2D karate sprite sheet. Preserve character identity, detailed 2D ink style, skin shading, anatomy, blank bald head, white gi, magenta belt, all nine full bodies and transparent gutters. Change ONLY pose 7 (bottom left cell): the friendly loose offered lead fist should be visibly LOWER, at upper HIP height just BELOW the belt, with softly bent elbow and forearm sloping downward to the right. Extend the offered knuckles further to the RIGHT than the torso, comfortably away from body, not touching own belt. This is for greeting a shorter child, no punch, no lunging. Keep other hand at side, upright body and planted feet. Rest of sheet unchanged. Correct two hands and two feet. No labels/background/3D/blur."
+  },
+  {
+    "body": "adult_female",
+    "source": "adult_female-low-final.png",
+    "prompt": "Edit ONLY bottom-left pose 7 of this 3x3 original karate sprite sheet. The adult woman's extended loose fist must be MUCH LOWER than shown: at UPPER-THIGH HEIGHT, aligned with approximately the MIDDLE of the magenta belt's hanging ends, clearly BELOW her waist/hip belt line by roughly 12 percent of her full standing height. Let the forearm slope diagonally down to the right, elbow gently bent, relaxed shoulder, fist extended far enough to screen RIGHT to gently greet a much shorter child. Preserve upright body, feet, head diameter, white gi, blank bald face, magenta belt marker, other hand beside thigh. This is a friendly pre-match hand touch, not striking. Keep other eight poses and style unchanged. Exactly nine full bodies, 3x3, real transparent background, clean crisp 2D lines, no labels or effects."
+  }
+]

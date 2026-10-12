@@ -47,6 +47,8 @@ characters['student_order']=list(characters['students'])
 characters['specials']=json.loads((HERE/'assets/special-assets.json').read_text(encoding='utf-8')) if (HERE/'assets/special-assets.json').exists() else {}
 ceremonies=json.loads((HERE/'assets/ceremony-assets.json').read_text(encoding='utf8')) if (HERE/'assets/ceremony-assets.json').exists() else {}
 for body,animation in ceremonies.items():characters['specials'][body]['ceremony']=animation
+touches=json.loads((HERE/'assets/hand-touch-assets.json').read_text(encoding='utf8')) if (HERE/'assets/hand-touch-assets.json').exists() else {}
+for body,animation in touches.items():characters['specials'][body]['hand_touch']=animation
 if characters['specials']:
  import subprocess,sys
  compiler=sys.executable

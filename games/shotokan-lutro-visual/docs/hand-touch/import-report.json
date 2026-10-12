@@ -1,0 +1,1408 @@
+{
+  "adult": {
+    "source_sha256": "8866fda2b7576abd8dae4bcca0d0ef1500b4e9504f58e992c938d4d8b1fd01b4",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 151,
+        "top": 40,
+        "bottom": 49
+      },
+      {
+        "frame": 6,
+        "x": 143,
+        "top": 56,
+        "bottom": 64
+      },
+      {
+        "frame": 7,
+        "x": 129,
+        "top": 80,
+        "bottom": 88
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.3050946029776675,
+        "head_source_area": 4054,
+        "head": [
+          101,
+          13,
+          120,
+          44
+        ],
+        "belt": [
+          97,
+          63,
+          125,
+          97
+        ],
+        "belt_visible": true,
+        "bounds": [
+          82,
+          12,
+          130,
+          143
+        ]
+      },
+      {
+        "scale": 0.31526442307692304,
+        "head_source_area": 3852,
+        "head": [
+          104,
+          10,
+          123,
+          41
+        ],
+        "belt": [
+          99,
+          62,
+          127,
+          95
+        ],
+        "belt_visible": true,
+        "bounds": [
+          83,
+          9,
+          144,
+          143
+        ]
+      },
+      {
+        "scale": 0.3050946029776675,
+        "head_source_area": 3960,
+        "head": [
+          102,
+          13,
+          121,
+          44
+        ],
+        "belt": [
+          106,
+          66,
+          124,
+          97
+        ],
+        "belt_visible": true,
+        "bounds": [
+          87,
+          13,
+          133,
+          143
+        ]
+      },
+      {
+        "scale": 0.3002518315018315,
+        "head_source_area": 3999,
+        "head": [
+          98,
+          16,
+          117,
+          47
+        ],
+        "belt": [
+          95,
+          68,
+          125,
+          100
+        ],
+        "belt_visible": true,
+        "bounds": [
+          87,
+          16,
+          138,
+          143
+        ]
+      },
+      {
+        "scale": 0.3050946029776675,
+        "head_source_area": 3758,
+        "head": [
+          98,
+          14,
+          117,
+          42
+        ],
+        "belt": [
+          95,
+          66,
+          126,
+          99
+        ],
+        "belt_visible": true,
+        "bounds": [
+          87,
+          14,
+          152,
+          143
+        ]
+      },
+      {
+        "scale": 0.3002518315018315,
+        "head_source_area": 4046,
+        "head": [
+          99,
+          16,
+          118,
+          47
+        ],
+        "belt": [
+          96,
+          68,
+          125,
+          98
+        ],
+        "belt_visible": true,
+        "bounds": [
+          86,
+          16,
+          144,
+          143
+        ]
+      },
+      {
+        "scale": 0.3002518315018315,
+        "head_source_area": 3872,
+        "head": [
+          90,
+          31,
+          109,
+          60
+        ],
+        "belt": [
+          107,
+          84,
+          116,
+          110
+        ],
+        "belt_visible": true,
+        "bounds": [
+          77,
+          30,
+          130,
+          143
+        ]
+      },
+      {
+        "scale": 0.3050946029776675,
+        "head_source_area": 3877,
+        "head": [
+          101,
+          29,
+          121,
+          59
+        ],
+        "belt": [
+          102,
+          79,
+          126,
+          108
+        ],
+        "belt_visible": true,
+        "bounds": [
+          83,
+          28,
+          135,
+          143
+        ]
+      },
+      {
+        "scale": 0.3050946029776675,
+        "head_source_area": 3873,
+        "head": [
+          100,
+          28,
+          119,
+          58
+        ],
+        "belt": [
+          98,
+          76,
+          124,
+          108
+        ],
+        "belt_visible": true,
+        "bounds": [
+          83,
+          27,
+          130,
+          143
+        ]
+      }
+    ],
+    "correction": {
+      "source": "adult-low-fix.png",
+      "cells": [
+        6
+      ],
+      "source_sha256": "f07b9ff6db651bfce2982b3dbfbd1506de2875ff7f8feaf5a6dca2a3698b1ec4"
+    }
+  },
+  "teen": {
+    "source_sha256": "4bfd4fa7d082717f6777b7a6bbd91e1709ae9fc7837708cce265959de3284199",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 138,
+        "top": 56,
+        "bottom": 64
+      },
+      {
+        "frame": 6,
+        "x": 135,
+        "top": 67,
+        "bottom": 75
+      },
+      {
+        "frame": 7,
+        "x": 130,
+        "top": 76,
+        "bottom": 84
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.27001326846528084,
+        "head_source_area": 4644,
+        "head": [
+          102,
+          35,
+          121,
+          64
+        ],
+        "belt": [
+          103,
+          79,
+          125,
+          105
+        ],
+        "belt_visible": true,
+        "bounds": [
+          91,
+          34,
+          125,
+          143
+        ]
+      },
+      {
+        "scale": 0.27001326846528084,
+        "head_source_area": 4530,
+        "head": [
+          103,
+          36,
+          122,
+          65
+        ],
+        "belt": [
+          101,
+          80,
+          121,
+          107
+        ],
+        "belt_visible": true,
+        "bounds": [
+          81,
+          35,
+          129,
+          143
+        ]
+      },
+      {
+        "scale": 0.27404331724834474,
+        "head_source_area": 4338,
+        "head": [
+          102,
+          34,
+          120,
+          62
+        ],
+        "belt": [
+          107,
+          78,
+          123,
+          104
+        ],
+        "belt_visible": true,
+        "bounds": [
+          91,
+          33,
+          130,
+          143
+        ]
+      },
+      {
+        "scale": 0.27001326846528084,
+        "head_source_area": 4472,
+        "head": [
+          102,
+          34,
+          121,
+          62
+        ],
+        "belt": [
+          107,
+          79,
+          123,
+          104
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          33,
+          134,
+          143
+        ]
+      },
+      {
+        "scale": 0.27001326846528084,
+        "head_source_area": 4498,
+        "head": [
+          101,
+          33,
+          119,
+          61
+        ],
+        "belt": [
+          99,
+          78,
+          124,
+          104
+        ],
+        "belt_visible": true,
+        "bounds": [
+          90,
+          33,
+          139,
+          143
+        ]
+      },
+      {
+        "scale": 0.27001326846528084,
+        "head_source_area": 4513,
+        "head": [
+          101,
+          33,
+          120,
+          62
+        ],
+        "belt": [
+          98,
+          78,
+          124,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          90,
+          33,
+          136,
+          143
+        ]
+      },
+      {
+        "scale": 0.2661000326904217,
+        "head_source_area": 4610,
+        "head": [
+          99,
+          38,
+          118,
+          66
+        ],
+        "belt": [
+          105,
+          84,
+          121,
+          107
+        ],
+        "belt_visible": true,
+        "bounds": [
+          89,
+          38,
+          131,
+          143
+        ]
+      },
+      {
+        "scale": 0.2622986036519871,
+        "head_source_area": 4563,
+        "head": [
+          102,
+          39,
+          120,
+          66
+        ],
+        "belt": [
+          98,
+          82,
+          123,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          90,
+          38,
+          134,
+          143
+        ]
+      },
+      {
+        "scale": 0.2661000326904217,
+        "head_source_area": 4524,
+        "head": [
+          103,
+          38,
+          121,
+          66
+        ],
+        "belt": [
+          104,
+          81,
+          125,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          37,
+          126,
+          143
+        ]
+      }
+    ]
+  },
+  "child": {
+    "source_sha256": "f6c0f5334cc42ca34d55332528bbce974892a159181bafef9bc4e8d60982e902",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 133,
+        "top": 76,
+        "bottom": 83
+      },
+      {
+        "frame": 6,
+        "x": 133,
+        "top": 84,
+        "bottom": 92
+      },
+      {
+        "frame": 7,
+        "x": 134,
+        "top": 92,
+        "bottom": 99
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.21598826549321598,
+        "head_source_area": 8746,
+        "head": [
+          98,
+          51,
+          120,
+          81
+        ],
+        "belt": [
+          102,
+          95,
+          120,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          91,
+          51,
+          124,
+          143
+        ]
+      },
+      {
+        "scale": 0.21179431859043507,
+        "head_source_area": 8837,
+        "head": [
+          100,
+          53,
+          122,
+          82
+        ],
+        "belt": [
+          104,
+          96,
+          121,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          86,
+          53,
+          132,
+          143
+        ]
+      },
+      {
+        "scale": 0.21179431859043507,
+        "head_source_area": 8850,
+        "head": [
+          99,
+          53,
+          121,
+          82
+        ],
+        "belt": [
+          105,
+          95,
+          120,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          94,
+          53,
+          132,
+          143
+        ]
+      },
+      {
+        "scale": 0.21179431859043507,
+        "head_source_area": 8958,
+        "head": [
+          99,
+          53,
+          121,
+          82
+        ],
+        "belt": [
+          99,
+          95,
+          120,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          95,
+          53,
+          128,
+          143
+        ]
+      },
+      {
+        "scale": 0.2138707334785766,
+        "head_source_area": 8571,
+        "head": [
+          97,
+          53,
+          119,
+          81
+        ],
+        "belt": [
+          104,
+          94,
+          119,
+          116
+        ],
+        "belt_visible": true,
+        "bounds": [
+          93,
+          53,
+          134,
+          143
+        ]
+      },
+      {
+        "scale": 0.2138707334785766,
+        "head_source_area": 8799,
+        "head": [
+          99,
+          53,
+          121,
+          82
+        ],
+        "belt": [
+          99,
+          95,
+          121,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          94,
+          53,
+          134,
+          143
+        ]
+      },
+      {
+        "scale": 0.21598826549321598,
+        "head_source_area": 8565,
+        "head": [
+          100,
+          62,
+          122,
+          90
+        ],
+        "belt": [
+          100,
+          103,
+          122,
+          123
+        ],
+        "belt_visible": true,
+        "bounds": [
+          95,
+          62,
+          135,
+          143
+        ]
+      },
+      {
+        "scale": 0.21179431859043507,
+        "head_source_area": 8737,
+        "head": [
+          99,
+          63,
+          121,
+          91
+        ],
+        "belt": [
+          104,
+          103,
+          121,
+          123
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          63,
+          127,
+          143
+        ]
+      },
+      {
+        "scale": 0.2138707334785766,
+        "head_source_area": 8702,
+        "head": [
+          98,
+          62,
+          120,
+          91
+        ],
+        "belt": [
+          104,
+          104,
+          120,
+          126
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          62,
+          125,
+          143
+        ]
+      }
+    ]
+  },
+  "adult_female": {
+    "source_sha256": "2081b2388a84b48efcf5d05bdefdb55c2ec7e966a4d51a3cbe3627a9af16a722",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 152,
+        "top": 43,
+        "bottom": 51
+      },
+      {
+        "frame": 6,
+        "x": 147,
+        "top": 57,
+        "bottom": 66
+      },
+      {
+        "frame": 7,
+        "x": 145,
+        "top": 86,
+        "bottom": 93
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.2996515679442509,
+        "head_source_area": 4103,
+        "head": [
+          100,
+          19,
+          119,
+          50
+        ],
+        "belt": [
+          99,
+          65,
+          124,
+          101
+        ],
+        "belt_visible": true,
+        "bounds": [
+          86,
+          18,
+          128,
+          143
+        ]
+      },
+      {
+        "scale": 0.3044846577498033,
+        "head_source_area": 3984,
+        "head": [
+          101,
+          18,
+          120,
+          51
+        ],
+        "belt": [
+          99,
+          65,
+          124,
+          101
+        ],
+        "belt_visible": true,
+        "bounds": [
+          81,
+          17,
+          136,
+          143
+        ]
+      },
+      {
+        "scale": 0.2996515679442509,
+        "head_source_area": 4085,
+        "head": [
+          100,
+          19,
+          119,
+          51
+        ],
+        "belt": [
+          98,
+          65,
+          123,
+          101
+        ],
+        "belt_visible": true,
+        "bounds": [
+          85,
+          18,
+          141,
+          143
+        ]
+      },
+      {
+        "scale": 0.2996515679442509,
+        "head_source_area": 3934,
+        "head": [
+          98,
+          20,
+          117,
+          51
+        ],
+        "belt": [
+          99,
+          66,
+          124,
+          99
+        ],
+        "belt_visible": true,
+        "bounds": [
+          85,
+          19,
+          149,
+          143
+        ]
+      },
+      {
+        "scale": 0.3044846577498033,
+        "head_source_area": 4013,
+        "head": [
+          97,
+          18,
+          117,
+          50
+        ],
+        "belt": [
+          98,
+          62,
+          124,
+          98
+        ],
+        "belt_visible": true,
+        "bounds": [
+          84,
+          17,
+          153,
+          143
+        ]
+      },
+      {
+        "scale": 0.2996515679442509,
+        "head_source_area": 3994,
+        "head": [
+          99,
+          20,
+          118,
+          51
+        ],
+        "belt": [
+          99,
+          65,
+          124,
+          100
+        ],
+        "belt_visible": true,
+        "bounds": [
+          85,
+          19,
+          148,
+          143
+        ]
+      },
+      {
+        "scale": 0.2904315196998124,
+        "head_source_area": 4068,
+        "head": [
+          101,
+          29,
+          119,
+          59
+        ],
+        "belt": [
+          98,
+          73,
+          125,
+          104
+        ],
+        "belt_visible": true,
+        "bounds": [
+          84,
+          29,
+          146,
+          143
+        ]
+      },
+      {
+        "scale": 0.3044846577498033,
+        "head_source_area": 3908,
+        "head": [
+          99,
+          24,
+          119,
+          56
+        ],
+        "belt": [
+          97,
+          70,
+          125,
+          102
+        ],
+        "belt_visible": true,
+        "bounds": [
+          82,
+          24,
+          129,
+          143
+        ]
+      },
+      {
+        "scale": 0.2996515679442509,
+        "head_source_area": 3846,
+        "head": [
+          100,
+          27,
+          119,
+          57
+        ],
+        "belt": [
+          100,
+          71,
+          124,
+          103
+        ],
+        "belt_visible": true,
+        "bounds": [
+          87,
+          26,
+          127,
+          143
+        ]
+      }
+    ],
+    "correction": {
+      "source": "adult_female-low-final.png",
+      "cells": [
+        6
+      ],
+      "source_sha256": "03f6cab950f95452c795f2021e401d1d64fbb132e23334295e5d2fef919ff08b"
+    }
+  },
+  "teen_female": {
+    "source_sha256": "0705af0eb39d012248713ff74e19c3c8839fc34eae532c1563d439513f33fafe",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 135,
+        "top": 61,
+        "bottom": 69
+      },
+      {
+        "frame": 6,
+        "x": 128,
+        "top": 72,
+        "bottom": 80
+      },
+      {
+        "frame": 7,
+        "x": 131,
+        "top": 85,
+        "bottom": 93
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.24815794445494047,
+        "head_source_area": 5614,
+        "head": [
+          99,
+          36,
+          119,
+          66
+        ],
+        "belt": [
+          101,
+          79,
+          121,
+          107
+        ],
+        "belt_visible": true,
+        "bounds": [
+          89,
+          36,
+          123,
+          143
+        ]
+      },
+      {
+        "scale": 0.254603605349874,
+        "head_source_area": 5502,
+        "head": [
+          102,
+          35,
+          122,
+          65
+        ],
+        "belt": [
+          102,
+          78,
+          121,
+          105
+        ],
+        "belt_visible": true,
+        "bounds": [
+          82,
+          34,
+          132,
+          143
+        ]
+      },
+      {
+        "scale": 0.2513394565633371,
+        "head_source_area": 5579,
+        "head": [
+          100,
+          35,
+          120,
+          64
+        ],
+        "belt": [
+          108,
+          82,
+          122,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          34,
+          127,
+          143
+        ]
+      },
+      {
+        "scale": 0.24815794445494047,
+        "head_source_area": 5556,
+        "head": [
+          101,
+          39,
+          121,
+          68
+        ],
+        "belt": [
+          109,
+          86,
+          115,
+          108
+        ],
+        "belt_visible": true,
+        "bounds": [
+          94,
+          39,
+          136,
+          143
+        ]
+      },
+      {
+        "scale": 0.2579536527886881,
+        "head_source_area": 5246,
+        "head": [
+          99,
+          35,
+          119,
+          64
+        ],
+        "belt": [
+          98,
+          79,
+          125,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          35,
+          136,
+          143
+        ]
+      },
+      {
+        "scale": 0.254603605349874,
+        "head_source_area": 5319,
+        "head": [
+          93,
+          37,
+          113,
+          66
+        ],
+        "belt": [
+          109,
+          81,
+          117,
+          106
+        ],
+        "belt_visible": true,
+        "bounds": [
+          86,
+          37,
+          129,
+          143
+        ]
+      },
+      {
+        "scale": 0.2613930348258706,
+        "head_source_area": 4991,
+        "head": [
+          99,
+          49,
+          119,
+          77
+        ],
+        "belt": [
+          107,
+          92,
+          121,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          49,
+          132,
+          143
+        ]
+      },
+      {
+        "scale": 0.26492537313432835,
+        "head_source_area": 4783,
+        "head": [
+          98,
+          50,
+          117,
+          77
+        ],
+        "belt": [
+          104,
+          92,
+          121,
+          117
+        ],
+        "belt_visible": true,
+        "bounds": [
+          88,
+          49,
+          127,
+          143
+        ]
+      },
+      {
+        "scale": 0.2579536527886881,
+        "head_source_area": 5020,
+        "head": [
+          98,
+          50,
+          118,
+          78
+        ],
+        "belt": [
+          102,
+          91,
+          120,
+          119
+        ],
+        "belt_visible": true,
+        "bounds": [
+          90,
+          50,
+          123,
+          143
+        ]
+      }
+    ]
+  },
+  "child_female": {
+    "source_sha256": "fd5084e40cb2d50833d7a7f70febd7da30c41bdee3f4d17e685c36eb72a6b6eb",
+    "contact": [
+      {
+        "frame": 5,
+        "x": 134,
+        "top": 76,
+        "bottom": 84
+      },
+      {
+        "frame": 6,
+        "x": 127,
+        "top": 85,
+        "bottom": 93
+      },
+      {
+        "frame": 7,
+        "x": 125,
+        "top": 95,
+        "bottom": 103
+      }
+    ],
+    "poses": [
+      {
+        "scale": 0.21484922214849222,
+        "head_source_area": 8087,
+        "head": [
+          98,
+          55,
+          120,
+          80
+        ],
+        "belt": [
+          102,
+          95,
+          122,
+          115
+        ],
+        "belt_visible": true,
+        "bounds": [
+          92,
+          55,
+          123,
+          143
+        ]
+      },
+      {
+        "scale": 0.21270072992700728,
+        "head_source_area": 8179,
+        "head": [
+          101,
+          56,
+          122,
+          81
+        ],
+        "belt": [
+          103,
+          95,
+          119,
+          116
+        ],
+        "belt_visible": true,
+        "bounds": [
+          91,
+          56,
+          131,
+          143
+        ]
+      },
+      {
+        "scale": 0.21484922214849222,
+        "head_source_area": 7999,
+        "head": [
+          99,
+          54,
+          120,
+          79
+        ],
+        "belt": [
+          105,
+          94,
+          119,
+          114
+        ],
+        "belt_visible": true,
+        "bounds": [
+          94,
+          54,
+          123,
+          143
+        ]
+      },
+      {
+        "scale": 0.21704156115000744,
+        "head_source_area": 7882,
+        "head": [
+          98,
+          54,
+          120,
+          79
+        ],
+        "belt": [
+          108,
+          97,
+          120,
+          114
+        ],
+        "belt_visible": true,
+        "bounds": [
+          96,
+          54,
+          128,
+          143
+        ]
+      },
+      {
+        "scale": 0.21484922214849222,
+        "head_source_area": 7826,
+        "head": [
+          98,
+          54,
+          119,
+          78
+        ],
+        "belt": [
+          99,
+          94,
+          119,
+          114
+        ],
+        "belt_visible": true,
+        "bounds": [
+          95,
+          54,
+          135,
+          143
+        ]
+      },
+      {
+        "scale": 0.21704156115000744,
+        "head_source_area": 7886,
+        "head": [
+          96,
+          53,
+          117,
+          78
+        ],
+        "belt": [
+          107,
+          93,
+          118,
+          114
+        ],
+        "belt_visible": true,
+        "bounds": [
+          93,
+          53,
+          128,
+          143
+        ]
+      },
+      {
+        "scale": 0.21927910301753328,
+        "head_source_area": 7733,
+        "head": [
+          97,
+          62,
+          118,
+          87
+        ],
+        "belt": [
+          107,
+          101,
+          119,
+          121
+        ],
+        "belt_visible": true,
+        "bounds": [
+          94,
+          62,
+          126,
+          143
+        ]
+      },
+      {
+        "scale": 0.21704156115000744,
+        "head_source_area": 7788,
+        "head": [
+          98,
+          63,
+          119,
+          88
+        ],
+        "belt": [
+          104,
+          101,
+          120,
+          121
+        ],
+        "belt_visible": true,
+        "bounds": [
+          93,
+          63,
+          124,
+          143
+        ]
+      },
+      {
+        "scale": 0.21704156115000744,
+        "head_source_area": 7780,
+        "head": [
+          98,
+          63,
+          120,
+          88
+        ],
+        "belt": [
+          103,
+          101,
+          121,
+          120
+        ],
+        "belt_visible": true,
+        "bounds": [
+          93,
+          63,
+          123,
+          143
+        ]
+      }
+    ]
+  }
+}

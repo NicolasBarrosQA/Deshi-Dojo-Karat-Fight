@@ -3,7 +3,7 @@
     "Appearance keys reuse animation/atlas across names, IDs and belts",
     "Configuration errors rejected with explicit messages",
     "All 2484 body/pose/height/build transforms stay inside cells, anchored to the same floor",
-    "Retinta is baked exactly into all 81 special/knockdown/presentation frames, using the same material as basic moves",
+    "Retinta is baked exactly into all 90 special/knockdown/presentation frames, using the same material as basic moves",
     "9 characters across 3 bodies: create, edit, duplicate ID, persistence, shared profiles and same-origin write protection",
     "Real editor create -> personalize -> save -> reopen -> select P1/P2 -> keyboard combat -> CPU -> offline HTML",
     "Generated Lutro contains the same validated roster and appearance manifests as HTML; physical Pi not executed"

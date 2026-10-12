@@ -1,12 +1,18 @@
 {
   "risk": "alto",
-  "approved_snapshot_commit": "0f4e931",
   "branch": "codex/shotokan-specials",
   "runtime": {
     "six_bodies_both_ports": true,
-    "intro_ticks": 300,
-    "real_seconds_at_quarter_speed": 4.971899999976158,
-    "native_retained_bytes_with_intro": 55031600,
+    "mixed_body_pairings": 36,
+    "intro_ticks": 420,
+    "named_orders": [
+      "REI",
+      "TOQUEM AS MAOS",
+      "YOI",
+      "HAJIME!!!"
+    ],
+    "real_seconds_at_quarter_speed": 6.987699999988079,
+    "native_retained_bytes_with_intro": 57414136,
     "native_reselection_no_extra_allocations": true,
     "locked_damage_timer_cpu_inputs": true,
     "held_attack_does_not_leak": true,
@@ -19,38 +25,49 @@
       "children"
     ]
   },
-  "art_checks": "54 frames / 432 belts / 648 skin variants; exact approved guard endpoints",
+  "hand_touch_art_checks": {
+    "poses": 54,
+    "belt_combinations": 432,
+    "skin_combinations": 648,
+    "mixed_body_height_build_contact_cases": 2916,
+    "mirror_alpha_and_materials": true
+  },
+  "ceremony_art_checks": "54 frames / 432 belts / 648 skins; approved guard unchanged",
   "combat_regression_groups": 13,
   "specials_regression": "passed",
-  "jump_regression_cases": 24,
-  "creator_skin_frames_verified": 81,
+  "creator_skin_frames_verified": 90,
   "creator_e2e": "passed",
-  "playback_e2e": "passed",
+  "package": "passed",
+  "editor_rebuild_cache": "passed",
   "native_device_executed": false,
-  "source_prompts": "assets/source/ceremony/prompts.json",
+  "source_prompts": [
+    "assets/source/ceremony/prompts.json",
+    "assets/source/hand-touch/prompts.json",
+    "assets/source/hand-touch/correction-prompts.json"
+  ],
   "generation_mode": "built-in imagegen",
   "gifs": {
-    "html_sha256": "939ba11ee23178ac52a198ab9206514b32fe34ab6c8c8eb71b232f8322011798",
+    "html_sha256": "1b885156399631fddfb3a29c69f9248fe4c33f99a79a0beaa6ea331a7ffb4515",
     "gifs": {
       "adults": {
-        "source_frames": 117,
-        "gif_sha256": "29ff08253202b00a0ca307c38c923919b983c8a95769baa7b085f7fe9b9ea19d",
-        "screenshots_sha256": "cd55fcb84cff132addde5d7a026f37ba61346e4115b16518949be8527ec87422"
+        "source_frames": 161,
+        "gif_sha256": "214c4574fcce1a61f26bf77f68b8ab53462aa60401f9a04a1efda01177e3a028",
+        "screenshots_sha256": "a265b13c066f9ad8edae622e93466a7f1f0ae4c0d4f3a0d533395af37ac07049"
       },
       "teens": {
-        "source_frames": 117,
-        "gif_sha256": "e96ea54eb8134223a9ff10066779bcb62a16b2e0d36c81fa1ccf3910e72b13a2",
-        "screenshots_sha256": "af67cad4230c20a3bb2faf43c67d9a8fc1ff5fb61287eea0176efe225dd7915e"
+        "source_frames": 161,
+        "gif_sha256": "8965313896102ecc3e2770905ba36f56379089d24dc41ccbce2e704bbff6620d",
+        "screenshots_sha256": "5642a4c827db74c5545875f065bfaa5cc3637b7ec21b7250e0421cd326d466f3"
       },
       "children": {
-        "source_frames": 117,
-        "gif_sha256": "0b5e8ddf6772c2648e54d5c7138b091db9eb15ff61f0a76c68a770f228ab663a",
-        "screenshots_sha256": "a72d6486ad5bdc82177dab5ca20bebdf6c77851968b38af75420e49b2d40e0aa"
+        "source_frames": 161,
+        "gif_sha256": "128bb8653d55061dc318a9731cc421b877e6220570478d64324fddf480d2b3a4",
+        "screenshots_sha256": "03b0f81717d4a54f644853c307124b0e3906162e3b0b4477a4075c8e347c4089"
       }
     }
   },
   "artifacts": {
-    "deshi-dojo-visual.html": "939ba11ee23178ac52a198ab9206514b32fe34ab6c8c8eb71b232f8322011798",
-    "deshi-dojo-visual.lutro": "4d18630870dd3864e0c850396235b6971233690fe86478a56f8741c30f83b1e7"
+    "deshi-dojo-visual.html": "1b885156399631fddfb3a29c69f9248fe4c33f99a79a0beaa6ea331a7ffb4515",
+    "deshi-dojo-visual.lutro": "9722b1260255f4a75dd7ba74f08618b629d2968c30f378e2e952a332257b9ed3"
   }
 }

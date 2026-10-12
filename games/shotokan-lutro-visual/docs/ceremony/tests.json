@@ -1,8 +1,15 @@
 {
   "six_bodies_both_ports": true,
-  "intro_ticks": 300,
-  "real_seconds_at_quarter_speed": 4.971899999976158,
-  "native_retained_bytes_with_intro": 55031600,
+  "mixed_body_pairings": 36,
+  "intro_ticks": 420,
+  "named_orders": [
+    "REI",
+    "TOQUEM AS MAOS",
+    "YOI",
+    "HAJIME!!!"
+  ],
+  "real_seconds_at_quarter_speed": 6.987699999988079,
+  "native_retained_bytes_with_intro": 57414136,
   "native_reselection_no_extra_allocations": true,
   "locked_damage_timer_cpu_inputs": true,
   "held_attack_does_not_leak": true,

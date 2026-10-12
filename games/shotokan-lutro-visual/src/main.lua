@@ -531,14 +531,12 @@ function lutro.draw()
   centered(Scene.matchWinner and winner..' VENCEU A PARTIDA' or Scene.message,103)
   centered(Scene.matchWinner and 'START / ENTER: REVANCHE' or 'PROXIMO ROUND',116)
  end
- if Scene.intro then
-  local intro=Scene.intro;local digit=math.ceil((intro.total-intro.age)/60)
-  local segments={{0,0,1,0,0,1,0},{1,0,1,1,1,0,1},{1,0,1,1,0,1,1},{0,1,1,1,0,1,0},{1,1,0,1,0,1,1}}
-  local rects={{0,0,18,3},{0,0,3,22},{15,0,3,22},{0,20,18,3},{0,22,3,22},{15,22,3,22},{0,42,18,3}}
-  box(174,49,36,54,13,23,29);box(174,49,36,54,185,151,94,true)
-  for i,on in ipairs(segments[digit]) do local r=rects[i];if on==1 then box(183+r[1],54+r[2],r[3],r[4],245,208,128) end end
-  centered('ROUND '..Scene.round,43);centered(intro.label,109)
-  box(152,120,80,2,60,71,71);box(152,120,80*(intro.total-intro.age)/intro.total,2,185,151,94)
+ if Scene.intro or Scene.message=='HAJIME!!!' and Scene.messageTicks>0 then
+  local label=Scene.intro and Scene.intro.label or 'HAJIME!!!'
+  local width=#label*6+32
+  box((384-width)/2,41,width,17,13,23,29);box((384-width)/2,41,width,17,185,151,94,true)
+  box((384-width)/2-14,48,9,2,185,151,94);box((384+width)/2+5,48,9,2,185,151,94)
+  centered(label,47)
  end
  if Scene.menu then
   Characters.portrait(1,28,3) Characters.portrait(2,324,3)

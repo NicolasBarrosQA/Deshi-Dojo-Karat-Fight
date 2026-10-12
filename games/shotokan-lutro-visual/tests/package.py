@@ -33,6 +33,7 @@ with zipfile.ZipFile(HERE/'dist/deshi-dojo-visual.lutro') as cart:
                     assert raw==(HERE/'src'/name).read_bytes()
     specials=json.loads((HERE/'assets/special-assets.json').read_text())
     for body,animation in json.loads((HERE/'assets/ceremony-assets.json').read_text()).items():specials[body]['ceremony']=animation
+    for body,animation in json.loads((HERE/'assets/hand-touch-assets.json').read_text()).items():specials[body]['hand_touch']=animation
     for groups in specials.values():
         for animation in groups.values():
             for part in [animation['body'],*animation['belts'].values()]:

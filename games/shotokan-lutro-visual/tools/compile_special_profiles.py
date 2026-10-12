@@ -9,6 +9,9 @@ def compile_all():
  ceremony=HERE/'assets/ceremony-assets.json'
  if ceremony.exists():
   for body,animation in json.loads(ceremony.read_text()).items():bases[body]['ceremony']=animation
+ touch=HERE/'assets/hand-touch-assets.json'
+ if touch.exists():
+  for body,animation in json.loads(touch.read_text()).items():bases[body]['hand_touch']=animation
  result=json.loads(target.read_text()) if target.exists() else {}
  from identity_art import sources as identity_sources,attachments,replace,paint,head
  signatures={}
@@ -16,6 +19,7 @@ def compile_all():
  for body,groups in bases.items():
   digest=hashlib.sha256(source.read_bytes()+Path(__file__).read_bytes()+(HERE/'tools/compile_character.py').read_bytes()+(HERE/'tools/character_registry.py').read_bytes()+(HERE/'tools/skin_palette.py').read_bytes())
   if ceremony.exists():digest.update(ceremony.read_bytes())
+  if touch.exists():digest.update(touch.read_bytes())
   for group in groups.values():
    for part in [group['body'],*group['belts'].values()]:digest.update((HERE/'src/assets'/(part['right']+'.png')).read_bytes())
   body_signatures[body]=digest.digest()
@@ -67,6 +71,13 @@ def compile_all():
        light=.35+.65*min(1,max(r,g,b)/110);im.putpixel((x,y),(*(min(255,round(c*light)) for c in HAIR_COLORS[ap['hair_color']]),alpha))
     frames.append(transform(im,ap,a['bounds'][index]))
    rec={'body':pack(frames,f'special-profile-{key}-{group}',HERE/'src/assets'),'belts':{},'bounds':[]}
+   if a.get('touch'):
+    from PIL import ImageDraw
+    rec['touch']=[]
+    for point in a['touch']:
+     marker=Image.new('RGBA',(224,144));ImageDraw.Draw(marker).rectangle((point['x']-2,point['top'],point['x'],point['bottom']-1),fill='white')
+     bounds=transform(marker,ap,a['bounds'][point['frame']-1]).getbbox()
+     rec['touch'].append({'frame':point['frame'],'x':bounds[2]-1,'top':bounds[1],'bottom':bounds[3]})
    for belt,part in a['belts'].items():
     belts=[transform(im,ap,a['bounds'][i]) for i,im in enumerate(unpack(part))]
     rec['belts'][belt]=pack(belts,f'special-geometry-{gkey}-{group}-belt-{belt}',HERE/'src/assets')

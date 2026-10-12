@@ -5,7 +5,7 @@ HERE=Path(__file__).resolve().parents[1];sys.path.insert(0,str(HERE/'tools'))
 spec=importlib.util.spec_from_file_location('editor_cache_server',HERE.parents[1]/'scripts/play_web.py');server=importlib.util.module_from_spec(spec);spec.loader.exec_module(server)
 with tempfile.TemporaryDirectory(prefix='dojo-editor-cache-') as temp:
     root=Path(temp);game=root/'game';server.GAME=game;server.ROOT=root
-    names=['src/main.lua','src/art.lua','src/cpu.lua','assets/techniques.json','assets/import.json','browser/template.html','browser/fengari-web.js','browser/runtime-provenance.json','tools/build.py','assets/characters.json','assets/character-assets.json','assets/specials.json','assets/special-assets.json','assets/ceremony.json','assets/ceremony-assets.json','assets/character-visuals.json','tools/skin_palette.py']
+    names=['src/main.lua','src/art.lua','src/cpu.lua','assets/techniques.json','assets/import.json','browser/template.html','browser/fengari-web.js','browser/runtime-provenance.json','tools/build.py','assets/characters.json','assets/character-assets.json','assets/specials.json','assets/special-assets.json','assets/ceremony.json','assets/ceremony-assets.json','assets/hand-touch-assets.json','assets/character-visuals.json','tools/skin_palette.py']
     for name in names:p=game/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('input')
     (game/'src/assets').mkdir();calls=[];saved=server.subprocess.run
     def build(*args,**kwargs):

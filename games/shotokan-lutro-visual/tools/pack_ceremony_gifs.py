@@ -5,10 +5,12 @@ from PIL import Image
 ROOT=Path(__file__).resolve().parents[1];out=ROOT/'docs/ceremony'
 result={'html_sha256':hashlib.sha256((ROOT/'dist/deshi-dojo-visual.html').read_bytes()).hexdigest(),'gifs':{}}
 for name in ('adults','teens','children'):
-    paths=sorted((ROOT/'.runtime/ceremony'/name).glob('*.png'))
+    paths=sorted((ROOT/'.runtime/hand-touch'/name).glob('*.png'))
     frames=[Image.open(p).convert('RGB').resize((768,448),Image.Resampling.NEAREST).quantize(colors=256,method=Image.Quantize.FASTOCTREE) for p in paths]
     target=out/(name+'.gif')
-    frames[0].save(target,save_all=True,append_images=frames[1:],duration=50,loop=0,optimize=True,disposal=1)
+    temporary=target.with_suffix('.tmp')
+    frames[0].save(temporary,format='GIF',save_all=True,append_images=frames[1:],duration=50,loop=0,optimize=True,disposal=1)
+    temporary.replace(target)
     with Image.open(target) as encoded:
         assert sum(encoded.seek(i) or encoded.info['duration'] for i in range(encoded.n_frames))==len(frames)*50
         elapsed=0

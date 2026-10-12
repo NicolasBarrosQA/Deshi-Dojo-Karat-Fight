@@ -23,7 +23,7 @@ def fixture(parent):
     for name in ('techniques.json', 'specials.json', 'ceremony.json', 'import.json', 'characters.json', 'character-assets.json'):
         shutil.copyfile(HERE / 'assets' / name, game / 'assets' / name)
     if (HERE/'assets/character-visuals.json').exists():shutil.copyfile(HERE/'assets/character-visuals.json',game/'assets/character-visuals.json')
-    for name in ('special-assets.json','special-profiles.json','ceremony-assets.json'):
+    for name in ('special-assets.json','special-profiles.json','ceremony-assets.json','hand-touch-assets.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
     for name in ('character-identities.json','identity-adult-attachments.json','character-masks.json'):
         if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
