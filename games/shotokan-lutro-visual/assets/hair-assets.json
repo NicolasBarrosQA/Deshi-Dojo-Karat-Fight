@@ -59,7 +59,8 @@
           "height": 340
         }
       },
-      "category": "masculino"
+      "category": "masculino",
+      "available": true
     },
     "medio_ondulado": {
       "label": "MÃ©dio ondulado",
@@ -119,7 +120,8 @@
           "height": 340
         }
       },
-      "category": "masculino"
+      "category": "masculino",
+      "available": true
     },
     "crespo_curto": {
       "label": "Crespo curto",
@@ -179,7 +181,8 @@
           "height": 340
         }
       },
-      "category": "masculino"
+      "category": "masculino",
+      "available": true
     },
     "buzz_uniforme": {
       "label": "Buzz uniforme",
@@ -241,7 +244,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "crew_cut": {
       "label": "Crew cut",
@@ -303,7 +307,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "caesar": {
       "label": "Caesar",
@@ -365,7 +370,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "french_crop": {
       "label": "French crop",
@@ -427,7 +433,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "coque_trancado_baixo": {
       "label": "Coque trançado baixo",
@@ -489,7 +496,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "risca_lateral": {
       "label": "Risca lateral",
@@ -551,7 +559,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "cortina_curta": {
       "label": "Cortina curta",
@@ -613,7 +622,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "franja_lateral": {
       "label": "Franja lateral",
@@ -675,7 +685,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "cacheado_taper": {
       "label": "Cacheado taper",
@@ -737,7 +748,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "cacheado_medio": {
       "label": "Cacheado médio",
@@ -799,7 +811,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "afro_redondo": {
       "label": "Afro redondo",
@@ -861,7 +874,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "pixie_classico": {
       "label": "Pixie clássico",
@@ -923,7 +937,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "pixie_longo": {
       "label": "Pixie longo",
@@ -985,7 +1000,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "bob_reto": {
       "label": "Bob reto",
@@ -1047,7 +1063,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "bob_franja": {
       "label": "Bob com franja",
@@ -1109,7 +1126,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "bob_ondulado": {
       "label": "Bob ondulado",
@@ -1171,7 +1189,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "bob_cacheado": {
       "label": "Bob cacheado",
@@ -1233,7 +1252,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "coque_bailarina": {
       "label": "Coque bailarina",
@@ -1295,7 +1315,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "rabo_alto_curto": {
       "label": "Rabo alto curto",
@@ -1357,7 +1378,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "rabo_baixo_curto": {
       "label": "Rabo baixo curto",
@@ -1419,7 +1441,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     }
   }
 }

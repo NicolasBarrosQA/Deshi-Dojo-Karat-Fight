@@ -32,6 +32,7 @@ def main(partial=False):
     plan=read(SOURCE/'production-plan.json');hair=read(ROOT/'assets/hair-assets.json')
     for value in hair['styles'].values():value.setdefault('category','masculino')
     beard={'version':1,'styles':{}};missing=[];hashes=set()
+    beard_path=ROOT/'assets/beard-assets.json';previous_beard=read(beard_path) if beard_path.exists() else {'styles':{}}
     for entry in plan['entries']:
         ident=entry['id'];path=SOURCE/(ident+'-views.png')
         if not path.exists():missing.append(ident);continue
@@ -39,6 +40,8 @@ def main(partial=False):
         if digest in hashes:raise ValueError(f'Duplicate authored source: {ident}')
         hashes.add(digest)
         record={'label':entry['label'],'category':entry['category'],'brief':entry['brief'],'source_sha256':digest,'views':extract(path,ident,entry['category'])}
+        previous=(previous_beard if entry['category']=='barba' else hair)['styles'].get(ident,{})
+        record['available']=previous.get('available',False)
         (beard if entry['category']=='barba' else hair)['styles'][ident]=record
     if missing and not partial:raise ValueError('Production not complete: '+', '.join(missing))
     hair['version']=3

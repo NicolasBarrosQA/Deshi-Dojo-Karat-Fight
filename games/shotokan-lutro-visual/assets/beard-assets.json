@@ -61,7 +61,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "barba_cheia": {
       "label": "Barba cheia",
@@ -123,7 +124,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "barba_quadrada": {
       "label": "Barba quadrada",
@@ -185,7 +187,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "cavanhaque": {
       "label": "Cavanhaque",
@@ -247,7 +250,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "van_dyke": {
       "label": "Van Dyke",
@@ -309,7 +313,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     },
     "bigode": {
       "label": "Bigode",
@@ -371,7 +376,8 @@
           "width": 340.0,
           "height": 340.0
         }
-      }
+      },
+      "available": false
     }
   }
 }

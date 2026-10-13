@@ -1,5 +1,7 @@
 # Cabelos cotidianos e barbas
 
+**Estado atual: lote reprovado visualmente pelo usuário e retirado das opções do editor.** Somente os três cortes aprovados anteriormente continuam oferecidos. As fontes e os resultados abaixo foram preservados para revisão; os testes verificam geometria e funcionamento, não aprovação estética. Importar novamente as fontes mantém essa retirada.
+
 Entrega ajustada ao pedido final: **10 cabelos masculinos novos, 10 femininos e seis estilos de barba**. Os três cabelos aprovados anteriormente continuam disponíveis: 23 cabelos no total.
 
 Masculinos novos: buzz, crew cut, Caesar, French crop, risca lateral, repartido ao meio, franja lateral, cacheado curto, cacheado médio e afro arredondado. Femininos: pixie curto e longo, chanel reto, com franja, ondulado e cacheado, coque de bailarina, rabo alto, rabo baixo e coque trançado. Barbas: curta, cheia, quadrada, cavanhaque, Van Dyke e bigode.

@@ -1,0 +1,18 @@
+{
+  "status": "unapproved_art_study",
+  "views_authored": 1,
+  "poses_previewed": [
+    "guard"
+  ],
+  "registration_reference": "approved curto_classico three_quarter",
+  "checks": [
+    {
+      "body": "child_female",
+      "outside_hair_unchanged": true
+    },
+    {
+      "body": "adult_female",
+      "outside_hair_unchanged": true
+    }
+  ]
+}
