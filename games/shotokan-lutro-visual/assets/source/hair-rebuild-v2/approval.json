@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-12",
+  "approved_styles": ["masculino_curto", "feminino_chanel"],
+  "scope": "Visual art of the two guard studies shown across six original bodies",
+  "reference": "docs/hair-rebuild-v2/native-six-head-studies.png",
+  "user_message": "aprovado esses dois cortes",
+  "all_pose_fitting_validated": true,
+  "catalog_published": true,
+  "integration_evidence": "docs/hair-rebuild-v2/native-runtime-tests.json",
+  "previous_styles_approved": false
+}

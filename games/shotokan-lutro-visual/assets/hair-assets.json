@@ -1,8 +1,8 @@
 {
-  "version": 3,
+  "version": 4,
   "styles": {
     "curto_classico": {
-      "label": "Curto clÃ¡ssico",
+      "label": "Curto clÃƒÂ¡ssico",
       "views": {
         "front": {
           "path": "assets/source/hair-v1/curto_classico-front.png",
@@ -60,10 +60,10 @@
         }
       },
       "category": "masculino",
-      "available": true
+      "available": false
     },
     "medio_ondulado": {
-      "label": "MÃ©dio ondulado",
+      "label": "MÃƒÂ©dio ondulado",
       "views": {
         "front": {
           "path": "assets/source/hair-v1/medio_ondulado-front.png",
@@ -121,7 +121,7 @@
         }
       },
       "category": "masculino",
-      "available": true
+      "available": false
     },
     "crespo_curto": {
       "label": "Crespo curto",
@@ -182,7 +182,7 @@
         }
       },
       "category": "masculino",
-      "available": true
+      "available": false
     },
     "buzz_uniforme": {
       "label": "Buzz uniforme",
@@ -437,7 +437,7 @@
       "available": false
     },
     "coque_trancado_baixo": {
-      "label": "Coque trançado baixo",
+      "label": "Coque tranÃ§ado baixo",
       "category": "feminino",
       "brief": "neat center-part crown, two fine side braids merging into a compact low nape bun",
       "source_sha256": "bbc4fd4cad7d3bd7abc61e79c3bbc7c8d3fd52d544bed6b2e9234e6e7c8a3409",
@@ -752,7 +752,7 @@
       "available": false
     },
     "cacheado_medio": {
-      "label": "Cacheado médio",
+      "label": "Cacheado mÃ©dio",
       "category": "masculino",
       "brief": "round ear length loose curly mop, separated ringlets",
       "source_sha256": "0284d3447212c7224edb8824ffa5d5b885ee4b1da6a107bea655ceb60e4b64ed",
@@ -878,7 +878,7 @@
       "available": false
     },
     "pixie_classico": {
-      "label": "Pixie clássico",
+      "label": "Pixie clÃ¡ssico",
       "category": "feminino",
       "brief": "very short feminine pixie with tapered nape and tiny soft side fringe",
       "source_sha256": "a7d2d1c9435b6ef2c46ee1b62794132c327476aeb43808cb3dbd06c7852a11df",
@@ -1443,6 +1443,22 @@
         }
       },
       "available": false
+    },
+    "masculino_curto": {
+      "label": "Curto aprovado",
+      "category": "masculino",
+      "available": true,
+      "views": {},
+      "pose_layers": "native-hair-poses.json",
+      "revision": "native-skull-v2"
+    },
+    "feminino_chanel": {
+      "label": "Chanel aprovado",
+      "category": "feminino",
+      "available": true,
+      "views": {},
+      "pose_layers": "native-hair-poses.json",
+      "revision": "native-skull-v2"
     }
   }
 }

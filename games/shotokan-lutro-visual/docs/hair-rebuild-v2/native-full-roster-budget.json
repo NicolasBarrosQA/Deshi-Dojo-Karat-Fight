@@ -1,0 +1,10 @@
+{
+  "six_characters_per_roster": true,
+  "both_facings_all_basic_special_greeting_poses": true,
+  "decoded_surface_bytes": [
+    98248792,
+    98720448
+  ],
+  "budget_bytes": 134217728,
+  "physical_Pi_executed": false
+}

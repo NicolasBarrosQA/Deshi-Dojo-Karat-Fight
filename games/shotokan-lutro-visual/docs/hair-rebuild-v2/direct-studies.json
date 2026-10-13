@@ -1,0 +1,26 @@
+{
+  "status": "unapproved_guard_studies",
+  "old_radius_fitting_used": false,
+  "studies": [
+    {
+      "body": "adult",
+      "method": "authored-on-native-head-crop",
+      "crop_origin": [
+        83,
+        -3
+      ],
+      "visible_hair_pixels": 245,
+      "original_body_preserved_outside_hair": true
+    },
+    {
+      "body": "adult_female",
+      "method": "authored-on-native-head-crop",
+      "crop_origin": [
+        78,
+        -4
+      ],
+      "visible_hair_pixels": 375,
+      "original_body_preserved_outside_hair": true
+    }
+  ]
+}

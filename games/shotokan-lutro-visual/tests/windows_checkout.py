@@ -33,6 +33,10 @@ def fixture(parent):
     if source.exists():shutil.copytree(source,game/'assets/source/hair-v1')
     source=HERE/'assets/source/hair-catalog-v1'
     if source.exists():shutil.copytree(source,game/'assets/source/hair-catalog-v1')
+    for name in ('native-hair-poses.json',):
+        if (HERE/'assets'/name).exists():shutil.copyfile(HERE/'assets'/name,game/'assets'/name)
+    source=HERE/'assets/native-hair-v2'
+    if source.exists():shutil.copytree(source,game/'assets/native-hair-v2')
     return game
 
 

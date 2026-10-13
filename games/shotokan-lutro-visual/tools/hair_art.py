@@ -23,7 +23,11 @@ def sources(student):
     if not any(style for style,_ in selected):return []
     result=[Path(__file__),ROOT/'tools/hair_palette.py',ROOT/'assets/hair-bindings.json']
     for style,catalog in selected:
-        if style:result.extend([ROOT/'assets'/catalog,*(ROOT/v['path'] for v in style['views'].values())])
+        if style:
+            result.extend([ROOT/'assets'/catalog,*(ROOT/v['path'] for v in style['views'].values())])
+            if style.get('pose_layers'):
+                manifest=read(style['pose_layers']);entry=manifest['styles'][student['hair']][student['body']]
+                result.extend([ROOT/'assets'/style['pose_layers'],ROOT/entry['path']])
     if selected[1][0]:result.append(ROOT/'assets/beard-bindings.json')
     return result
 
@@ -38,6 +42,15 @@ def _layer(path,stamp,width,height,color):
 def overlay(student,group,index,kind='hair'):
     style=(beards() if kind=='beard' else styles()).get(student.get(kind))
     if not style:return None
+    if kind=='hair' and style.get('pose_layers'):
+        entry=read(style['pose_layers'])['styles'][student['hair']][student['body']]
+        f=entry['groups'][group][index];path=ROOT/entry['path']
+        color=student['appearance']['hair_color']
+        atlas=_layer(str(path),path.stat().st_mtime_ns,1,1,'castanho_escuro' if color=='original' else color)
+        crop=atlas.crop((f['sx'],f['sy'],f['sx']+f['w'],f['sy']+f['h']))
+        result=Image.new('RGBA',(224,144+PAD));result.paste(crop,(f['x'],f['y']))
+        result.info['logical_origin_y']=-PAD
+        return result
     binding=read('hair-bindings.json')[student['body']][group][index]
     view=style['views'][binding['view']];path=ROOT/view['path'];sx=binding['width']/view['width'];sy=binding.get('height',binding['width'])/view.get('height',view['width'])
     color=student['appearance'].get('beard_color','original') if kind=='beard' else student['appearance']['hair_color']

@@ -13,7 +13,10 @@ from character_registry import read,validate,visual_key
 
 def run(complete=True):
     start=time.monotonic();hair=styles();facial=beards();counts=Counter(v.get('category','masculino') for v in hair.values())
-    if complete:assert counts=={'masculino':13,'feminino':10} and len(facial)==6,(counts,len(facial))
+    if complete:
+        legacy=Counter(v.get('category','masculino') for v in hair.values() if not v.get('pose_layers'))
+        assert legacy=={'masculino':13,'feminino':10} and len(facial)==6,(legacy,len(facial))
+        assert {k for k,v in hair.items() if v.get('available',True)}=={'masculino_curto','feminino_chanel'}
     poses=animations();checks=geometry=materials=0;errors=[];reviews=ROOT/'docs/hair-catalog';reviews.mkdir(parents=True,exist_ok=True)
     # Body scale contracts are independent of the selected hair material.
     for body,groups in poses.items():

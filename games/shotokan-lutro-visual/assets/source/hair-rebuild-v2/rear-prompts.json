@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "edit_target": "six-actual-rear-heads-reference.png",
+  "variants": [
+    {"style": "masculino_curto", "style_reference": "masculino_curto-six-heads.png", "output": "masculino_curto-six-rear-heads.png"},
+    {"style": "feminino_chanel", "style_reference": "feminino_chanel-six-heads.png", "output": "feminino_chanel-six-rear-heads.png"}
+  ],
+  "brief": "Add the same approved haircut from the rear three-quarter angle to each of the six actual bald heads. Preserve each original head position, silhouette, body, face, ear, shoulder, native pixel scale, exact 1536x1024 three-column two-row grid. Subjects face right and away. Natural crown and nape. Crisp native64x64 pixels enlarged8x. Four to five broad clusters. No strands, blur, shadows or halos. Hair material only green #103510 #245e24 #438b43 #70b870 #A4D4A4. Transparent background. No text. Generated body pixels are never imported."
+}

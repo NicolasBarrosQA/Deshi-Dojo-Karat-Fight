@@ -1,0 +1,75 @@
+{
+  "previews": [
+    {
+      "body": "adult",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "adult",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    },
+    {
+      "body": "teen",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "teen",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    },
+    {
+      "body": "child",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "child",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    },
+    {
+      "body": "adult_female",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "adult_female",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    },
+    {
+      "body": "teen_female",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "teen_female",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    },
+    {
+      "body": "child_female",
+      "hair": "masculino_curto",
+      "color": "preto"
+    },
+    {
+      "body": "child_female",
+      "hair": "feminino_chanel",
+      "color": "branco"
+    }
+  ],
+  "custom_color": true,
+  "offline": true,
+  "six_bases_both_cuts": true,
+  "all_special_frames_both_ports": true,
+  "real_jump_nidan_ushiro": true,
+  "native_retained_basic_bytes": [
+    52453472,
+    52682400
+  ],
+  "physical_Pi_executed": false,
+  "errors": []
+}

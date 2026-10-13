@@ -1,0 +1,102 @@
+{
+  "status": "unapproved_guard_studies",
+  "old_radius_fitting_used": false,
+  "checks": [
+    {
+      "style": "masculino_curto",
+      "body": "adult",
+      "visible_hair_pixels": 242,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "masculino_curto",
+      "body": "teen",
+      "visible_hair_pixels": 222,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "masculino_curto",
+      "body": "child",
+      "visible_hair_pixels": 253,
+      "original_body_preserved": true,
+      "crown_pixels": 31,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "masculino_curto",
+      "body": "adult_female",
+      "visible_hair_pixels": 230,
+      "original_body_preserved": true,
+      "crown_pixels": 29,
+      "exposed_crown_pixels": 1
+    },
+    {
+      "style": "masculino_curto",
+      "body": "teen_female",
+      "visible_hair_pixels": 245,
+      "original_body_preserved": true,
+      "crown_pixels": 31,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "masculino_curto",
+      "body": "child_female",
+      "visible_hair_pixels": 268,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "adult",
+      "visible_hair_pixels": 392,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "teen",
+      "visible_hair_pixels": 323,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "child",
+      "visible_hair_pixels": 326,
+      "original_body_preserved": true,
+      "crown_pixels": 31,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "adult_female",
+      "visible_hair_pixels": 396,
+      "original_body_preserved": true,
+      "crown_pixels": 29,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "teen_female",
+      "visible_hair_pixels": 404,
+      "original_body_preserved": true,
+      "crown_pixels": 31,
+      "exposed_crown_pixels": 0
+    },
+    {
+      "style": "feminino_chanel",
+      "body": "child_female",
+      "visible_hair_pixels": 374,
+      "original_body_preserved": true,
+      "crown_pixels": 30,
+      "exposed_crown_pixels": 0
+    }
+  ]
+}
